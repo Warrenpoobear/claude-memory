@@ -1,0 +1,259 @@
+# Memory
+
+> Inline status markers: `[active]` (default, omitted) · `[stale]` (waiting on resolution) · `[shipped]` (in observation) · `[resolved]` (closed). New memory files use lifecycle frontmatter (`status`, `expires`, `resolves`, `supersedes`, `related`); old files are not retrofitted.
+
+## Monte Carlo Framework (2026-05-15)
+- [Monte Carlo liquidity stress framework — built 2026-05-15](monte_carlo_framework_built_2026_05_15.md) — MC-0/MC-1/MC-2/MC-3 delivered; 416 tests; synthetic/advisory, awaiting L19/L20/Phase-23 for decision-grade
+
+## Memory tooling
+- Graph at `memory_graph.json` (next to this file) — built by `/home/arrenchulz/.claude/scripts/build_memory_graph.py`. Re-run after writing/editing memory files
+- Query: `/home/arrenchulz/.claude/scripts/query_memory_graph.py --search X` / `--related-to ID` / `--status stale` / `--expires-before YYYY-MM-DD` / `--orphans` / `--summary`. Use BEFORE re-reading multiple memory files
+
+## Operational Status (May 19–20)
+- [IC health monitor ALERT explanation (2026-05-19)](ic_health_monitor_alert_explanation_2026_05_19.md) — 13F ingest ✓ FRESH (42 managers as of 05-19); ALERT is lagging historical IC, not system failure; real test May 20–22 post-13F refresh
+- [Hermes model migration — DeepSeek v4 flash (2026-05-20)](hermes_model_migration_deepseek_2026_05_20.md) — Fleet-wide migration: 27 agents from Claude Sonnet 4.6/Haiku 4.5 → `deepseek/deepseek-v4-flash:free`; first run on new model = 13F validation (~5 PM ET); high-risk monitoring required
+
+## Professional Profile
+- [CFA/CAIA professional credentials & skills (2026-05-15)](user_profile_credentials_2026_05_15.md) — Institutional SFO investment leadership ($14B+ AUM); asset allocation, fixed income, equity research, alternatives; AI agent development (Hermes fleet, biotech screening)
+
+## Personal Position Research
+- [RVMD + ERAS RAS thesis (2026-04-28)](research_rvmd_eras_ras_thesis_2026_04_28.md) — RVMD de-risked leader (P3 OS hit 04-13); ERAS satellite, binary H1 2027
+
+## Asset Allocation Model
+- [Project state + next move (2026-05-05)](asset_allocation_project_state.md) — Wake Robin SFO; Phases 1–22 + 14.3 shipped, all on `origin/main` (HEAD `0280024`, 391 tests); L20 RESOLVED, L19 PARTIALLY (pending human row classification); Phase 23 design locked; 2026-05-05 external-review triage pushed (8 fixes)
+- [External review outcome (2026-05-05)](asset_allocation_external_review_2026_05_05.md) `[shipped]` — 8 findings (path-traversal, hash gaps, TA wind-down, recon div-by-zero, fund_count cap, overlay paths, config strictness, runway horizon) → all fixed in 3 commits → HEAD `0280024`; regression tests at `tests/test_review_fixes_2026_05_05.py`
+- [Phase 23 PE commitment-book — deferred](asset_allocation_phase_23_followup.md) `[stale]` — design at `f81ff43`; implementation waiting on user-gathered commitment book + Archway monthly actuals + entity registry; resumption order: EntityRegistry → fixtures → loader → diagnostics
+
+## Dev Tools
+- [Codegraph pilot complete (2026-05-24)](codegraph_pilot_complete_2026_05_24.md) — Claude Code MCP accelerator approved (callers/callees/trace); Hermes registration DEFERRED pending dispatch-break/ambiguity wrapper; operating rules + Hermes acceptance gate documented
+
+## Biotech Screener
+- [Snapshot write chain corrected (2026-05-24)](biotech_snapshot_write_chain_2026_05_24.md) — `run_batch` orchestrates both `run_screen_for_date` + `_write_snapshot`; output root is `data/snapshots_pit/` not `data/snapshots/`; two files written per date
+
+
+- `/mnt/c/Projects/biotech_screener/biotech-screener/` · Python 3.12.3 WSL2 (`pip --break-system-packages`) · 341 tickers · `specs/changes/` (110+)
+- **[Spec 110 Phase 1 PoC complete (2026-05-21)](spec_110_phase_1_poc_complete_2026_05_21.md)** — Provenance graph implementation: 56 nodes, 16 edges, 5 query patterns, 22 tests (100% PASS); 2026-05-20 snapshot lineage artifact generated; phase 1 boundaries met (design locked, no production wiring)
+- **[Knowledge graph strategic roadmap (2026-05-19)](knowledge_graph_strategic_roadmap_2026_05_19.md)** — Selective KG application for governance (not alpha). Priority: (1) Spec 089 governance KG ✅, (2) Spec 110 pipeline provenance (design 2026-05-19, PoC 2026-05-21 ✅), (3) Feature provenance, (4) 13F cohort, (5) Agent/cron ops. **Hard boundary:** No KG-derived scores or graph centrality as alpha.
+- **[Architecture optimization: Hermes as operating layer (2026-05-15)](architecture_optimization_2026_05_15.md)** — Three lanes (deterministic + cheap escalation + manual), token policy, preflight checklist; Phase 1 docs committed (routing policy, preflight, token budget); Phase 2–5 roadmap: registry metadata → preflight tool → evening cron audit → Spec 089 KG → KG gating
+- **[Phase 2 Step 3: Evening reliability audit + watchdog COMPLETE (2026-05-15)](phase_2_step_3_evening_reliability_complete_2026_05_15.md)** — Root cause: WSL cron invocation failure (19:30–19:40 window); morning catch-up watchdog deployed (09:15 ET cron); May 12–15 backfilled; verification May 16–19; Phase 3b (preflight integration) ready post-May-19
+- **[Phase 2 Step 3b: Preflight integration COMPLETE (2026-05-15)](phase_2_step_3b_preflight_integration_complete_2026_05_15.md)** — agent_preflight wired into run_agent_direct; blocking/warning/non-blocking modes; 5/5 tests PASS; commits `f29f53ed` + `c5da6870`; ready for Phase 4
+- **[Phase 2 Step 4: KG implementation COMPLETE (2026-05-21)](phase_2_step_4_complete_2026_05_21.md)** — 4a (loader, 17 tests) + 4b (queries, 10 tests) + 4c (contradictions, 12 tests) + 4e (integration, 13 tests) = 68/68 PASS; Phase 1 PoC (22 tests) also complete; h20d ready; 4d (CLI) deferred post-h20d
+- **[h20d Phase 2 Step 4 Evidence READY (2026-05-21)](h20d_phase_2_step_4_evidence_2026_05_21.md)** — 52/52 tests PASS (post-commit hygiene clean), C0 guard coverage verified, architecture validated, blocked on 13F quarantine verdict (May 23–26) + h20d decision (May 26)
+- **[h20d Decision Memo Framework (2026-05-21)](h20d_decision_memo_framework_2026_05_21.md)** — Evidence collection (May 21–26), decision options (freeze-lift approve/defer/hybrid), 13F clearance gate, Phase 2 Step 5 implementation timeline
+- **[h20d Decision Memo DRAFT (2026-05-21)](h20d_decision_memo_draft_2026_05_21.md)** — Full memo ready for finalization May 25–26; 3 decision paths, contingencies, success criteria; finalized with 13F verdict
+- **[Phase 2 Step 4: KG sprint LOCKED (2026-05-15)](phase_2_step_4_sprint_locked_2026_05_15.md)** — Original design spec; all 5 components (4a–4e) designed; 4a–4c+4e shipped May 21, 4d deferred
+- **[Operational closure: 2026-05-15 snapshot QA + implementation halt](operational_closure_2026_05_15.md)** — Snapshot PASS; Specs 104/105 closed; **13F cohort quarantine STILL ACTIVE** (6/48 filed); inst_delta_z distortion NOT cleared; no ranker/selector/sizing work authorized; Spec 089 deferred pending cohort validation (~May 23–26)
+- [Event analyst rebuilt 2026-05-13](event_analyst_rebuilt_2026_05_13.md) — 174 postmortems; CLINICAL 53% hit T+1/52% T+5; Tier D strong T+1 (64%) but weak T+5 (36%); shadow outperforms 52%/61% vs 51%/53% nonshadow
+- [Phase 2 supervisor decision 2026-05-05 (resolved)](phase2_supervisor_decision_2026_05_05.md) — YELLOW verdict; 2 known exceptions (inst_delta inflated until 13F ~05-15, shadow_monitor WARN) both carried; no action, watch only
+- [Stabilization checkpoint 2026-05-08](biotech_stabilization_checkpoint_2026_05_08.md) — 4 commits; IC first read OBSERVE (pooled IC=-0.031, post-cohort=-0.008); **stop on model logic** until 13F refresh (~05-15) + h20d=2026-05-26 both clear
+- [Spec 071 + 078 catalyst hygiene closed (2026-05-06)](spec_071_078_catalyst_hygiene_closed_2026_05_06.md) `[shipped]` — `c08b6062`+`02f10a76` on origin/main; `.gitignore` narrowed to `artifacts/audit/*.md`; 147 tests; monitor-only, no scoring change
+- [Spec 092 bioshort backfill — all phases shipped (2026-05-13)](spec_092_phase_d_complete_2026_05_13.md) `[resolved]` — A: design; B: `47041a6f`+`08d14c3a` (--research-mode isolation); C: `34902dbb` (146/146 snapshots→panel); D: `3e8ac686` (forward returns T+1/5/20, DEFER 60.5% hit T+5); pseudo-PIT caveat; no promotion path
+- [Morningstar fix pending snapshot (2026-05-06)](morningstar_fix_pending_snapshot_2026_05_06.md) — two key-path bugs fixed (`e70ae626`, `5c284ab7`); smoke 297/299; live check on next production snapshot; expected ms_return_ytd ≥290/299 → FIXED_AND_LIVE
+- [Postmortem detection fix (2026-05-02)](postmortem_detection_fix_2026_05_02.md) — 80 April backfill; transition-based detection; cron 18:33; calibration_evidence validation 2026-05-08
+- [Spec 105 live QA closure (2026-05-14)](spec_105_closure_2026_05_14.md) `[resolved]` — all 4 expectation fields ≥thresholds (short_interest 98.3%, close_price 100%, market_cap 100%, priced_move 83.6%); commit `c6bcb91c`
+- [Spec 104 Phase A closure (2026-05-14)](spec_104_insider_stabilization_phase_a_2026_05_14.md) `[shipped]` — insider diagnostic coverage measurement; commit `b98ffbac`; 4 trading days measured (100% nonblank, 0.00% variance); Phase B awaits 2026-05-15 snapshot
+- [Spec 102 Phase A shipped (2026-05-14)](spec_102_historical_backfill_2026_05_14.md) `[shipped]` — backfill script + 13 tests; commit `18cd13b1`; ready for execution on 19 snapshots (2026-04-20 through 2026-05-13)
+- [Spec 102 execution closure (2026-05-14)](spec_102_execution_closure_2026_05_14.md) `[resolved]` — 19 snapshots backfilled; coverage gates PASS; closure memo committed `b8df2663`; --force flag reserved/no-op
+- [Specs 104/105 closure sequence (2026-05-15 snapshot)](specs_104_105_closure_sequence_2026_05_15.md) — QA check + insider measurement commands; close conditions for both specs
+- [Production run 2026-05-15 complete](production_run_2026_05_15.md) — snapshot ready 09:47 UTC, **QA PASS** (drift PASS, ruleset PASS, phase 2 OK), Spec 104 Phase B PASS (5d/0.0pp variance), ev_severity working, post-snapshot supervisor PASS (10:36 UTC); commit `3185d752`
+- [PIT cache idempotent](biotech_pit_cache_idempotent.md) — refreshing `production_data/trial_records.json` won't propagate; also delete `cache/ctgov/trial_records_{date}.json`
+- [Staging-vs-canonical-root bug class](biotech_staging_vs_canonical_root_bug_class.md) — `snap_path.parent` ≠ `data/snapshots/`; use `_prior_dir`. 3 sites patched 2026-04-30; sweep pending
+- [Active ranker contract registry (2026-05-14)](biotech_ranker_active_contract_2026_04_30.md) — branch unapplied; manual enforcement accepted 2026-05-13; audit updates complete 2026-05-14; defer merge to post-h20d (2026-05-26)
+- [Ranking alternatives research (2026-05-08)](ranking_alternatives_research_2026_05_08.md) — 10 alts; 3 HIGH_POTENTIAL_BUT_BLOCKED (3/4/6); 3 NO_GO (7/8/9); financial_score sign [CRITICAL T8-E1]; IC tool bug (full universe not top-60); PROMOTION_ELIGIBLE 2027
+- [Ranking methodology spec backlog (2026-05-13)](ranking_methodology_spec_backlog_2026_05_13.md) — 7 specs (093-099): financial_score audit ✓, selector-only baseline ✓, top-60 scope ✓, gate/ranker separation ✓, event-EV monitoring ✓, catalyst timing monitor ✓, clinical orthogonality ✓. All descriptive/research; no implementation. Specs 093-099 completed; Spec 100 governance follow-up created.
+- [Governance: IC evidence hold (2026-05-13)](governance_ic_evidence_hold_2026_05_13.md) — Spec 095 audit found IC backtest measures composite_score, not ranker final_score. Do NOT use prior IC evidence for promotion until Spec 100 tool fix. Specs 093/094/095 audits remain valid; IC claims deferred. Governance enforced via memory.
+- [Hermes skills audit 2026-05-15](hermes_skills_audit_2026_05_15.md) — Complete audit of 19 skills; all current, 5 screener skills updated (Specs 092–105), critical Spec 095 IC scope gap identified
+- [Spec 095 IC scope gap](spec_095_ic_scope_gap_critical.md) `[resolved]` — Root cause (tool measured composite_score not final_score) fixed by Spec 100 (2026-05-17); prior ranker IC claims invalidated; corrected final_score baseline ready
+- **[Spec 100 IC tooling correction RESOLVED (2026-05-17)](spec_100_ic_tooling_correction_complete_2026_05_17.md)** — default signal → final_score; metadata labels spec_100_status; composite_score IC marked INVALIDATED; Commit 2faa88e6 (rebased); next: read-only smoke artifact, deferred interpretation post-freeze
+- **[Operating state post-Spec 100 (2026-05-17)](operating_state_post_spec_100_2026_05_17.md)** — Blockers, priorities, next actions (13F monitoring, Phase 2 verification, smoke artifact, KG pilot post-clearance, IC dashboard post-freeze); Town AI H1 fix included
+- **[Spec-drift remediation: Town AI H1 COMPLETE (2026-05-17)](spec_drift_remediation_town_ai_complete_2026_05_17.md)** — Verified runtime bug fix: Module 4 clinical_score denominator 120→117; execution_score max 22 causes total max 117; max ceiling 97.5→100.0; commit 3ad7b904; tests 27/27 pass; branch pushed
+- **[Session close: PR #288 + Spec 100 monitoring (2026-05-17)](session_2026_05_17_pr288_spec100_monitoring.md)** — PR #288 CI classified pre-existing; Spec 100 smoke baseline ready (deferred interpretation); 13F/Phase 2/KG blocked until May 19–26 gates; closed session, monitoring state only
+
+## Data Explorer canonical (2026-04-13)
+- [Data explorer canonical](data_explorer_canonical_2026_04_13.md) — console summaries non-authoritative · CLI `python -m tools.data_explorer {summary,compare,qa,catalog,field,top-n,daily}`
+
+## Production Model Identity (2026-04-06) [FROZEN] — see `scoring_model_identity_2026_04_06.md`
+- coinvest selects + financial penalizes safe + inst_delta prunes. Inst block = 92.7% of selector variance; clinical block = 0
+- Ranker v2 = 2-feat pairwise. Live = capped Family C (`coinvest_score_z` +0.02, `financial_score` -0.0533); `production_data/ranker_v2_model.json` provenance is authoritative
+- Ruleset `8887576e` (v1.14.0; was `2a3e79eb` v1.13.0 until 2026-05-04 demotion of `inst_delta_z` per `policy_demotion_path_2026_05_06.md`); A4 selector + 2-feat ranker; EW Top-30; financial_score = Module 5 rank-norm, NOT raw M2
+- Active fields enforced by `common/ranker_active_contract.py` (see registry memory above)
+- [Forward-return test prod vs coinvest (2026-05-01, n=8)](forward_return_test_prod_vs_coinvest_2026_05_01.md) — INCONCLUSIVE: prod median +0.31pp vs coinvest-eligible, sign-test 4/8, rescued-vs-suppressed differential +0.10pp ≈ 0. Coinvest does main work; ranker deviations unproven but not clearly harmful. Re-run 2026-05-22.
+
+## ALPHA STACK FROZEN (2026-04-04) — see `policy_alpha_freeze_2026_04_04.md`
+- No promotions w/o Checklist v2 (FM + bootstrap + FDR + LOSO + year stab). Pairwise = ordinal only (ECE=0.19); no rank-weighting; ranker frozen at 2 features
+- [Demotion path clarification (2026-05-06)](policy_demotion_path_2026_05_06.md) — signal removals under confirmed degradation are NOT Checklist v2 promotions; require 5-element governed path: two-frame evidence + comparator probe + Spec-style writeup + operator sign-off + receipt/changelog
+- [Ranker research landscape (2026-05-14)](ranker_research_landscape_2026_05_14.md) — Spec 072 frozen candidate pending 2026-05-22 verification; Spec 091 warning-governance; Spec 096 doctrine governs all changes; no production ranker changes authorized until evidence/blockers satisfied
+- [Spec 089 Phase 1.5A — Ranker governance KG pilot](spec_089_phase_1_5a_ranker_governance_kg_pilot.md) `[stale]` — schema design locked on main (`8bee00e4`); 11 node types + 15 edge types + 5 contradiction rules; **implementation DEFERRED** (2026-05-15) pending 13F cohort clearance; resume condition: cohort Jaccard ≥0.70 + distortion cleared (~2026-05-23+); commit `3185d752`
+- [2026-05-22 ranker review framing](2026_05_22_ranker_review_framing.md) — **INTERIM GOVERNANCE BRIEFING ONLY** (2026-05-15 update); no production ranker change authorized; 13F cohort quarantine still active; key decision gates open post-h20d (2026-05-26) if cohort clears; commit `3185d752`
+- [Spec 105 closure (2026-05-14)](spec_105_closure_2026_05_14.md) `[resolved]` — all expectation fields ≥thresholds; insider diagnostic-only confirmed; commit `c6bcb91c`
+
+## Architecture frozen — study live (2026-04-19)
+- [Freeze architecture, study behavior](policy_freeze_architecture_2026_04_19.md) — audit live A4 + 2-feat ranker; attribution only; per-snapshot, not cross-snapshot
+
+## Coinvest = context layer not ranker (2026-04-25)
+- [Coinvest context layer](policy_coinvest_context_layer_2026_04_25.md) — target for next ranker retrain; do NOT strip without audited replacement; interaction grid is alpha lane
+
+## Post-cohort-change regime (2026-04-28 → ~2026-05-15)
+- [Inst_delta inflated, do NOT fix](regime_post_cohort_change_distortion_2026_04_28.md) — 04-25 added 4 mgrs; inst_delta_z byte-identical 04-25/27/28; SIGNAL_ALERT correctly persistent until ~05-15; treat top-30 changes (RVMD-in/ERAS-out) as cohort artifact; ATTRIBUTION lane only
+- [13F cohort-quarantine prep (2026-05-01)](13f_cohort_quarantine_prep_2026_05_01.md) — Q1 2026 refresh ~2026-05-15. Pre/post diff harness `tools/check_13f_cohort_quarantine.py` (skeleton, untracked). G1/G2/G3 guardrails enforce snapshot completeness + producer freshness BEFORE quantitative interpretation. Quarantine trigger: Top-30 Jaccard < 0.70.
+- [13F Q1 2026 preflight (2026-05-14)](13f_q1_2026_preflight_2026_05_14.md) — distortion audit complete (mean |inst_delta_z|=0.743 locked since 04-25); post-refresh validation gates defined (6 gates); awaits ~2026-05-15 file ingest; commit `70414e5c`
+- **[13F Q1 2026 cohort monitoring (2026-05-15)](13f_q1_2026_monitoring_live_2026_05_15.md)** — 6/48 managers filed (12.5%), Jaccard 0.536, quarantine ACTIVE; monitoring cron active weekdays 6:22 PM ET through 2026-06-20
+- **[13F refresh runbook COMPLETE (2026-05-17)](13f_refresh_runbook_complete_2026_05_17.md)** — 6 validation gates, decision matrix, clearance thresholds, hard NO-GO conditions, command quick reference; triggers ~2026-05-23 when ≥34 managers filed; location: `docs/13f_q1_2026_refresh_runbook.md`
+- [Inst_delta forward shadow T0=2026-04-28](inst_delta_forward_shadow_T0_2026_04_28.md) — daily 19:30 ET; verdict h20d=2026-05-26; final 2026-07-21
+- [Cross-signal forward shadow T0=2026-04-28](cross_signal_forward_shadow_T0_2026_04_28.md) — daily 19:40 ET; HL=17 focal; path (c) — no historical regen; descriptive 5/10d note ≠ alpha evidence
+- [Interp framework (locked 2026-04-28)](interp_framework_forward_shadows_2026_04_28.md) — HL Jaccard >0.70 coherent / <0.40 weak; rolling 3d/5d medians; persistence > returns; no tuning before h20d AND post-13F refresh
+
+## Alpha Extraction Roadmap + EES v3 (2026-04-14) — see `project_alpha_extraction_roadmap_2026_04_14.md`
+- **EES v3 → structurally invalid (pmv-derived), CLOSED [resolved 2026-04-30]** — see [structural failure memo](ees_v3_structural_failure_2026_04_30.md). `conditional_misprice_score` is monotonic transform of pmv (Spearman -0.978); bin-residual IC ≈ 0; v2 anti-predictive after pmv control (t=-1.69). Sidecar kept as diagnostic only.
+- Old IC claim `conditional_misprice_score IC +0.089 t=2.07` INVALIDATED (was pre-PIT-v2). Forward evidence: zero IC after pmv control. `base_rate_gap_score` remains anti-predictive — never promote.
+- Rule: **cannot extract expectation error from expectation alone**. Future revisits require external (non-pmv) inputs: IV-vs-realized history, cross-sectional dispersion, microstructure flow.
+- [Preliminary first read (superseded same-day)](ees_v3_incremental_ic_first_read_2026_04_30.md) — kept as audit trail; verdict review 2026-05-22 CANCELLED.
+
+## Spec 062 Options Expression Layer (2026-04-13) [shipped, observation 30d]
+- Phase 1+2+2.5 complete, merged main. Shadow-only, zero alpha impact. 156 tests. First review 30d post-emission
+- [Options audit (2026-05-05)](biotech_options_audit_2026_05_05.md) `[shipped]` — 3-phase audit (data quality / liquid-universe / Spec 062 math); 4 code bugs patched at `33923f71` (DIRECTIONAL subtype, VARIANCE boundary, timing_confidence sum-check, surface_quality docstring); 5 unpatched items flagged (MIN_OI gate, max-staleness check, silent-fallback alert, schema validators, vendor-rating dependence)
+
+## Spec 064 EES v3 Promotion Battery (2026-04-23) [resolved 2026-04-30 — formulation closed]
+- [Spec 064](spec_064_ees_v3_promotion_battery_2026_04_23.md) — promotion path unreachable for this formulation (see structural failure memo). P0 sidecar continues as diagnostic; P1/P2 not run.
+
+## Spec 072 Screener vNext (2026-05-01) [spec only — diagnostic-only redesign]
+- [Spec 072](spec_072_screener_vnext_2026_05_01.md) — coinvest as binary GATE (not ranker), trap layer (catalyst/runway/liquidity/dilution/stale-thesis), catalyst+clinical quality ranks survivors. Operationalizes Spec 057 conditional clinical IC +0.103 (t=3.53). Zero code changes. D1–D9 diagnostic plan with **non-negotiable orthogonality constraint (D7/D8/D9 vs coinvest)** to prevent EES-style silent leakage. Hard prereq: Spec 071 Lane 1 + cohort-window close (~2026-05-15).
+- [vNext D8/D9 — first orthogonal candidate signal (2026-05-01)](screener_vnext_d8_d9_first_candidate_2026_05_01.md) — clinical-quality conditional IC ≈ +0.20 within L3 (D9 raw t≈+5; effective ~+3 NW-corrected). PRELIMINARY, NOT promotion-grade. Verdict review 2026-05-22 (post-cohort-window + ≥30 resolved + dedup). **DO NOT build composite ranker** — that's how EES happened.
+
+## Spec 063 Intraday Mover Watch (2026-04-17) [shipped, live]
+- [Spec 063](spec_063_intraday_mover_watch.md) — Phases 1-3 complete; crontab live 2026-04-17. Alpaca Basic primary. Cadence: 2 open + 12 core-30min + 1 digest. 125/125 tests
+- [News-enrichment phantom (2026-04-20)](spec_063_news_enrichment_phantom_2026_04_20.md) — `news_status="NONE"` is as-designed; no producer writes herald artifacts
+
+## EES v2 (2026-04-12) [shipped] — see `ees_v2_production_2026_04_11.md`
+- Trap T20 → B6 rank → conviction α=1.5 → guardrails. Checklist v2 5/5. Capacity $50M+. Daily monitoring automated
+
+## Spec 068 Development Stage Audit (2026-04-27→04-28) [shipped]
+- [Spec 068](spec_068_pre_implementation_2026_04_28.md) — display-only metadata audit; cohort key = stage_bucket. SHIPPED 2026-04-28 (commits ad8831da + b72afc6c). 4 overrides (MESO/VCEL/HALO/MLYS). 85 tests
+
+## Spec 069 Module 2 v2 schema restore (2026-04-28) [spec only — NOT IMPLEMENTED]
+- [Spec 069](spec_069_module_2_v2_schema_restore_2026_04_28.md) — root cause of dead `commercial_biotech` promotion; v2 dropped `has_revenue`/`revenue_scale_bucket`. Blast: 67 tickers (4 in top-30: IMCR/INSM/MIRM/STOK). Alpha-affecting → Checklist v2 required. commit `bbf2ab8e`
+
+## SEC 6-K Coverage (2026-04-28) [resolved, audit passed]
+- [Diagnosis Phase 0+1](sec_8k_coverage_diagnosis_2026_04_28.md) — 82-vs-387 = file/event unit confusion; CIK 341/342 after backfill
+- [Shipped + audit PASS 5/5](sec_6k_coverage_shipped_2026_04_28.md) — audit ran 2026-05-01 (manual, 2d late): 463 events (+29.7%), 53 6-K records, 16/21 candidates, 97.5% 8-K retention
+
+## Spec 057 Clinical Quality Score (2026-04-13) [monitor-only, REJECTED for sizing] — see `clinical_quality_score_2026_04_13.md`
+- Conditional IC within top coinvest +0.103 (t=3.53). Sizing tilt tested + REJECTED (B6^1.5 alone wins). Use for attribution / cohort analysis only. Not for rank/sizing/selection
+
+## Key Signal Evidence — see `signal_research_history.md`
+- coinvest_score_z: selector Δ=+1.75pp (t=3.05), ranker IC=0.106, size-resid retains 79%
+- inst_delta_z: IC=+0.077, selector Δ=+0.80pp — best complementary
+- B6 (coinvest 65% + inst_delta 35%): Δ=+1.85pp t=3.56 IR=0.43
+- clinical_score_v2_z REJECTED Δ=-0.68pp; all clinical lanes CLOSED
+- All pre-PIT-correction backtest claims INVALIDATED (see Historical Backtest)
+
+## Historical Backtest INVALIDATED (2026-04-17 audit)
+- Prior PIT v2 snapshots (ruleset `69a0c7f8`) contaminated; 3-8/30 top-30 overlap with current. Old -25.1pp meaningless. Pseudo-PIT caveat applies even after regen. **Forward monitoring = only valid evidence**
+
+## Standing Allocation Policy (2026-04-17) — see `policy_allocation_2026_04_17.md`
+- Research/shadow 100% DEM; initial prod 30/70 DEM/XBI; scaled 60/40. XBI core (not EW-All). Always report 3 series; default headline = 30/70. Promotion 30→60 requires live evidence
+
+## Clinical Stack v2 (2026-04-16) [shadow validation through 2026-04-30]
+- Phase 2 prior 0.310→0.420 (HINT, Brier 0.336→0.250). Phase-conditional protocol w=0.08; biomarker [-0.05, 0.30]; endpoint v2 7-bucket w=0.08. Logit transmission 0.06/0.08/0.04
+- Status: validated filter, not proven alpha. PIT-honest backtest Brier 0.041→0.039, returns +5.37% (identical), 6 dropped. Promotion: dropped names must resolve worse + retained returns must improve
+- [Phase A verdict frozen 2026-05-04](clinical_phase_a_verdict_2026_05_04.md) — Selector NO_GO; Ranker SHADOW only on `clinical_design_quality`; EV non-evaluable until outcome-binder wired. Verdict review 2026-05-22.
+
+## Catalyst Phase A verdict (2026-05-04) + EV binder update (2026-05-06)
+- [Phase A verdict + binder update](catalyst_phase_a_verdict_2026_05_04.md) — Selector ACTIVE/NO_MORE_WEIGHT; Ranker SHADOW on `catalyst_score`; EV blocked: spec_073 CLOSED (pcs bound 113/120) but `prediction_composite_score` is WRONG field (screener quality, not P(HIT)); correct field = `event_ev_p_hit` from EV artifacts — spec_077 scoped; backfill unsafe (30% join rate); n(HIT/MISS post-PIT)=7 → calibration ~2026-07-01
+- [Spec 077 — event_ev_p_hit binder](../biotech-screener/specs/changes/spec_077_event_p_hit_binder_2026_05_06.md) `[EXTERNAL]` — forward-only; node_id exact / (ticker,date±7d) fallback; touches CRT + postmortem writer only. Path resolves from project repo root, not from memory dir; not a broken link.
+
+## Polymarket alpha verdict (2026-05-05)
+- [Phase 0 + alpha event study frozen 2026-05-05](polymarket_alpha_verdict_2026_05_05.md) — ANECDOTAL_SHADOW / NO VERDICT. Public CLOB price-history archive-truncated for 2025 markets (zero retrievable points); only 5 of 25 closed FDA-approves events have history, 1 small/mid biotech (AXSM HIT +12%). Collector `tools/poll_polymarket_biotech.py` retained for prospective shadow only; no cron, no production wiring. Re-test thresholds: <25 anecdotal, 25-50 shadow, >50 Checklist v2 eligible. ARGX Vyvgart (ends 2026-05-10) is next prospective gold-case.
+
+## Insider Form 4 wiring (2026-04-24) [observation period ended 2026-05-01 — flip eval outcome not recorded]
+- [Pass B landed](project_insider_form4_pass_b_landed_2026_04_24.md) — `insider_net_buy_value_90d` diagnostic pass-through. Scoring closed. Flip-to-required eligible 2026-05-01 after 5 stable snapshots
+- Spec 065 — 8 hard criteria + 2026-05-01 eval checklist. Flip = data-integrity gate ONLY; does NOT promote to selector/ranker/sizing
+
+## Cron watchdog phase-2 recovery (2026-04-24) [shipped]
+- [Watchdog recovery](project_watchdog_recovery_restored_2026_04_24.md) — 3 dead-recovery bugs fixed; verified 2026-04-25
+- [Post-snapshot supervisor + watchdog gate (2026-04-28)](project_post_snapshot_supervisor_2026_04_28.md) — gates on `data/snapshots/$TODAY/rankings.csv`; Phase 1 covers AACT + Herald; review 2026-05-05 [past — Phase 2 decision outcome not recorded in memory]
+
+## run_screen production audit (2026-04-25) [shipped, open controls]
+- [Audit](audit_run_screen_2026_04_25.md) — production safe with material PIT/data warnings. PIT-strict + ranker-required + deterministic-timestamps landed. Open: market_data.json no date field; priced_move_pct unit drift 13/250
+
+## Rank-change monitor + verification gate (2026-04-27→04-28)
+- [Read-only monitor](rank_change_monitor_2026_04_27.md) [shipped] — wired into `cron_daily_production.sh`; calibration audit 2026-05-11; hysteresis spec-only
+- [Tier 1 snapshot integrity verifier (commit 1f6bd518)](plan_snapshot_integrity_verifier_tier1.md) [shipped] — `tools/verify_snapshot_integrity.py`; rankings hash + 17/18 deps verified. Tier 2 (spec_067), Tier 3 deferred
+- [Pause LIFTED 2026-04-28](policy_pause_until_2026_04_28_verification.md) [resolved] — verification passed; supervisor + Tier 1 verifier shipped; Massive paused; yfinance throttled
+
+## Active Monitoring Windows
+- **Clinical TX shadow review 2026-04-30** [past — outcome not recorded; verify whether review was completed]
+- AXSM PDUFA 2026-04-30 [past — event occurred; no resolution record found in memory]; ARVN 2026-06-05 (corrected via BPIQ + IR 2026-04-26); RGNX 2026-05-12; BIIB 2026-05-24 (RR decider, 1/3 scorable)
+- Coinvest shadow ends ~2026-05-03 [past — `shadow_review_gate.py` should have run 2026-05-03; verify log output]
+- 13F next refresh ~2026-05-15 (Q1 2026); Expression overlay first review 30d post-emission
+- Hardening diagnostics audit 2026-05-04 17:00 ET — `cron_one_shot_2026_05_04.sh` [past — verify log]
+- Post-snapshot supervisor review 2026-05-05 17:00 ET — `cron_one_shot_2026_05_05.sh` (decides Phase 2) [past — verify Phase 2 decision recorded]
+- Rank-change calibration audit 2026-05-11 17:00 ET — `cron_one_shot_2026_05_11.sh`
+- Event-analyst builder verification 2026-05-12 09:00 ET — `cron_one_shot_2026_05_12.sh` (validates the `10 19 * * 1-5` cron added 2026-05-01 has been firing daily; expects 6 weekday artifacts 05-04→05-11)
+- Postmortem pipeline verification 2026-05-08 19:30 ET — `cron_one_shot_2026_05_08.sh` (confirms calibration_evidence ran with >19 postmortems after the 2026-05-02 detection fix; STATUS=OK / STILL_NO_DATA / NOT_FIRED)
+- inst_delta forward shadow verdict h20d=2026-05-26 (final 2026-07-21); cross-signal forward shadow verdict h20d=2026-05-26
+- Options coverage (2026-05-05): 29% liquid (87/299) — drifted from 35% (105/297) at Spec 062 ship; 04-13→04-25 churn Jaccard 0.57; see `biotech_options_audit_2026_05_05.md`
+
+## Model Directions (2026-04-14) — see `project_model_directions_2026_04_14.md`
+- Truth framework: works? → approved? → paid? → survives? → mispriced?
+- Priority adds: S-curve stage, runway-to-catalyst, conditioned PoS, M&A optionality, macro regime
+- Risk mgmt ≠ alpha. Listed vehicles = expectation inference, not copy-trading
+
+## Closed Lanes — see topic files
+- Clinical as selector/ranker; options as alpha (Spec 053); static execution (Spec 054); execution-delta (IC=-0.13); Form 4 insider; total_volume_z; fixed sleeves; dynamic caps; always-on rank-weighting; quality tiebreaks
+- All pre-PIT-correction benchmark claims DEPRECATED
+- [Family B scrapped 2026-04-19](family_b_scrapped_2026_04_19.md) [resolved] — institutional filter-gate path removed; do not revive without explicit direction
+- [EES v3 / expectation-error formulation (2026-04-30)](ees_v3_structural_failure_2026_04_30.md) [resolved] — structural pmv-dominance; cannot extract expectation error from expectation alone; do not revive current formulation
+
+## Infrastructure
+- PIT financials: 339 tickers (`production_data/pit_financials/`). CRT: 101 res (52 HIT/17 MISS/12 NEEDS_REVIEW/17 DELAYED). Auto-classifier + Herald
+- Event EV: 6-layer Bayesian (`event_ev/`); clinical-to-p_hit (flag). Evidence: PIT-anchored per (node_id, as_of_date) + PubMed
+- PubMed: NCBI E-utilities, NCBI_API_KEY in .env, 24h cache. Drug map: 300 tickers
+- Options overlay (Spec 059); Timing hazard v4 Brier 0.131 (dashboard-only); Checklist v2 (`common/stats/`, 6 modules, 36 tests)
+- HINT research: `research/`, vendor/hint/ gitignored, 17,614-trial benchmark
+
+## OpenClaw Fleet — see `openclaw_fleet.md`
+- 29 agents in `agents/`. Run via `tools/run_agent_direct.py` after `source .env` — NOT `openclaw agent` (gateway billing broken). Real schedule: `crontab -l`
+
+## Feedback
+- [Audit-to-tickets prompt](feedback_audit_to_tickets_prompt.md) — canonical prompt for converting audit memo → 4 scoped tickets; Ticket 1 only implementation candidate; others stay doc/checkpoint/audit
+- [Net-of-cost reporting](feedback_net_of_cost_reporting.md) — performance net of costs first; gross secondary
+- [Model doc location](feedback_model_doc_location.md) — `docs/MODEL_DOCUMENTATION.md`, not root
+- [DEM is book of record](feedback_dem_book_of_record.md) — never composite
+- [No formatter churn](feedback_no_formatter_churn_in_model_work.md)
+- [Autonomy claims need evidence](feedback_autonomy_claims.md)
+- [Agent governance](feedback_agent_governance.md) — read-only judges / artifact writers / human-only actions
+- [Anchor-dominated framing](feedback_anchor_dominated_framing.md)
+- [Runway severity architecture](feedback_runway_severity_architecture.md) — cross-layer control variable; diagnostic-first
+- [Coinvest is filter not alpha](feedback_coinvest_not_alpha.md) — quality filter only
+- [Manager acceptance test](feedback_manager_acceptance_test.md) — `tools/onboard_manager.py`; never hand-edit
+- [Cohort-change quarantine](feedback_cohort_change_quarantine.md) — first snapshot post-13F-add has contaminated `inst_delta_z`/`rank_delta`
+- [OpenClaw run entry point](feedback_openclaw_run_entry_point.md) — `tools/run_agent_direct.py` + `.env`
+- [Heartbeat env phantom](openclaw_heartbeat_env_phantom_2026_04_27.md) — bash `[ -n "$SECRET" ]` falsely fails; treat phantom unless corroborated
+- [Observation bias in cron monitoring](feedback_observation_bias_cron_monitoring.md) — missing polls bias toward "structurally late"
+- [calibration_evidence threshold false positive (2026-05-02)](calibration_evidence_threshold_false_positive_2026_05_02.md) — STALE alert fires on time, but NO_DATA early-exit is correct when no new postmortems; check `artifacts/postmortem/` first
+- [Incomplete-run silent fallback (2026-04-07/08/11/12)](incomplete_production_run_fallback_2026_05_01.md) — missing `institutional_summary_delta.json` → `inst_delta_z=0` → ranker falls back to coinvest+financial → fake "regime" signal. Check snapshot completeness FIRST before interpreting ρ(coinvest, final)≥0.95.
+- [Pause between control-plane changes](feedback_pause_between_control_plane_changes.md) — wait one prod cycle; don't stack
+- [Quarantine fixes need blast-radius diff](feedback_quarantine_blast_radius_diff.md) — before/after per-ticker; unbounded blast = re-scope
+- [No recursive supervision](feedback_no_recursive_supervision.md) — agents → monitor → supervisor → sentinel (terminus); fail-closed
+- [Verify sentinel verdict directly](feedback_verify_sentinel_verdict_directly.md) — downstream monitors can invert trend direction; read `agents/sentinel/memory/*.md` before acting on "ROLLBACK_RECOMMENDED"
+- [Held-file precedence](feedback_held_file_precedence.md) — held-from-commit instructions are sticky; "commit and push" does NOT auto-include previously-held files (2026-05-07 watchlist revert)
+
+## External Data
+- DealForma DROPPED. Purple Book (biologics). AACT (clinical mirror)
+- [Massive license — pause Task #1 EXECUTED 2026-04-28](massive_license_downgrade_2026_04_27.md) — Mon-Sat 07:00 cron commented; latest day-agg 2026-04-24. Task #2 (minute_aggs/trades audit before tier downgrade) PENDING
+
+## Dev Environment
+- [WSL2 aarch64](env_wsl2_aarch64.md) — Windows on ARM; check aarch64 wheel before `pip install`
+- [WSL uptime required during cron windows](env_wsl_uptime_required.md) — min 16:00-20:30 ET Mon-Fri; Friday calibration_evidence 19:00 ET; ask "was WSL running?" before debugging missed cron
+- [Qlib pilot DROPPED 2026-04-18](qlib_pilot_verdict_2026_04_18.md) [resolved] — no aarch64 wheel
+- [FinGPT pilot DROPPED 2026-04-18](fingpt_pilot_verdict_2026_04_18.md) [resolved] — killed before endpoint spend
+- [Classifier hardening complete 2026-04-19](classifier_hardening_2026_04_19.md) [resolved, post-cutover validation queued] — escalation pool 2,612 → 1,292; spot-check 9/10
+- [Expectation-model wiring DEBUNKED 2026-04-19](expectation_model_wiring_not_needed_2026_04_19.md) [resolved] — only doc-comment change
+
+## Memory Cleanup
+- [Batch 1 (2026-05-06)](memory_cleanup_batch1_2026_05_06.md) `[resolved]` — 8 MEMORY.md status edits, 15 March session logs moved to archive/session_logs/, 0 deletions; link check 70 OK / 1 EXTERNAL / 0 MISSING
+- Batch 2A (orphaned worktrees + safe cache) — deferred; disk hygiene, not model hygiene
+
+## Session Logs
+- [2026-04-01 through 2026-04-04](session_2026_04_04.md) — see topic files (March logs archived to archive/session_logs/)

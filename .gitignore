@@ -1,0 +1,17 @@
+.credentials.json
+settings.local.json
+history.jsonl
+cache/
+paste-cache/
+sessions/
+telemetry/
+statsig/
+stats-cache.json
+mcp-needs-auth-cache.json
+policy-limits.json
+.last-cleanup
+shell-snapshots/
+debug/
+file-history/
+backups/
+agent-memory/
