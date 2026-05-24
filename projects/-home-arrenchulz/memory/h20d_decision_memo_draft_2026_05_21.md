@@ -1,8 +1,9 @@
 ---
 name: h20d_decision_memo_draft_2026_05_21
-description: h20d decision memo draft (May 21) — ready for finalization May 25–26 based on 13F verdict
+description: h20d decision memo FINAL (2026-05-24) — Path B DEFERRED; Jaccard 0.364 NOT CLEARED; inst_delta non-evaluable; re-decision gate condition-based (Jaccard ≥0.70); file at artifacts/audit/h20d_decision_memo_2026_05_26.md
 metadata: 
   node_type: memory
+  status: resolved
   type: project
   status: in_progress
   expires: 2026-05-26
