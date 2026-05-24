@@ -1,0 +1,30 @@
+{
+  "model": "haiku",
+  "enabledPlugins": {
+    "claude-code-setup@claude-plugins-official": true
+  },
+  "permissions": {
+    "allow": [
+      "mcp__codegraph__codegraph_search",
+      "mcp__codegraph__codegraph_context",
+      "mcp__codegraph__codegraph_callers",
+      "mcp__codegraph__codegraph_callees",
+      "mcp__codegraph__codegraph_impact",
+      "mcp__codegraph__codegraph_node",
+      "mcp__codegraph__codegraph_status"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /home/arrenchulz/.claude && git add projects/-home-arrenchulz/memory/ settings.json && if ! git diff --cached --quiet; then git commit -m \"Auto-save memory after session\" && git push origin master; fi",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
