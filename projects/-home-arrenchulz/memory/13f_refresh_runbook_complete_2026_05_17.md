@@ -53,7 +53,10 @@ metadata:
 ### Commands Quick Reference
 - Gate 1 (file freshness): `python -c "import json; print(json.load(open('production_data/institutional_summary.json')).get('cache_as_of_date'))"`
 - Gate 2 (inst_delta KS): `python -m tools.data_explorer compare --date-a 2026-04-24 --date-b 2026-05-22 --field inst_delta_z`
-- Gate 3 (SIGNAL_ALERT): `grep SIGNAL_ALERT artifacts/rank_change_monitor_2026_05_22.log | tail -3`
+- Gate 3 (SIGNAL_ALERT): `grep -E "ic_health_monitor|SIGNAL_ALERT" artifacts/heartbeat/{post_date}_anomalies.md; ls artifacts/ic_dashboard/{post_date}_dashboard.md 2>/dev/null`
+  - PASS: no `ic_health_monitor` line in heartbeat AND dashboard file exists (ran clean)
+  - FAIL: `SIGNAL_ALERT: inst_delta_z` present in heartbeat, OR dashboard file absent (ic_health_monitor did not run)
+  - Note: `rank_change_monitor_{date}.log` never existed — that artifact path was incorrect (confirmed 2026-05-24)
 - Gate 4 (Jaccard): `python -m tools.check_13f_cohort_quarantine --pre-date 2026-04-24 --post-date 2026-05-22`
 - Gate 5 (model audit): `git log --oneline 2026-04-25..2026-05-22 -- "common/ranker_active_contract.py" ... | wc -l` (should be 0)
 - Gate 6 (producer QA): `python -m tools.check_13f_cohort_quarantine --pre-date 2026-04-24 --post-date 2026-05-22 --guardrail-check`
