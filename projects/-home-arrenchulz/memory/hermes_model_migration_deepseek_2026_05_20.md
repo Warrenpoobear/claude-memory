@@ -1,6 +1,6 @@
 ---
 name: hermes_model_migration_deepseek_2026_05_20
-description: "Hermes fleet migrated to DeepSeek v4 flash — 27 agents, May 20 2026"
+description: "Hermes fleet migrated to DeepSeek v4 flash — 27 agents, May 20 2026. Gateway config fixed 2026-05-25."
 metadata: 
   node_type: memory
   type: project
@@ -77,6 +77,14 @@ metadata:
 - Model capability assessment (real-world production performance)
 - Compatibility with OpenClaw agent orchestration (to be verified)
 - Output quality vs Claude baseline (monitoring required)
+
+### Gateway Config Fix (2026-05-25)
+
+Gateway was starting on `meta-llama/llama-3.3-70b` (Together AI fallback) because Nous Research model warmup timed out at 5s. Fixed in `~/.hermes/config.yaml`:
+- Primary: `provider: openrouter`, `default: deepseek/deepseek-v4-flash:free`
+- Fallback order: OpenRouter/DeepSeek first, Together/Llama second
+- `cli-config.yaml.example` updated in hermes-agent repo (`ae6f28e98`)
+- Together AI 402 credit errors hit 2026-05-20 (8 agents STALE); recovered by 2026-05-22; **check Together AI balance before Monday production run**
 
 ### Rollback Path
 

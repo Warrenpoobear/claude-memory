@@ -16,11 +16,11 @@ Codegraph v0.9.4 pilot completed 2026-05-24. Installed via `npm i -g @colbymchen
 ## Current state
 
 - Installed: `npm i -g @colbymchenry/codegraph` (Node 22.22.2, v0.9.4)
-- Index: `/mnt/c/Projects/biotech_screener/biotech-screener/.codegraph/` (1,667 files, 50,259 nodes, 114,016 edges, 108 MB SQLite)
+- Index: `/mnt/c/Projects/biotech_screener/biotech-screener/.codegraph/` (1,668 files, 50,294 nodes, 114,044 edges, 108 MB SQLite; `.codegraph/.gitignore` ships with tool — DB never committed)
 - Claude Code global MCP: registered (`~/.claude.json`, `~/.claude/settings.json`, `~/.claude/CLAUDE.md`)
 - Git hooks: **declined** (WSL2 /mnt/ path; run `codegraph sync` manually after changes)
-- Hermes: **not registered**
-- Cursor: **not registered**
+- Hermes: **not registered** (deferred — see acceptance gate)
+- Cursor: **registered** via `.cursor/mcp.json` + `.cursor/environment.json`; validated 2026-05-25 (init + tools/list + tool calls all pass)
 
 ## Validated value (interactive Claude use)
 

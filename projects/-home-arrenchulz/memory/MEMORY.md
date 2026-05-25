@@ -9,9 +9,10 @@
 - Graph at `memory_graph.json` (next to this file) — built by `/home/arrenchulz/.claude/scripts/build_memory_graph.py`. Re-run after writing/editing memory files
 - Query: `/home/arrenchulz/.claude/scripts/query_memory_graph.py --search X` / `--related-to ID` / `--status stale` / `--expires-before YYYY-MM-DD` / `--orphans` / `--summary`. Use BEFORE re-reading multiple memory files
 
-## Operational Status (May 19–20)
+## Operational Status (May 19–25)
 - [IC health monitor ALERT explanation (2026-05-19)](ic_health_monitor_alert_explanation_2026_05_19.md) — 13F ingest ✓ FRESH (42 managers as of 05-19); ALERT is lagging historical IC, not system failure; real test May 20–22 post-13F refresh
-- [Hermes model migration — DeepSeek v4 flash (2026-05-20)](hermes_model_migration_deepseek_2026_05_20.md) — Fleet-wide migration: 27 agents from Claude Sonnet 4.6/Haiku 4.5 → `deepseek/deepseek-v4-flash:free`; first run on new model = 13F validation (~5 PM ET); high-risk monitoring required
+- [Hermes model migration — DeepSeek v4 flash (2026-05-20)](hermes_model_migration_deepseek_2026_05_20.md) — Fleet migrated to `deepseek/deepseek-v4-flash:free`; gateway config fixed 2026-05-25 (was falling back to Llama 3.3 70B); **check Together AI balance before Monday**
+- [Hermes MCP hardening + CI fixes (2026-05-25)](hermes_mcp_ci_fixes_2026_05_25.md) — PATH guard in hermes-mcp-serve; mcp.json env vars + environment.json for Cursor Cloud; CI paths-ignore to stop doc-only budget burn; core.fileMode false on all 4 repos
 
 ## Professional Profile
 - [CFA/CAIA professional credentials & skills (2026-05-15)](user_profile_credentials_2026_05_15.md) — Institutional SFO investment leadership ($14B+ AUM); asset allocation, fixed income, equity research, alternatives; AI agent development (Hermes fleet, biotech screening)
@@ -25,7 +26,7 @@
 - [Phase 23 PE commitment-book — deferred](asset_allocation_phase_23_followup.md) `[stale]` — design at `f81ff43`; implementation waiting on user-gathered commitment book + Archway monthly actuals + entity registry; resumption order: EntityRegistry → fixtures → loader → diagnostics
 
 ## Dev Tools
-- [Codegraph pilot complete (2026-05-24)](codegraph_pilot_complete_2026_05_24.md) — Claude Code MCP accelerator approved (callers/callees/trace); Hermes registration DEFERRED pending dispatch-break/ambiguity wrapper; operating rules + Hermes acceptance gate documented
+- [Codegraph pilot complete (2026-05-24)](codegraph_pilot_complete_2026_05_24.md) — Claude Code + Cursor MCP approved (callers/callees/trace); validated 2026-05-25 (both MCP servers pass); Hermes registration DEFERRED; index 1,668 files/50,294 nodes
 
 ## Biotech Screener
 - [Snapshot write chain corrected (2026-05-24)](biotech_snapshot_write_chain_2026_05_24.md) — `run_batch` orchestrates both `run_screen_for_date` + `_write_snapshot`; output root is `data/snapshots_pit/` not `data/snapshots/`; two files written per date
