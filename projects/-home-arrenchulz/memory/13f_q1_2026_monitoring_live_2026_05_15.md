@@ -1,22 +1,33 @@
 ---
 name: 13f_q1_2026_monitoring_live_2026_05_15
-description: Q1 2026 13F filing ingestion in progress; 6/48 managers filed; cohort quarantine active until 70% filing
+description: Q1 2026 13F cohort CLEARED (Jaccard 0.875 >= 0.70); quarantine lifted; ~35 trading days forward monitor accumulated
 metadata: 
   node_type: memory
   type: project
-  status: active
+  status: resolved
   expires: 2026-06-20
   resolves: 13f_q1_2026_preflight_2026_05_14
   originSessionId: 74a4f2ce-99f9-4c6c-9348-cd18fd837a80
 ---
 
-# Q1 2026 13F Filing Monitoring — Live
+# Q1 2026 13F Filing Monitoring — CLEARED
 
-## Current Status (2026-05-15)
-- **Filed:** 6 of 48 managers (12.5%)
-- **Holdings file:** `holdings_2026-03-31.json` created with 210 tickers, 345 positions
-- **Cohort Jaccard:** 0.536 (quarantine active; threshold < 0.70)
-- **Monitoring:** Automated weekday checks at 6:22 PM ET via CronCreate (job: 7b627c0e)
+## Current Status (2026-05-24)
+- **Cohort Jaccard:** 0.875 — CLEARED (threshold 0.70) ✓
+- **Quarantine:** LIFTED
+- **Forward monitor:** ~35 trading days accumulated
+- Prior status (2026-05-15): 6/48 managers filed, Jaccard 0.536, quarantine active
+
+## Downstream Unlocks
+- Attribution analysis no longer restricted to observe-only
+- 13F cohort now usable for validation (not alpha — still subject to alpha freeze and h20d DEFERRED)
+- Phase 2 Step 5 (KG): unblocked on 13F gate; still blocked on h20d DEFERRED (Path B, 2026-05-24)
+
+## Original Status (2026-05-15)
+- Filed: 6 of 48 managers (12.5%)
+- Holdings file: `holdings_2026-03-31.json` — 210 tickers, 345 positions
+- Cohort Jaccard: 0.536 (quarantine active; threshold < 0.70)
+- Monitoring: Automated weekday checks at 6:22 PM ET via CronCreate (job: 7b627c0e)
 
 ## Early Filers (6 managers)
 - Renaissance Technologies (1037389) — 3,213 positions, filed 2026-05-14

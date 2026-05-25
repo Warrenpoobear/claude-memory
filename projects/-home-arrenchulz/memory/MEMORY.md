@@ -15,7 +15,7 @@
 - [Hermes MCP hardening + CI fixes (2026-05-25)](hermes_mcp_ci_fixes_2026_05_25.md) — PATH guard in hermes-mcp-serve; mcp.json env vars + environment.json for Cursor Cloud; CI paths-ignore to stop doc-only budget burn; core.fileMode false on all 4 repos
 
 ## Professional Profile
-- [CFA/CAIA professional credentials & skills (2026-05-15)](user_profile_credentials_2026_05_15.md) — Institutional SFO investment leadership ($14B+ AUM); asset allocation, fixed income, equity research, alternatives; AI agent development (Hermes fleet, biotech screening)
+- [Director of Investments at Wake Robin; CFA/CAIA (updated 2026-05-25)](user_profile_credentials_2026_05_15.md) — Wake Robin = real estate investment + community dev co; DEM biotech screener = parallel investment research capability; $14B+ institutional background; dschulz@wakerobin.co / djschulz@gmail.com
 
 ## Personal Position Research
 - [RVMD + ERAS RAS thesis (2026-04-28)](research_rvmd_eras_ras_thesis_2026_04_28.md) — RVMD de-risked leader (P3 OS hit 04-13); ERAS satellite, binary H1 2027
@@ -65,6 +65,7 @@
 - [Governance: IC evidence hold (2026-05-13)](governance_ic_evidence_hold_2026_05_13.md) — Spec 095 audit found IC backtest measures composite_score, not ranker final_score. Do NOT use prior IC evidence for promotion until Spec 100 tool fix. Specs 093/094/095 audits remain valid; IC claims deferred. Governance enforced via memory.
 - [Hermes skills audit 2026-05-15](hermes_skills_audit_2026_05_15.md) — Complete audit of 19 skills; all current, 5 screener skills updated (Specs 092–105), critical Spec 095 IC scope gap identified
 - [Hermes skills hub sync 2026-05-24](hermes_skills_hub_sync_2026_05_24.md) — 15 docs committed to `docs/hermes_skills/` (`f3ab726b`); 7 new skills installed in hub (`654172c06`): dossier-gen, validation, browser-automation, self-improving, pe-pacing, sfo-liquidity-arch, spending-liquidity; 7 existing canonicals preserved (11–35KB each)
+- [Town-Hermes bridge delivery targets](town_hermes_bridge_delivery_targets.md) — djschulz@gmail.com (personal) + dschulz@wakerobin.co (work); Phase A dry-run complete; Phase B live delivery not started; feedback protocol frozen post-h20d
 - [Spec 095 IC scope gap](spec_095_ic_scope_gap_critical.md) `[resolved]` — Root cause (tool measured composite_score not final_score) fixed by Spec 100 (2026-05-17); prior ranker IC claims invalidated; corrected final_score baseline ready
 - **[Spec 100 IC tooling correction RESOLVED (2026-05-17)](spec_100_ic_tooling_correction_complete_2026_05_17.md)** — default signal → final_score; metadata labels spec_100_status; composite_score IC marked INVALIDATED; Commit 2faa88e6 (rebased); next: read-only smoke artifact, deferred interpretation post-freeze
 - **[Operating state post-Spec 100 (2026-05-17)](operating_state_post_spec_100_2026_05_17.md)** — Blockers, priorities, next actions (13F monitoring, Phase 2 verification, smoke artifact, KG pilot post-clearance, IC dashboard post-freeze); Town AI H1 fix included
@@ -99,7 +100,7 @@
 - [Inst_delta inflated, do NOT fix](regime_post_cohort_change_distortion_2026_04_28.md) — 04-25 added 4 mgrs; inst_delta_z byte-identical 04-25/27/28; SIGNAL_ALERT correctly persistent until ~05-15; treat top-30 changes (RVMD-in/ERAS-out) as cohort artifact; ATTRIBUTION lane only
 - [13F cohort-quarantine prep (2026-05-01)](13f_cohort_quarantine_prep_2026_05_01.md) — Q1 2026 refresh ~2026-05-15. Pre/post diff harness `tools/check_13f_cohort_quarantine.py` (skeleton, untracked). G1/G2/G3 guardrails enforce snapshot completeness + producer freshness BEFORE quantitative interpretation. Quarantine trigger: Top-30 Jaccard < 0.70.
 - [13F Q1 2026 preflight (2026-05-14)](13f_q1_2026_preflight_2026_05_14.md) — distortion audit complete (mean |inst_delta_z|=0.743 locked since 04-25); post-refresh validation gates defined (6 gates); awaits ~2026-05-15 file ingest; commit `70414e5c`
-- **[13F Q1 2026 cohort monitoring (2026-05-15)](13f_q1_2026_monitoring_live_2026_05_15.md)** — 6/48 managers filed (12.5%), Jaccard 0.536, quarantine ACTIVE; monitoring cron active weekdays 6:22 PM ET through 2026-06-20
+- **[13F Q1 2026 cohort CLEARED (2026-05-24)](13f_q1_2026_monitoring_live_2026_05_15.md)** `[resolved]` — Jaccard 0.875 ≥ 0.70; quarantine lifted; ~35 trading days accumulated; Phase 2 Step 5 KG unblocked on 13F gate (still blocked on h20d DEFERRED)
 - **[13F refresh runbook COMPLETE (2026-05-17)](13f_refresh_runbook_complete_2026_05_17.md)** — 6 validation gates, decision matrix, clearance thresholds, hard NO-GO conditions, command quick reference; triggers ~2026-05-23 when ≥34 managers filed; location: `docs/13f_q1_2026_refresh_runbook.md`
 - [Inst_delta forward shadow T0=2026-04-28](inst_delta_forward_shadow_T0_2026_04_28.md) — daily 19:30 ET; verdict h20d=2026-05-26; final 2026-07-21
 - [Cross-signal forward shadow T0=2026-04-28](cross_signal_forward_shadow_T0_2026_04_28.md) — daily 19:40 ET; HL=17 focal; path (c) — no historical regen; descriptive 5/10d note ≠ alpha evidence

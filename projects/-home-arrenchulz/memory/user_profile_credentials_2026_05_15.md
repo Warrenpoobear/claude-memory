@@ -1,6 +1,6 @@
 ---
 name: user-profile-credentials-2026-05-15
-description: "Darren Schulz — professional credentials, expertise areas, and investment management background"
+description: "Darren Schulz — Director of Investments at Wake Robin; CFA/CAIA; $14B+ institutional background; biotech screener as parallel research capability"
 metadata: 
   node_type: memory
   type: user
@@ -8,6 +8,11 @@ metadata:
 ---
 
 # Professional Profile
+
+## Current Role
+- **Director of Investments at Wake Robin** — real estate investment and community development company
+- The DEM biotech screener is a **parallel investment research capability** operated within this role, not Wake Robin's primary business
+- Work email: dschulz@wakerobin.co | Personal: djschulz@gmail.com
 
 ## Headline
 Institutional SFO Investment Professional | Asset Allocation, Portfolio Management, Research, Credit, Options, Analytics, Alternatives | CFA, CAIA
