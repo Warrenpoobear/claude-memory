@@ -16,6 +16,7 @@
 - **[yfinance rate-limit incident + recovery (2026-05-23 to 2026-05-26)](yfinance_rate_limit_incident_2026_05_23.md)** — 429 rate-limit on all 341 tickers 2026-05-23 14:00 ET; 4-day outage (0 fresh snapshots May 23-26); root cause: yfinance lacks built-in backoff; **RESOLVED:** rate-limit handler deployed (`scripts/yfinance_safe.py`), production recovered with May 22 snapshot, monitoring active (every 30 min), awaiting API reset
 - [Hermes status post-recovery (2026-05-26)](hermes_status_2026_05_26.md) — Fleet stable; production operational (stale); rate-limit handler deployed; monitoring active every 30 min; awaiting yfinance API reset (expected 24-72h from incident)
 - **[Governance state clarification (2026-05-26)](governance_state_2026_05_26.md)** — 13F quarantine ✓ CLEARED (Jaccard 0.875), h20d ✗ DEFERRED (Path B), Spec 089 advisory-only, alpha freeze active, Phase 2 Step 5 blocked
+- **[h20d override decision (2026-05-26)](h20d_override_decision_2026_05_26.md)** — Freeze ✓ LIFTED (manual override despite failed 13F validation), Phase 2 Step 5 ✓ UNBLOCKED, Spec 089 ✓ ACTIVATED; weekly monitoring + re-eval gate 2026-07-01
 
 ## Professional Profile
 - [Director of Investments at Wake Robin; CFA/CAIA (updated 2026-05-25)](user_profile_credentials_2026_05_15.md) — Wake Robin = real estate investment + community dev co; DEM biotech screener = parallel investment research capability; $14B+ institutional background; dschulz@wakerobin.co / djschulz@gmail.com
