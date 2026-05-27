@@ -64,8 +64,26 @@ No OPENROUTER_API_KEY set in environment. Using free tier which has strict rate 
 - Last test: 2026-05-13 (14 days old)
 - Should re-enable: `python3 ~/.hermes/monitor_together_latency.py` every 30 min
 
+## Resolution (2026-05-27)
+
+**API Key Setup:** ✅ COMPLETE
+- Loaded from `/home/arrenchulz/.hermes/.env`
+- Key: `sk-or-v1-d938...6103`
+- Status: Valid, authenticated
+
+**Credit Issue Discovered:**
+- Free tier: HTTP 429 (rate-limited at source)
+- Paid tier: HTTP 402 (account has $0 balance)
+- Config reverted to free tier with fallback
+
+**Current Operation:**
+- Primary: Free DeepSeek (hits rate limit, falls back)
+- Fallback: Together Llama 3.3 70B (always active, slow baseline)
+- Status: WORKING but SLOW (10.7s/query)
+
 ## Next Steps
-1. Decide between A/B/C above
-2. Test routing after decision: `hermes chat -q "model check"`
-3. Verify Together AI balance before Monday 2026-06-02 (regardless of choice)
-4. Re-enable latency monitoring cron
+1. **Option A (best):** Add $5–20 credits to OpenRouter → removes rate limit
+2. **Option B:** Keep current (works, slow)
+3. **Option C:** Switch primary to Together Llama (consistent 10.7s, no credits needed)
+4. Verify Together AI balance before Monday 2026-06-02 (regardless)
+5. Re-enable latency monitoring cron (currently no active monitoring)
