@@ -5,10 +5,12 @@ metadata:
   originSessionId: ee8dbb2b-22a4-49ff-8d99-f5e261281a6f
 ---
 
-## Implementation Complete (Commit 899595ad)
+## Implementation Complete (Commits 899595ad + 7c359ff2)
 
 **Tool:** `tools/firecrawl_research_ingest.py`
 **Docs:** `docs/firecrawl_research_integration.md`
+**Hermes Skill:** `firecrawl-research-discovery` (registered in `~/.hermes/skills/biotech-screener/`)
+**Agents:** Herald + Intraday Mover Watch (SOUL.md updated)
 **Commitment:** Research-only, no ranker/selector inputs
 
 ## Governance Enforcement
@@ -84,9 +86,24 @@ python tools/firecrawl_research_ingest.py \
 
 Your model governance says "wire existing fields first, don't invent new ones." Firecrawl follows the same rule: validate as a **research context layer** (like coinvest), then later explore selective signal extraction under governance. This prevents EES-style silent leakage into alpha before the pipeline matures.
 
+## Hermes Integration (Commit 7c359ff2)
+
+**Skill registered:** `firecrawl-research-discovery` in `~/.hermes/skills/biotech-screener/`
+- README.md: quick start + feature summary
+- SKILL.md: full capability reference (search, scrape, output, parameters, examples)
+- _meta.json: version 1.0.0
+
+**Agents updated:** Herald + Intraday Mover Watch SOUL.md
+- Herald: can invoke skill for biotech news discovery + competitor intelligence
+- Intraday Mover Watch: can invoke skill for news context enrichment on price movers
+
+**Invocation:** `/skill firecrawl-research-discovery` (in-session) or `hermes -s firecrawl-research-discovery`
+
 ## Next Steps
 
 1. Run daily searches for 2+ weeks (research-only mode)
-2. Consume digests in artifacts/research/firecrawl/*/analyst_summary.md
+   - Herald calls skill periodically to discover external biotech news (complement to company IR)
+   - Intraday Mover Watch calls skill when significant moves detected (news context enrichment)
+2. Consume digests in `artifacts/research/firecrawl/*/analyst_summary.md`
 3. Evaluate catalyst discovery accuracy vs Spec 063 movers
-4. If ready, propose Spec 110 extension for catalyst KG + ranker candidate evaluation
+4. If ready (post-governance), propose Spec 110 extension for catalyst KG + ranker candidate evaluation
