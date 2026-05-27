@@ -37,6 +37,7 @@
 ## Biotech Screener
 - [Snapshot write chain corrected (2026-05-24)](biotech_snapshot_write_chain_2026_05_24.md) — `run_batch` orchestrates both `run_screen_for_date` + `_write_snapshot`; output root is `data/snapshots_pit/` not `data/snapshots/`; two files written per date
 - **[Firecrawl research-only adapter (2026-05-27)](firecrawl_research_integration_2026_05_27.md)** — Research tool for biotech news discovery (commit 899595ad); governance-enforced; search/scrape with source tracking; output to artifacts/research/firecrawl/; ready for daily research consumption, no ranker inputs
+- **[Firecrawl daily cron COMPLETE (2026-05-27)](firecrawl_daily_cron_setup_complete_2026_05_27.md)** — Three jobs: 8 AM (morning), 2 PM (full pipeline), 4 PM (intraday enrichment); API key in .env; env export fixed (set -a/+a); commit 47f9ca2e; validation window 2026-05-27 → 2026-06-17
 
 - `/mnt/c/Projects/biotech_screener/biotech-screener/` · Python 3.12.3 WSL2 (`pip --break-system-packages`) · 341 tickers · `specs/changes/` (110+)
 - **[Spec 110 Phase 1 PoC complete (2026-05-21)](spec_110_phase_1_poc_complete_2026_05_21.md)** — Provenance graph implementation: 56 nodes, 16 edges, 5 query patterns, 22 tests (100% PASS); 2026-05-20 snapshot lineage artifact generated; phase 1 boundaries met (design locked, no production wiring)
