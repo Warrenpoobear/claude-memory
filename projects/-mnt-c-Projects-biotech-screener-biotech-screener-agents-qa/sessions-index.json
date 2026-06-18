@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "sessionId": "062fd2fe-bbe5-49eb-9e18-5177ce124dc9",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-qa/062fd2fe-bbe5-49eb-9e18-5177ce124dc9.jsonl",
+      "fileMtime": 1777865976387,
+      "firstPrompt": "[Sun 2026-05-03 23:38 EDT] [Subagent Context] You are running as a subagent (depth 1/1). Results auto-announce to your requester; do not busy-poll for status.  Begin. Your assigned task is in the syst…",
+      "messageCount": 3,
+      "created": "2026-05-04T03:38:59.849Z",
+      "modified": "2026-05-04T03:39:36.313Z",
+      "gitBranch": "ops/fleet-triage-2026-05-03",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/qa",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "aef6cfc6-79fe-4c6b-8da7-426bdce2bf88",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-qa/aef6cfc6-79fe-4c6b-8da7-426bdce2bf88.jsonl",
+      "fileMtime": 1777930271540,
+      "firstPrompt": "[cron:cf7189f3-782a-4620-8db9-02dcb0744faa qa-daily] Verify today's snapshot artifacts exist and are well-formed. Current time: Monday, May 4th, 2026 - 5:30 PM (America/New_York) / 2026-05-04 21:30 UT…",
+      "messageCount": 3,
+      "created": "2026-05-04T21:30:08.473Z",
+      "modified": "2026-05-04T21:31:11.454Z",
+      "gitBranch": "fix/dockerfile-research-copy",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/qa",
+      "isSidechain": false
+    }
+  ],
+  "originalPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/qa"
+}

@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "sessionId": "82f3c0ee-0774-4582-a3fc-c96b448a740a",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/82f3c0ee-0774-4582-a3fc-c96b448a740a.jsonl",
+      "fileMtime": 1777701213304,
+      "firstPrompt": "[Thu 2026-04-30 22:27 EDT] fix anthropic",
+      "messageCount": 14,
+      "created": "2026-05-01T02:27:36.027Z",
+      "modified": "2026-05-02T05:52:28.667Z",
+      "gitBranch": "master",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "db92264a-6bbe-4d4e-8a45-ae0bc3db04cd",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/db92264a-6bbe-4d4e-8a45-ae0bc3db04cd.jsonl",
+      "fileMtime": 1777865476823,
+      "firstPrompt": "Sender (untrusted metadata): ```json {   \"label\": \"openclaw-control-ui\",   \"id\": \"openclaw-control-ui\" } ```  [Sun 2026-05-03 23:31 EDT] check agents",
+      "messageCount": 3,
+      "created": "2026-05-04T03:31:11.896Z",
+      "modified": "2026-05-04T03:31:16.805Z",
+      "gitBranch": "",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "8bff5197-8d4e-4fc1-b8ad-bcb8260ec6fb",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/8bff5197-8d4e-4fc1-b8ad-bcb8260ec6fb.jsonl",
+      "fileMtime": 1777865940776,
+      "firstPrompt": "Sender (untrusted metadata): ```json {   \"label\": \"openclaw-control-ui\",   \"id\": \"openclaw-control-ui\" } ```  [Sun 2026-05-03 23:31 EDT] check agents",
+      "messageCount": 35,
+      "created": "2026-05-04T03:31:45.446Z",
+      "modified": "2026-05-04T03:39:00.761Z",
+      "gitBranch": "",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "ad5c616e-8c55-4c95-8f49-97a3394913dc",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/ad5c616e-8c55-4c95-8f49-97a3394913dc.jsonl",
+      "fileMtime": 1777865968822,
+      "firstPrompt": "[Inter-session message] sourceSession=agent:calibration:subagent:7324be94-0549-47b2-ad1b-f0f7b06095d9 sourceChannel=webchat sourceTool=subagent_announce isUser=false This content was routed by OpenCla…",
+      "messageCount": 2,
+      "created": "2026-05-04T03:39:21.381Z",
+      "modified": "2026-05-04T03:39:28.821Z",
+      "gitBranch": "",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "d3cecbee-670f-4037-9608-b32f5e2258f9",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/d3cecbee-670f-4037-9608-b32f5e2258f9.jsonl",
+      "fileMtime": 1777865999635,
+      "firstPrompt": "[Inter-session message] sourceSession=agent:sentinel:subagent:0a44352f-c597-4da2-89b5-3804498da32d sourceChannel=webchat sourceTool=subagent_announce isUser=false This content was routed by OpenClaw f…",
+      "messageCount": 2,
+      "created": "2026-05-04T03:39:52.436Z",
+      "modified": "2026-05-04T03:39:59.627Z",
+      "gitBranch": "",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "04b1defd-0747-4e96-b0d9-4c5c7c6d23db",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/04b1defd-0747-4e96-b0d9-4c5c7c6d23db.jsonl",
+      "fileMtime": 1777866007194,
+      "firstPrompt": "[Inter-session message] sourceSession=agent:catalyst_delta:subagent:9479a78e-d54f-4884-bf5e-a79988d0870f sourceChannel=webchat sourceTool=subagent_announce isUser=false This content was routed by Open…",
+      "messageCount": 2,
+      "created": "2026-05-04T03:40:00.899Z",
+      "modified": "2026-05-04T03:40:07.179Z",
+      "gitBranch": "",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "e923285b-eb3b-46f9-8445-13e234e4e668",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/e923285b-eb3b-46f9-8445-13e234e4e668.jsonl",
+      "fileMtime": 1777866015396,
+      "firstPrompt": "[Inter-session message] sourceSession=agent:ops:subagent:8de2cb98-9940-4f6e-831c-0875b8aa20c5 sourceChannel=webchat sourceTool=subagent_announce isUser=false This content was routed by OpenClaw from a…",
+      "messageCount": 2,
+      "created": "2026-05-04T03:40:08.435Z",
+      "modified": "2026-05-04T03:40:15.392Z",
+      "gitBranch": "",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "08bd49b5-134c-4c81-8346-a958e8745479",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/08bd49b5-134c-4c81-8346-a958e8745479.jsonl",
+      "fileMtime": 1777866020250,
+      "firstPrompt": "[Inter-session message] sourceSession=agent:qa:subagent:505e8770-bfa0-4b6c-9192-9087b04f5a4d sourceChannel=webchat sourceTool=subagent_announce isUser=false This content was routed by OpenClaw from an…",
+      "messageCount": 2,
+      "created": "2026-05-04T03:40:16.661Z",
+      "modified": "2026-05-04T03:40:20.235Z",
+      "gitBranch": "",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "d736a29e-9bcc-486a-bc46-67796b53c5cd",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/d736a29e-9bcc-486a-bc46-67796b53c5cd.jsonl",
+      "fileMtime": 1777904186117,
+      "firstPrompt": "No prompt",
+      "messageCount": 4,
+      "created": "2026-05-04T14:15:50.103Z",
+      "modified": "2026-05-04T14:16:26.106Z",
+      "gitBranch": "master",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "cf91ba2a-d660-483d-8960-14609eeaa65c",
+      "fullPath": "/home/arrenchulz/.claude/projects/-home-arrenchulz--openclaw-workspace/cf91ba2a-d660-483d-8960-14609eeaa65c.jsonl",
+      "fileMtime": 1778013859102,
+      "firstPrompt": "Sender (untrusted metadata): ```json {   \"label\": \"openclaw-control-ui\",   \"id\": \"openclaw-control-ui\" } ```  [Mon 2026-05-04 12:29 EDT] check agents are properly wired",
+      "messageCount": 102,
+      "created": "2026-05-04T16:29:07.963Z",
+      "modified": "2026-05-05T20:44:19.094Z",
+      "gitBranch": "master",
+      "projectPath": "/home/arrenchulz/.openclaw/workspace",
+      "isSidechain": false
+    }
+  ],
+  "originalPath": "/home/arrenchulz/.openclaw/workspace"
+}

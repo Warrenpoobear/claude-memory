@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "sessionId": "87cfb60f-c074-4fca-825e-d2108b257bd1",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-sentinel/87cfb60f-c074-4fca-825e-d2108b257bd1.jsonl",
+      "fileMtime": 1777865962610,
+      "firstPrompt": "[Sun 2026-05-03 23:38 EDT] [Subagent Context] You are running as a subagent (depth 1/1). Results auto-announce to your requester; do not busy-poll for status.  Begin. Your assigned task is in the syst…",
+      "messageCount": 3,
+      "created": "2026-05-04T03:39:00.089Z",
+      "modified": "2026-05-04T03:39:22.387Z",
+      "gitBranch": "ops/fleet-triage-2026-05-03",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/sentinel",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "97db6e62-bc10-4d28-9ce6-1fde7d020c30",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-sentinel/97db6e62-bc10-4d28-9ce6-1fde7d020c30.jsonl",
+      "fileMtime": 1777929363455,
+      "firstPrompt": "[cron:d851bfab-bb7e-4acf-93fa-64d6c4556931 sentinel-daily] Check today's drift status for ruleset 2a3e79eb. Current time: Monday, May 4th, 2026 - 5:15 PM (America/New_York) / 2026-05-04 21:15 UTC  Use…",
+      "messageCount": 5,
+      "created": "2026-05-04T21:15:10.258Z",
+      "modified": "2026-05-04T21:16:03.351Z",
+      "gitBranch": "main",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/sentinel",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "d0f05378-0cfc-4eb4-9c74-e71255954ae5",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-sentinel/d0f05378-0cfc-4eb4-9c74-e71255954ae5.jsonl",
+      "fileMtime": 1777936947159,
+      "firstPrompt": "[cron:84aa25ca-4726-4392-9b62-7822da60ba57 dashboard-validation-ping] Validate that today's production artifacts exist and are internally consistent. Check:  1. data/snapshots/{date}/rankings.csv exis…",
+      "messageCount": 3,
+      "created": "2026-05-04T23:21:54.348Z",
+      "modified": "2026-05-04T23:22:27.067Z",
+      "gitBranch": "main",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/sentinel",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "8d86fe39-20fe-4c32-9a5c-b46b27e22f88",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-sentinel/8d86fe39-20fe-4c32-9a5c-b46b27e22f88.jsonl",
+      "fileMtime": 1778015901647,
+      "firstPrompt": "[cron:d851bfab-bb7e-4acf-93fa-64d6c4556931 sentinel-daily] Check today's drift status for ruleset 2a3e79eb. Current time: Tuesday, May 5th, 2026 - 5:15 PM (America/New_York) / 2026-05-05 21:15 UTC  Us…",
+      "messageCount": 10,
+      "created": "2026-05-05T21:15:11.000Z",
+      "modified": "2026-05-05T21:18:21.527Z",
+      "gitBranch": "main",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/sentinel",
+      "isSidechain": false
+    }
+  ],
+  "originalPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/sentinel"
+}

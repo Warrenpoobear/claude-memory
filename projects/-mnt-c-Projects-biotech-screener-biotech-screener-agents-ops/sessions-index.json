@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "sessionId": "58394c18-34c8-4eb0-a275-b3c9d8b39eef",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-ops/58394c18-34c8-4eb0-a275-b3c9d8b39eef.jsonl",
+      "fileMtime": 1777865971504,
+      "firstPrompt": "[Sun 2026-05-03 23:38 EDT] [Subagent Context] You are running as a subagent (depth 1/1). Results auto-announce to your requester; do not busy-poll for status.  Begin. Your assigned task is in the syst…",
+      "messageCount": 3,
+      "created": "2026-05-04T03:38:54.442Z",
+      "modified": "2026-05-04T03:39:31.423Z",
+      "gitBranch": "ops/fleet-triage-2026-05-03",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/ops",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "b377db73-44ab-4f68-bcb8-23a2ad1145ef",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-ops/b377db73-44ab-4f68-bcb8-23a2ad1145ef.jsonl",
+      "fileMtime": 1777928455210,
+      "firstPrompt": "[cron:69e97f03-b9c9-4bea-9526-51a14b4d99a5 ops-daily] Run your daily sequence for today. Current time: Monday, May 4th, 2026 - 5:00 PM (America/New_York) / 2026-05-04 21:00 UTC  Use the message tool i…",
+      "messageCount": 5,
+      "created": "2026-05-04T21:00:05.711Z",
+      "modified": "2026-05-04T21:00:54.956Z",
+      "gitBranch": "main",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/ops",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "a1d0bea5-3730-4eeb-b430-3ece2c52c157",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-ops/a1d0bea5-3730-4eeb-b430-3ece2c52c157.jsonl",
+      "fileMtime": 1777930649089,
+      "firstPrompt": "[cron:9e195263-8dfc-4314-bea6-78c0bc27186a daily-production-brief] Read today's run_manifest.json, ops_digest, and readiness scorecard. Return a compact verdict in this format:  STATUS: OK | WARN | AC…",
+      "messageCount": 3,
+      "created": "2026-05-04T21:37:07.800Z",
+      "modified": "2026-05-04T21:37:28.995Z",
+      "gitBranch": "fix/dockerfile-research-copy",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/ops",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "af11118f-0d09-493d-8e55-9fbbc01674f3",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-ops/af11118f-0d09-493d-8e55-9fbbc01674f3.jsonl",
+      "fileMtime": 1777930825873,
+      "firstPrompt": "[cron:b30f1359-8afe-4e59-9bb8-32de258faf96 ops-digest-summary] Read today's ops digest at artifacts/ops_digest/{date}_digest.json. Return ONLY the compact summary:  OPS DIGEST: {attention level} Actio…",
+      "messageCount": 3,
+      "created": "2026-05-04T21:40:08.977Z",
+      "modified": "2026-05-04T21:40:25.796Z",
+      "gitBranch": "fix/dockerfile-research-copy",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/ops",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "cc4c7e1e-d623-40a7-ad87-a823b33918d9",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-ops/cc4c7e1e-d623-40a7-ad87-a823b33918d9.jsonl",
+      "fileMtime": 1778014917985,
+      "firstPrompt": "[cron:69e97f03-b9c9-4bea-9526-51a14b4d99a5 ops-daily] Run your daily sequence for today. Current time: Tuesday, May 5th, 2026 - 5:00 PM (America/New_York) / 2026-05-05 21:00 UTC  Use the message tool…",
+      "messageCount": 8,
+      "created": "2026-05-05T21:00:31.097Z",
+      "modified": "2026-05-05T21:01:57.706Z",
+      "gitBranch": "main",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/ops",
+      "isSidechain": false
+    },
+    {
+      "sessionId": "ee6a1672-0c1e-4f0d-842f-ce513d8b2806",
+      "fullPath": "/home/arrenchulz/.claude/projects/-mnt-c-Projects-biotech-screener-biotech-screener-agents-ops/ee6a1672-0c1e-4f0d-842f-ce513d8b2806.jsonl",
+      "fileMtime": 1778017098061,
+      "firstPrompt": "[cron:9e195263-8dfc-4314-bea6-78c0bc27186a daily-production-brief] Read today's run_manifest.json, ops_digest, and readiness scorecard. Return a compact verdict in this format:  STATUS: OK | WARN | AC…",
+      "messageCount": 3,
+      "created": "2026-05-05T21:37:51.127Z",
+      "modified": "2026-05-05T21:38:17.720Z",
+      "gitBranch": "main",
+      "projectPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/ops",
+      "isSidechain": false
+    }
+  ],
+  "originalPath": "/mnt/c/Projects/biotech_screener/biotech-screener/agents/ops"
+}
