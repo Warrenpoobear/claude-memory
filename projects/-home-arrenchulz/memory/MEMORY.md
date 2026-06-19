@@ -46,8 +46,11 @@
 - **[Phase 2 Day 1 official start (2026-06-01)](phase2_day1_official_start_2026_06_01.md)** — Day 1 locked 2026-06-01 with 2026-06-01 snapshot (30 holdings); baseline artifacts (holdings, performance, staleness, turnover, attribution) captured; daily tracking now authorized; governance checkpoints at ~30/60/90 trading days
 - **[Path C monitoring restored (2026-06-01)](path_c_monitoring_restored_2026_06_01.md)** — Drawdown vs XBI metric fully operational (commit b87d9a8d); monitoring locked Day 1 portfolio only; hard exit gate: ≤-2.00pp; ready for June 3 decision (extend IC window or revert to HOLD)
 - **[PATH_C_WINDOW_CLOSE_DECISION_2026_06_03.md (governance artifact)](../../../../../../../mnt/c/Projects/biotech_screener/biotech-screener/artifacts/readiness/PATH_C_WINDOW_CLOSE_DECISION_2026_06_03.md)** — Decision memo: IC_UNOBSERVABLE (expected), 13F Jaccard 0.875 (stable), drawdown monitoring live; **recommendation: EXTEND until ~2026-06-17** (first observable IC); Options A (extend) + B (revert); checklist for operator
+<<<<<<< HEAD
 - **[Top-30 classifier scoring impact audit (2026-06-02)](top30_classifier_impact_audit_2026_06_02.md)** — Catalyst fields UNTRUSTED for RVMD/CELC (suppressed Phase 3) + ERAS/DRUG/ALKS (collision noise); MBX clean; Phase 2 Day 1 locked (safe); forward catalyst actions BLOCKED pending remediation lanes
 - **[Broader classifier misclassification scan (2026-06-02)](broader_classifier_misclassification_2026_06_01.md)** — Systemic quality issues: 47.6% collision rate, 81.2% needs_review rate across 78 tickers; COGT (rank 1) all-flagged; 26 non-Top-30 tickers with >50% collision; advisory-only for new tickers until baseline fixed
+=======
+>>>>>>> 7576a1d (Auto-save memory after session)
 
 ## Professional Profile
 - [Director of Investments at Wake Robin; CFA/CAIA (updated 2026-05-25)](user_profile_credentials_2026_05_15.md) — Wake Robin = real estate investment + community dev co; DEM biotech screener = parallel investment research capability; $14B+ institutional background; dschulz@wakerobin.co / djschulz@gmail.com
