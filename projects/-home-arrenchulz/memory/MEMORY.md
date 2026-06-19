@@ -10,9 +10,10 @@
 - Query: `/home/arrenchulz/.claude/scripts/query_memory_graph.py --search X` / `--related-to ID` / `--status stale` / `--expires-before YYYY-MM-DD` / `--orphans` / `--summary`. Use BEFORE re-reading multiple memory files
 
 ## LangGraph Orchestration Stack — LOCKED (2026-06-19)
-- **[LG3 runtime wrapper LOCKED (0afa9e25)](langgraph_lg3_runtime_wrapper_locked_0n5ax6.md)** — MODE_B_CRON_COMPATIBLE, READ_ONLY_DIAGNOSTIC, NON_BLOCKING. Wrapper COMPLETE; cron installation OPERATOR_PENDING.
-- **[LG3 wrapper vs cron](langgraph_lg3_wrapper_vs_cron_o3e6bw.md)** — Wrapper ready; cron installation operator action; observation window pending.
-- **[LG3 observation period (2026-06-19–07-03)](langgraph_lg3_observation_period_9zu55z.md)** — Verify wrapper runs, audit appends, non-blocking fails, artifacts bounded. No LG4/LG5 until checkpoint.
+- **[LG3 cron ACTIVATED (2026-06-19)](langgraph_lg3_cron_activated_2026_06_19.md)** `[active]` — Cron installed, daily 08:05 AM ET. Observation period live 2026-06-19 to 2026-07-03. Wrapper tested ✓; governance locked ✓; non-blocking verified ✓.
+- **[LG3 runtime wrapper LOCKED (0afa9e25)](langgraph_lg3_runtime_wrapper_locked_0n5ax6.md)** — MODE_B_CRON_COMPATIBLE, READ_ONLY_DIAGNOSTIC, NON_BLOCKING. Wrapper COMPLETE; cron installation ACTIVE.
+- **[LG3 wrapper vs cron](langgraph_lg3_wrapper_vs_cron_o3e6bw.md)** — Wrapper ready; cron installation ACTIVE; observation window LIVE.
+- **[LG3 observation period (2026-06-19–07-03)](langgraph_lg3_observation_period_9zu55z.md)** — Verify wrapper runs, audit appends, non-blocking fails, artifacts bounded. Checkpoint ~2026-07-03. No LG4/LG5 until checkpoint.
 - **[LangGraph stack summary](langgraph_stack_summary_whdhbi.md)** — LG1 (1b2c8095) orchestrator, LG2 (bdb97db7) approval, LG3 design (a95f14a8), LG3 runtime (0afa9e25).
 
 ## Operational Status (June 4 – ongoing)
