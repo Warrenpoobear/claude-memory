@@ -16,7 +16,19 @@ metadata:
 INC-2026-06-20-AUTOPUSH: autonomous writer committed/pushed directly to `main`; cleanup auto-reverted by a still-live watcher; ~59MB herald_cache (626 files) + file deletions churned. **Production ranker/selector code NOT breached** — repo history/hygiene only. Repo frozen at `origin/main = d9531c7b`. Remote switched to SSH this session (HTTPS password auth dead; gh token was invalid; SSH key works). See [[hermes_update_2026_06_21]] for fleet containment.
 
 ## Durable governance package (OUTSIDE repo, not under git)
-`~/governance_package_2026_06_21/` — **v1.4, 14 docs + README** (3 classes: core design 10, communication/attribution 2, money-lane 2). Originals were in session scratchpad (ephemeral); this is the persistent copy.
+`~/governance_package_2026_06_21/` — **v1.7, 17 docs + README** (5 classes: core design 10, communication/attribution 2, money-lane 2, ranking overlay 2, Hermes integration 1). Originals were in session scratchpad (ephemeral); this is the persistent copy.
+
+### Ranking overlays (human research, NOT production ranker)
+- Human shadow rank (current 15): 1 URGN 2 RVMD 3 NRIX 4 SYRE 5 DNTH (PROTECT) · 6 COGT 7 XENE 8 DRUG (HOLD) · 9 STOK 10 PRAX 11 ALMS 12 CMPS (WATCH) · 13 SLDB 14 TRVI (TRIM-WATCH) · 15 ERAS (EXIT-WATCH).
+- Model-vs-human disagreement ledger: model rank RECONSTRUCTED (proxy), HIGH-confidence only for documented top-3 COGT/DNTH/NRIX; all other gaps PROVISIONAL until actual model rank read post-containment. Hypothesis (unconfirmed): ranker overweights static quality/momentum, underweights recent de-risking + commercial-stage. To be adjudicated July 8.
+
+### Hermes integration (design/contracts only — Hermes stays CLOSED)
+Map v0.1: 5 read-only roles (Cockpit, Gatekeeper, Ranking Evidence Tracker, Catalyst Watch Desk, Post-Containment Runner). NO agents built/activated. Class E (external observers) designable now; Class R (repo/model readers) wait for QUIESCENCE_CONFIRMED_TWICE. Gatekeeper = structural fix for broad-command near-misses.
+
+### Post-containment sequence (locked)
+quiescence ×2 → READ actual model rank for current 15 + reconcile ledger (CONFIRMED/REVISED/INVALID) → A3 cleanup → July 8 evidence run → Ranker v3 shadow decision.
+
+### Original package docs
 
 ### Money-lane state (portfolio execution, separate from frozen model)
 - Live agentic book acct ••••9084: 15 equal-weight names, ~+13% vs XBI +9.2% (6/18). Equal-weight ⇒ validates eligibility+selection (A+B), NOT ranker (C).
