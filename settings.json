@@ -1,8 +1,4 @@
 {
-  "model": "haiku",
-  "enabledPlugins": {
-    "claude-code-setup@claude-plugins-official": true
-  },
   "permissions": {
     "allow": [
       "mcp__codegraph__codegraph_search",
@@ -14,6 +10,7 @@
       "mcp__codegraph__codegraph_status"
     ]
   },
+  "model": "opus[1m]",
   "hooks": {
     "Stop": [
       {
@@ -26,5 +23,8 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "claude-code-setup@claude-plugins-official": true
   }
 }
