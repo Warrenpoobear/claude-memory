@@ -16,7 +16,14 @@ metadata:
 INC-2026-06-20-AUTOPUSH: autonomous writer committed/pushed directly to `main`; cleanup auto-reverted by a still-live watcher; ~59MB herald_cache (626 files) + file deletions churned. **Production ranker/selector code NOT breached** — repo history/hygiene only. Repo frozen at `origin/main = d9531c7b`. Remote switched to SSH this session (HTTPS password auth dead; gh token was invalid; SSH key works). See [[hermes_update_2026_06_21]] for fleet containment.
 
 ## Durable governance package (OUTSIDE repo, not under git)
-`~/governance_package_2026_06_21/` — 8 docs + README. Originals were in session scratchpad (ephemeral); this is the persistent copy.
+`~/governance_package_2026_06_21/` — **v1.4, 14 docs + README** (3 classes: core design 10, communication/attribution 2, money-lane 2). Originals were in session scratchpad (ephemeral); this is the persistent copy.
+
+### Money-lane state (portfolio execution, separate from frozen model)
+- Live agentic book acct ••••9084: 15 equal-weight names, ~+13% vs XBI +9.2% (6/18). Equal-weight ⇒ validates eligibility+selection (A+B), NOT ranker (C).
+- **Decision 2026-06-21: HOLD all 15; zero orders.** ERAS = only impaired thesis (Apr fatal AE + RevMed IP claim + class action, lead-plaintiff deadline Aug 10) — examine-for-exit if tripwires worsen. SLDB/TRVI = trim candidates (ran on sentiment). NRIX/URGN/SYRE/DNTH/RVMD = catalyst-backed winners, hold.
+- **Scale-up gate (fund account / expand to top-30): NOT YET — "earn the right to scale."** 8 pre-conditions: containment 1–4, July 8 U2 evidence 5, P&L attribution 6, top-30 data cleanup 7, operator sign-off 8. Middle path allowed: fund to CASH only, manual per-name deploy, no auto-expansion / no rank-weighting / no autonomous placement.
+
+### Original package docs
 1. funding_memo — fundability story, leads with portfolio face validity, capital stage-gated
 2. ranking_confidence_plan — falsifiable audit sequence
 3. july8_forward_oos_validation_packet — **AMENDED A1 (pre-data, 2026-06-21):** U2 candidate-cohort IC = CO-PRIMARY; new SELECTION-DRIVEN verdict (U1+ but U2≈0); catalyst_decay_w needs incremental IC after `selector_score` + `coinvest_score_z` (raw IC insufficient)
