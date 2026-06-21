@@ -46,6 +46,16 @@ The wrapper is production-safe and can be deployed. It enforces:
 - Governance metadata in every log entry (automation_approval: false immutable)
 - LG2 independence (no decision cascades)
 
+### Delivered Files & Runtime Detail
+
+*(Merged from the same-commit `langgraph-lg3-runtime-scheduling-implemented` fact, 0afa9e25 — folded here to avoid a duplicate fact for one deliverable.)*
+
+- **`tools/run_scientific_cartography_scheduled_review.py`** (265 lines) — Mode B cron-compatible wrapper. Auto-detects latest snapshot via `find_latest_snapshot_date()`, invokes LG1 with `--approve-review` default, `decision_actor="scheduled-review-automation"`. Logs every run (timestamp, as_of_date, outcome, duration, error_message + governance block) to **`artifacts/scientific_cartography/scheduled_review_cron.jsonl`** (append-only). Exit code 0 in all paths.
+- **`docs/scientific_cartography_lg3_cron_setup.md`** (204 lines) — install/operate/rollback guide. Intended schedule: daily **08:05 AM ET**.
+- **Disable/rollback**: remove the cron entry or `export LG3_SCHEDULED_REVIEW_DISABLED=1`.
+- **Monitor**: `jq 'select(.outcome=="success")' artifacts/scientific_cartography/scheduled_review_cron.jsonl | wc -l`
+- Note: `[[langgraph-lg3-cron-activated]]` records the later operator install (2026-06-19); current runtime state is governed by the containment freeze (crons paused, see `[[biotech_containment_governance_2026_06_21]]`).
+
 ---
 
 **Approval date**: 2026-06-19  
