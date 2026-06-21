@@ -14,7 +14,9 @@ metadata:
 
 ## Branch: `universe/hygiene-2026-06-21`
 
-**Ahead of origin by 2 commits** (77592a35 + feee3efb not yet pushed). Remote is `d9531c7b` (frozen main).
+**STEP 4B COMPLETE (verified 2026-06-21).** HEAD = `ed032c8a`, local == origin (pushed). All 4 commits in. Working tree clean. Remaining: PR open + merge only (gh auth broken → open manually at GitHub; merge gated by containment gates + operator approval).
+
+Earlier state: ahead of origin by 2 commits (77592a35 + feee3efb). Remote main is `d9531c7b` (frozen).
 
 ## Committed
 
@@ -40,11 +42,14 @@ No uncommitted changes after `feee3efb`. `universe.json` unchanged. `etf_holding
 
 ## corporate_actions.json now 61 entries (was 57)
 
-## Pending before Step 4B (ETF import)
-- [ ] **Step 4B approval**: run `import_etf_csvs.py` → `etf_holdings_complete.json`
-- [ ] **universe.json update**: run `add_etf_tickers_to_universe.py`
+## Status
+- [x] **Step 4B**: `import_etf_csvs.py` → `etf_holdings_complete.json` (ibb/nbi/xbi keys) — DONE
+- [x] **universe.json update**: commit `ed032c8a` added 16 ETF tickers. `production_data/universe.json` = 354 tickers, valid JSON, all 16 adds present. Backup at `production_data/universe_backup_2026-06-21.json` (gitignored, 1.3MB).
+- [x] **corporate_actions.json** = 61 entries in `actions` list (schema-wrapped dict).
 - [ ] **PR open + review** (gh CLI auth broken — open manually at GitHub)
-- [ ] **Merge** (requires branch protection gates + operator approval)
+- [ ] **Merge** (requires branch protection gates + operator approval; repo still under containment freeze)
+
+The 16 adds: live (11) ABBV AKBA CAPR CPRX DMRA IMNM MDXG RNAC SLS TRAX VSTM; pre-gated by corp actions (5) ACLX DAWN FOLD TERN THRD — added for completeness, excluded by `is_dead()` (common/corporate_actions.py) at run time so no false-positive candidates.
 
 ## Known universe gaps (would be added by Step 4B)
 ~10 live new biotech adds: CAPR, CPRX, IMNM, SLS, AKBA, VSTM, MDXG, DMRA, TRAX, RNAC
