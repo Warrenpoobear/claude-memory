@@ -53,6 +53,19 @@ QUIESCENCE_CONFIRMED_TWICE       ⬜ read-only poll, two spaced checks; NO git f
 ```
 Standing freeze: no repo cleanup, no model edits, no commits, no pushes, no autonomous agent work.
 
+## Universe audit (v1.8 appendix — external read-only, completed 2026-06-21)
+Part B COMPLETE. 19 docs now in package. Key findings:
+- **47 confirmed removal candidates** (acquired/delisted/BK mid-2025–Jun 2026): ITCI, BPMC, VRNA, RNA, APLS, TERN, AKRO, SLNO, KALV + 18 mid/small M&A + 5 Concentra wind-downs + 13 BK/delistings
+- **IOBT highest urgency**: delisted Jun 18, 2026 (3 days ago); if in universe = live stale-ticker incident
+- **21 confirmed add candidates** (IPOs missing): KLRA, PBLS, KARD, GENB, EIKN, AKTS, AVLN, COAG, ODTX, SPTX, AGMB, MANE, SGP (H1 2026 priority)
+- **7 H2 2026 PDUFA names to verify**: VERA, CELC, OTLK, CAPR, SRRK, BBIO, ROIV
+- All 15 live holdings confirmed active/tradeable; ETF CSVs stale (2026-01-07); `auto_download_etf_holdings.py` is Part C refresh tool
+
+**First Part A checks post-containment (priority order):**
+1. IOBT present? → if yes, stale universe confirmed (live incident)
+2. KLRA / PBLS / GENB / KARD present? → if no, completeness gap confirmed
+3. SLRN present? → if yes, post-merger stale ticker
+
 ## Sequence
 A. Finish containment (operator) ⬜ → B. Preserve package ✅ → C. Fresh A3 cleanup plan vs d9531c7b ⬜ → D. Run July 8 packet as amended ⬜ → E. Ranker v3 shadow decision ⬜
 
