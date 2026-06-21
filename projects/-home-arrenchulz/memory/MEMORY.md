@@ -72,6 +72,9 @@
 - [External review outcome (2026-05-05)](asset_allocation_external_review_2026_05_05.md) `[shipped]` — 8 findings (path-traversal, hash gaps, TA wind-down, recon div-by-zero, fund_count cap, overlay paths, config strictness, runway horizon) → all fixed in 3 commits → HEAD `0280024`; regression tests at `tests/test_review_fixes_2026_05_05.py`
 - [Phase 23 PE commitment-book — deferred](asset_allocation_phase_23_followup.md) `[stale]` — design at `f81ff43`; implementation waiting on user-gathered commitment book + Archway monthly actuals + entity registry; resumption order: EntityRegistry → fixtures → loader → diagnostics
 
+## Infrastructure
+- [Ubuntu WSL2 verdict (2026-06-21)](infra_ubuntu_wsl2_verdict_2026_06_21.md) — stay on Ubuntu; move repo `/mnt/c/` → `~/Projects/`; small VPS for always-on cron; no distro switch
+
 ## Dev Tools
 - [Hermes skills inventory (2026-06-02)](hermes_skills_inventory_2026_06_02.md) — 31 active skills (6 governance, 6 signal, 7 ops, 3 liquidity, 3 research, 4 debug, 2 office); Phase B complete; audit CLEAN; Path C monitoring + town-operator-bridge live
 - **[Hermes skills optimization framework (2026-06-05)](hermes_skills_optimization_framework.md)** — Recursive self-improvement system for 31 skills: execution logging + dependency mapping + feedback learning + monthly reports; enables skill efficacy scoring, composition pattern mining, auto-suggestion
