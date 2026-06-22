@@ -12,6 +12,8 @@ metadata:
 
 # Biotech Containment + Governance Package — 2026-06-21
 
+> **UPDATE 2026-06-22 — FREEZE BASELINE MOVED.** Operator (Warrenpoobear) merged six PRs #359–#364 into `main` via gh-created draft PRs. `main` advanced `d9531c7b → b096cfe7`. The "frozen at d9531c7b" baseline below is HISTORICAL — current `main` HEAD = `b096cfe7`. Merges were test/CI-contract + wrapper-fix branches (semgrep phase0, phase2 runner fixture, snapshot deadlock fix, rankings contract, IC forward-date, ranker contract #364). ⚠️ All six merged WITHOUT CI running — GitHub **Actions budget exhausted**, every job blocked at start ("job was not started because an Actions budget is preventing further use"); validate on first `main` run after budget restored. Containment gates below were NOT formally cleared in-session; treat freeze as operator-lifted for these merges. If re-pinning a freeze baseline, use `b096cfe7`. gh now authenticated (Warrenpoobear, `repo` scope, SSH).
+
 ## Incident
 INC-2026-06-20-AUTOPUSH: autonomous writer committed/pushed directly to `main`; cleanup auto-reverted by a still-live watcher; ~59MB herald_cache (626 files) + file deletions churned. **Production ranker/selector code NOT breached** — repo history/hygiene only. Repo frozen at `origin/main = d9531c7b`. Remote switched to SSH this session (HTTPS password auth dead; gh token was invalid; SSH key works). See [[hermes_update_2026_06_21]] for fleet containment.
 
