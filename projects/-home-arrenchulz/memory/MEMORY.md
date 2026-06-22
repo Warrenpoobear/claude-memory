@@ -75,6 +75,7 @@
 
 ## Infrastructure
 - [Ubuntu WSL2 verdict (2026-06-21)](infra_ubuntu_wsl2_verdict_2026_06_21.md) — stay on Ubuntu; move repo `/mnt/c/` → `~/Projects/`; small VPS for always-on cron; no distro switch
+- **[CodeGraph/Hermes containment audit (2026-06-21)](codegraph_hermes_containment_2026_06_21.md)** `[shipped]` — index.lock races = WSL2 `/mnt/c` latency, NOT live watcher (per-repo daemon dead, ENOTSUP socket); Hermes MCP gateway instance A (passive, Cursor-launched) reaped by closing Cursor; reversible Cursor-MCP disable patch DRAFTED + UNAPPLIED (apply only if Cursor auto-respawns Hermes)
 
 ## Dev Tools
 - [Hermes skills inventory (2026-06-02)](hermes_skills_inventory_2026_06_02.md) — 31 active skills (6 governance, 6 signal, 7 ops, 3 liquidity, 3 research, 4 debug, 2 office); Phase B complete; audit CLEAN; Path C monitoring + town-operator-bridge live
