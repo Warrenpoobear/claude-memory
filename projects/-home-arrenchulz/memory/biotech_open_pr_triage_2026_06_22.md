@@ -38,5 +38,11 @@ Repo is a **private repo on a free GitHub plan**. Two structural consequences:
 - **#267** PIT hardening (as_of_date gate + priced_move quarantine) — **RE-DO CLEAN**. ~140 lines useful code+tests buried under an 8190-line `market_data.json` regen blob. Extract code onto fresh branch off current main; don't resurrect this draft.
 - **#269** ops cron WSL2 catchup — **PARK**. Still-relevant (calibration_evidence still FAIL per 2026-06-19 fleet status) but crons forbidden + fleet CLOSED under containment. Revisit when fleet reopens.
 
+## ⚠️ Unsolicited working-tree edit (containment signal) + typo PR #367
+During the session, `src/snapshot_generator.py` was modified in the working tree by something OTHER than this agent — fixing a real bug: the required CLI arg was `--as-o` (argparse → `args.as_o`) while `main()` reads `args.as_of` (line 446) → AttributeError on every run. The edit (`--as-of` + `dest="as_of"`) is correct.
+- Investigation: NOT git hooks (LFS-only post-checkout/merge), NOT `.cursor/hooks.json` (shell-reminder only), NOT pre-commit (black/isort/flake8/detect-secrets are formatters + only run at commit-time). A SEMANTIC flag+dest fix is something no formatter makes → an **AI editor/agent or human** touched the frozen repo. No such process was running at inspect time; codegraph `serve --mcp` watchers ARE running (read-only indexers). Likely transient Cursor-agent edit (repo has `.cursor/` agent setup; memory notes Cursor-launched MCP instances). UNCONFIRMED culprit — needs live inotify to catch recurrence.
+- Isolated into standalone DRAFT PR **#367** (`fix/snapshot-generator-as-of-flag-2026-06-22`, commit `4e6815ed`) — NOT mixed into universe work. Bug affects `main`.
+- Containment relevance: agents are supposed to be CLOSED; an unsolicited edit to the frozen repo is the INC-2026-06-20-AUTOPUSH failure mode (minus the autopush). Operator should confirm no agent/editor is still live-editing.
+
 ## Next concrete actions (operator-gated)
 Restore Actions budget → CI-validate main + #365. Plan decision (branch protection). Then: route #268 through governance, re-do #267 clean. Universe Part A adds (KLRA/PBLS/GENB/KARD) still missing from live universe.
