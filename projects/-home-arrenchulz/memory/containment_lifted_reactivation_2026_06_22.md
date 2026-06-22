@@ -24,8 +24,12 @@ Operator instruction "drop containment and execute"; chose **Full reactivation, 
 - `ALL_AGENTS_CLOSED` / `QUIESCENCE_CONFIRMED_TWICE` — released; fleet reactivated.
 - **Incident root cause (autonomy + unprotected `main`) is re-established. Operator explicitly accepted.**
 
-## ⚠️ Re-armed auto-push vector
-`weekly-skill-harvester` Hermes cron (`~/.hermes/cron/jobs.json`, Mon 20:00) autonomously `git commit`+`git push` to `main`, "no approval needed" — the exact INC-2026-06-20 mechanism, now LIVE. No local pre-push guard installed.
+## ✅ Auto-push vector — FOUND & PAUSED (2026-06-22 13:14 EDT, containment-first audit)
+`weekly-skill-harvester` Hermes cron (`~/.hermes/cron/jobs.json`, id `a15dbdcb6f41`, Mon 20:00) autonomously `git commit`+`git push docs/hermes_skills/` to `main`, "no approval needed" — the exact INC-2026-06-20 mechanism. Was LIVE & scheduled to fire 2026-06-22 20:00; **PAUSED** via `hermes cron pause weekly-skill-harvester` (operator-authorized this session). Now `enabled:false`/`state:paused`; 22 other Hermes jobs untouched. Reversible: `hermes cron resume`. **Not hard-closed** — push step still in job config; no branch protection (free plan), no CI. Pre-push guard still TODO.
+- **Audit lesson:** autopush audits MUST check `~/.hermes/cron/jobs.json` (Hermes scheduler) — it is invisible to `crontab -l`. OpenClaw scheduler (`~/.openclaw/cron`) is dormant (only `.migrated` files, no run since 06-17; exec-approval allowlist = read-only binaries, no `git`/`gh`).
+- Closeout artifact: tracked `docs/incidents/INC_2026_06_20_AUTOPUSH_CLOSEOUT_2026_06_22.md` (commit `2d3f54ea`, branch `langgraph-review-...None-guard`, NOT pushed); working copy `artifacts/incidents/` (gitignored); durable mirror `~/governance_package_2026_06_21/`.
+- Part of containment-first Hermes plan: **Pkg A ✅ (harvester paused) → Pkg B ✅ runtime-boundary map (`docs/governance/HERMES_OPENCLAW_LANGGRAPH_RUNTIME_BOUNDARY_2026_06_22.md`, commit `96ffea36`) → pre-push guard ✅ (`tools/githooks/pre-push` + installer, commit `ded2d3b0`, installed+tested in this clone) → Pkg C read-only `biotech-mcp` (NEXT) → D/E external MCP intake.** All commits on branch `langgraph-review-...None-guard`, **NOT pushed** (ahead 3).
+- **Boundary-map open operator decisions:** (1) OpenClaw fence-vs-retire (blocks new Hermes profiles; OpenClaw scheduler dormant, github-skill push triple-gated); (2) `hermes update` 0.15.1→≥0.16.0 to close HIGH DNS-rebinding vuln on LAN-exposed gateway :8642. (3) git-push control gap: `approvals.cron_mode:deny` bypassed by shell-via-`-c` allowlist — pre-push guard is the backstop.
 
 ## What was done
 1. **Hermes default gateway** `hermes-gateway.service` started (:8642, telegram off) → revives 23-job Hermes cron scheduler. Health `{"status":"ok"}`.
