@@ -2,6 +2,9 @@
 
 > Inline status markers: `[active]` (default, omitted) · `[stale]` (waiting on resolution) · `[shipped]` (in observation) · `[resolved]` (closed). New memory files use lifecycle frontmatter (`status`, `expires`, `resolves`, `supersedes`, `related`); old files are not retrofitted.
 
+## Containment Branch (2026-06-22)
+- **[Containment branch pushed + draft PR #371 opened (2026-06-22)](containment_branch_status_2026_06_22.md)** — BRANCH HANDED OFF. Semgrep MCP manual-only/not registered; biotech-mcp registered; harvester paused; OpenClaw deferred to separate branch.
+
 ## Semgrep Governance Guardrails (2026-06-22)
 - **[Semgrep governance guardrail layer — shipped 2026-06-22](semgrep_governance_guardrails_2026_06_22.md)** `[shipped]` — Draft PR #370 (rules: `0573101e`) + #371 (langgraph None-guard: `afced5d4`); 4/5 areas, §5 taint deferred; ERROR-blocking local pre-commit, WARN on-demand; CI dead so local-only. Gotchas: semgrep unusably slow on /mnt/c (scan on fast-fs copy), explicit targets bypass `.semgrepignore`, quoted-literal `pattern-not-regex` for field pins.
 
