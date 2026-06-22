@@ -31,3 +31,7 @@ Built a deterministic **Semgrep governance/regression guardrail** for the biotec
 - `semgrep --test` (the native test runner) crashed with an IndexError on this layout; verified rules via direct fast-fs scans of fixtures instead.
 
 See [[biotech-containment-governance-2026-06-21]] — branches pushed under the active INC-2026-06-20-AUTOPUSH freeze with operator that auto-merges PRs; drafts used to prevent that.
+
+**Status (operator close-out 2026-06-22): `SEMGREP_GOVERNANCE_GUARDRAILS_DRAFT_REVIEW_READY`.** Scope = governance/dev guardrails only; production impact = none; merge posture = keep draft until explicitly reviewed. Caveat: #370's pre-commit hook is a developer-machine guardrail only — NOT server-side enforcement unless CI is active.
+
+**Durable path (agreed, not yet done):** 1) merge #370 as developer-machine guardrail; 2) later add/reactivate the CI Semgrep audit once Actions budget allows (server-side gate); 3) keep blocking rules small + deterministic, keep taint warning/audit-only.
