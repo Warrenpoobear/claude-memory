@@ -19,10 +19,16 @@ metadata:
 
 3. ✅ **Branch: `harvester-manualization-2026-06-22`** — PR #373 OPEN (draft, `b2acf98b`). Step 8 of `weekly-skill-harvester` replaced: autonomous `git add/commit/push` removed; agent now writes `docs/hermes_skills/pending/HARVEST_<date>.md` proposal only. Job still paused. Operator must merge #373 and review before re-enabling.
 
-4. ✅ **Branch: `biotech-mcp-daily-briefs-2026-06-22`** — PR #374 OPEN (draft, `0cea79df`). Six-section read-only brief design + `docs/hermes/daily_brief_prompt.txt`. Cron spec drafted, NOT registered (`enabled: false` gate). Dry-run procedure in design doc. Output path: `artifacts/daily_briefs/BRIEF_<date>.md`. Activation gate: dry-run reviewed + PR #373 merged + operator enables.
+4. ✅ **Branch: `biotech-mcp-daily-briefs-2026-06-22`** — PR #374 OPEN (draft, `0cea79df`). Six-section read-only brief design + `docs/hermes/daily_brief_prompt.txt`. Cron spec drafted, NOT registered. Activation gate: dry-run reviewed + PR #375 merged + operator enables.
+
+4b. **Branch: `harvester-dry-run-followup-2026-06-22`** — PR #375 OPEN (draft, `8186bc83`). Governance doc + dry-run PASS result + Path A (scheduler) OFF-LIMITS finding. Must merge before #374.
 
 5. **Later: reconsider Semgrep MCP registration blockers** — only after B1–B4 are resolved (roots/list client handling, LGPL sign-off, startup fetch policy, semgrep_scan metrics-off bug).
 
 **How to apply:** When starting any new workstream, branch from `main` (post-merge), not from the containment branch. Never combine OpenClaw + harvester + biotech-mcp briefs in the same branch.
+
+**Merge sequence (locked):** #375 → #374 → daily brief one-shot dry-run → brief quality review → only then consider disabled cron registration.
+
+**Post-#374 next workstream:** brief quality refinement — accurate, compact, flags stale/missing data instead of guessing. Not more autonomy.
 
 **Related:** [[containment-branch-status-2026-06-22]]

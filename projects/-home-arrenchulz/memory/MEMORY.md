@@ -16,6 +16,7 @@
 
 ## Working-with-Claude lessons
 - [Explore/general-purpose subagents have Bash — "read-only" isn't enforced (2026-06-22)](explore_agent_bash_write_risk_2026_06_22.md) — one auto-committed to the branch during a path-map sweep; scope sweep prompts with explicit no-write/no-commit + verify via `git log`; treat agent self-reports as unverified (confabulation)
+- [Hermes scheduler: don't use cron run+tick on paused jobs (2026-06-22)](hermes_scheduler_paused_job_safety_2026_06_22.md) — re-enables as side effect; use hermes chat -q only
 
 ## Memory tooling
 - Graph at `memory_graph.json` (next to this file) — built by `/home/arrenchulz/.claude/scripts/build_memory_graph.py`. Re-run after writing/editing memory files
