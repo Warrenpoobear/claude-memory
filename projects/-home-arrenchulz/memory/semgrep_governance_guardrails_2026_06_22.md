@@ -34,4 +34,11 @@ See [[biotech-containment-governance-2026-06-21]] — branches pushed under the 
 
 **Status (operator close-out 2026-06-22): `SEMGREP_GOVERNANCE_GUARDRAILS_DRAFT_REVIEW_READY`.** Scope = governance/dev guardrails only; production impact = none; merge posture = keep draft until explicitly reviewed. Caveat: #370's pre-commit hook is a developer-machine guardrail only — NOT server-side enforcement unless CI is active.
 
-**Durable path (agreed, not yet done):** 1) merge #370 as developer-machine guardrail; 2) later add/reactivate the CI Semgrep audit once Actions budget allows (server-side gate); 3) keep blocking rules small + deterministic, keep taint warning/audit-only.
+**Durable path — 5-step sequence (confirmed 2026-06-22):**
+1. **Review + merge #370** — no new rules until reviewed; it already covers the highest-value guardrails.
+2. **Semgrep CI audit** — once Actions budget returns, small follow-up PR. Shape: `pull_request` + `workflow_dispatch` triggers; `fetch-depth: 0`; `SEMGREP_BASELINE_REF: origin/main` for diff-aware scan (only newly-introduced findings, avoids old-finding flood); `--severity ERROR --error`; audit-first until a few clean PRs, then make ERROR blocking.
+3. **Rule/test refactor** — split `.semgrep/` into `rules/` + `tests/semgrep/` to eliminate fixture self-scan confusion. Use `semgrep --test --config .semgrep/rules tests/semgrep`.
+4. **High-confidence new rules** — (P1) `nosemgrep` ban without justification token; (P1) live-network calls in cartography/replay/cache-only paths; (P1) `final_score`/`ranker_v2_score`/sizing writes outside approved modules. (P2) `subprocess` in MCP/agent wrappers WARN; (P2) destructive file ops in agent/tool code WARN.
+5. **§5 taint pilot (WARN only)** — only after CI is stable; run on fast-fs copy NOT `/mnt/c`; separate false-positive triage cycle.
+
+**What not to do yet:** No §5 taint immediately. No broad subprocess bans repo-wide. `.semgrepignore` is not a control for secrets scans (Semgrep Secrets ignores it — detect-secrets handles that separately).
