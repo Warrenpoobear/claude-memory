@@ -47,6 +47,9 @@ quiescence ×2 → READ actual model rank for current 15 + reconcile ledger (CON
 7. agent_token_separation_note — separate machine identity for agents (durable identity fix)
 8. branch_protection_ui_checklist — operator UI steps (first gate)
 
+## July 8 execution-readiness (read-only audit, 2026-06-22)
+`july8_execution_readiness_audit_2026_06_22.md` in the package. **Corrects first-pass pessimism:** the real engine `scripts/eval_forward_returns.py` already has ~80% of the packet machinery (PIT Spearman IC, multi-horizon, `ic_t_stat`, `ls_t_stat` bucket spread, `resid_multi_alpha_t` multi-control residual). U2 is RECONSTRUCTABLE (`rankings.csv` has `selector_score`). The ONE governing build = U1/U2 split as separate IC universes (bounded). Real risk is DATA not code: PIT caches need 40d/60d filled (default horizons `[5,20,63]` — 40 absent). Punch-list order post-containment: rebuild caches@40/60 → add U1/U2 split + CI (derive from t-stat) → incremental-IC for catalyst_decay_w (point resid framework at selector_score+coinvest_score_z) → run packet. Biggest residual July-8 risk = U2 breadth <~30 → UNOBSERVABLE by design. Nothing run/committed.
+
 ## Containment gates (ALL must hold before any repo/agent/model work)
 ```
 BRANCH_PROTECTION_ENABLED        ⬜ operator (GitHub UI)
