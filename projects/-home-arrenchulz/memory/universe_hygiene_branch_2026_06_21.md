@@ -47,8 +47,9 @@ No uncommitted changes after `feee3efb`. `universe.json` unchanged. `etf_holding
 - [x] **universe.json update**: commit `ed032c8a` added 16 ETF tickers. `production_data/universe.json` = 354 tickers, valid JSON, all 16 adds present. Backup at `production_data/universe_backup_2026-06-21.json` (gitignored, 1.3MB).
 - [x] **corporate_actions.json** = 61 entries in `actions` list (schema-wrapped dict).
 - [x] **PR #365 MERGED** — merged to `main` 2026-06-22 14:37 at commit `ed032c8a` (354 tickers); `main` now `e304654d`. **The 354-ticker hygiene universe (corp-actions + ETF parser + 16 ETF adds) IS now the golden record on main.** Branch auto-deleted on merge, then re-created by my push.
-- [x] **IPO completeness adds** — 4 verified H1 2026 biotech IPOs (KLRA/PBLS/GENB/KARD) committed `5e068773` → 358 tickers. Did NOT make #365 (pushed after merge); now in **follow-up DRAFT PR [#366](https://github.com/Warrenpoobear/biotech-screener/pull/366)** (base `main`, clean +76 diff). NOT yet on main / NOT golden.
-- [ ] **Merge #366** — gated by no-CI (Actions budget exhausted) + containment. Until merged, golden universe on main = 354 (KLRA/PBLS absent).
+- [x] **IPO completeness adds — #366 MERGED** 2026-06-22 15:04 at `5e068773` → **main now `e51d4ded`, 358 tickers; the 4 IPO adds ARE on main** (as bare `pending_data_collection` stubs). Golden universe = 358.
+- [x] **Data enrichment for the 4 — in DRAFT PR [#368](https://github.com/Warrenpoobear/biotech-screener/pull/368)** (`fdfc8a78`, stranded after #366 auto-merged). Collected via repo collectors (yfinance market+financials, CT.gov clinical): market all 4; financials PBLS/GENB/KARD (KLRA left pending — no yfinance balance sheet); clinical all 4 (keyword-matched, CIK unresolved). +264/-19, eligibility 358/347. NOT yet on main.
+- NOTE: operator is auto-merging these PRs within minutes; each merge auto-deletes the branch, stranding the next follow-up commit → recurring need for fresh PRs (#365→#366→#368).
 
 The 16 adds: live (11) ABBV AKBA CAPR CPRX DMRA IMNM MDXG RNAC SLS TRAX VSTM; pre-gated by corp actions (5) ACLX DAWN FOLD TERN THRD — added for completeness, excluded by `is_dead()` (common/corporate_actions.py) at run time so no false-positive candidates.
 
