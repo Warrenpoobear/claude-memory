@@ -13,17 +13,13 @@ metadata:
 
 **Sequence:**
 
-1. **Review/merge PR #371** — containment branch already pushed as draft; keep all current boundaries intact (no OpenClaw, no Semgrep MCP, harvester paused)
+1. ✅ **Review/merge PR #371** — MERGED to main (`00b742f4`); packages A–E2 + Hermes 0.17.0 + biotech-mcp registered.
 
-2. **Branch: `openclaw-fence-retire-2026-06-22`** — start from `main` after #371 merges; highest-risk remaining runtime surface. Minimum deliverable: doc + config proving no scheduler resurrection, no `git`/`gh` allowlist, no write-capable GitHub skill path, ownership to Hermes.
-   ```bash
-   git checkout main && git pull --ff-only
-   git checkout -b openclaw-fence-retire-2026-06-22
-   ```
+2. ✅ **Branch: `openclaw-fence-retire-2026-06-22`** — MERGED as PR #372 (`4d1a4fd8`); `**` wildcard + shell removed from exec-approvals; 13 read-only binaries retained; 3 SOUL.md files added.
 
-3. **Branch: `harvester-manualization`** — do NOT resume weekly-skill-harvester as-is. Operator preference: **Option C** (writes local diff/report only, no git commit/push). Options: A=delete, B=manual command, C=local report only (preferred), D=draft PR on explicit command.
+3. ✅ **Branch: `harvester-manualization-2026-06-22`** — PR #373 OPEN (draft, `b2acf98b`). Step 8 of `weekly-skill-harvester` replaced: autonomous `git add/commit/push` removed; agent now writes `docs/hermes_skills/pending/HARVEST_<date>.md` proposal only. Job still paused. Operator must merge #373 and review before re-enabling.
 
-4. **Branch: biotech-mcp daily briefs** — add prompts/jobs that consume read-only tools; no new tools. Candidates: `daily_snapshot_brief`, `gate_verdict_drift_brief`, `phase2_health_watch`, `cartography_status_watch`, `semgrep_rules_inventory_check`. Reports only; no writes to production, no auto-fixes, no cron until reviewed.
+4. **Branch: biotech-mcp daily briefs** — NEXT. Add Hermes cron jobs that consume `biotech` MCP read-only tools. Candidates: `daily_snapshot_brief`, `gate_verdict_drift_brief`, `phase2_health_watch`, `cartography_status_watch`, `semgrep_rules_inventory_check`. Reports only; no writes to production, no auto-fixes, no cron until reviewed.
 
 5. **Later: reconsider Semgrep MCP registration blockers** — only after B1–B4 are resolved (roots/list client handling, LGPL sign-off, startup fetch policy, semgrep_scan metrics-off bug).
 
