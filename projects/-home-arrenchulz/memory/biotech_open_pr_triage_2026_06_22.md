@@ -27,8 +27,9 @@ Repo is a **private repo on a free GitHub plan**. Two structural consequences:
 ## Merged to main (six, by operator, 2026-06-22 — NO CI ran)
 #359 semgrep phase0 · #360 phase2 runner fixture · #361 snapshot deadlock fix · #362 rankings contract · #363 IC forward-date · #364 ranker contract ([[ranker_contract_test_hardening_2026_06_21]]). First `main` run after Actions budget restored is their real validation.
 
-## Opened
-- **#365 DRAFT** — `universe/hygiene-2026-06-21` ([[universe_hygiene_branch_2026_06_21]]). Live `main` universe (338 tickers) still carries dead RNA/APLS/KALV and is missing KLRA/PBLS/GENB/KARD → real impact. Merge gated by containment + no-CI.
+## Universe hygiene — #365 MERGED, IPO adds in #366
+- **#365 MERGED** to `main` 2026-06-22 14:37 (at `ed032c8a`, 354 tickers). `main` now `e304654d`. **354-ticker hygiene universe (corp-actions + ETF parser + 16 ETF adds) is now the golden record on main.** ([[universe_hygiene_branch_2026_06_21]])
+- **#366 DRAFT** — 4 verified H1 2026 biotech IPO adds (KLRA/PBLS/GENB/KARD → 358), commit `5e068773`. Pushed after #365 merged, so stranded on re-created branch → follow-up PR. Clean +76 diff vs main. NOT yet golden; merge gated by no-CI + containment.
 
 ## Stale-PR dispositions
 - **#338** WR Hangry Wheel lunch randomizer — **CLOSED** (off-mission).
