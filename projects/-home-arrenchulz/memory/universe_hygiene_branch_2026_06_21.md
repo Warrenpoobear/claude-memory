@@ -1,6 +1,6 @@
 ---
 name: universe_hygiene_branch_2026_06_21
-description: "Branch universe/hygiene-2026-06-21 — 3 commits, corporate-actions + ETF parser; awaiting Step 4B import approval"
+description: "Branch universe/hygiene-2026-06-21 — corp-actions + ETF parser; DRAFT PR #365 open (2026-06-22); merge gated by containment + no-CI (Actions budget)"
 metadata: 
   node_type: memory
   type: project
@@ -46,8 +46,8 @@ No uncommitted changes after `feee3efb`. `universe.json` unchanged. `etf_holding
 - [x] **Step 4B**: `import_etf_csvs.py` → `etf_holdings_complete.json` (ibb/nbi/xbi keys) — DONE
 - [x] **universe.json update**: commit `ed032c8a` added 16 ETF tickers. `production_data/universe.json` = 354 tickers, valid JSON, all 16 adds present. Backup at `production_data/universe_backup_2026-06-21.json` (gitignored, 1.3MB).
 - [x] **corporate_actions.json** = 61 entries in `actions` list (schema-wrapped dict).
-- [ ] **PR open + review** (gh CLI auth broken — open manually at GitHub)
-- [ ] **Merge** (requires branch protection gates + operator approval; repo still under containment freeze)
+- [x] **PR open** — DRAFT [#365](https://github.com/Warrenpoobear/biotech-screener/pull/365) opened 2026-06-22 (base `main`); confirmed live `main` universe still has RNA/APLS/KALV present + missing KLRA/PBLS/GENB/KARD, so this fix has real impact
+- [ ] **Merge** — gated by (a) containment + operator approval AND (b) **no CI possible** until GitHub Actions budget restored (free-plan minutes exhausted; branch protection also unavailable on free private plan)
 
 The 16 adds: live (11) ABBV AKBA CAPR CPRX DMRA IMNM MDXG RNAC SLS TRAX VSTM; pre-gated by corp actions (5) ACLX DAWN FOLD TERN THRD — added for completeness, excluded by `is_dead()` (common/corporate_actions.py) at run time so no false-positive candidates.
 
