@@ -2,6 +2,9 @@
 
 > Inline status markers: `[active]` (default, omitted) · `[stale]` (waiting on resolution) · `[shipped]` (in observation) · `[resolved]` (closed). New memory files use lifecycle frontmatter (`status`, `expires`, `resolves`, `supersedes`, `related`); old files are not retrofitted.
 
+## Semgrep Governance Guardrails (2026-06-22)
+- **[Semgrep governance guardrail layer — shipped 2026-06-22](semgrep_governance_guardrails_2026_06_22.md)** `[shipped]` — Draft PR #370 (rules: `0573101e`) + #371 (langgraph None-guard: `afced5d4`); 4/5 areas, §5 taint deferred; ERROR-blocking local pre-commit, WARN on-demand; CI dead so local-only. Gotchas: semgrep unusably slow on /mnt/c (scan on fast-fs copy), explicit targets bypass `.semgrepignore`, quoted-literal `pattern-not-regex` for field pins.
+
 ## Monte Carlo Framework (2026-05-15)
 - [Monte Carlo liquidity stress framework — built 2026-05-15](monte_carlo_framework_built_2026_05_15.md) — MC-0/MC-1/MC-2/MC-3 delivered; 416 tests; synthetic/advisory, awaiting L19/L20/Phase-23 for decision-grade
 
