@@ -1,13 +1,21 @@
 ---
 name: langgraph-lg3-cron-activated
-description: LG3 cron entry installed and active as of 2026-06-19; observation period begins
+description: "CORRECTED 2026-06-22 — LG3 cron was NOT persistently installed; dormant since 2026-06-21. Original activation claim inaccurate."
 metadata:
   type: project
-  status: active
+  status: stale
   locked_at: 2026-06-19
   activated_at: 2026-06-19T19:15:00Z
+  corrected_at: 2026-06-22
   originSessionId: 0c7c7507-2b0a-4c34-adaa-8737cd8b6b04
 ---
+
+> **⚠️ CORRECTION (2026-06-22 integrity check):** The activation below did NOT persist.
+> Verified ground truth on 2026-06-22:
+> - `crontab -l` → **"no crontab for arrenchulz"** — the LG3 line is **NOT installed** in the user crontab, nor in Hermes `cron/jobs.json` (23 jobs), nor in OpenClaw cron.
+> - Audit trail `scheduled_review_cron.jsonl` has only **4 executions ever**: Jun 19 (1 failure + 1 success, manual test runs) and a single Jun 21 13:07 UTC run. **No run since Jun 21** — no Jun 22 run despite the "daily" claim.
+> - The Jun 19 19:05 UTC run **failed** with `TypeError: disease_map_index_path is None` in `scientific_cartography/langgraph_review/nodes.py:189` (latent input-guard bug; non-blocking by design).
+> - **Conclusion:** LG3 cron is NOT running. The "observation period live, 14/14 daily runs" framing is false. The window did not accumulate. If LG3 observation is still wanted, the cron must be (re)installed deliberately — but that is gated reactivation under containment ([[biotech_containment_governance_2026_06_21]] / [[hermes_update_2026_06_21]]) and was NOT done. See [[hermes-fleet-integrity-2026-06-22]].
 
 ## LG3 Cron Activation — 2026-06-19
 

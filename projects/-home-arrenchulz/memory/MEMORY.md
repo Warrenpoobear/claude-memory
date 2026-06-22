@@ -10,7 +10,7 @@
 - Query: `/home/arrenchulz/.claude/scripts/query_memory_graph.py --search X` / `--related-to ID` / `--status stale` / `--expires-before YYYY-MM-DD` / `--orphans` / `--summary`. Use BEFORE re-reading multiple memory files
 
 ## LangGraph Orchestration Stack — LOCKED (2026-06-19)
-- **[LG3 cron ACTIVATED (2026-06-19)](langgraph_lg3_cron_activated_2026_06_19.md)** `[active]` — Cron installed, daily 08:05 AM ET. Observation period live 2026-06-19 to 2026-07-03. Wrapper tested ✓; governance locked ✓; non-blocking verified ✓.
+- **[LG3 cron ACTIVATED (2026-06-19) — ⚠️CORRECTED 2026-06-22](langgraph_lg3_cron_activated_2026_06_19.md)** `[stale]` — Claim was wrong: cron NOT persistently installed (`no crontab`), only 4 runs ever, dormant since Jun 21. See integrity check below.
 - **[LG3 runtime wrapper LOCKED (0afa9e25)](langgraph_lg3_runtime_wrapper_locked_0n5ax6.md)** — MODE_B_CRON_COMPATIBLE, READ_ONLY_DIAGNOSTIC, NON_BLOCKING. Wrapper COMPLETE; cron installation ACTIVE.
 - **[LG3 wrapper vs cron](langgraph_lg3_wrapper_vs_cron_o3e6bw.md)** — Wrapper ready; cron installation ACTIVE; observation window LIVE.
 - **[LG3 observation period (2026-06-19–07-03)](langgraph_lg3_observation_period_9zu55z.md)** — Verify wrapper runs, audit appends, non-blocking fails, artifacts bounded. Checkpoint ~2026-07-03. No LG4/LG5 until checkpoint.
@@ -18,6 +18,7 @@
 - **[LG2 governance boundaries (2026-06-19)](langgraph_phase_lg2_governance_boundaries.md)** — Review-workflow-approval-only (never automation). automation_approval immutably False. Append-only JSONL artifacts. **Forbidden**: cron, dashboard, production hook, agent summarization. LG3 runtime requires separate approval from LG2 approval.
 
 ## Operational Status (June 4 – ongoing)
+- **[Hermes fleet integrity check (2026-06-22)](hermes_fleet_integrity_2026_06_22.md)** `[active]` — Migration INCOMPLETE: OpenClaw still LIVE runtime (gateway :19001 pid 7171, active SQLite WAL); Hermes gateways DOWN. Fixed researcher `.env` dup port 8642→8644 (no restart). LG3 cron NOT installed. 2 integrity-report false positives corrected. agents_direct/snapshot/LG3 reinstall all gated on containment.
 - **[Hermes self-improvement loop STAGED (2026-06-21)](hermes_selfimprove_staging_2026_06_21.md)** `[active]` — Closes reward-signal + auto-promotion gaps; 5 files at `~/hermes_selfimprove_staging/` OUTSIDE frozen repo; gated on containment gates; scanner validated read-only (16 LRN→2 promotable)
 - **[Hermes fleet status — 2026-06-19](hermes_fleet_status_2026_06_19.md)** — 11 OK / 2 WARN / 2 FAIL; three critical blockers: (1) agents_direct cron dead since Jun 03 (cascading 5-agent staleness), (2) calibration_evidence FAIL (17d, postmortem gap upstream), (3) production_qa RED (run_manifest missing, classifier pool threshold breach). No new regressions. Next action: unblock agents_direct cron, resolve calibration_evidence, fix production_qa gates.
 - **[Phase 7A operational validation COMPLETE (2026-06-17)](phase7a_operational_validation_complete.md)** `[resolved]` — Tested on golden/baseline_2026-02-20 snapshot (319 companies). All 9 artifacts generated correctly; status.json valid; governance locked. Wrapper handles missing inputs gracefully (non-blocking). Ready for standalone operational use. Phase 7B preflight executed and implementation complete (commit 365ef05d).
