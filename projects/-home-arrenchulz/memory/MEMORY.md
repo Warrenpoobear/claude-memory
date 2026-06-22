@@ -5,6 +5,9 @@
 ## Platform Roadmap (2026-06-22)
 - **[Operator-approved workstream sequence (2026-06-22)](platform_roadmap_2026_06_22.md)** — 5 branches in order: (1) merge PR #371, (2) openclaw-fence-retire, (3) harvester-manualization (Option C: local report only), (4) biotech-mcp daily briefs, (5) Semgrep MCP blockers. Principle: reduce legacy risk before adding autonomy.
 
+## Freeze State (2026-06-22)
+- **[Scoped work freeze — production model frozen, diagnostics unfrozen (2026-06-22)](scoped_work_freeze_2026_06_22.md)** `[active]` — Ranker/selector/sizing/final_score/portfolio frozen. Safe lanes: expectation verification, Event EV shadow, Sci-Cart artifacts, observability, Hermes read-only. Next 3: (1) expectation field verification, (2) Event EV shadow, (3) Sci-Cart review.
+
 ## Containment Branch (2026-06-22)
 - **[Containment branch pushed + draft PR #371 opened (2026-06-22)](containment_branch_status_2026_06_22.md)** — BRANCH HANDED OFF. Semgrep MCP manual-only/not registered; biotech-mcp registered; harvester paused; OpenClaw deferred to separate branch.
 
