@@ -8,6 +8,9 @@
 ## Monte Carlo Framework (2026-05-15)
 - [Monte Carlo liquidity stress framework — built 2026-05-15](monte_carlo_framework_built_2026_05_15.md) — MC-0/MC-1/MC-2/MC-3 delivered; 416 tests; synthetic/advisory, awaiting L19/L20/Phase-23 for decision-grade
 
+## Working-with-Claude lessons
+- [Explore/general-purpose subagents have Bash — "read-only" isn't enforced (2026-06-22)](explore_agent_bash_write_risk_2026_06_22.md) — one auto-committed to the branch during a path-map sweep; scope sweep prompts with explicit no-write/no-commit + verify via `git log`; treat agent self-reports as unverified (confabulation)
+
 ## Memory tooling
 - Graph at `memory_graph.json` (next to this file) — built by `/home/arrenchulz/.claude/scripts/build_memory_graph.py`. Re-run after writing/editing memory files
 - Query: `/home/arrenchulz/.claude/scripts/query_memory_graph.py --search X` / `--related-to ID` / `--status stale` / `--expires-before YYYY-MM-DD` / `--orphans` / `--summary`. Use BEFORE re-reading multiple memory files
