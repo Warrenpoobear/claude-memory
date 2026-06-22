@@ -19,7 +19,7 @@ metadata:
 
 3. ✅ **Branch: `harvester-manualization-2026-06-22`** — PR #373 OPEN (draft, `b2acf98b`). Step 8 of `weekly-skill-harvester` replaced: autonomous `git add/commit/push` removed; agent now writes `docs/hermes_skills/pending/HARVEST_<date>.md` proposal only. Job still paused. Operator must merge #373 and review before re-enabling.
 
-4. **Branch: biotech-mcp daily briefs** — NEXT. Add Hermes cron jobs that consume `biotech` MCP read-only tools. Candidates: `daily_snapshot_brief`, `gate_verdict_drift_brief`, `phase2_health_watch`, `cartography_status_watch`, `semgrep_rules_inventory_check`. Reports only; no writes to production, no auto-fixes, no cron until reviewed.
+4. ✅ **Branch: `biotech-mcp-daily-briefs-2026-06-22`** — PR #374 OPEN (draft, `0cea79df`). Six-section read-only brief design + `docs/hermes/daily_brief_prompt.txt`. Cron spec drafted, NOT registered (`enabled: false` gate). Dry-run procedure in design doc. Output path: `artifacts/daily_briefs/BRIEF_<date>.md`. Activation gate: dry-run reviewed + PR #373 merged + operator enables.
 
 5. **Later: reconsider Semgrep MCP registration blockers** — only after B1–B4 are resolved (roots/list client handling, LGPL sign-off, startup fetch policy, semgrep_scan metrics-off bug).
 
