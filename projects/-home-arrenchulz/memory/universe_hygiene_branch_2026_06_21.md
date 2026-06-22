@@ -51,6 +51,15 @@ No uncommitted changes after `feee3efb`. `universe.json` unchanged. `etf_holding
 
 The 16 adds: live (11) ABBV AKBA CAPR CPRX DMRA IMNM MDXG RNAC SLS TRAX VSTM; pre-gated by corp actions (5) ACLX DAWN FOLD TERN THRD — added for completeness, excluded by `is_dead()` (common/corporate_actions.py) at run time so no false-positive candidates.
 
+## Eligibility validation (2026-06-22, read-only, on branch HEAD ed032c8a)
+`is_dead`-gating as of 2026-06-22: **354 entries → 343 ELIGIBLE, 11 gated**, no duplicates, all symbols well-formed.
+- Gated (all verified acquisition/delisted): ACLX, APLS, BHVN, CNTA, DAWN, FOLD, IMVT, KALV, RNA, TERN, THRD.
+- ✅ All 8 hygiene-targeted dead tickers (RNA/APLS/KALV/TERN/THRD/ACLX/DAWN/FOLD) present-but-gated as intended.
+- ✅ All 11 live adds (ABBV/AKBA/CAPR/CPRX/DMRA/IMNM/MDXG/RNAC/SLS/TRAX/VSTM) present + eligible.
+- ⚠️ BHVN (2024-10-15) + IMVT (2024-02-12) are old dead entries kept-and-gated — consistent with the keep+gate convention, NOT a bug; removing only these two would be inconsistent. Leave unless the whole convention changes.
+- ⚠️ 4 audit IPO adds still MISSING: KLRA, PBLS, GENB, KARD (completeness gap; NOT addressed by this branch).
+- NOTE: validates `is_dead` gating only — NOT downstream financial/market-cap/data-availability eligibility filters (needs a real pipeline run, blocked by no-CI/containment).
+
 ## Known universe gaps (would be added by Step 4B)
 ~10 live new biotech adds: CAPR, CPRX, IMNM, SLS, AKBA, VSTM, MDXG, DMRA, TRAX, RNAC
 3 pre-gated by corp actions: ACLX (Gilead/2025-12-15), DAWN (Unknown/2026-03-15), FOLD (Unknown/2026-03-01)
