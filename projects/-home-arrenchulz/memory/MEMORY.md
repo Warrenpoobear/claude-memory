@@ -3,10 +3,11 @@
 > Inline status markers: `[active]` (default, omitted) · `[stale]` (waiting on resolution) · `[shipped]` (in observation) · `[resolved]` (closed). New memory files use lifecycle frontmatter (`status`, `expires`, `resolves`, `supersedes`, `related`); old files are not retrofitted.
 
 ## Platform Roadmap (2026-06-22, corrected 2026-06-23)
-- **[Operator-approved workstream sequence — 8/9 complete (corrected 2026-06-23)](platform_roadmap_2026_06_22.md)** — Items 1–8 all done. Active lane: item 9 = PIT evidence review (PASS memo written) → EES forward validation. `OPENCLAW_STATUS: RETIRED`. Do not reopen items 1–8.
+- **[Operator-approved workstream sequence — 9/9 COMPLETE (2026-06-23)](platform_roadmap_2026_06_22.md)** — All items done. EES chain closed: validation→attribution→shadow monitor→guardrail design-only. Active path: daily shadow monitor run only. `OPENCLAW_STATUS: RETIRED`. Do not reopen any item.
 
 ## Freeze State (2026-06-22)
-- **[Scoped work freeze — production model frozen, diagnostics unfrozen (2026-06-22)](scoped_work_freeze_2026_06_22.md)** `[active]` — Ranker/selector/sizing/final_score/portfolio frozen. Safe lanes: expectation verification, Event EV shadow, Sci-Cart artifacts, observability, Hermes read-only. Next 3: (1) expectation field verification, (2) Event EV shadow, (3) Sci-Cart review.
+- **[Scoped work freeze — production model frozen, diagnostics unfrozen (2026-06-22)](scoped_work_freeze_2026_06_22.md)** `[active]` — Ranker/selector/sizing/final_score/portfolio frozen. EES shadow monitor now live (observation only). No model-use before shadow gates met (20 completed 5d + 20 completed 20d). See [[ees-shadow-monitor-state-2026-06-23]].
+- **[EES shadow monitor — observation only, gates unmet (2026-06-23)](ees_shadow_monitor_state_2026_06_23.md)** — Chain complete. Daily run: `python3 scripts/research/ees_v2_phase3_shadow_monitor.py --as-of-date YYYY-MM-DD`. Ledger gitignored. Next memo when both gates met.
 
 ## Containment Branch (2026-06-22)
 - **[Containment branch pushed + draft PR #371 opened (2026-06-22)](containment_branch_status_2026_06_22.md)** `[resolved]` — PR #371 MERGED. OpenClaw fenced 2026-06-22 → RETIRED 2026-06-23. All containment items closed.

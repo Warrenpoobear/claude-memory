@@ -29,7 +29,9 @@ metadata:
 
 8. ✅ **Sci-Cart Phase 12.1 review + Phase 13 plan landed** — Phase 13 planning complete.
 
-9. ✅ **PIT evidence review / EES forward validation** — COMPLETE 2026-06-23. PIT verdict `PASS_PIT_GAP_PANEL_ACCEPTED_FOR_DIAGNOSTIC_RESEARCH` (commit `692eded0`). EES verdict `PASS_EES_DIAGNOSTIC_PREDICTIVE_SIGNAL_OBSERVED` (commit `e80c3ff2`): ees_v2 5d IC=0.073 t=3.06; Phase 3 concentrated (5d t=4.97). EES v3 unevaluable (21.8% coverage). No model changes. Freeze ACTIVE.
+9. ✅ **PIT evidence review / EES forward validation / attribution / guardrail design** — COMPLETE 2026-06-23. Full chain: PIT `PASS` (`692eded0`) → EES validation `PASS` (`e80c3ff2`) → attribution (`fb52071f`: Phase 3 CT_PRIMARY_COMPLETION left-tail avoidance) → shadow monitor live (`60876b11`, `376d9e9d`) → guardrail design-only (`96733236`). No model changes. Freeze ACTIVE. **Active path: prospective shadow observation only.** See [[ees-shadow-monitor-state-2026-06-23]].
+
+**All 9 items complete. No new workstream authorized.**
 
 **Constraints (active):**
 - Do NOT reopen harvester-manualization.
@@ -37,7 +39,8 @@ metadata:
 - Do NOT enable any scheduler.
 - Do NOT mutate production model files (ranker/selector/sizing/final_score/gates/snapshots/portfolio).
 - Do NOT claim alpha. Freeze remains ACTIVE.
+- Do NOT add more EES analysis — shadow observation only until gates met.
 
-**How to apply:** Active lane is item 9. EES forward validation is the next concrete task.
+**How to apply:** All items complete. Only active task is daily shadow monitor run after each promoted snapshot.
 
 **Related:** [[containment-branch-status-2026-06-22]] [[scoped-work-freeze-2026-06-22]]
