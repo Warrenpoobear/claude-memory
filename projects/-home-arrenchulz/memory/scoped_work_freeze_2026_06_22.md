@@ -32,9 +32,14 @@ Scoped work freeze lifted for: safe research, verification, diagnostics, artifac
 5. **Production observability/QA** — health report polish, stale/missing field flags, XBI freshness, snapshot completeness, forward_eval IC observability, Semgrep governance audit, CodeGraph hygiene
 6. **Hermes/MCP** — read-only biotech-mcp daily brief; one-shot dry-runs via `hermes chat -q`; no scheduler touch, no jobs.json mutation, no autonomous git add/commit/push; do NOT re-enable weekly-skill-harvester
 
-## Recommended next 3 tasks (in order)
-1. Expectation coverage verification
-2. Event EV shadow diagnostic
-3. Scientific Cartography operational review
+## Freeze-safe diagnostic tasks (all COMPLETE as of 2026-06-23)
+1. Expectation coverage verification → PASS (8555ef25) — `docs/governance/EXPECTATION_LAYER_FIELD_COVERAGE_VERIFICATION_2026_06_22.md`
+2. Event EV shadow diagnostic → committed (d5f15a0b, #388 merged) — `tools/event_ev_shadow_diagnostic.py`
+3. Scientific Cartography Phase 12.1 review → committed (7afbd1db, on main) — `docs/governance/SCIART_PHASE12_1_DISEASE_MAP_OPERATIONAL_REVIEW_2026_06_23.md`
+
+## Phase 13 planning
+- Phase 13 remediation plan committed (cef457d3, local) — `docs/governance/SCIENTIFIC_CARTOGRAPHY_PHASE13_REMEDIATION_PLAN_2026_06_23.md`
+- Order: R2→R4→R3→R5→R6. R1 (artifact promotion) is operator decision — Phase 13 implementation GATED on operator R1 confirmation.
+- R6 (mechanism normalizer) is design-memo only in Phase 13; no implementation.
 
 **How to apply:** Before starting any biotech work, check against the FROZEN list. If the change touches ranker/selector/sizing/final_score/portfolio/gates → stop. If it is purely diagnostic, read-only, or plumbing → proceed with explicit audit note.
