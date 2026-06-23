@@ -27,5 +27,6 @@
   "enabledPlugins": {
     "claude-code-setup@claude-plugins-official": true
   },
-  "skipWorkflowUsageWarning": true
+  "skipWorkflowUsageWarning": true,
+  "enableWorkflows": false
 }
