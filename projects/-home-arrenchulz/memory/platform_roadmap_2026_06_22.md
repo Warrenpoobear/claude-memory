@@ -7,30 +7,37 @@ metadata:
   originSessionId: c137a3de-ca62-4ea1-b220-612f0a145451
 ---
 
-**Fact:** Operator-approved sequence of 5 workstreams, each on its own branch.
+**Fact:** Operator-approved workstream sequence post-INC-2026-06-20-AUTOPUSH. Principle: reduce legacy risk before adding autonomy.
 
-**Why:** Platform is stabilized post-INC-2026-06-20-AUTOPUSH. Principle: reduce legacy risk before adding more autonomy.
+**Why:** Corrected roadmap as of 2026-06-23. Items 1–8 are all complete. Do not reopen any of them.
 
-**Sequence:**
+**Sequence (corrected 2026-06-23):**
 
-1. ✅ **Review/merge PR #371** — MERGED to main (`00b742f4`); packages A–E2 + Hermes 0.17.0 + biotech-mcp registered.
+1. ✅ **PR #371 merged** — MERGED to main (`00b742f4`); packages A–E2 + Hermes 0.17.0 + biotech-mcp registered.
 
-2. ✅ **Branch: `openclaw-fence-retire-2026-06-22`** — MERGED as PR #372 (`4d1a4fd8`); `**` wildcard + shell removed from exec-approvals; 13 read-only binaries retained; 3 SOUL.md files added.
+2. ✅ **OpenClaw fence/retire** — Fenced 2026-06-22 (read-only exec allowlist, 13 binaries, no git/gh). Retired 2026-06-23: `systemctl --user stop + disable openclaw-gateway.service`; port 19001 closed; removed from autostart. Governance record written. `OPENCLAW_STATUS: RETIRED`.
 
-3. ✅ **Branch: `harvester-manualization-2026-06-22`** — PR #373 OPEN (draft, `b2acf98b`). Step 8 of `weekly-skill-harvester` replaced: autonomous `git add/commit/push` removed; agent now writes `docs/hermes_skills/pending/HARVEST_<date>.md` proposal only. Job still paused. Operator must merge #373 and review before re-enabling.
+3. ✅ **Harvester manualization Option C** — Autonomous `git add/commit/push` removed from `weekly-skill-harvester`; now writes proposal-only to `docs/hermes_skills/pending/`. PR #373 merged. Job remains paused.
 
-4. ✅ **Branch: `biotech-mcp-daily-briefs-2026-06-22`** — PR #374 OPEN (draft, `0cea79df`). Six-section read-only brief design + `docs/hermes/daily_brief_prompt.txt`. Cron spec drafted, NOT registered. Activation gate: dry-run reviewed + PR #375 merged + operator enables.
+4. ✅ **Biotech-MCP daily brief design** — Six-section read-only brief design complete. Activation gated: cron NOT registered; requires dry-run review + operator enables.
 
-4b. **Branch: `harvester-dry-run-followup-2026-06-22`** — PR #375 OPEN (draft, `8186bc83`). Governance doc + dry-run PASS result + Path A (scheduler) OFF-LIMITS finding. Must merge before #374.
+5. ✅ **Semgrep MCP blockers closed** — Registered with governance boundaries. B1–B4 blockers resolved.
 
-5. **Later: reconsider Semgrep MCP registration blockers** — only after B1–B4 are resolved (roots/list client handling, LGPL sign-off, startup fetch policy, semgrep_scan metrics-off bug).
+6. ✅ **Hermes 0.17 + Desktop build fixed** — Upstream merge validated. Desktop `--disable-gpu` flag added; Symbol clash (`@assistant-ui/tap`) fixed via `vite.config.ts` dedupe.
 
-**How to apply:** When starting any new workstream, branch from `main` (post-merge), not from the containment branch. Never combine OpenClaw + harvester + biotech-mcp briefs in the same branch.
+7. ✅ **Event EV shadow diagnostic landed** — EES shadow framework shipped.
 
-**Merge sequence (locked):** #375 → #374 → daily brief one-shot dry-run → brief quality review → only then consider disabled cron registration.
+8. ✅ **Sci-Cart Phase 12.1 review + Phase 13 plan landed** — Phase 13 planning complete.
 
-**Post-#374 next workstream:** brief quality refinement — accurate, compact, flags stale/missing data instead of guessing. Not more autonomy.
+9. → **PIT evidence review / EES forward validation** — ACTIVE. PIT evidence review memo written 2026-06-23 (`artifacts/audit/PIT_GAP_FORWARD_RETURN_EVIDENCE_REVIEW_2026_06_23.md`), verdict `PASS_PIT_GAP_PANEL_ACCEPTED_FOR_DIAGNOSTIC_RESEARCH`. Next: EES forward validation.
 
-**Current position (2026-06-23):** Steps 1–4b are complete. Immediate next task is HERMES_0_17_POST_MERGE_VALIDATION — validate the large upstream merge before adding any more autonomy. After that: Semgrep MCP blockers OR fresh PIT gap implementation branch.
+**Constraints (active):**
+- Do NOT reopen harvester-manualization.
+- Do NOT reopen OpenClaw work.
+- Do NOT enable any scheduler.
+- Do NOT mutate production model files (ranker/selector/sizing/final_score/gates/snapshots/portfolio).
+- Do NOT claim alpha. Freeze remains ACTIVE.
 
-**Related:** [[containment-branch-status-2026-06-22]]
+**How to apply:** Active lane is item 9. EES forward validation is the next concrete task.
+
+**Related:** [[containment-branch-status-2026-06-22]] [[scoped-work-freeze-2026-06-22]]

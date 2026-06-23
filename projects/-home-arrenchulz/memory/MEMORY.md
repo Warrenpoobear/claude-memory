@@ -2,14 +2,14 @@
 
 > Inline status markers: `[active]` (default, omitted) · `[stale]` (waiting on resolution) · `[shipped]` (in observation) · `[resolved]` (closed). New memory files use lifecycle frontmatter (`status`, `expires`, `resolves`, `supersedes`, `related`); old files are not retrofitted.
 
-## Platform Roadmap (2026-06-22)
-- **[Operator-approved workstream sequence (2026-06-22)](platform_roadmap_2026_06_22.md)** — 5 branches in order: (1) merge PR #371, (2) openclaw-fence-retire, (3) harvester-manualization (Option C: local report only), (4) biotech-mcp daily briefs, (5) Semgrep MCP blockers. Principle: reduce legacy risk before adding autonomy.
+## Platform Roadmap (2026-06-22, corrected 2026-06-23)
+- **[Operator-approved workstream sequence — 8/9 complete (corrected 2026-06-23)](platform_roadmap_2026_06_22.md)** — Items 1–8 all done. Active lane: item 9 = PIT evidence review (PASS memo written) → EES forward validation. `OPENCLAW_STATUS: RETIRED`. Do not reopen items 1–8.
 
 ## Freeze State (2026-06-22)
 - **[Scoped work freeze — production model frozen, diagnostics unfrozen (2026-06-22)](scoped_work_freeze_2026_06_22.md)** `[active]` — Ranker/selector/sizing/final_score/portfolio frozen. Safe lanes: expectation verification, Event EV shadow, Sci-Cart artifacts, observability, Hermes read-only. Next 3: (1) expectation field verification, (2) Event EV shadow, (3) Sci-Cart review.
 
 ## Containment Branch (2026-06-22)
-- **[Containment branch pushed + draft PR #371 opened (2026-06-22)](containment_branch_status_2026_06_22.md)** — BRANCH HANDED OFF. Semgrep MCP manual-only/not registered; biotech-mcp registered; harvester paused; OpenClaw deferred to separate branch.
+- **[Containment branch pushed + draft PR #371 opened (2026-06-22)](containment_branch_status_2026_06_22.md)** `[resolved]` — PR #371 MERGED. OpenClaw fenced 2026-06-22 → RETIRED 2026-06-23. All containment items closed.
 
 ## Semgrep Governance Guardrails (2026-06-22)
 - **[Semgrep governance guardrail layer — shipped 2026-06-22](semgrep_governance_guardrails_2026_06_22.md)** `[shipped]` — Draft PR #370 (rules: `0573101e`) + #371 (langgraph None-guard: `afced5d4`); 4/5 areas, §5 taint deferred; ERROR-blocking local pre-commit, WARN on-demand; CI dead so local-only. Gotchas: semgrep unusably slow on /mnt/c (scan on fast-fs copy), explicit targets bypass `.semgrepignore`, quoted-literal `pattern-not-regex` for field pins.
