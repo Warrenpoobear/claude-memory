@@ -21,6 +21,7 @@
 - [Explore/general-purpose subagents have Bash — "read-only" isn't enforced (2026-06-22)](explore_agent_bash_write_risk_2026_06_22.md) — one auto-committed to the branch during a path-map sweep; scope sweep prompts with explicit no-write/no-commit + verify via `git log`; treat agent self-reports as unverified (confabulation)
 - [Hermes scheduler: don't use cron run+tick on paused jobs (2026-06-22)](hermes_scheduler_paused_job_safety_2026_06_22.md) — re-enables as side effect; use hermes chat -q only
 - [Doc updates must not import unreviewed/quarantined research outputs (2026-06-22)](feedback_doc_update_evidence_boundary.md) — backtest numbers and verdicts from analytical sessions landed in operational-state.md; quarantined outputs belong only as "quarantined, not accepted evidence" notes
+- [Feasibility-review authorization does NOT extend to code, runs, commits, or PRs (2026-06-22)](feedback_research_authorization_boundary.md) — "proceed" after PR #381 was interpreted as authorization to write executable assembly code, run it, commit, push, open PR #382 — operator quarantined it; each step in markdown→design→script→run→commit→push→PR requires its own explicit instruction
 
 ## Memory tooling
 - Graph at `memory_graph.json` (next to this file) — built by `/home/arrenchulz/.claude/scripts/build_memory_graph.py`. Re-run after writing/editing memory files
