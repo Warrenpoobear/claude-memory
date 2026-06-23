@@ -31,4 +31,6 @@ metadata:
 
 **Post-#374 next workstream:** brief quality refinement — accurate, compact, flags stale/missing data instead of guessing. Not more autonomy.
 
+**Current position (2026-06-23):** Steps 1–4b are complete. Immediate next task is HERMES_0_17_POST_MERGE_VALIDATION — validate the large upstream merge before adding any more autonomy. After that: Semgrep MCP blockers OR fresh PIT gap implementation branch.
+
 **Related:** [[containment-branch-status-2026-06-22]]
