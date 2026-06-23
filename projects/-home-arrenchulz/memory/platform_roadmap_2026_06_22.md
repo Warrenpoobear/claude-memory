@@ -29,7 +29,7 @@ metadata:
 
 8. ✅ **Sci-Cart Phase 12.1 review + Phase 13 plan landed** — Phase 13 planning complete.
 
-9. → **PIT evidence review / EES forward validation** — ACTIVE. PIT evidence review memo written 2026-06-23 (`artifacts/audit/PIT_GAP_FORWARD_RETURN_EVIDENCE_REVIEW_2026_06_23.md`), verdict `PASS_PIT_GAP_PANEL_ACCEPTED_FOR_DIAGNOSTIC_RESEARCH`. Next: EES forward validation.
+9. ✅ **PIT evidence review / EES forward validation** — COMPLETE 2026-06-23. PIT verdict `PASS_PIT_GAP_PANEL_ACCEPTED_FOR_DIAGNOSTIC_RESEARCH` (commit `692eded0`). EES verdict `PASS_EES_DIAGNOSTIC_PREDICTIVE_SIGNAL_OBSERVED` (commit `e80c3ff2`): ees_v2 5d IC=0.073 t=3.06; Phase 3 concentrated (5d t=4.97). EES v3 unevaluable (21.8% coverage). No model changes. Freeze ACTIVE.
 
 **Constraints (active):**
 - Do NOT reopen harvester-manualization.
