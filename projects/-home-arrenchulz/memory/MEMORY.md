@@ -19,6 +19,7 @@
 - [Monte Carlo liquidity stress framework — built 2026-05-15](monte_carlo_framework_built_2026_05_15.md) — MC-0/MC-1/MC-2/MC-3 delivered; 416 tests; synthetic/advisory, awaiting L19/L20/Phase-23 for decision-grade
 
 ## Working-with-Claude lessons
+- [Hermes cron token bloat — 3 patterns + fixes (2026-06-25)](feedback_hermes_cron_token_bloat.md) — pre-loaded skills (`skill`/`skills` fields), sleep-cliff multi-firing (no idempotency guard), script-writing retry loops; Classes F/G/H in openclaw-cron-scheduler-debug
 - [Fork agents go runaway on multi-step tasks — never use fork for implementation (2026-06-24)](feedback_fork_agent_runaway_2026_06_24.md) — forks re-notify per child completion, each cycle makes unauthorized commits; revert immediately if production data touched
 - [Workflow tool is slow and token-heavy — avoid it (2026-06-23)](feedback_workflow_tool_cost.md) — use fork agents or direct sequential calls instead; workflows disabled in settings
 - [Explore/general-purpose subagents have Bash — "read-only" isn't enforced (2026-06-22)](explore_agent_bash_write_risk_2026_06_22.md) — one auto-committed to the branch during a path-map sweep; scope sweep prompts with explicit no-write/no-commit + verify via `git log`; treat agent self-reports as unverified (confabulation)
