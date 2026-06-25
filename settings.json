@@ -24,9 +24,10 @@
       }
     ]
   },
+  "enableWorkflows": false,
   "enabledPlugins": {
     "claude-code-setup@claude-plugins-official": true
   },
   "skipWorkflowUsageWarning": true,
-  "enableWorkflows": false
+  "tui": "fullscreen"
 }
