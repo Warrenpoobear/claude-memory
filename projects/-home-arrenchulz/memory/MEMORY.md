@@ -95,6 +95,9 @@
 - **[Top-30 classifier scoring impact audit (2026-06-02)](top30_classifier_impact_audit_2026_06_02.md)** — Catalyst fields UNTRUSTED for RVMD/CELC (suppressed Phase 3) + ERAS/DRUG/ALKS (collision noise); MBX clean; Phase 2 Day 1 locked (safe); forward catalyst actions BLOCKED pending remediation lanes
 - **[Broader classifier misclassification scan (2026-06-02)](broader_classifier_misclassification_2026_06_01.md)** — Systemic quality issues: 47.6% collision rate, 81.2% needs_review rate across 78 tickers; COGT (rank 1) all-flagged; 26 non-Top-30 tickers with >50% collision; advisory-only for new tickers until baseline fixed
 
+## Identity Pattern
+- **[Builder-writer-investor pattern + private cathedral risk (2026-06-26)](user_identity_pattern_2026_06_26.md)** — Attention > résumé: builder-writer-investor in practice, investor-builder-writer on paper. Core obsession = trust under uncertainty, not biotech. Permission-system behavior (needs the model to confirm what he already believes). Compressed style as armor. Needed conversion: private cathedral → public instrument. Key test: does the week's work produce a decision, publishable writing, or externally legible artifact?
+
 ## Professional Profile
 - [Director of Investments at Wake Robin; CFA/CAIA (updated 2026-05-25)](user_profile_credentials_2026_05_15.md) — Wake Robin = real estate investment + community dev co; DEM biotech screener = parallel investment research capability; $14B+ institutional background; dschulz@wakerobin.co / djschulz@gmail.com
 
