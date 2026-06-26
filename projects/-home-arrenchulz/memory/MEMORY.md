@@ -7,7 +7,7 @@
 
 ## Freeze State (2026-06-22)
 - **[Scoped work freeze — production model frozen, diagnostics unfrozen (2026-06-22)](scoped_work_freeze_2026_06_22.md)** `[active]` — Ranker/selector/sizing/final_score/portfolio frozen. EES shadow monitor now live (observation only). No model-use before shadow gates met (20 completed 5d + 20 completed 20d). See [[ees-shadow-monitor-state-2026-06-23]].
-- **[EES shadow monitor — observation only, gates unmet (2026-06-23)](ees_shadow_monitor_state_2026_06_23.md)** — Chain complete. Daily run: `python3 scripts/research/ees_v2_phase3_shadow_monitor.py --as-of-date YYYY-MM-DD`. Ledger gitignored. Next memo when both gates met.
+- **[EES shadow monitor — research complete, raw_veto_core lead policy (2026-06-25)](ees_shadow_monitor_state_2026_06_23.md)** — Research package done (6 scripts, 3 memos, commits 149c8f56/6123739c/0d47544f). EES v3 role = financing/overpricing false-positive detector. LEAD_POLICY=raw_veto_core (IC 0.064, t=2.36, LATE +7.1%); conditional veto rejected (fires too rarely). Daily shadow card being built. Gates still unmet.
 
 ## Containment Branch (2026-06-22)
 - **[Containment branch pushed + draft PR #371 opened (2026-06-22)](containment_branch_status_2026_06_22.md)** `[resolved]` — PR #371 MERGED. OpenClaw fenced 2026-06-22 → RETIRED 2026-06-23. All containment items closed.

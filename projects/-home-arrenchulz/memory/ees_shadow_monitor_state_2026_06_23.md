@@ -1,6 +1,6 @@
 ---
 name: ees-shadow-monitor-state-2026-06-23
-description: "EES v2 Phase 3 shadow monitor — current state, observation gates, and governance conclusion as of 2026-06-23"
+description: "EES v3 shadow monitor — current state, observation gates, research package complete, raw_veto_core selected as lead diagnostic policy (2026-06-25)"
 metadata: 
   node_type: memory
   type: project
@@ -9,7 +9,7 @@ metadata:
 
 EES diagnostic chain closed at design-only (2026-06-23). No production action authorized.
 
-**Commit chain:**
+**Commit chain (original):**
 - `e80c3ff2` — EES forward validation: PASS diagnostic signal observed
 - `fb52071f` — Attribution: Phase 3 CT_PRIMARY_COMPLETION left-tail avoidance
 - `c35fc1ba` — Shadow monitor spec
@@ -17,16 +17,57 @@ EES diagnostic chain closed at design-only (2026-06-23). No production action au
 - `376d9e9d` — Settled-row immutability hardening
 - `96733236` — Left-tail guardrail design memo
 
-**Finding:** EES v2 Phase 3 signal = CT_PRIMARY_COMPLETION left-tail avoidance. Q1 low-score names return -3.47% at 5d / -6.80% at 20d. Q2–Q5 nearly indistinguishable. Signal is a risk brake, not positive alpha.
+**EES v3 shadow research package (2026-06-25):**
+- `149c8f56` — 4 research scripts + promotion simulator memo
+- `6123739c` — Veto autopsy (HL bucket analysis)
+- `0d47544f` — Conditional veto simulator
 
-**Governance conclusion:** No production action authorized. Only active path is prospective shadow observation.
+**Research package scripts (all DIAGNOSTIC_ONLY):**
+- `scripts/research/ees_v3_shadow_variants.py` — daily 5-variant tracker
+- `scripts/research/ees_v3_disagreement_ledger.py` — ranker vs EES v3 bucket analysis
+- `scripts/research/ees_v3_regime_analysis.py` — early/late IC decomposition
+- `scripts/research/ees_v3_promotion_simulator.py` — 9-policy PIT backtest
+- `scripts/research/ees_v3_veto_autopsy.py` — HL bucket failure mode analysis
+- `scripts/research/ees_v3_conditional_veto_simulator.py` — evidence-qualified veto tests
 
-**Shadow monitor gates (both required before any interpretation):**
-- Completed 5d observations: ≥ 20 (current: 0)
-- Completed 20d observations: ≥ 20 (current: 0)
+**Key artifacts:**
+- `artifacts/readiness/EES_V3_PROMOTION_SIMULATOR_2026_06_25.md`
+- `artifacts/readiness/EES_V3_VETO_AUTOPSY_2026_06_25.md`
+- `artifacts/readiness/EES_V3_CONDITIONAL_VETO_SIMULATOR_2026_06_25.md`
+
+---
+
+## Final model stance (operator decision 2026-06-25)
+
+**EES_V3_ROLE = RANKER_FALSE_POSITIVE_VETO** (not a boost, not a general veto — a financing/overpricing false-positive detector)
+
+**LEAD_POLICY = RAW_VETO_CORE**
+- IC 0.0639, t_NW=2.36 at 63d, mean excess +3.53%, late-regime +7.1% (EARLY +2.4% → LATE +7.1%)
+- 76 PIT snapshots, 2020-01-31 → 2026-04-16
+- Veto autopsy: 55.6% true-negative rate overall, 60.5% in late regime — improving with coverage expansion
+- Dominant failure modes: dilution_overhang (18.8%, 67% tn, -7.4% excess), market_already_priced (6.0%, 62.5% tn, -6.0% excess)
+- Weak failure mode: no_options_coverage (67.4% of HL, only 52.9% tn, ~0 excess) — near-random but still worth vetoing as portfolio tightening
+
+**CONDITIONAL_POLICY = WATCHLIST_ONLY**
+- conditional_veto_v1: IC 0.0731 (higher per-veto accuracy) but t_NW=2.14 (lower power), fires only 1.8 vs 7.0 vetoes/snap
+- Precision-recall tradeoff kills statistical power — relaxing veto frequency costs more than it saves
+- Correct upgrade path: wait for coverage expansion, not conditional filtering
+
+**Governance labels:**
+- `EES_V3_RAW_VETO_CORE_SELECTED_AS_LEAD_DIAGNOSTIC_POLICY`
+- `CONDITIONAL_VETO_RETAINED_AS_SECONDARY_RESEARCH_NOTE`
+- `FREEZE_ACTIVE_PENDING_20D_SHADOW_GATE_AND_OPERATOR_APPROVAL`
+- `NO_PRODUCTION_WIRING_AUTHORIZED`
+
+---
+
+## Shadow monitor gates (both required before any interpretation)
+
+- Completed 5d observations: ≥ 20 (current: unknown — check ledger)
+- Completed 20d observations: ≥ 20 (current: unknown — check ledger)
 - Status: `OBSERVATION_WINDOW_INCOMPLETE_NO_INTERPRETATION`
 
-**Daily manual run command (after each promoted snapshot):**
+**Daily manual run command:**
 ```bash
 cd /mnt/c/Projects/biotech_screener/biotech-screener
 python3 scripts/research/ees_v2_phase3_shadow_monitor.py --as-of-date YYYY-MM-DD
@@ -34,6 +75,8 @@ python3 scripts/research/ees_v2_phase3_shadow_monitor.py --as-of-date YYYY-MM-DD
 
 Ledger: `artifacts/shadow/ees_v2_phase3_shadow_ledger.jsonl` (gitignored, local only)
 
+**Next step:** daily veto shadow card tracking raw_veto_core performance under current coverage regime (script being built as of 2026-06-25).
+
 **Next memo (only after gates met):** `EES_V2_PHASE3_SHADOW_MONITOR_EVALUATION_2026_MM_DD.md`
 
-**Why:** Do not add more EES analysis until forward observations accumulate. Discovery → validation → attribution → design → prospective monitor chain is complete. Next evidence must be forward observation.
+**Why:** Do not promote until 20d shadow gate is met AND operator approval received. The research shows veto is improving in the late regime — the gate will provide forward confirmation under high-coverage conditions.
