@@ -19,6 +19,7 @@
 - [Monte Carlo liquidity stress framework — built 2026-05-15](monte_carlo_framework_built_2026_05_15.md) — MC-0/MC-1/MC-2/MC-3 delivered; 416 tests; synthetic/advisory, awaiting L19/L20/Phase-23 for decision-grade
 
 ## Working-with-Claude lessons
+- [sync_hermes_skills.py all_sync_keys() bug — SKILL_MAP entry silently dropped (2026-06-26)](feedback_sync_hermes_skills_bug.md) — `{**SKILL_MAP, **REFERENCE_MAP}` merge drops SKILL_MAP entry when key appears in both; self-improving.md mirror never re-synced by main(); workaround: call sync_pair() directly
 - [Hermes cron token bloat — 3 patterns + fixes (2026-06-25)](feedback_hermes_cron_token_bloat.md) — pre-loaded skills (`skill`/`skills` fields), sleep-cliff multi-firing (no idempotency guard), script-writing retry loops; Classes F/G/H in openclaw-cron-scheduler-debug
 - [Fork agents go runaway on multi-step tasks — never use fork for implementation (2026-06-24)](feedback_fork_agent_runaway_2026_06_24.md) — forks re-notify per child completion, each cycle makes unauthorized commits; revert immediately if production data touched
 - [Workflow tool is slow and token-heavy — avoid it (2026-06-23)](feedback_workflow_tool_cost.md) — use fork agents or direct sequential calls instead; workflows disabled in settings
@@ -41,6 +42,9 @@
 - **[LG3 observation period (2026-06-19–07-03)](langgraph_lg3_observation_period_9zu55z.md)** — Verify wrapper runs, audit appends, non-blocking fails, artifacts bounded. Checkpoint ~2026-07-03. No LG4/LG5 until checkpoint.
 - **[LangGraph stack summary](langgraph_stack_summary_whdhbi.md)** — LG1 (1b2c8095) orchestrator, LG2 (bdb97db7) approval, LG3 design (a95f14a8), LG3 runtime (0afa9e25).
 - **[LG2 governance boundaries (2026-06-19)](langgraph_phase_lg2_governance_boundaries.md)** — Review-workflow-approval-only (never automation). automation_approval immutably False. Append-only JSONL artifacts. **Forbidden**: cron, dashboard, production hook, agent summarization. LG3 runtime requires separate approval from LG2 approval.
+
+## Skill Sync Agent (2026-06-26)
+- **[hermes-skill-sync-agent shipped — PR #423 open (2026-06-26)](project_hermes_skill_sync_2026_06_26.md)** `[active]` — 3-mode audit tool + wrapper + 8 tests; Correction Ledger refs removed from self-improving; 0 CRITICAL on first run; cron NOT yet registered (awaiting PR merge + operator action)
 
 ## Agentic Portfolio Operations
 - **[Agentic account 802349084 — live test case for Claude-managed biotech portfolio (2026-06-24)](project_agentic_portfolio_testcase_2026_06_24.md)** `[active]` — Test case for building rules/skills/memories for live portfolio management. Validated constraints: T+1 settlement gap, ~16-20 order/min rate limit, GFD-only for fractional orders, $1 order minimum, ABVX sell-only. Rebalance workflow: get_portfolio → positions → rankings.csv → delta → sells first → batched buys.
