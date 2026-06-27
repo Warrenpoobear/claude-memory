@@ -48,6 +48,17 @@ Artifact: `artifacts/shadow_monitor/stressed_optionality/`.
 Early signal (May 18-22 weekly): DEGRADED (mean delta −1.48pp). Rule is suppressing 8-10/30 names broadly including COGT rank 1. Aggregate Phase 3 improvement (+0.78pp) came from later Phase 3 dates (DRUG/CELC/ABVX losses). Forward validation required before any production use.
 Verdict: PROMISING_SHADOW_GUARDRAIL_REQUIRES_FORWARD_VALIDATION.
 
+**13F PIT Audit — COMPLETE (2026-06-26):**
+`13F_BACKTEST_PIT_AUDIT_DIAGNOSTIC_NO_MODEL_CHANGE`
+Artifact: `artifacts/audit/13f_backtest_pit/`
+
+- **63 contaminated snapshots** (2024-10-18 → 2025-11-07): holder-count path leaked Q3 2025 13F data (filed 2025-11-14). ~246 tickers/snapshot (~84% of universe). PIT-clean overlap = 0 for all 63.
+- **Conviction path was already correctly filtered**; holder-count activation gate was not.
+- **Repair applied**: `filed_at > ref_date` guard added. Future runs clean; 63 backtest archives still need regeneration for authoritative evidence.
+- **Phase 3 re-attribution**: 13F NOT primary driver. None of CELC/PRAX/DRUG/TYRA/ABVX would have been actionable top-30 purely from composite rank. CELC (arank=3) and PRAX (arank=17) were catalyst-tier promoted; 13F added secondary sponsor_confirmed flag. Contamination inflated scores uniformly across universe (losers and winners alike).
+- **Clean-window IC** (27 PIT-valid snapshots, Nov 2025–Mar 2026): 20d IC=-0.027 WEAK; 60d IC=+0.017 WEAK. Excl. Feb 2026 drawdown cluster: 20d IC≈+0.021. **smart_money: 74% hit rate, +3.2% IC** (highest component). Clinical: 11% hit, -8.3% IC (severe drag). 27 snapshots insufficient for decision-grade conclusions.
+- **Gaps remaining**: `institutional_validation_v1_2.py` not found (path unaudited); 63 archives need regeneration; canonical-date imprecision per quarter.
+
 **Next milestone gate:**
 `PHASE_3_INVERSION_EXPLANATION_REQUIRED_BEFORE_CAPITAL_SCALE`
 
