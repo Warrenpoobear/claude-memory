@@ -46,6 +46,9 @@
 ## Skill Sync Agent (2026-06-26)
 - **[hermes-skill-sync-agent shipped — PR #423 open (2026-06-26)](project_hermes_skill_sync_2026_06_26.md)** `[active]` — 3-mode audit tool + wrapper + 8 tests; Correction Ledger refs removed from self-improving; 0 CRITICAL on first run; cron NOT yet registered (awaiting PR merge + operator action)
 
+## Model Investability Verdict
+- **[Interesting research system, not investable model — verdict 2026-06-26](project_model_investability_verdict_2026_06_26.md)** — Phase 3 inversion (May 16–Jun 9, 19 snaps, IC −0.05 to −0.21) is the disqualifier; use cases defined; next gate: PHASE_3_INVERSION_EXPLANATION_REQUIRED_BEFORE_CAPITAL_SCALE
+
 ## Agentic Portfolio Operations
 - **[Agentic account 802349084 — live test case for Claude-managed biotech portfolio (2026-06-24)](project_agentic_portfolio_testcase_2026_06_24.md)** `[active]` — Test case for building rules/skills/memories for live portfolio management. Validated constraints: T+1 settlement gap, ~16-20 order/min rate limit, GFD-only for fractional orders, $1 order minimum, ABVX sell-only. Rebalance workflow: get_portfolio → positions → rankings.csv → delta → sells first → batched buys.
 - **[Agentic portfolio operational rules — confirmed 2026-06-24](project_agentic_portfolio_rules_2026_06_24.md)** `[active]` — 5 standing rules: (1) weekly Monday rebalance + 25% drift trigger; (2) new entries at next weekly, exits at weekly unless rank<40; (3) equal weight until $5K then model weight; (4) hard exit ≤-2pp drawdown vs XBI → full liquidation; (5) IRAs independent/manual only.
