@@ -1,12 +1,62 @@
 ---
 name: project-model-investability-verdict-2026-06-26
-description: "Operator investment verdict on the biotech screener model — not investable yet, Phase 3 substantially explained as regime-input-contaminated, corrected-regime ranking replay is next gate"
+description: "Operator investment verdict on the biotech screener model — not investable yet; DEM=current ranker; pre-2025 alpha real; 2025+ rally-concentrated; 2026 adverse; forward shadow monitor is next step"
 metadata: 
   node_type: memory
   type: project
   status: active
   originSessionId: ee7dd5fd-41f8-494b-a2a7-14094857cdfa
 ---
+
+Operator verdict (2026-06-27 update): **Not investable. Forward shadow validation required.**
+
+**Current status labels (2026-06-27, post regime-conditional diagnostic):**
+```
+DEM_IS_CURRENT_RANKER
+FULL_HISTORY_ALPHA_POSITIVE
+PRE_2025_ALPHA_PERSISTENT
+2025_PLUS_ALPHA_RALLY_CONCENTRATED
+2026_YTD_INSUFFICIENT_AND_ADVERSE
+FORWARD_SHADOW_VALIDATION_REQUIRED
+A4_OVERLAY_FROZEN_FAILED
+```
+
+**Architecture correction (closed 2026-06-27):** Prior "DEM vs A4" framing was wrong. DEM = current production ranker (actionable_rank from run_screen.py). A4 was a failed recomputation overlay. There is no longer a DEM-vs-A4 comparison — A4 is a dead branch.
+
+**Regime-conditional diagnostic result (2026-06-27):**
+Two distinct alpha modes found:
+- Pre-2025 (55 periods): DEM mean +1.81 pp, t=2.914 — persistent cross-sectional alpha, moderate beta (0.17), positive in bear/moderate-drawdown environments
+- 2025+ ex-rally (9 periods): DEM mean +0.17 pp, t=0.108 — zero outside 5 biotech rally months
+- Rally cluster (5 periods): DEM mean +21.8 pp, t=3.58 — May/Jun/Jul 2025 + Sep 2025 + Feb 2026 = 99.7% of all 2025+ cumulative alpha
+- 2026 YTD (2 periods): Both negative vs XBI (−5.10, −5.05 pp) despite positive XBI — adverse signal
+- Beta to XBI: 0.173 full history / 0.569 in 2025+ only
+
+**What this means:**
+The forward question is not "does the model beat XBI historically?" — it does. The forward question is: which mode is the current environment in? 2026 early data suggests post-rally mean-reversion mode (adverse), not pre-2025 persistent-selection mode.
+
+**Shadow tests (all closed/failed):**
+All three repair paths failed: inst_delta relaxation, clinical shadow, catalyst-optionality selector. DEM alpha names score low on every signal used for confirmation — structural unreachability. No further selector research justified.
+
+**Next operational step:** `DEM_FORWARD_REGIME_SHADOW_MONITOR_NO_MODEL_CHANGE`
+Track every production date: DEM top-30 vs XBI, regime bucket, rally vs non-rally classification, beta/convexity, contribution concentration, top-10/20/30 monotonicity, EES warnings. Gate: repeatable excess return *outside* narrow biotech rally cluster.
+
+**Forward validation gate:**
+| Gate | Pass condition |
+|---|---|
+| Minimum sample | 20 completed forward periods |
+| Benchmark | XBI |
+| Main metric | DEM excess return |
+| Regime split | Rally and non-rally reported separately |
+| Concentration | Top-3 names + top-3 periods cannot explain all alpha |
+| Downside | No severe underperformance cluster vs XBI |
+| Monotonicity | Top-10/20/30 not persistently inverted |
+| A4 | Frozen — do not revisit |
+
+**Allowed:**
+- Paper trading, tiny live learning position, daily/weekly shadow validation, human review
+
+**Not allowed:**
+- Production sizing, automated trading, portfolio integration, ranker promotion, selector changes
 
 Operator verdict (2026-06-26): **Interesting research system: yes. Investable model: not yet.**
 
