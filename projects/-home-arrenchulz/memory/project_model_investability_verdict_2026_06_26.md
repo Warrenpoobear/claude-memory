@@ -13,12 +13,20 @@ Operator verdict (2026-06-26): **Interesting research system: yes. Investable mo
 **Phase 3 explanation status (updated 2026-06-26):**
 Phase 3 (May 18–Jun 9) is now substantially explained: the regime detector was offline (UNKNOWN/neutral weights) during a period PIT-safe reconstruction classifies as BEAR throughout (VIX 15–22, XBI −5% to −14% vs SPY 30d). The old Phase 3 backtest evaluated UNKNOWN/neutral behavior during a genuine BEAR regime — it is *regime-input-contaminated*, not clean evidence of model failure. However, it is not full investability clearance because the corrected BEAR-weighted rankings were not replayed end-to-end. Corrected BEAR weights would have shifted rankings (momentum −20%, quality +20%, financial +20%) but whether that improves top-30 performance is still unproven.
 
-**Gate COMPLETE (2026-06-26):**
+**Gates COMPLETE (2026-06-26):**
+
 `PHASE3_CORRECTED_REGIME_RANKING_REPLAY_DIAGNOSTIC_NO_MODEL_CHANGE`
-Result: 16/16 Phase 3 dates — identical top-30 under corrected BEAR regime. ranker_v2 uses only coinvest_score_z and financial_score (both regime-independent), so corrected BEAR inputs produce the same rankings and the same returns. Phase 3 mean IC = −0.048 is unchanged. The regime-input alternative explanation is RULED OUT. Phase 3 is genuine stock-selection underperformance in BEAR, not a regime artifact.
+Result: 16/16 Phase 3 dates — identical top-30 under corrected BEAR regime. ranker_v2 uses only coinvest_score_z and financial_score (both regime-independent). Phase 3 mean IC = −0.048 is unchanged. Regime-input alternative RULED OUT.
+
+`PHASE3_COMPONENT_ATTRIBUTION_DIAGNOSTIC_NO_MODEL_CHANGE`
+Result: Component attribution complete across all 16 Phase 3 dates, 8 target names.
+Failure modes: DRUG=FINANCING_UNDER_PENALIZED, CELC/ABVX=EES_VETO_FAILED, PRAX/TYRA=UNEXPLAINED.
+Structural finding: financial_z is nearly identical between losers (−0.707) and winners (−0.719) — financial stress does NOT discriminate. Discriminating signals (EES losers −0.368 vs winners +0.674, momentum 48.8 vs 83.6, clinical 36.2 vs 57.1) are all outside ranker_v2.
+Core issue: ranker_v2's negative financial weight promotes financially stressed names without catalyst quality discrimination; ees_v3 exists but is not a ranker_v2 input.
+Output: `artifacts/autopsy/phase3_component_attribution/`
 
 **Prior gate (closed):**
-`PHASE_3_INVERSION_EXPLANATION_REQUIRED_BEFORE_CAPITAL_SCALE` — Regime-input alternative explanation ruled out by PHASE3_CORRECTED_REGIME_RANKING_REPLAY. Phase 3 is genuine BEAR underperformance, not a regime artifact.
+`PHASE_3_INVERSION_EXPLANATION_REQUIRED_BEFORE_CAPITAL_SCALE` — Regime-input alternative ruled out. Phase 3 failure modes identified.
 
 **Why Phase 3 looked like inversion (revised understanding):** The model ran on UNKNOWN/neutral weights during a genuine BEAR period where XBI was underperforming SPY by 5–14% over 30 days. A momentum-biased ranker running neutral weights during sector risk-off is expected to underperform — this is now the leading explanation over "model breakdown."
 
