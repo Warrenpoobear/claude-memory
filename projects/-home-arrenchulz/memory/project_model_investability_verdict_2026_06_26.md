@@ -41,6 +41,13 @@ Output: `artifacts/autopsy/phase3_component_attribution/`
 | Automated sizing / production capital | No |
 | Marketing as proven alpha | Absolutely not |
 
+**Shadow monitor (2026-06-26):**
+`STRESSED_OPTIONALITY_FORWARD_MONITOR_NO_MODEL_CHANGE` — forward-validation ledger active.
+Rule: Path 1 (EES ≤ −0.75 → suppress), Path 2 (fi_z ≤ −1.0 AND NOT EES>0 AND momentum≥60 → suppress). Parameters locked. REVIEW_REQUIRED if n_suppressed ≥ 8/30.
+Artifact: `artifacts/shadow_monitor/stressed_optionality/`.
+Early signal (May 18-22 weekly): DEGRADED (mean delta −1.48pp). Rule is suppressing 8-10/30 names broadly including COGT rank 1. Aggregate Phase 3 improvement (+0.78pp) came from later Phase 3 dates (DRUG/CELC/ABVX losses). Forward validation required before any production use.
+Verdict: PROMISING_SHADOW_GUARDRAIL_REQUIRES_FORWARD_VALIDATION.
+
 **Next milestone gate:**
 `PHASE_3_INVERSION_EXPLANATION_REQUIRED_BEFORE_CAPITAL_SCALE`
 
