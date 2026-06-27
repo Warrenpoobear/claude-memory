@@ -1,6 +1,6 @@
 ---
 name: project-model-investability-verdict-2026-06-26
-description: "Operator investment verdict on the biotech screener model — not investable yet, Phase 3 inversion is the disqualifier, gates defined for scale"
+description: "Operator investment verdict on the biotech screener model — not investable yet, Phase 3 substantially explained as regime-input-contaminated, corrected-regime ranking replay is next gate"
 metadata: 
   node_type: memory
   type: project
@@ -10,7 +10,17 @@ metadata:
 
 Operator verdict (2026-06-26): **Interesting research system: yes. Investable model: not yet.**
 
-**Why:** The disqualifier is not weak mean IC — it is the Phase 3 inversion (May 16–Jun 9, 19 consecutive snapshots, IC −0.05 to −0.21 during XBI rally +0.87pp/snap). This is worse than random underperformance because it suggests the model suppresses exposure when biotech beta is becoming favorable — an anti-alpha machine in exactly the wrong regime.
+**Phase 3 explanation status (updated 2026-06-26):**
+Phase 3 (May 18–Jun 9) is now substantially explained: the regime detector was offline (UNKNOWN/neutral weights) during a period PIT-safe reconstruction classifies as BEAR throughout (VIX 15–22, XBI −5% to −14% vs SPY 30d). The old Phase 3 backtest evaluated UNKNOWN/neutral behavior during a genuine BEAR regime — it is *regime-input-contaminated*, not clean evidence of model failure. However, it is not full investability clearance because the corrected BEAR-weighted rankings were not replayed end-to-end. Corrected BEAR weights would have shifted rankings (momentum −20%, quality +20%, financial +20%) but whether that improves top-30 performance is still unproven.
+
+**Current gate:**
+`PHASE3_CORRECTED_REGIME_RANKING_REPLAY_DIAGNOSTIC_NO_MODEL_CHANGE`
+Goal: Replay Phase 3/YTD rankings using PIT-safe reconstructed BEAR regime labels. Did corrected weights improve IC and top-30 selection? If yes: regime failure was dominant cause. If no: stock-selection problem persists.
+
+**Prior gate (substantially met):**
+`PHASE_3_INVERSION_EXPLANATION_REQUIRED_BEFORE_CAPITAL_SCALE` — Phase 3 is now explained as regime-input-contaminated. Not yet cleared because corrected-regime ranking replay is still required.
+
+**Why Phase 3 looked like inversion (revised understanding):** The model ran on UNKNOWN/neutral weights during a genuine BEAR period where XBI was underperforming SPY by 5–14% over 30 days. A momentum-biased ranker running neutral weights during sector risk-off is expected to underperform — this is now the leading explanation over "model breakdown."
 
 **Use-case verdict:**
 
