@@ -10,7 +10,7 @@
       "mcp__codegraph__codegraph_status"
     ]
   },
-  "model": "sonnet",
+  "model": "opus",
   "hooks": {
     "Stop": [
       {
@@ -28,6 +28,6 @@
   "enabledPlugins": {
     "claude-code-setup@claude-plugins-official": true
   },
-  "skipWorkflowUsageWarning": true,
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true
 }
