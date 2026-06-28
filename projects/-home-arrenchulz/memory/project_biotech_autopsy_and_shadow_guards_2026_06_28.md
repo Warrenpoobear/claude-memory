@@ -56,6 +56,24 @@ EES-excluded from current Top-30: ORIC/STOK/TNGX/ABVX/XENE (5 names, filled from
 Self-improving forensic skill at `~/.claude/skills/biotech-autopsy/SKILL.md`.
 15 lessons learned from first run. Key: `ees_v3_gate` is boolean not string; `market_cap_mm` not `market_cap_usd`; `regime_label` = 'UNKNOWN' all 2026.
 
+## Stress wrapper shadow (commit e9a94bc2, 2026-06-28)
+
+`scripts/research/conditional_risk_wrapper.py` — 4-condition activation flag:
+(A) rolling_4w_xs <= -5pp, (B) repeat_offender >= 2, (C) ees_false_top30 >= 5,
+(D) build+less_binary >= 55%. 186-window backfill: 108 ACTIVE / 78 passive.
+ACTIVE result: risk_guarded +0.07pp vs raw -0.11pp (+0.18pp delta, 51% vs 45%).
+PASSIVE result: all baskets +0.97pp (guards neutral when wrapper inactive).
+Current state: ACTIVE via cond_B+C (3 flagged ROs, 5 EES-False).
+
+`scripts/research/stress_wrapper_card.py` — top-level weekly card, supersedes
+weekly_failure_mode_card.py. Shows investability status (PILOT_INVESTABLE_WITH_SHADOW_GUARDS),
+regime (XBI trailing 20d classified BEAR/STRESS/NEUTRAL/MILD_RALLY/STRONG_RALLY),
+full repeat-offender table with tenure/cum_xs/replacement, wrapper activation status.
+Current regime: MILD_RALLY (+6.8% XBI trailing 20d).
+
+Promotion gate for stress wrapper: 20 ACTIVE windows with positive risk_guarded delta.
+Current: 0/20. branch: `research/stress-wrapper-shadow-2026-06-28`.
+
 ## DEM regime forward monitor (commit 62750714)
 
 `scripts/research/dem_regime_forward_monitor.py` — reads captures+fills,
