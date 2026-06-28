@@ -10,30 +10,43 @@ metadata:
 
 Operator verdict (2026-06-27, corrected): **Not investable. Forward shadow validation required.**
 
-**Price file corrected (2026-06-27):** `pit_backtest_a4.py` now uses `price_history_split_adj.csv`. Corrected 5 contaminated 2025+ periods (RNA spinout ×3, GOSS reverse split ×2, REPL spinout ×1, CMPS/DRUG/ERAS dividend adj ×3). Pre-2025 unchanged (was already clean). REPL adj return (+216%) is a spinout artifact — treat as approximation.
+**Price file corrected (2026-06-27):** `pit_backtest_a4.py` now uses `price_history_split_adj.csv`. Corporate action audit complete (2026-06-27): `dem_corporate_action_repaired/` is the authoritative artifact; prior YTD/regime/validation artifacts are STALE.
 
-**Corrected backtest statistics (split-adj, 2026-06-27):**
-| Window | n | mean pp | t-stat | Prior t |
-|---|---|---|---|---|
-| Full history | 69 | +3.33 | **3.635** | 3.309 |
-| Pre-2025 | 55 | +1.81 | **2.914** | 2.914 (unchanged) |
-| 2025+ | 14 | +9.29 | **2.694** | 2.167 |
-| 2026 YTD | 2 | +4.40 | 0.940 | 0.302 |
-| Rally cluster | 5 | +21.75 | 3.549 | 3.581 |
-| Ex-rally (64p) | 64 | +1.89 | **3.259** | 2.744 |
-| 2025+ ex-rally | 9 | +2.37 | **1.401** | 0.108 |
+**Corrected backtest statistics — three scenarios (2026-06-27):**
+| Window | n | Raw | Split-adj | Spinout-excl | t-adj | t-excl |
+|---|---|---|---|---|---|---|
+| Full history | 69 | +3.05 | +3.33 | +3.24 | **3.632** | **3.557** |
+| Pre-2025 | 55 | +1.81 | +1.81 | +1.81 | **2.914** | **2.914** |
+| 2025+ | 14 | +7.90 | +9.27 | +8.84 | **2.688** | **2.548** |
+| 2026 YTD | 2 | +2.19 | +4.26 | +4.49 | 0.938 | 1.042 |
+| Rally cluster | 5 | +21.82 | +21.69 | +21.69 | 3.523 | 3.523 |
+| Ex-rally (64p) | 64 | +1.58 | +1.89 | +1.80 | **3.259** | **3.169** |
+| 2025+ ex-rally | 9 | +0.17 | +2.37 | +1.70 | 1.401 | 1.188 |
 
-Key corrections vs stored: 2026-01-30 = −0.28 pp (was −5.05), 2025-04-30 = +9.48 pp (was +1.35), 2025-12-31 = −1.05 pp (was −5.10).
+**Corporate action taxonomy:**
+- SPINOUT (RNA ×3, REPL ×1): `SPINOUT_UNOBSERVABLE_EXCLUDED` — true investor return unavailable; name excluded from basket in spinout_excl scenario
+- REVERSE_SPLIT (GOSS ×2): `SPLIT_ADJUSTED_CORRECT` — split-adj prices are accurate
+- DIVIDEND (CMPS/DRUG/ERAS ×3 on 2026-02-28): `DIVIDEND_ADJUSTED_CORRECT` — small adjustments, handled correctly
+
+**Key corrections vs raw:** 2026-01-30: −5.05 → −0.28 (adj) → +0.18 (excl); 2025-04-30: +1.35 → +9.48 (adj) → +2.48 (excl, REPL artifact removed); 2025-12-31: −5.10 → −1.05 (adj) → −0.61 (excl).
+
+**Repair classification:** `SPLIT_ADJUSTED_BACKTEST_PRICE_SOURCE_REPAIR_PARTIAL_NO_MODEL_CHANGE` — partial because spinouts not fully solvable without spinco price data.
 
 **Current status labels (2026-06-27, post regime-conditional diagnostic + price correction):**
 ```
 DEM_IS_CURRENT_RANKER
+RAW_PRICE_BACKTEST_CONTAMINATED_BY_CORPORATE_ACTIONS
+SPLIT_ADJUSTED_PRICE_SOURCE_REPAIR_APPLIED
+SPINOUT_PERIODS_REQUIRE_FLAG_OR_EXCLUSION
+PRE_2025_ALPHA_CLEAN
+2026_YTD_VALIDATED_POSITIVE_AFTER_CORPORATE_ACTION_REPAIR
 FULL_HISTORY_ALPHA_POSITIVE
 PRE_2025_ALPHA_PERSISTENT
 2025_PLUS_ALPHA_RALLY_CONCENTRATED
-2026_YTD_INSUFFICIENT_FLAT
+2025_PLUS_EX_RALLY_ALPHA_NOT_SIGNIFICANT
 FORWARD_SHADOW_VALIDATION_REQUIRED
 A4_OVERLAY_FROZEN_FAILED
+PRIOR_ARTIFACTS_STALE
 ```
 
 **Architecture correction (closed 2026-06-27):** Prior "DEM vs A4" framing was wrong. DEM = current production ranker (actionable_rank from run_screen.py). A4 was a failed recomputation overlay. There is no longer a DEM-vs-A4 comparison — A4 is a dead branch.
