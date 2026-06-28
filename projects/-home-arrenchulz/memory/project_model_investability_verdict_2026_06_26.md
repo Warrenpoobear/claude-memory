@@ -89,8 +89,12 @@ Track every production date: DEM top-30 vs XBI, regime bucket, rally vs non-rall
 
 Operator verdict (2026-06-26): **Interesting research system: yes. Investable model: not yet.**
 
-**Phase 3 explanation status (updated 2026-06-26):**
-Phase 3 (May 18–Jun 9) is now substantially explained: the regime detector was offline (UNKNOWN/neutral weights) during a period PIT-safe reconstruction classifies as BEAR throughout (VIX 15–22, XBI −5% to −14% vs SPY 30d). The old Phase 3 backtest evaluated UNKNOWN/neutral behavior during a genuine BEAR regime — it is *regime-input-contaminated*, not clean evidence of model failure. However, it is not full investability clearance because the corrected BEAR-weighted rankings were not replayed end-to-end. Corrected BEAR weights would have shifted rankings (momentum −20%, quality +20%, financial +20%) but whether that improves top-30 performance is still unproven.
+**Phase 3 explanation status (corrected 2026-06-27):**
+Phase 3 (May 18–Jun 9): mean IC = −0.048, top-20 excess = −1.78% vs XBI. **Operator assessment (2026-06-27): not confirmed underperformance.** Statistical basis: t-stat = −0.96 over 16 dates (|t| < 1.96 = not significant). Historical BEAR base rate is already IC = −0.013 (slightly negative is expected in bear biotech markets for a coinvest-type signal). XBI itself averaged −9.2% vs SPY during Phase 3, so the top-20 underperformed XBI by 1.78pp but beat SPY by ~7.4pp. Prior "genuine underperformance" label was premature — the data is within BEAR base-rate noise.
+
+**Why the corrected BEAR replay didn't change the IC:** ranker_v2 in pairwise_minimal mode uses only coinvest_score_z and financial_score (both pre-regime computed), so rankings are identical regardless of BEAR-mode weights — IC stays at −0.048. The regime-input alternative was ruled out but the IC comparison has no correct counterfactual baseline without a model change.
+
+**Correct Phase 3 verdict:** Noisy negative IC within expected BEAR base rate. Not statistically confirmed underperformance. Not investability clearance. Forward live shadow validation is the right path.
 
 **Gates COMPLETE (2026-06-26):**
 
