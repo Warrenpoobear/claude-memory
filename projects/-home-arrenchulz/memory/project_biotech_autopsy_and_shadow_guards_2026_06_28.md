@@ -56,6 +56,15 @@ EES-excluded from current Top-30: ORIC/STOK/TNGX/ABVX/XENE (5 names, filled from
 Self-improving forensic skill at `~/.claude/skills/biotech-autopsy/SKILL.md`.
 15 lessons learned from first run. Key: `ees_v3_gate` is boolean not string; `market_cap_mm` not `market_cap_usd`; `regime_label` = 'UNKNOWN' all 2026.
 
+## DEM regime forward monitor (commit 62750714)
+
+`scripts/research/dem_regime_forward_monitor.py` — reads captures+fills,
+tags RALLY vs NON_RALLY (trailing 20d XBI >= +5%), computes rank monotonicity
+(top10/20/30), concentration (top-3 names pct of abs XS), EES warning.
+Output: `artifacts/forward_validation/dem_regime_monitor_{date}.json`.
+Seed (5/20 windows): RALLY +1.82pp, NON_RALLY +1.25pp, top30 -0.01pp (bottom ranks diluting).
+Investment gate: >=20 windows, non-rally avg XS > 0, no concentration warnings.
+
 ## Promotion gates doc
 
 `docs/SHADOW_GUARD_PROMOTION_GATES.md` — controlled promotion ladder.
