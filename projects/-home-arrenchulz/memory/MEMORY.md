@@ -51,6 +51,7 @@
 
 ## Validation Infrastructure
 - **[Rank-depth shadow tracking shipped — PR #436 (2026-06-28)](project_rank_depth_shadow_2026_06_28.md)** `[shipped]` — Top-60 + ranks 31-60 cohorts alongside Top-30 forward validation; NO_MODEL_CHANGE; commits 10cae69e+18b5094e on `feat/rank-depth-shadow` (based on `prod/sharpen-…`, NOT main — stack ~37 commits ahead of main); non-blocking `rank_depth_top60.csv` sidecar; cron promotion deferred. Gotcha: PR stacked feature work → target actual parent branch, not main.
+- **[biotech-autopsy skill — self-improving forensic attribution (2026-06-28)](project_biotech_autopsy_skill_2026_06_28.md)** `[active]` — `~/.claude/skills/biotech-autopsy/SKILL.md`; PIT-clean YTD Top-30 failure post-mortem; 6 confirmed failure windows (worst: Mar-16, May-26→Jun-2 cluster); price source `production_data/price_history_split_adj.csv`; writes to `artifacts/autopsy/ytd_top30_failure_postmortem_2026/`; Lessons Learned section updates after each run.
 
 ## Agentic Portfolio Operations
 - **[Agentic account 802349084 — live test case for Claude-managed biotech portfolio (2026-06-24)](project_agentic_portfolio_testcase_2026_06_24.md)** `[active]` — Test case for building rules/skills/memories for live portfolio management. Validated constraints: T+1 settlement gap, ~16-20 order/min rate limit, GFD-only for fractional orders, $1 order minimum, ABVX sell-only. Rebalance workflow: get_portfolio → positions → rankings.csv → delta → sells first → batched buys.
