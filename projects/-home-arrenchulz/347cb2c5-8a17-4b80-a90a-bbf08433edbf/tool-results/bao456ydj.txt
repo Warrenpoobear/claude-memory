@@ -1,0 +1,1172 @@
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+
+================================================================================
+13F HISTORY EXTRACTION
+================================================================================
+Quarter End: 2025-12-31
+Quarters: 1
+Mode: live
+================================================================================
+
+Run ID: c997ca232b1319a4
+Parameters Hash: e5f093a371494081
+Input Hashes: 3 files
+
+
+--- Quarter 1/1: 2025-12-31 ---
+
+Processing Baker Bros Advisors (0001263508) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001263508...
+    Found 13F-HR: 0001104659-26-016374 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1263508/000110465926016374/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1263508/000110465926016374/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 86 holdings, total value: $17,078,624,105K
+  Matched 79 holdings to universe
+
+Processing RA Capital Management (0001346824) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001346824...
+    Found 13F-HR: 0001104659-26-016482 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1346824/000110465926016482/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1346824/000110465926016482/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 72 holdings, total value: $9,760,868,193K
+  Matched 49 holdings to universe
+
+Processing Perceptive Advisors (0001224962) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001224962...
+    Found 13F-HR: 0001012975-26-000155 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1224962/000101297526000155/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1224962/000101297526000155/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1224962/000101297526000155/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1224962/000101297526000155/index.json
+      Found information table via index.json: infotable1.xml
+  Parsed 116 holdings, total value: $5,610,284,266K
+  Matched 73 holdings to universe
+
+Processing Deerfield Management (0001009258) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001009258...
+    Found 13F-HR: 0001213900-26-017265 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1009258/000121390026017265/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1009258/000121390026017265/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 150 holdings, total value: $7,830,165,970K
+  Matched 53 holdings to universe
+
+Processing Ally Bridge Group (0001822947) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001822947...
+    Found 13F-HR: 0001193125-26-055035 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1822947/000119312526055035/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1822947/000119312526055035/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1822947/000119312526055035/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1822947/000119312526055035/index.json
+      Found information table via index.json: 50150.xml
+  Parsed 20 holdings, total value: $95,990,877K
+  Matched 10 holdings to universe
+
+Processing Redmile Group (0001425738) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001425738...
+    Found 13F-HR: 0001104659-26-016433 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1425738/000110465926016433/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1425738/000110465926016433/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 34 holdings, total value: $1,357,911,173K
+  Matched 21 holdings to universe
+
+Processing Orbimed Advisors (0001055951) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001055951...
+    Found 13F-HR: 0001172661-26-001119 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1055951/000117266126001119/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1055951/000117266126001119/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 108 holdings, total value: $4,899,391,958K
+  Matched 69 holdings to universe
+
+Processing Venbio Partners (0001776382) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001776382...
+    Found 13F-HR: 0000905148-26-000841 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1776382/000090514826000841/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1776382/000090514826000841/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1776382/000090514826000841/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1776382/000090514826000841/index.json
+      Found information table via index.json: informationtable.xml
+  Parsed 6 holdings, total value: $216,272,926K
+  Matched 5 holdings to universe
+
+Processing Bain Capital Life Sciences (0001703031) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001703031...
+    Found 13F-HR: 0001193125-26-054833 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1703031/000119312526054833/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1703031/000119312526054833/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1703031/000119312526054833/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1703031/000119312526054833/index.json
+      Found information table via index.json: 50601.xml
+  Parsed 19 holdings, total value: $1,305,660,830K
+  Matched 13 holdings to universe
+
+Processing RTW Investments (0001493215) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001493215...
+    Found 13F-HR: 0001493215-26-000060 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1493215/000149321526000060/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1493215/000149321526000060/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 91 holdings, total value: $9,983,316,876K
+  Matched 63 holdings to universe
+
+Processing Tang Capital Partners (0001232621) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001232621...
+    Found 13F-HR: 0001214659-26-002015 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1232621/000121465926002015/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1232621/000121465926002015/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 75 holdings, total value: $2,024,360,609K
+  Matched 56 holdings to universe
+
+Processing Suvretta Capital Management (0001569064) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001569064...
+    Found 13F-HR: 0001172661-26-001088 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1569064/000117266126001088/informationTable.xml: Not FoundUnknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1569064/000117266126001088/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 93 holdings, total value: $4,881,761,500K
+  Matched 33 holdings to universe
+
+Processing Casdin Capital (0001534261) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001534261...
+    Found 13F-HR: 0000919574-26-001181 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1534261/000091957426001181/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1534261/000091957426001181/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 38 holdings, total value: $1,609,916,188K
+  Matched 29 holdings to universe
+
+Processing Cormorant Asset Management (0001583977) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001583977...
+    Found 13F-HR: 0001583977-26-000001 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1583977/000158397726000001/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1583977/000158397726000001/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1583977/000158397726000001/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1583977/000158397726000001/index.json
+      Found information table via index.json: cam13f12312025.xml
+  Parsed 35 holdings, total value: $2,162,580,277K
+  Matched 30 holdings to universe
+
+Processing Logos Global Management (0001792126) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001792126...
+    Found 13F-HR: 0001172661-26-001209 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1792126/000117266126001209/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1792126/000117266126001209/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 69 holdings, total value: $1,654,958,467K
+  Matched 54 holdings to universe
+
+Processing Sofinnova Investments (0001631134) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001631134...
+    Found 13F-HR: 0001104659-26-015127 (filed 2026-02-13)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1631134/000110465926015127/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1631134/000110465926015127/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 60 holdings, total value: $2,319,284,145K
+  Matched 40 holdings to universe
+
+Processing Boxer Capital Management (0002018299) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0002018299...
+    Found 13F-HR: 0002018299-26-000006 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2018299/000201829926000006/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2018299/000201829926000006/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2018299/000201829926000006/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/2018299/000201829926000006/index.json
+      Found information table via index.json: bcmq4202513f.xml
+  Parsed 45 holdings, total value: $456,875,787K
+  Matched 33 holdings to universe
+
+Processing EcoR1 Capital (0001587114) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001587114...
+    Found 13F-HR: 0000935836-26-000101 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1587114/000093583626000101/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1587114/000093583626000101/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 30 holdings, total value: $2,204,008,593K
+  Matched 22 holdings to universe
+
+Processing Palo Alto Investors (0001306923) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001306923...
+    Found 13F-HR: 0001306923-26-000002 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1306923/000130692326000002/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1306923/000130692326000002/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1306923/000130692326000002/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1306923/000130692326000002/index.json
+      Found information table via index.json: 13f.xml
+  Parsed 49 holdings, total value: $718,352,025K
+  Matched 42 holdings to universe
+
+Processing Sectoral Asset Management (0001274413) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001274413...
+    Found 13F-HR: 0001104659-26-011921 (filed 2026-02-09)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1274413/000110465926011921/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1274413/000110465926011921/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 74 holdings, total value: $124,752,405K
+  Matched 47 holdings to universe
+
+Processing Great Point Partners (0001281446) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001281446...
+    Found 13F-HR: 0001172661-26-001093 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1281446/000117266126001093/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1281446/000117266126001093/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 29 holdings, total value: $308,414,328K
+  Matched 19 holdings to universe
+
+Processing Avidity Partners Management (0001791827) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001791827...
+    Found 13F-HR: 0001791827-26-000002 (filed 2026-02-13)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1791827/000179182726000002/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1791827/000179182726000002/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1791827/000179182726000002/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1791827/000179182726000002/index.json
+      Found information table via index.json: avid13f_q4.xml
+  Parsed 39 holdings, total value: $346,693,009K
+  Matched 15 holdings to universe
+
+Processing Samsara BioCapital (0001744967) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001744967...
+    Found 13F-HR: 0001744967-26-000002 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1744967/000174496726000002/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1744967/000174496726000002/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1744967/000174496726000002/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1744967/000174496726000002/index.json
+      Found information table via index.json: form13f-1771364687_infotable.xml
+  Parsed 21 holdings, total value: $969,256,994K
+  Matched 16 holdings to universe
+
+Processing Deep Track Capital (0001856083) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001856083...
+    Found 13F-HR: 0001856083-26-000001 (filed 2026-02-13)
+    Fetching information table XML...Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1856083/000185608326000001/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1856083/000185608326000001/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1856083/000185608326000001/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1856083/000185608326000001/index.json
+      Found information table via index.json: DTBIOMAST.xml
+  Parsed 55 holdings, total value: $5,608,747,587K
+  Matched 40 holdings to universe
+
+Processing Krensavage Asset Management (0001609251) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001609251...
+    Found 13F-HR: 0001609251-26-000003 (filed 2026-02-18)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1609251/000160925126000003/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1609251/000160925126000003/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1609251/000160925126000003/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1609251/000160925126000003/index.json
+      Could not locate information table XML
+  Failed to fetch information table XML for Krensavage Asset Management
+
+Processing Acuta Capital Partners (0001582844) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001582844...
+    Found 13F-HR: 0001104659-26-016119 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1582844/000110465926016119/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1582844/000110465926016119/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 30 holdings, total value: $147,286,583K
+  Matched 23 holdings to universe
+
+Processing Rock Springs Capital Management (0001595725) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001595725...
+    Found 13F-HR: 0001172661-26-000917 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1595725/000117266126000917/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1595725/000117266126000917/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 99 holdings, total value: $1,950,203,715K
+  Matched 65 holdings to universe
+
+Processing Opaleye Management (0001595855) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001595855...
+    Found 13F-HR: 0001493152-26-007085 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1595855/000149315226007085/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1595855/000149315226007085/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 54 holdings, total value: $757,989,521K
+  Matched 34 holdings to universe
+
+Processing BVF Inc/IL (0001056807) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001056807...
+    Found 13F-HR: 0000921895-26-000449 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1056807/000092189526000449/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1056807/000092189526000449/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 41 holdings, total value: $2,970,708,839K
+  Matched 30 holdings to universe
+
+Processing Avoro Capital Advisors (0001633313) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001633313...
+    Found 13F-HR: 0001104659-26-015748 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1633313/000110465926015748/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1633313/000110465926015748/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 34 holdings, total value: $10,174,376,432K
+  Matched 27 holdings to universe
+
+Processing Sarissa Capital Management (0001577524) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001577524...
+    Found 13F-HR: 0000899140-26-000256 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1577524/000089914026000256/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1577524/000089914026000256/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1577524/000089914026000256/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1577524/000089914026000256/index.json
+      Found information table via index.json: informationtable.xml
+  Parsed 9 holdings, total value: $222,909,132K
+  Matched 6 holdings to universe
+
+Processing Foresite Capital IV (0001704132) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001704132...
+    Found 13F-HR: 0001104659-26-015407 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1704132/000110465926015407/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1704132/000110465926015407/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 7 holdings, total value: $229,710,880K
+  Matched 6 holdings to universe
+
+Processing Foresite Capital V (0001792206) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001792206...
+    Found 13F-HR: 0001104659-26-015410 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1792206/000110465926015410/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1792206/000110465926015410/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 7 holdings, total value: $164,402,957K
+  Matched 6 holdings to universe
+
+Processing Foresite Capital VI (0002013341) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0002013341...
+    Found 13F-HR: 0001104659-26-015412 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2013341/000110465926015412/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2013341/000110465926015412/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 12 holdings, total value: $330,838,998K
+  Matched 10 holdings to universe
+
+Processing Broadfin Capital (Kotler) (0001601692) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001601692...
+    Found 13F-HR: 0000919574-26-001069 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1601692/000091957426001069/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1601692/000091957426001069/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 50 holdings, total value: $427,498,391K
+  Matched 9 holdings to universe
+
+Processing Caligan Partners (0001727492) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001727492...
+    Found 13F-HR: 0001420506-26-000584 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1727492/000142050626000584/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1727492/000142050626000584/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1727492/000142050626000584/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1727492/000142050626000584/index.jsonUnknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+
+      Found information table via index.json: Form13F_InfoTable.xml
+  Parsed 24 holdings, total value: $1,214,792,770K
+  Matched 14 holdings to universe
+
+Processing Vivo Capital (0001674712) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001674712...
+    Found 13F-HR: 0001213900-26-016236 (filed 2026-02-13)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1674712/000121390026016236/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1674712/000121390026016236/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 47 holdings, total value: $1,547,066,991K
+  Matched 33 holdings to universe
+
+Processing DAFNA Capital Management (0001389933) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001389933...
+    Found 13F-HR: 0001389933-26-000002 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1389933/000138993326000002/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1389933/000138993326000002/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1389933/000138993326000002/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1389933/000138993326000002/index.json
+      Found information table via index.json: DAFNA_information_table.xml
+  Parsed 77 holdings, total value: $430,518,714K
+  Matched 47 holdings to universe
+
+Processing Fairmount Funds Management (0001802528) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001802528...
+    Found 13F-HR: 0001104659-26-016303 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802528/000110465926016303/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802528/000110465926016303/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 13 holdings, total value: $1,313,784,318K
+  Matched 12 holdings to universe
+
+Processing Vestal Point Capital (0001974915) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001974915...
+    Found 13F-HR: 0001974915-26-000002 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1974915/000197491526000002/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1974915/000197491526000002/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1974915/000197491526000002/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1974915/000197491526000002/index.json
+      Found information table via index.json: 13fq42025.xml
+  Parsed 76 holdings, total value: $2,941,274,351K
+  Matched 53 holdings to universe
+
+Processing Kynam Capital Management (0001907884) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001907884...
+    Found 13F-HR: 0001907884-26-000001 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1907884/000190788426000001/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1907884/000190788426000001/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 37 holdings, total value: $1,565,452,855K
+  Matched 29 holdings to universe
+
+Processing Soleus Capital Management (0001802630) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001802630...
+    Found 13F-HR: 0001802630-26-000002 (filed 2026-02-12)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802630/000180263026000002/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802630/000180263026000002/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802630/000180263026000002/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1802630/000180263026000002/index.json
+      Found information table via index.json: Soleus_13F_12312025.xml
+  Parsed 95 holdings, total value: $2,710,906,126K
+  Matched 66 holdings to universe
+
+Processing Frazier Life Sciences Management (0001892134) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001892134...
+    Found 13F-HR: 0001892134-26-000001 (filed 2026-02-13)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1892134/000189213426000001/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1892134/000189213426000001/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1892134/000189213426000001/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1892134/000189213426000001/index.json
+      Found information table via index.json: flsmq42025form13f.xml
+  Parsed 40 holdings, total value: $3,723,154,080K
+  Matched 34 holdings to universe
+
+Processing Siren LLC (0002005245) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0002005245...
+    Found 13F-HR: 0002005245-26-000003 (filed 2026-02-13)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2005245/000200524526000003/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2005245/000200524526000003/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 115 holdings, total value: $3,352,424,599K
+  Matched 56 holdings to universe
+
+Processing TCG Crossover Management (0001839948) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001839948...
+    Found 13F-HR: 0001214659-26-001871 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1839948/000121465926001871/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1839948/000121465926001871/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 43 holdings, total value: $3,021,699,270K
+  Matched 35 holdings to universe
+
+Processing Braidwell LP (0001920938) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001920938...
+    Found 13F-HR: 0001420506-26-000586 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1920938/000142050626000586/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1920938/000142050626000586/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1920938/000142050626000586/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1920938/000142050626000586/index.json
+      Found information table via index.json: Form13F_InfoTable.xml
+  Parsed 73 holdings, total value: $3,126,999,740K
+  Matched 43 holdings to universe
+
+Processing Integral Health Asset Management (0001773206) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001773206...
+    Found 13F-HR: 0001172661-26-000915 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1773206/000117266126000915/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1773206/000117266126000915/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 86 holdings, total value: $2,013,991,480K
+  Matched 47 holdings to universe
+
+Processing Affinity Asset Advisors (0001773195) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001773195...
+    Found 13F-HR: 0001315863-26-000153 (filed 2026-02-13)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1773195/000131586326000153/informationTable.xml: Not FoundUnknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1773195/000131586326000153/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1773195/000131586326000153/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1773195/000131586326000153/index.json
+      Found information table via index.json: affinity.inftab.xml
+  Parsed 95 holdings, total value: $1,755,015,212K
+  Matched 60 holdings to universe
+
+Processing Paradigm Biocapital Advisors (0001855655) for Q ending 2025-12-31...
+  Querying submissions API for CIK 0001855655...
+    Found 13F-HR: 0001855655-26-000003 (filed 2026-02-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1855655/000185565526000003/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1855655/000185565526000003/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1855655/000185565526000003/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1855655/000185565526000003/index.json
+      Found information table via index.json: PARADIGM_13F_12312025.xml
+  Parsed 30 holdings, total value: $3,917,829,903K
+  Matched 25 holdings to universe
+
+Processing Baker Bros Advisors (0001263508) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001263508...
+    Found 13F-HR: 0001104659-25-112595 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1263508/000110465925112595/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1263508/000110465925112595/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 90 holdings, total value: $13,838,782,047K
+  Matched 78 holdings to universe
+
+Processing RA Capital Management (0001346824) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001346824...
+    Found 13F-HR: 0001104659-25-112469 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1346824/000110465925112469/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1346824/000110465925112469/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 68 holdings, total value: $8,115,527,458K
+  Matched 51 holdings to universe
+
+Processing Perceptive Advisors (0001224962) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001224962...
+    Found 13F-HR: 0001012975-25-000762 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1224962/000101297525000762/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1224962/000101297525000762/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 93 holdings, total value: $3,463,098,749K
+  Matched 59 holdings to universe
+
+Processing Deerfield Management (0001009258) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001009258...
+    Found 13F-HR: 0001213900-25-110851 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1009258/000121390025110851/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1009258/000121390025110851/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 152 holdings, total value: $6,550,740,151K
+  Matched 52 holdings to universe
+
+Processing Ally Bridge Group (0001822947) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001822947...
+    Found 13F-HR: 0001193125-25-283054 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1822947/000119312525283054/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1822947/000119312525283054/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1822947/000119312525283054/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1822947/000119312525283054/index.json
+      Found information table via index.json: 46941.xml
+  Parsed 25 holdings, total value: $164,215,533K
+  Matched 15 holdings to universe
+
+Processing Redmile Group (0001425738) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001425738...
+    Found 13F-HR: 0001104659-25-112572 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1425738/000110465925112572/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1425738/000110465925112572/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 40 holdings, total value: $1,027,815,748K
+  Matched 23 holdings to universe
+
+Processing Orbimed Advisors (0001055951) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001055951...
+    Found 13F-HR: 0001172661-25-005047 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1055951/000117266125005047/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1055951/000117266125005047/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 110 holdings, total value: $4,255,380,174K
+  Matched 61 holdings to universe
+
+Processing Venbio Partners (0001776382) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001776382...
+    Found 13F-HR: 0000905148-25-004034 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1776382/000090514825004034/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1776382/000090514825004034/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1776382/000090514825004034/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1776382/000090514825004034/index.json
+      Found information table via index.json: informationtable.xml
+  Parsed 6 holdings, total value: $176,403,556K
+  Matched 5 holdings to universe
+
+Processing Bain Capital Life Sciences (0001703031) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001703031...
+    Found 13F-HR: 0001193125-25-283094 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1703031/000119312525283094/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1703031/000119312525283094/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1703031/000119312525283094/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1703031/000119312525283094/index.json
+      Found information table via index.json: 47094.xml
+  Parsed 21 holdings, total value: $1,506,676,328K
+  Matched 13 holdings to universe
+
+Processing RTW Investments (0001493215) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001493215...
+    Found 13F-HR: 0001493215-25-000054 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1493215/000149321525000054/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1493215/000149321525000054/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 74 holdings, total value: $8,116,139,085K
+  Matched 51 holdings to universe
+
+Processing Tang Capital Partners (0001232621) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001232621...
+    Found 13F-HR: 0001214659-25-016677 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1232621/000121465925016677/informationTable.xml: Not FoundUnknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1232621/000121465925016677/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 194 holdings, total value: $2,597,852,511K
+  Matched 104 holdings to universe
+
+Processing Suvretta Capital Management (0001569064) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001569064...
+    Found 13F-HR: 0001172661-25-004838 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1569064/000117266125004838/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1569064/000117266125004838/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 93 holdings, total value: $3,906,850,029K
+  Matched 30 holdings to universe
+
+Processing Casdin Capital (0001534261) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001534261...
+    Found 13F-HR: 0000919574-25-007006 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1534261/000091957425007006/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1534261/000091957425007006/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 32 holdings, total value: $1,199,325,239K
+  Matched 25 holdings to universe
+
+Processing Cormorant Asset Management (0001583977) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001583977...
+    Found 13F-HR: 0001583977-25-000011 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1583977/000158397725000011/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1583977/000158397725000011/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1583977/000158397725000011/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1583977/000158397725000011/index.json
+      Found information table via index.json: cam13f09302025.xml
+  Parsed 36 holdings, total value: $1,449,259,159K
+  Matched 32 holdings to universe
+
+Processing Logos Global Management (0001792126) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001792126...
+    Found 13F-HR: 0001172661-25-004983 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1792126/000117266125004983/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1792126/000117266125004983/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 59 holdings, total value: $1,115,686,071K
+  Matched 48 holdings to universe
+
+Processing Sofinnova Investments (0001631134) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001631134...
+    Found 13F-HR: 0001104659-25-111551 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1631134/000110465925111551/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1631134/000110465925111551/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 62 holdings, total value: $1,828,830,662K
+  Matched 39 holdings to universe
+
+Processing Boxer Capital Management (0002018299) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0002018299...
+    Found 13F-HR: 0002018299-25-000012 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2018299/000201829925000012/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2018299/000201829925000012/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2018299/000201829925000012/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/2018299/000201829925000012/index.json
+      Found information table via index.json: bcmq2202513f.xml
+  Parsed 34 holdings, total value: $313,726,904K
+  Matched 24 holdings to universe
+
+Processing EcoR1 Capital (0001587114) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001587114...
+    Found 13F-HR: 0000935836-25-000671 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1587114/000093583625000671/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1587114/000093583625000671/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 30 holdings, total value: $2,083,868,932K
+  Matched 26 holdings to universe
+
+Processing Palo Alto Investors (0001306923) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001306923...
+    Found 13F-HR: 0001306923-25-000019 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1306923/000130692325000019/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1306923/000130692325000019/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1306923/000130692325000019/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1306923/000130692325000019/index.json
+      Found information table via index.json: 13F.xml
+  Parsed 44 holdings, total value: $540,390,359K
+  Matched 38 holdings to universe
+
+Processing Sectoral Asset Management (0001274413) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001274413...
+    Found 13F-HR: 0001104659-25-112082 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1274413/000110465925112082/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1274413/000110465925112082/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 82 holdings, total value: $162,014,983K
+  Matched 54 holdings to universe
+
+Processing Great Point Partners (0001281446) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001281446...
+    Found 13F-HR: 0001814554-25-000164 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1281446/000181455425000164/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1281446/000181455425000164/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 30 holdings, total value: $242,495,757K
+  Matched 20 holdings to universe
+
+Processing Avidity Partners Management (0001791827) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001791827...
+    Found 13F-HR: 0001791827-25-000008 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1791827/000179182725000008/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1791827/000179182725000008/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1791827/000179182725000008/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1791827/000179182725000008/index.json
+      Found information table via index.json: avid13f_q3.xml
+  Parsed 43 holdings, total value: $439,394,999K
+  Matched 20 holdings to universe
+
+Processing Samsara BioCapital (0001744967) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001744967...
+    Found 13F-HR: 0001744967-25-000004 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1744967/000174496725000004/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1744967/000174496725000004/form13fInfoTable.xml: Not FoundUnknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1744967/000174496725000004/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1744967/000174496725000004/index.json
+      Found information table via index.json: form13f-1763155766_infotable.xml
+  Parsed 27 holdings, total value: $765,928,969K
+  Matched 22 holdings to universe
+
+Processing Deep Track Capital (0001856083) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001856083...
+    Found 13F-HR: 0001856083-25-000006 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1856083/000185608325000006/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1856083/000185608325000006/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1856083/000185608325000006/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1856083/000185608325000006/index.json
+      Found information table via index.json: DTBIOMAST.xml
+  Parsed 56 holdings, total value: $3,583,282,146K
+  Matched 40 holdings to universe
+
+Processing Krensavage Asset Management (0001609251) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001609251...
+    Found 13F-HR: 0001609251-25-000007 (filed 2025-11-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1609251/000160925125000007/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1609251/000160925125000007/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1609251/000160925125000007/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1609251/000160925125000007/index.json
+      Could not locate information table XML
+  Failed to fetch information table XML for Krensavage Asset Management
+
+Processing Acuta Capital Partners (0001582844) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001582844...
+    Found 13F-HR: 0001104659-25-112378 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1582844/000110465925112378/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1582844/000110465925112378/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 28 holdings, total value: $96,768,753K
+  Matched 23 holdings to universe
+
+Processing Rock Springs Capital Management (0001595725) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001595725...
+    Found 13F-HR: 0001172661-25-004882 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1595725/000117266125004882/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1595725/000117266125004882/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 93 holdings, total value: $1,711,523,566K
+  Matched 57 holdings to universe
+
+Processing Opaleye Management (0001595855) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001595855...
+    Found 13F-HR: 0001493152-25-023429 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1595855/000149315225023429/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1595855/000149315225023429/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 43 holdings, total value: $707,320,956K
+  Matched 29 holdings to universe
+
+Processing BVF Inc/IL (0001056807) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001056807...
+    Found 13F-HR: 0000921895-25-003089 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1056807/000092189525003089/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1056807/000092189525003089/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 46 holdings, total value: $2,466,911,543K
+  Matched 31 holdings to universe
+
+Processing Avoro Capital Advisors (0001633313) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001633313...
+    Found 13F-HR: 0001104659-25-111932 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1633313/000110465925111932/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1633313/000110465925111932/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 32 holdings, total value: $7,736,501,045K
+  Matched 24 holdings to universe
+
+Processing Sarissa Capital Management (0001577524) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001577524...
+    Found 13F-HR: 0000899140-25-001320 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1577524/000089914025001320/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1577524/000089914025001320/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1577524/000089914025001320/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1577524/000089914025001320/index.json
+      Found information table via index.json: informationtable.xml
+  Parsed 8 holdings, total value: $180,391,813K
+  Matched 5 holdings to universe
+
+Processing Foresite Capital IV (0001704132) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001704132...
+    Found 13F-HR: 0001104659-25-112500 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1704132/000110465925112500/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1704132/000110465925112500/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 6 holdings, total value: $182,608,465K
+  Matched 6 holdings to universe
+
+Processing Foresite Capital V (0001792206) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001792206...
+    Found 13F-HR: 0001104659-25-112503 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1792206/000110465925112503/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1792206/000110465925112503/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 6 holdings, total value: $108,743,611K
+  Matched 5 holdings to universe
+
+Processing Foresite Capital VI (0002013341) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0002013341...
+    Found 13F-HR: 0001104659-25-112509 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2013341/000110465925112509/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2013341/000110465925112509/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 12 holdings, total value: $258,867,279K
+  Matched 8 holdings to universe
+
+Processing Broadfin Capital (Kotler) (0001601692) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001601692...
+    No 13F-HR found for quarter ending 2025-09-30
+  No filing found for Broadfin Capital (Kotler)
+
+Processing Caligan Partners (0001727492) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001727492...
+    Found 13F-HR: 0001420506-25-003441 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1727492/000142050625003441/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1727492/000142050625003441/form13fInfoTable.xml: Not FoundUnknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1727492/000142050625003441/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1727492/000142050625003441/index.json
+      Found information table via index.json: Form13F_InfoTable.xml
+  Parsed 18 holdings, total value: $763,509,272K
+  Matched 13 holdings to universe
+
+Processing Vivo Capital (0001674712) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001674712...
+    Found 13F-HR: 0001213900-25-110767 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1674712/000121390025110767/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1674712/000121390025110767/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 47 holdings, total value: $1,242,708,182K
+  Matched 29 holdings to universe
+
+Processing DAFNA Capital Management (0001389933) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001389933...
+    Found 13F-HR: 0001389933-25-000008 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1389933/000138993325000008/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1389933/000138993325000008/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1389933/000138993325000008/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1389933/000138993325000008/index.json
+      Found information table via index.json: DAFNA_information_table.xml
+  Parsed 75 holdings, total value: $404,785,884K
+  Matched 47 holdings to universe
+
+Processing Fairmount Funds Management (0001802528) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001802528...
+    Found 13F-HR: 0001104659-25-112427 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802528/000110465925112427/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802528/000110465925112427/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 17 holdings, total value: $1,111,423,463K
+  Matched 15 holdings to universe
+
+Processing Vestal Point Capital (0001974915) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001974915...
+    Found 13F-HR: 0001974915-25-000008 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1974915/000197491525000008/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1974915/000197491525000008/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1974915/000197491525000008/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1974915/000197491525000008/index.json
+      Could not locate information table XML
+  Failed to fetch information table XML for Vestal Point Capital
+
+Processing Kynam Capital Management (0001907884) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001907884...
+    Found 13F-HR: 0001907884-25-000002 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1907884/000190788425000002/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1907884/000190788425000002/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 35 holdings, total value: $1,343,110,955K
+  Matched 31 holdings to universe
+
+Processing Soleus Capital Management (0001802630) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001802630...
+    Found 13F-HR: 0001802630-25-000018 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802630/000180263025000018/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802630/000180263025000018/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1802630/000180263025000018/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1802630/000180263025000018/index.json
+      Found information table via index.json: Soleus_13F_09302025.xml
+  Parsed 88 holdings, total value: $1,986,446,914K
+  Matched 57 holdings to universe
+
+Processing Frazier Life Sciences Management (0001892134) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001892134...
+    Found 13F-HR: 0001892134-25-000012 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1892134/000189213425000012/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1892134/000189213425000012/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1892134/000189213425000012/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1892134/000189213425000012/index.json
+      Found information table via index.json: flsmq32025form13f.xml
+  Parsed 47 holdings, total value: $3,337,397,700K
+  Matched 38 holdings to universe
+
+Processing Siren LLC (0002005245) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0002005245...
+    Found 13F-HR: 0002005245-25-000012 (filed 2025-11-13)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2005245/000200524525000012/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/2005245/000200524525000012/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 117 holdings, total value: $2,556,293,148K
+  Matched 52 holdings to universe
+
+Processing TCG Crossover Management (0001839948) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001839948...
+    Found 13F-HR: 0001214659-25-016751 (filed 2025-11-17)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1839948/000121465925016751/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1839948/000121465925016751/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 40 holdings, total value: $2,032,902,053K
+  Matched 31 holdings to universe
+
+Processing Braidwell LP (0001920938) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001920938...
+    Found 13F-HR: 0001420506-25-003410 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1920938/000142050625003410/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1920938/000142050625003410/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1920938/000142050625003410/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1920938/000142050625003410/index.json
+      Found information table via index.json: Form13F_InfoTable.xml
+  Parsed 73 holdings, total value: $3,370,348,920K
+  Matched 40 holdings to universe
+
+Processing Integral Health Asset Management (0001773206) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001773206...
+    Found 13F-HR: 0001172661-25-004839 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1773206/000117266125004839/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1773206/000117266125004839/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 76 holdings, total value: $1,478,111,770K
+  Matched 37 holdings to universe
+
+Processing Affinity Asset Advisors (0001773195) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001773195...Unknown action type 'pending_acquisition' for APGE — skipping
+Unknown action type 'pending_acquisition' for APGE — skipping
+
+    Found 13F-HR: 0001999371-25-017685 (filed 2025-11-13)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1773195/000199937125017685/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1773195/000199937125017685/form13fInfoTable.xml: Not Found
+      Found information table: infotable.xml
+  Parsed 96 holdings, total value: $1,147,980,949K
+  Matched 59 holdings to universe
+
+Processing Paradigm Biocapital Advisors (0001855655) for Q ending 2025-09-30...
+  Querying submissions API for CIK 0001855655...
+    Found 13F-HR: 0001855655-25-000014 (filed 2025-11-14)
+    Fetching information table XML...
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1855655/000185565525000014/informationTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1855655/000185565525000014/form13fInfoTable.xml: Not Found
+HTTP Error 404 fetching https://www.sec.gov/Archives/edgar/data/1855655/000185565525000014/infotable.xml: Not Found
+      Trying index.json: https://www.sec.gov/Archives/edgar/data/1855655/000185565525000014/index.json
+      Found information table via index.json: PARADIGM_13F_09302025.xml
+  Parsed 36 holdings, total value: $3,516,196,926K
+  Matched 31 holdings to universe
+  Written: holdings_2025-12-31.json
+  Tickers: 301
+  Managers: 48
+
+================================================================================
+EXTRACTION COMPLETE
+================================================================================
+Run ID: c997ca232b1319a4
+Quarters extracted: 1
+Output directory: data/13f_refresh_2025q4
+Manifest: manifest.json (dab808c1bd41927c...)
+Total warnings: 1
+================================================================================
+
+Extraction successful.

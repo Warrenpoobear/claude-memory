@@ -1,0 +1,2173 @@
+=== /tmp/clean_dryrun.txt ===
+Found 540 universe files to check
+
+Processing: artifacts/universe_backfill_report.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: audit_logs/universe_cleaning_audit_20260116_202118.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: audit_logs/universe_cleaning_audit_20260116_203904.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: audit_logs/universe_cleaning_audit_20260116_205040.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: audit_logs/universe_cleaning_audit_20260116_205850.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: audit_logs/universe_cleaning_audit_20260116_210416.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: data/pit_archives/2020-01-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-01-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-01-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-01-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-01-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-02-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-02-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-02-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-02-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-03-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-03-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-03-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-03-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-03-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-04-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-04-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-04-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-04-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-04-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-05-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-05-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-05-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-05-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-05-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-06-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-06-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-06-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-06-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-06-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-07-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-07-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-07-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-07-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-07-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-08-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-08-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-08-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-08-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-08-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-09-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-09-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-09-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-09-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-09-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-10-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-10-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-10-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-10-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-10-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-11-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-11-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-11-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-11-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-11-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-12-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-12-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-12-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-12-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2020-12-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-01-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-01-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-01-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-01-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-02-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-02-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-02-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-02-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-03-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-03-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-03-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-03-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-03-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-04-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-04-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-04-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-04-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-04-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-05-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-05-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-05-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-05-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-05-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-06-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-06-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-06-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-06-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-06-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-07-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-07-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-07-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-07-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-07-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-08-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-08-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-08-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-08-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-08-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-09-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-09-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-09-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-09-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-09-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-10-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-10-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-10-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-10-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-10-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-11-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-11-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-11-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-11-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-11-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-12-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-12-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-12-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-12-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2021-12-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-01-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-01-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-01-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-01-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-01-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-02-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-02-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-02-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-02-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-02-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-03-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-03-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-03-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-03-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-03-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-04-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-04-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-04-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-04-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-04-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-05-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-05-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-05-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-05-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-05-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-06-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-06-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-06-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-06-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-06-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-07-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-07-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-07-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-07-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-07-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-08-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-08-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-08-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-08-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-08-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-09-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-09-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-09-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-09-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-09-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-10-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-10-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-10-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-10-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-10-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-11-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-11-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-11-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-11-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-11-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-12-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-12-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-12-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-12-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2022-12-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-01-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-01-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-01-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-01-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-01-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-01-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-02-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-02-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-02-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-02-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-02-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-03-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-03-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-03-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-03-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-03-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-04-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-04-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-04-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-04-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-04-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-05-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-05-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-05-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-05-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-06-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-06-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-06-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-06-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-06-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-07-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-07-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-07-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-07-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-07-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-07-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-08-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-08-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-08-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-08-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-08-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-09-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-09-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-09-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-09-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-09-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-10-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-10-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-10-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-10-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-10-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-10-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-11-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-11-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-11-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-11-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-11-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-12-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-12-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-12-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-12-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2023-12-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-01-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-01-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-01-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-01-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-01-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-01-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-02-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-02-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-02-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-02-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-02-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-03-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-03-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-03-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-03-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-03-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-03-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-04-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-04-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-04-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-04-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-04-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-04-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-05-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-05-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-05-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-05-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-05-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-06-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-06-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-06-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-06-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-07-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-07-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-07-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-07-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-07-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-07-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-08-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-08-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-08-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-08-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-08-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-09-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-09-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-09-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-09-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-09-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-10-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-10-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-10-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-10-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-10-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-11-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-11-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-11-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-11-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-11-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-12-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-12-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-12-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-12-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2024-12-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-01-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-01-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-01-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-01-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-01-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-02-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-02-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-02-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-02-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-03-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-03-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-03-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-03-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-03-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-04-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-04-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-04-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-04-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-04-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-05-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-05-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-05-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-05-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-05-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-06-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-06-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-06-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-06-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-06-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-07-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-07-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-07-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-07-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-07-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-08-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-08-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-08-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-08-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-08-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-09-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-09-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-09-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-09-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-09-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-10-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-10-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-10-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-10-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-10-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-11-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-11-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-11-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-11-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-12-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-12-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-12-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-12-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2025-12-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-01-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-02-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-02/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-18/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-19/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-20/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-24/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-25/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-26/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-03-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-02/universe.json
+  Loaded 341 tickers
+  ✅ Already clean (341 valid tickers)
+
+Processing: data/pit_archives/2026-04-03/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-09/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-10/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-11/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-15/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-16/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-17/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-21/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-22/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-23/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-27/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-28/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-04-30/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-01/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-04/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-05/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-06/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-07/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-08/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-12/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-13/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-14/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/pit_archives/2026-05-15/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/pit_archives/2026-05-18/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/pit_archives/2026-05-19/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/pit_archives/2026-05-20/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/pit_archives/2026-05-21/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/pit_archives/2026-05-22/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/pit_archives/2026-05-25/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/pit_archives/2026-05-26/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/pit_archives/2026-05-28/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/pit_archives/2026-06-01/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/snapshots/2026-04-20/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-21/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-22/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-22__stale_pit_cache/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-22__stale_trials/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-23/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-24/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-27/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-28/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-28.morning_backup_1730/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-28__pre_20260428T214751Z/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-29/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-04-30/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-01/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-04/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-05/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-06/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-07/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-08/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-11/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-12/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-13/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-14/inputs/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/snapshots/2026-05-15/inputs/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/snapshots/2026-05-18/inputs/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/snapshots/2026-05-19/inputs/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/snapshots/2026-05-20/inputs/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/snapshots/2026-05-27/inputs/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/snapshots/2026-05-29/inputs/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/snapshots/2026-06-12/inputs/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/snapshots/2026-06-18/inputs/universe.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: data/staging/pit_regen/2024-10-31/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/staging/pit_regen/2024-10-31/universe_mapped.json
+  Loaded 96 tickers
+  ✅ Already clean (96 valid tickers)
+
+Processing: data/staging/pit_regen/2024-11-29/universe.json
+  Loaded 342 tickers
+  ✅ Already clean (342 valid tickers)
+
+Processing: data/staging/pit_regen/2024-11-29/universe_mapped.json
+  Loaded 96 tickers
+  ✅ Already clean (96 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260412_235508.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260413_065428.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260413_140102.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260419_204258.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260420_140058.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260504_140020.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260511_140043_910130_64365640.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260513_140512_845262_1a37930d.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260611_174746_651926_70044d50.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: logs/agents_direct/universe_maintenance_20260611_180622_391832_de500c22.json
+  Loaded 0 tickers
+  ✅ Already clean (0 valid tickers)
+
+Processing: production_data/universe.json
+  Loaded 358 tickers
+  ❌ Found 1 invalid tickers:
+     - 'THRD': Delisted/invalid ticker 'THRD'
+
+Processing: production_data/universe_backup_2026-06-21.json
+  Loaded 338 tickers
+  ✅ Already clean (338 valid tickers)
+
+Processing: production_data/universe_mapped.json
+  Loaded 96 tickers
+  ✅ Already clean (96 valid tickers)
+
+Processing: test_data/universe.json
+  Loaded 2 tickers
+  ✅ Already clean (2 valid tickers)
+
+Processing: tests/fixtures/mini_data/universe.json
+  Loaded 8 tickers
+  ✅ Already clean (8 valid tickers)
+
+Processing: universe_100stocks.json
+  Loaded 96 tickers
+  ✅ Already clean (96 valid tickers)
+
+Processing: universe_config.json
+  Loaded 20 tickers
+  ✅ Already clean (20 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe.json
+  Loaded 21 tickers
+  ✅ Already clean (21 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260105_175838.json
+  Loaded 20 tickers
+  ✅ Already clean (20 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260105_180544.json
+  Loaded 20 tickers
+  ✅ Already clean (20 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260106_101816.json
+  Loaded 20 tickers
+  ✅ Already clean (20 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260106_103032.json
+  Loaded 20 tickers
+  ✅ Already clean (20 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260106_103507.json
+  Loaded 20 tickers
+  ✅ Already clean (20 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260106_103708.json
+  Loaded 21 tickers
+  ✅ Already clean (21 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_103732.json
+  Loaded 21 tickers
+  ✅ Already clean (21 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_104343.json
+  Loaded 21 tickers
+  ✅ Already clean (21 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_105755.json
+  Loaded 21 tickers
+  ✅ Already clean (21 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_110034.json
+  Loaded 21 tickers
+  ✅ Already clean (21 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_113034.json
+  Loaded 347 tickers
+  ✅ Already clean (347 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_114813.json
+  Loaded 347 tickers
+  ✅ Already clean (347 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_115714.json
+  Loaded 347 tickers
+  ✅ Already clean (347 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_122321.json
+  Loaded 347 tickers
+  ✅ Already clean (347 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_123631.json
+  Loaded 355 tickers
+  ✅ Already clean (355 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_124746.json
+  Loaded 363 tickers
+  ✅ Already clean (363 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_20260129_131224.json
+  Loaded 17 tickers
+  ✅ Already clean (17 valid tickers)
+
+Processing: wake_robin_data_pipeline/outputs/universe_snapshot_latest.json
+  Loaded 17 tickers
+  ✅ Already clean (17 valid tickers)
+
+Processing: wake_robin_data_pipeline/universe/pilot_universe.json
+  Loaded 20 tickers
+  ✅ Already clean (20 valid tickers)
+
+============================================================
+SUMMARY: Would remove 1 invalid tickers
+
+Run without --check-only to clean the files.
+============================================================
+
+=== watcher output ===
+killed duplicate
+=== waiting on the survivor (431673 → /tmp/clean_dryrun.txt) ===

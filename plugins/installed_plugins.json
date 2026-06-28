@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "plugins": {
+    "claude-code-setup@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/arrenchulz/.claude/plugins/cache/claude-plugins-official/claude-code-setup/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-06-20T22:36:28.466Z",
+        "lastUpdated": "2026-06-20T22:36:28.466Z",
+        "gitCommitSha": "7d6efbf1822c8fc36e98c99b3edf29c1582e9eac"
+      }
+    ]
+  }
+}

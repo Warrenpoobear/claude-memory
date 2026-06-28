@@ -1,0 +1,957 @@
+=== /home/arrenchulz/.claude/skills/biotech-performance-report/SKILL.md ===
+---
+name: biotech-performance-report
+description: |
+  Generate a performance report for agentic account 802349084 vs XBI benchmark. Use when the user says "performance report", "how am I doing vs XBI", "attribution", "show me returns", "performance since rebalance", or similar. Read-only. Reports: portfolio return since last rebalance, XBI return over same period, relative performance (alpha), per-position attribution (winners/losers), and model tier breakdown.
+allowed-tools:
+  - mcp__robinhood-trading__get_portfolio
+  - mcp__robinhood-trading__get_equity_positions
+  - mcp__robinhood-trading__get_equity_quotes
+  - Bash(cat *)
+  - Bash(ls *)
+  - Bash(python3 *)
+---
+
+# Biotech Performance Report
+
+Read-only performance and attribution for account 802349084 vs XBI.
+
+## Steps
+
+### 1 — Current account state
+```
+get_portfolio(account_number="802349084") → equity_value, cash
+get_equity_positions(account_number="802349084") → all positions with average_buy_price, quantity, market_value
+```
+
+### 2 — Benchmark: XBI return
+```
+get_equity_quotes(["XBI"]) → xbi_price_now
+```
+XBI baseline price: retrieve from stored rebalance record or use the most recent
+`artifacts/monitoring/` snapshot. If unavailable, note "baseline not found — showing
+position-level P&L only."
+
+### 3 — Per-position attribution
+```python
+for each position:
+    cost_basis   = quantity × avg_buy_price
+    market_value = current_value
+    pnl_dollars  = market_value - cost_basis
+    pnl_pct      = pnl_dollars / cost_basis * 100
+    contribution = pnl_dollars / total_cost_basis * 100  # contribution to portfolio return
+```
+
+### 4 — Load model context for tier breakdown
+```bash
+python3 - <<'EOF'
+import pandas as pd, glob
+snaps = sorted(glob.glob('/mnt/c/Projects/biotech_screener/biotech-screener/data/snapshots/*/rankings.csv'))
+if snaps:
+    df = pd.read_csv(snaps[-1])
+    print(df[['ticker','actionable_rank','tier_any']].to_string(index=False))
+EOF
+```
+
+### 5 — Compute summary stats
+- Total portfolio return % (equity vs cost basis)
+- XBI return % over same period
+- Relative performance (portfolio − XBI)
+- Winners (P&L > 0), losers (P&L < 0)
+- Top 3 contributors, bottom 3 detractors
+- Tier breakdown: avg return by tier (A/B/C)
+
+---
+
+## Output format
+
+```
+━━━ PERFORMANCE REPORT  YYYY-MM-DD ━━━
+Period: [last rebalance date] → today
+
+SUMMARY
+Portfolio return:   +X.X%
+XBI return:         +X.X%
+Relative (alpha):   +X.Xpp  [OUTPERFORM / UNDERPERFORM]
+
+Total equity:  $XXX.XX
+Cost basis:    $XXX.XX
+P&L:          +$XX.XX
+
+ATTRIBUTION (sorted by contribution)
+Ticker  Rank  Tier   Value    P&L$     P&L%    Contrib
+------  ----  ----   -----    ----     ----    -------
+COGT      1    A    $XX.XX  +$X.XX   +X.X%    +X.Xpp
+...
+[divider]
+DRUG     11    A    $XX.XX  -$X.XX   -X.X%    -X.Xpp
+
+TIER BREAKDOWN
+Tier A:  avg +X.X%  (N positions)
+Tier B:  avg +X.X%  (N positions)
+Tier C:  avg +X.X%  (N positions)
+
+TOP 3 CONTRIBUTORS:    TICKER +Xpp, ...
+BOTTOM 3 DETRACTORS:   TICKER -Xpp, ...
+```
+
+=== /home/arrenchulz/.claude/skills/biotech-ic-check/SKILL.md ===
+---
+name: biotech-ic-check
+description: |
+  Check the latest signal IC health for the biotech screener model. Use when the user says "IC check", "how's the IC", "is the signal healthy", "check IC health", or similar. Reads the latest IC dashboard or signal regime sweep artifact and reports mean_ic, hit_rate, N dates, and HEALTHY/WARN/ALERT verdict for score_rank_pct (primary selector signal).
+allowed-tools:
+  - Bash(python3 *)
+  - Bash(ls *)
+  - Bash(find *)
+  - Bash(cat *)
+---
+
+# Biotech IC Check
+
+Read latest signal IC health from stored artifacts.
+
+## Steps
+
+### 1 — Find latest IC artifact
+```bash
+find /mnt/c/Projects/biotech_screener/biotech-screener/artifacts \
+  -name "*.json" \( -path "*/ic_dashboard/*" -o -path "*/signal_regime/*" -o -name "*ic*" -o -name "*regime*" \) \
+  -newer /mnt/c/Projects/biotech_screener/biotech-screener/artifacts 2>/dev/null \
+  | sort | tail -10
+```
+
+### 2 — Parse and report
+```bash
+python3 - <<'EOF'
+import json, glob, os
+
+REPO = '/mnt/c/Projects/biotech_screener/biotech-screener'
+
+# Try multiple artifact locations
+candidates = (
+    sorted(glob.glob(f'{REPO}/artifacts/ic_dashboard/*.json')) +
+    sorted(glob.glob(f'{REPO}/artifacts/signal_regime/*.json')) +
+    sorted(glob.glob(f'{REPO}/artifacts/*ic*.json')) +
+    sorted(glob.glob(f'{REPO}/artifacts/**/*ic*.json', recursive=True))
+)
+
+if not candidates:
+    print("No IC artifact found. Try running biotech-weekly-sweep first.")
+    exit(0)
+
+latest = candidates[-1]
+print(f"Source: {latest}")
+data = json.load(open(latest))
+print(json.dumps(data, indent=2))
+EOF
+```
+
+### 3 — Interpret results
+For `score_rank_pct` (primary selector signal):
+| Metric | HEALTHY | WARN | ALERT |
+|--------|---------|------|-------|
+| mean_ic | ≥ +0.03 | 0.00–0.03 | < 0.00 |
+| hit_rate | ≥ 50% | 45–50% | < 45% |
+| N dates | ≥ 20 | 10–20 | < 10 (insufficient) |
+
+For `inst_delta_z` (secondary, zeroed in v1.14.0):
+- Monitor-grade only; WEAK is non-blocking
+
+### 4 — Report
+```
+IC HEALTH CHECK — YYYY-MM-DD
+
+Signal: score_rank_pct
+  mean_ic:   +X.XXXX  [HEALTHY / WARN / ALERT]
+  hit_rate:  XX.X%
+  N dates:   NN
+  Verdict:   HEALTHY ✓ / ⚠️ WARN — monitor / 🚨 ALERT — do not open new positions
+
+Signal: inst_delta_z  (monitor-grade, zeroed in production)
+  mean_ic:   +X.XXXX  [status]
+  Verdict:   non-blocking
+
+OVERALL MODEL GATE:
+  [PASS — trading permitted / WARN — monitor / BLOCKED — review before trading]
+```
+
+## Thresholds (from governance)
+- HEALTHY: score_rank_pct mean_ic ≥ +0.03 (confirmed 2026-06-24: +0.0432)
+- ALERT trigger: mean_ic < 0.00 → do not open new positions; review model
+- Evidence basis: forward-only (no pre-PIT backtest claims)
+
+=== /home/arrenchulz/.claude/skills/biotech-governance-check/SKILL.md ===
+---
+name: biotech-governance-check
+description: |
+  Check all biotech model governance gates in one pass. Use when the user says "governance check", "check the gates", "are all gates passing", "governance status", or before any major portfolio action. Read-only. Checks: drawdown vs XBI (account gate), IC health (model gate), h20d re-eval date, 13F Jaccard, EES shadow monitor. Reports PASS/FAIL/WARN for each gate with a clear overall verdict.
+allowed-tools:
+  - mcp__robinhood-trading__get_portfolio
+  - mcp__robinhood-trading__get_equity_quotes
+  - Bash(cat *)
+  - Bash(ls *)
+  - Bash(python3 *)
+  - Bash(find *)
+---
+
+# Biotech Governance Check
+
+Full governance gate sweep. Read-only.
+
+## Gates to check
+
+### Gate 1 — Drawdown vs XBI (account-level)
+```
+get_portfolio(account_number="802349084") → equity_value
+get_equity_quotes(["XBI"]) → current XBI price
+```
+Thresholds:
+- PASS:  drawdown > −1.0pp
+- WARN:  −2.0 < drawdown ≤ −1.0pp  (approaching gate)
+- FAIL:  drawdown ≤ −2.0pp  → hard exit required
+- CRIT:  drawdown ≤ −5.0pp  → emergency exit required
+
+### Gate 2 — IC health (model-level)
+```bash
+python3 - <<'EOF'
+import json, glob, os
+# Look for latest IC dashboard or signal regime sweep artifact
+artifacts = sorted(glob.glob('/mnt/c/Projects/biotech_screener/biotech-screener/artifacts/ic_dashboard/*.json')) + \
+            sorted(glob.glob('/mnt/c/Projects/biotech_screener/biotech-screener/artifacts/signal_regime/*.json'))
+if artifacts:
+    data = json.load(open(artifacts[-1]))
+    print(json.dumps(data, indent=2))
+else:
+    print("No IC artifact found — check manually")
+EOF
+```
+Thresholds (score_rank_pct):
+- HEALTHY:  mean_ic ≥ +0.03
+- WARN:     0.00 ≤ mean_ic < 0.03
+- ALERT:    mean_ic < 0.00  → model signal degraded
+
+### Gate 3 — h20d re-evaluation date
+Hard gate: 2026-07-01. Check current date vs gate.
+- PASS: today < 2026-07-01
+- DUE:  today ≥ 2026-07-01 → run quarantine script before next trade
+
+### Gate 4 — 13F Jaccard cohort
+```bash
+python3 - <<'EOF'
+import json, glob
+snaps = sorted(glob.glob('/mnt/c/Projects/biotech_screener/biotech-screener/data/snapshots/*/institutional_summary.json'))
+if snaps:
+    data = json.load(open(snaps[-1]))
+    print(f"Jaccard: {data.get('top30_jaccard', 'N/A')}")
+    print(f"Coverage: {data.get('signal_coverage_pct', 'N/A')}%")
+else:
+    print("No institutional summary found")
+EOF
+```
+Thresholds:
+- PASS: Jaccard ≥ 0.70
+- WARN: 0.40 ≤ Jaccard < 0.70
+- FAIL: Jaccard < 0.40  → 13F cohort quarantine
+
+### Gate 5 — EES shadow monitor
+```bash
+python3 - <<'EOF'
+import json, glob
+ledgers = sorted(glob.glob('/mnt/c/Projects/biotech_screener/biotech-screener/artifacts/ees_shadow/*.json'))
+if ledgers:
+    data = json.load(open(ledgers[-1]))
+    print(json.dumps(data, indent=2))
+else:
+    print("No EES shadow ledger found")
+EOF
+```
+Gates (observation only — non-blocking):
+- 20 completed 5d exits
+- 20 completed 20d exits
+Status: OBSERVATION_ONLY until both gates met.
+
+---
+
+## Output format
+
+```
+━━━ GOVERNANCE CHECK  YYYY-MM-DD ━━━
+
+Gate 1  Drawdown vs XBI       X.XXpp    [PASS / WARN / FAIL / CRIT]
+Gate 2  IC health             +X.XXXX   [HEALTHY / WARN / ALERT]
+Gate 3  h20d re-eval          2026-07-01 [PASS / DUE]
+Gate 4  13F Jaccard           X.XXX     [PASS / WARN / FAIL]
+Gate 5  EES shadow monitor    Xd / Xd   [OBSERVATION / GATES MET]
+
+OVERALL: [ALL CLEAR ✓ / WARNINGS — review before trading / BLOCKED — do not trade]
+
+Actions required:
+  - [none / Gate N: description of required action]
+```
+
+## Decision matrix
+- All PASS → proceed with normal operations
+- Any WARN → note and monitor; trading permitted
+- Gate 1 FAIL → run `biotech-hard-exit` immediately
+- Gate 2 ALERT → do not open new positions; review model
+- Gate 3 DUE → run h20d quarantine script before next rebalance
+- Gate 4 FAIL → 13F cohort quarantine; no institutional signal use
+
+=== /home/arrenchulz/.claude/skills/biotech-weekly-sweep/SKILL.md ===
+---
+name: biotech-weekly-sweep
+description: |
+  Run the weekly signal regime sweep for the biotech screener model. Use when the user says "weekly sweep", "run the regime sweep", "signal regime check", "weekly signal check", or similar. Finds and runs the weekly sweep script against the latest snapshot, parses the output for IC/hit-rate verdicts, and reports HEALTHY/WARN/ALERT per signal.
+allowed-tools:
+  - Bash(python3 *)
+  - Bash(ls *)
+  - Bash(find *)
+  - Bash(cat *)
+---
+
+# Biotech Weekly Sweep
+
+Run the weekly signal regime sweep against the latest snapshot.
+
+## Steps
+
+### 1 — Find the sweep script
+```bash
+find /mnt/c/Projects/biotech_screener/biotech-screener/scripts -name "*weekly*sweep*" -o -name "*signal*regime*" 2>/dev/null
+find /mnt/c/Projects/biotech_screener/biotech-screener/tools -name "*weekly*" -o -name "*regime*" 2>/dev/null
+```
+
+### 2 — Determine latest snapshot date
+```bash
+ls /mnt/c/Projects/biotech_screener/biotech-screener/data/snapshots/ | sort | tail -1
+```
+
+### 3 — Run the sweep
+```bash
+cd /mnt/c/Projects/biotech_screener/biotech-screener && source .env && \
+python3 <sweep_script_path> --date YYYY-MM-DD 2>&1
+```
+If script takes a flag like `--snapshot-date` or `--as-of`, adjust accordingly.
+
+### 4 — Parse output for IC verdicts
+```bash
+python3 - <<'EOF'
+import json, glob, os
+
+REPO = '/mnt/c/Projects/biotech_screener/biotech-screener'
+# Look for sweep output artifact
+candidates = sorted(glob.glob(f'{REPO}/artifacts/**/*regime*sweep*.json', recursive=True) +
+                    glob.glob(f'{REPO}/artifacts/**/*weekly*sweep*.json', recursive=True) +
+                    glob.glob(f'{REPO}/artifacts/**/*signal_regime*.json', recursive=True))
+if candidates:
+    data = json.load(open(candidates[-1]))
+    print(json.dumps(data, indent=2))
+else:
+    print("No sweep artifact found — check script stdout above")
+EOF
+```
+
+### 5 — Report
+```
+WEEKLY SIGNAL REGIME SWEEP — YYYY-MM-DD
+
+Signal: score_rank_pct
+  mean_ic:   +X.XXXX  [HEALTHY / WARN / ALERT]
+  hit_rate:  XX.X%
+  N dates:   NN
+
+Signal: inst_delta_z  (monitor-grade)
+  mean_ic:   +X.XXXX  [status]
+
+VERDICT: HEALTHY ✓ / ⚠️ WARN / 🚨 ALERT
+
+Reference: WEEKLY_SIGNAL_REGIME_SWEEP_YYYY-MM-DD.md
+```
+
+## Thresholds
+- HEALTHY: mean_ic ≥ +0.03, hit_rate ≥ 50%
+- WARN: mean_ic 0.00–0.03 or hit_rate 45–50%
+- ALERT: mean_ic < 0.00 → notify, do not open new positions
+- Last known healthy reading: +0.0432 (2026-06-24)
+
+=== /mnt/c/Projects/biotech_screener/biotech-screener/skills/ic_evaluation/SKILL.md ===
+---
+name: ic-evaluation
+---
+
+# IC & Signal Evaluation Skill
+
+## Purpose
+
+Reference for the statistical framework used to evaluate, promote, and demote signals in the biotech screener. Covers IC measurement, the Checklist v2 promotion battery, forward shadow monitoring, and the evidence hierarchy.
+
+This skill is organized into two sections:
+
+1. **Framework Reference** \- Stable rules, constants, and methodology \(changes only with code updates\)
+2. **Operational State** \- Volatile snapshots that go stale and require periodic refresh
+
+---
+
+## Codegraph Preflight (mandatory before any code edit)
+
+IC evaluation produces forward shadow evidence — Tier 2/3 boundary (artifacts feed promotion decisions). Before editing any symbol, run the standard preflight per `skills/codegraph/SKILL.md`:
+
+1. `codegraph_search("<symbol>")` — locate the target
+2. `codegraph_node("<symbol>", source=True)` — inspect signature and body
+3. `codegraph_callers("<symbol>")` — identify all production callers
+4. `codegraph_callees("<symbol>")` — map downstream dependencies
+5. `codegraph_impact("<symbol>", depth=2)` — confirm blast radius
+
+**Gate:** If impact reaches walk-forward harness, shadow-monitoring artifacts, or any governance evidence surface — Claude Code review is required before merge (Tier 2 trigger per `governance/AGENT_ROUTING_POLICY.md`).
+
+---
+
+# SECTION 1: FRAMEWORK REFERENCE
+
+---
+
+## IC Decomposition
+
+**Tool**: `tools/ic_decomposition.py`
+
+Measures Spearman IC of a signal vs forward returns, segmented by cohort and stage.
+
+### Key Features
+
+- Forward returns panel: PIT-safe, h5d \(5-day horizon\)
+- Cohort-contamination tagging: dates after manager additions flagged as contaminated
+- Pre/post IC reported separately \(clean vs contaminated windows\)
+- Stage\_bucket segmentation \(early/mid/late\)
+- catalyst\_quality segmentation \(auto-detects column presence\)
+- Top-30 walk-forward: mean/median excess 5d return per snap date + cumulative
+
+### IC Tooling Scope Gap — RESOLVED via Spec 100 \(2026-05-17\)
+
+**Prior finding (Spec 095, 2026-05-13):** The IC backtest tool measured composite\_score IC, NOT production ranker final\_score IC. This created a confirmed conflation:
+
+- composite\_rank correlates only 0.25 with actionable\_rank \(production\)
+- Top-30 overlap: 7/30 \(23%\) between composite vs production rankings
+- composite\_score weakly correlates \(0.13\) with final\_score
+- IC backtest selected a completely different portfolio than production
+
+**Spec 100 Implementation (2026-05-17):** Tool corrected to measure `final_score` (production ranker) by default.
+- Default signal changed from `score_rank_pct` → `final_score`
+- Metadata includes explicit `spec_100_status: "CORRECTED"`
+- `composite_score` IC marked as ⚠️ INVALIDATED for promotion purposes
+- `final_score` IC marked as ✓ Spec 100 corrected (production ranker IC)
+- All future IC output states score field, tool version, and measurement status
+- Prior composite_score IC claims remain invalidated; new final_score IC is baseline evidence
+
+**Tooling specification:** `run_rank_ic_backtest.py --signal final_score` (now default)
+
+### Interpretation Rules
+
+- Serial correlation is heavy \(5-day windows overlap across daily snapshots\)
+- 14 snap dates yields \~37 effective observations
+- IC t-stats are indicative only, not promotion-grade
+- Promotion requires Checklist v2 \(full battery below\)
+- **Ranker IC is now measurable (Spec 100, 2026-05-17)** — tool corrected to measure `final_score` instead of prior composite\_score conflation. Historical composite\_score IC claims are invalidated; future ranker IC claims require final\_score evidence.
+
+---
+
+## Checklist v2 Promotion Battery
+
+**File**: `scripts/research/checklist_v2_rerun.py`
+
+5-gate statistical bar. A signal must pass ALL gates for promotion.
+
+### Gate 1: Fama-MacBeth \(FM\) Regression
+
+Cross-sectional regression with Newey-West corrected standard errors.
+
+- Positive t-stat required
+- Controls for size, momentum, and sector
+
+### Gate 2: Bootstrap
+
+- 1000 iterations of resampled IC
+- 95% CI must exclude zero
+- P\(>0\) threshold for confidence
+
+### Gate 3: FDR \(False Discovery Rate\)
+
+- Benjamini-Hochberg correction across all tested signals
+- Controls for multiple comparison bias
+
+### Gate 4: LOSO \(Leave-One-Slice-Out\)
+
+- Robustness across all dimensions: time, sector, market cap, regime
+- Must be ROBUST \(not fragile to any single slice removal\)
+
+### Gate 5: Year Stability
+
+- Signal must maintain positive IC across rolling annual windows
+- 1-year stability gate for production promotion
+
+### Scoring
+
+| Score | Meaning |
+| --- | --- |
+| 5/5 | Full promotion eligible |
+| 3-4/5 | Shadow research, monitor |
+| 1-2/5 | Shadow only, do not promote |
+| 0/5 | Dead lane |
+
+---
+
+## Forward Shadow Monitoring
+
+**Tracker**: coinvest\_shadow\_tracker v2 \(7 arms, wired into `run_daily.py`\)
+
+The ONLY true out-of-sample evidence. Accumulates daily from production.
+
+### Arms
+
+7 shadow arms tracking different signal combinations and construction variants.
+
+### Evaluation Rules
+
+- Evaluate after 30+ trading days of true-PIT daily production
+- If forward evidence is positive: re-establish selector thesis from clean data
+- If forward evidence is negative: selector needs structural re-examination
+- Do NOT backfill from historical
+
+---
+
+## Evidence Hierarchy
+
+| Rank | Source | Strength |
+| --- | --- | --- |
+| 1 | Checklist v2 rerun \(2026-04-04\) | STRONGEST \(signals\) |
+| 2 | True PIT backtest \(Spec 050\) | STRONGEST \(portfolio\) |
+| 3 | Pairwise feature audit \(2026-04-04\) | SUPPORTING |
+| 4 | Forward shadow | MONITORING |
+| 5 | Old PIT benchmark \(Spec 048\) | SUPERSEDED |
+
+---
+
+## IC Measurement Constants
+
+| Constant | Value | Purpose |
+| --- | --- | --- |
+| MIN\_OBS\_IC | 10 | Minimum observations for IC |
+| MIN\_OBS\_TSTAT | 20 | Minimum for t-statistic |
+| MIN\_OBS\_BOOTSTRAP | 30 | Minimum for bootstrap CI |
+| MIN\_ROLLING\_WINDOW | 12 weeks | Minimum rolling window |
+| BOOTSTRAP\_ITERATIONS | 1000 | Bootstrap resampling count |
+| TSTAT\_THRESHOLD\_95 | 2.0 | 95% confidence |
+| TSTAT\_THRESHOLD\_99 | 2.58 | 99% confidence |
+
+### Forward Return Horizons
+
+| Horizon | Trading Days |
+| --- | --- |
+| 1w | 5 |
+| 2w | 10 |
+| 1m | 20 |
+| 1.5m | 30 |
+| 3m | 60 |
+| 4.5m | 90 |
+
+---
+
+## Deprecated Evidence \(Do Not Cite\)
+
+- All survivorship-only benchmark numbers \(+93.7pp, +110.5pp, etc.\)
+- Pre-Checklist-v2 signal card t-stats
+- "Bear IR 3.35" regime story from contaminated data
+- Any promotion memo citing pre-Spec-050 selector performance
+- **Any ranker IC claim based on composite\_score** \(Spec 095 finding, 2026-05-13; Spec 100 fix, 2026-05-17\) - these measured the wrong score field and are misattributed. Corrected ranker IC uses `final_score` measurement.
+
+---
+
+## Source Files
+
+| Component | File |
+| --- | --- |
+| IC Decomposition | `tools/ic_decomposition.py` |
+| Checklist v2 Rerun | `scripts/research/checklist_v2_rerun.py` |
+| Statistical QA Package | `common/stats/` \(6 modules\) |
+| Forward Shadow Tracker | Part of `run_daily.py` |
+| Signal Evidence Runner | `scripts/run_signal_evidence.py` |
+
+---
+
+# SECTION 2: OPERATIONAL STATE
+
+> **SNAPSHOT DATA** \- The values below are point-in-time and go stale. Verify against current pipeline output before citing.
+
+---
+
+## Current Signal Scores \(Checklist v2\)
+
+*Last reviewed: 2026-05-08*
+
+| Signal | Score | Status |
+| --- | --- | --- |
+| B6 bundle \(coinvest + inst\_delta\) | 5/5 | Production \(as bundle\) |
+| event\_type\_score | 5/5 | Overlay only \(doesn't improve B6\) |
+| coinvest\_score\_z standalone | 3/5 | Part of bundle |
+| insider\_exec\_buy\_value\_90d | 1/5 | Shadow only, FRAGILE |
+| aact\_execution\_score | 1/5 | Shadow only, bear-unstable |
+
+### Insider Signal Status \(Spec 104, 2026-05-14\)
+
+`insider_net_buy_value_90d` is DIAGNOSTIC ONLY. It is tracked in `DIAGNOSTIC_FIELDS` and explicitly excluded from `ALPHA_FEATURE_REGISTRY`. It does not enter the scoring model, ranker, or selector. The expectation model has an `insider_net_buy_z` weight that would activate silently if the field flowed into `market_features` -- an explicit isolation guard \(Spec 104 R4a\) prevents this.
+
+Promotion to alpha requires ALL of: 20+ stable snapshots, >= 60% non-null coverage, IC > 0 at p < 0.05, Checklist v2 battery pass, and explicit written approval. Until all five are met, insider stays diagnostic. Do NOT evaluate insider IC for promotion purposes.
+
+### Expectation Feature Coverage Prerequisite \(Spec 105, 2026-05-14\)
+
+IC measurement on expectation-model signals \(`short_interest_pct`, `close_price`, `market_cap_mm`, `priced_move_pct`\) is only valid if those fields are actually flowing into the model at inference time. Spec 105 adds a production gate verifying:
+
+1. All four fields present in `rankings.csv`
+2. Per-field coverage above `FEATURE_COVERAGE_REQUIREMENTS` thresholds
+3. Expectation model consumes these columns \(not just exports them\)
+
+Any IC research on expectation-gap features against historical snapshots must verify the snapshot was post-wiring \(or backfilled per Spec 102 with `_backfill_version` set\). Pre-wiring snapshots that lack these fields are NOT valid for expectation IC measurement.
+
+## coinvest\_score\_z IC Snapshot
+
+*Last reviewed: 2026-05-13. Refresh after each 13F cycle and at scheduled checkpoints.*
+
+| Window | n\_dates | Mean IC | Hit Rate |
+| --- | --- | --- | --- |
+| Pooled \(all\) | 14 | -0.031 | 28.6% |
+| Pre-cohort \(clean\) | 9 | -0.051 | 11.1% |
+| Post-cohort \(contaminated\) | 5 | -0.008 | 60.0% |
+
+**Verdict**: OBSERVE. April selloff drove pre-cohort negativity. Post-cohort recovering.
+
+**IMPORTANT**: These IC figures measure coinvest\_score\_z across the full eligible universe. They do NOT measure ranker IC within the top-60 cohort \(Spec 095 confirmed this gap on 2026-05-13\). Ranker-specific IC is UNMEASURED until Spec 100 tooling is implemented.
+
+### Upcoming Checkpoints
+
+- h20d horizon: 2026-05-26
+- Post-Q1 2026 13F refresh: ALL THREE FILED May 15, 2026. Cache warm + cohort quarantine + IC decomposition refresh needed. 5-day observation window runs through \~May 22.
+- Forward shadow 30+ trading day evaluation \(accumulating since 2026-04-03 -- should be at or past 30 trading days as of mid-May\)
+- Spec 094 selector-only comparator rerun: target 2026-05-27 \(when post-PIT outcomes resolve\)
+- Spec 100 ranker IC tooling fix: blocked on architecture freeze \(lifts \~2026-05-26\)
+
+## Ranker IC Tooling Status \(Spec 095 / Spec 100\)
+
+*Spec 095 finding: 2026-05-13 | Spec 100 fix implemented: 2026-05-17*
+
+**Status: CORRECTED** — IC backtest tool now measures `final_score` (production ranker) by default.
+
+- ✓ Spec 100 default signal changed to `final_score` (was `score_rank_pct`)
+- ✓ Metadata explicitly labels final\_score IC as Spec 100 corrected
+- ✓ composite\_score IC marked INVALIDATED for promotion purposes
+- Prior composite\_score IC claims remain invalidated
+- Ranker IC measurement now available for forward validation
+
+## Forward Shadow Status
+
+*Accumulating since: 2026-04-03. As of 2026-05-17, approximately 30+ trading days accumulated.*
+
+Should be at or past the 30-day evaluation threshold. Architecture freeze in effect until post-h20d checkpoint (2026-05-26). Evaluate per the rules in Section 1 once confirmed >= 30 trading days of true-PIT daily production data.
+
+---
+
+## Governance Freeze Status (2026-05-17)
+
+**Architecture Freeze** — Active through ~2026-05-26 (h20d checkpoint)
+- No model logic changes, feature promotions, or ranking modifications authorized
+- Deterministic tooling (preflight, monitoring, verification) permitted
+- Spec 100 ranker IC evaluation deferred post-freeze
+
+**13F Q1 2026 Cohort Quarantine** — Active
+- 42/48 managers filed (as of 2026-05-19; up from 6/48 on 2026-05-15)
+- Validation trigger: ~2026-05-23 (≥34 managers filed — threshold MET as of 2026-05-19)
+- Clearance decision: ~2026-05-26 (requires Jaccard ≥0.70 + all 6 gates pass)
+- No selector/ranker/sizing changes authorized until cohort clears
+- IC health monitor ALERT as of 2026-05-19: lagging historical IC baseline, NOT a system failure — expected post-13F refresh transient
+
+**Decision Gates Ahead**
+- **May 19**: Phase 2 Step 3 verification ✓ (IC health monitor ALERT = lagging IC, not failure)
+- **~May 23**: 13F refresh validation rerun — trigger MET (42 managers filed)
+- **~May 26**: Architecture freeze lift + cohort clearance decision; h20d Decision Memo Draft ready (2026-05-21)
+- **Post-May 26**: Spec 100 corrected final_score IC evaluation + Checklist v2 battery
+
+**Interpretation**: All IC evaluation and ranker promotion decisions are deferred until post-freeze when full validation battery can be applied. Current Spec 100 baseline is ready but explicitly labeled for deferred interpretation.
+
+=== /mnt/c/Projects/biotech_screener/biotech-screener/skills/selector_ranker/SKILL.md ===
+---
+name: selector-ranker
+---
+
+# Selector / Ranker / Construction Skill
+
+## Purpose
+
+Reference for the production two-stage selector/ranker architecture and EW Top-30 construction. This is how the screener turns scored tickers into an actionable ranked portfolio.
+
+This skill is organized into two sections:
+
+1. **Framework Reference** \- Stable architecture, engines, dead lanes, and governance \(changes only with code updates\)
+2. **Operational State** \- Volatile research status and metrics that require periodic refresh
+
+**Codebase context:** the three production engines total ~4,000 Python lines — a **compact, high-leverage** surface. `run_screen.py` (~13k lines) orchestrates them into daily output. Repo scale does not reduce governance tier; it increases the cost of small-looking edits.
+
+---
+
+## Codegraph Preflight (mandatory before any code edit)
+
+Every code change to selector/ranker surfaces is Tier 3 (see `governance/AGENT_ROUTING_POLICY.md`). Before editing any symbol in this area, run the standard codegraph preflight per `skills/codegraph/SKILL.md`:
+
+1. `codegraph_search("<symbol>")` — locate the target symbol
+2. `codegraph_node("<symbol>", source=True)` — inspect its signature and body
+3. `codegraph_callers("<symbol>")` — identify all production callers
+4. `codegraph_callees("<symbol>")` — map downstream dependencies
+5. `codegraph_impact("<symbol>", depth=2)` — confirm blast radius
+
+**Gate:** If `codegraph_impact` reaches `selector_engine.py`, `ranker_engine.py`, `decision_engine.py`, `final_score`, or `rankings.csv` — the change is **BLOCKED** until operator approval.
+
+---
+
+# SECTION 1: FRAMEWORK REFERENCE
+
+---
+
+## Production Stack \(v1.14.0\)
+
+```
+Modules 1-5 (scoring)
+  -> Decision Engine (L0 gates -> L2 overlays -> L4 tiers -> L3 sizing -> sort key)
+  -> Selector Engine (B6: coinvest_score_z 100%)
+  -> Ranker Engine (pairwise_minimal: 2 deployed features, top-60 cohort, ordinal-only)
+  -> Sort by final_score -> EW Top-30 -> rankings.csv
+```
+
+---
+
+## Selector Engine
+
+**File**: `selector_engine.py`
+
+### B6 Selector \(Production\)
+
+- **v1.14.0**: coinvest\_score\_z at 100% weight \(coinvest-only\)
+- **Prior \(v1.13.0\)**: coinvest 65% + inst\_delta\_z 35%
+- inst\_delta\_z zeroed 2026-05-04 \(ALERT: mean IC = -0.097 over 36 dates, two-frame confirmed\)
+- Reinstatement conditions documented in governance log
+
+### Selector Validation
+
+- Checklist v2 \(2026-04-04\): bootstrap +2.42pp/mo, 95% CI \[1.25%, 3.70%\], P\(>0\) = 99.99%
+- LOSO: ROBUST across all dimensions
+- Neither component survives standalone, but the bundle is real
+- Sort anchor: `selector_score`
+
+### What the Selector Learns
+
+Coinvest selects WHICH 30 names enter the portfolio. It captures institutional co-investment conviction from elite biotech managers.
+
+---
+
+## Ranker Engine
+
+**File**: `ranker_v2_pairwise.py`
+
+### Pairwise Minimal Ranker \(Production\)
+
+- 2 deployed features, ordinal-only \(no rank-weighting, no confidence sizing\)
+- Live artifact: `production_data/ranker_v2_model.json`
+- Deployed weights: `coinvest_score_z` +0.02 \(capped Family C live pilot\), `financial_score` -0.0533
+- ECE = 0.129 \(POOR calibration - confirms ordinal-only is correct\)
+- Top-60 cohort scope
+- inst\_delta\_z excluded from production ranker and zeroed in selector since v1.14.0
+
+### Within-Top-30 Feature Roles
+
+| Feature | Role | Evidence / Weight |
+| --- | --- | --- |
+| coinvest\_score\_z | Bounded institutional support within top-60 | +0.02 deployed \(+0.0613 trained\) |
+| financial\_score | True negative penalty \(stress-upside\) | -0.0533 deployed; NW t-stat -3.41 |
+| inst\_delta\_z | Diagnostic/export only | 0% selector weight; absent from ranker |
+
+### financial\_score Sign Direction \(RESOLVED, Spec 093\)
+
+- Weight: -0.0533 in `production_data/ranker_v2_model.json`
+- **Confirmed intentional**: stress-upside thesis \(Spec 074, reconfirmed Spec 093 2026-05-13\)
+- Classification: INTENTIONAL\_STRESS\_UPSIDE
+- Negative weight means financially safe names are penalized \(more catalytic, less safe names preferred\)
+- Evidence: correct higher\_is\_better=True encoding; six-diagnostic audit confirmed TRUE PENALTY in both bull \(NW-t=-3.42\) and bear \(-3.38\) regimes
+- Raw components: 50% runway + 30% dilution + 20% liquidity \(all directional: higher = better health\)
+- Rank-normalized within stage x size cohort \(direction preserved\)
+- t-statistic significant \(-3.41\), persists across cohorts and regimes
+
+---
+
+## Construction
+
+### EW Top-30
+
+- Equal-weight, top 30 names by final\_score
+- K=30 validated by PIT sweep \(stable K=25-35 plateau, net-of-cost peak\)
+- RW-EW delta = -0.09pp, t = -0.95 \(rank-weighting does NOT help\)
+
+### Production Evidence
+
+- True PIT backtest: +2.34pp/mo net-of-cost, t = 2.57, 69% hit rate, 67 monthly periods \(Jun 2020 - Apr 2026\)
+- Bear/neutral alpha engine: Bear +3.37pp \(75% hit\), Neutral +6.23pp \(93% hit\), Bull -0.37pp \(50% hit\)
+- Regime caveat: expect bounded underperformance in strong bull markets
+
+---
+
+## Decision Engine
+
+**File**: `decision_engine.py`
+
+### Pipeline Layers
+
+| Layer | Purpose |
+| --- | --- |
+| L0 | Hard gates \(liquidity, price, data quality\) |
+| L2 | Overlays \(event\_type\_score as diagnostic\) |
+| L4 | Tier classification |
+| L3 | Position sizing |
+
+### EV/Sizing Severity Consumption \(Spec 101, RESOLVED\)
+
+The L3 position sizing layer consumes `ev_severity_score` \(from runway severity v1.1\) to compute:
+
+```
+dilution_haircut = 0.35 * ev_severity_score
+size_multiplier = max(0.40, 1.0 - 0.60 * ev_severity_score)
+```
+
+`ev_severity_score` is now exported to `rankings.csv` and `SNAPSHOT_COLUMNS` \(Spec 101, commits eaa4ea87 + cba4ee0f\). `check_severity_formulas()` QA validation runs every snapshot.
+
+---
+
+## Dead Lanes \(Do Not Reopen Without New Evidence\)
+
+| Lane | Status | Why |
+| --- | --- | --- |
+| Options surface-shape as ranker | DEAD | 50-month IC negative all horizons |
+| Options-as-alpha \(Spec 053\) | CLOSED | 37 signals tested, ALL fail |
+| Static execution features \(Spec 054\) | CLOSED | All noise/destructive |
+| Clinical composites as ranker \(Spec 055\) | CLOSED | Negative across ALL slices |
+| total\_volume\_z | DEAD | IC = -0.10 on PIT data |
+| Always-on rank-weighting | NOT PROMOTED | RW-EW = -0.09pp |
+| insider\_exec\_buy\_value\_90d | SHADOW ONLY | 1/5 Checklist v2 |
+| aact\_execution\_score | SHADOW ONLY | 1/5 Checklist v2 |
+| cal\_alpha | REMOVED v1.12.0 | Confirmed no-op |
+| Clinical sort signal | OFF | Insufficient IC |
+| Fixed sleeve budgets | RETIRED | Primary construction damage \(+153.6pp drag\) |
+
+---
+
+## Promotion Governance
+
+| Component | File |
+| --- | --- |
+| Manifest | `production_data/decision_rulesets/manifest.json` |
+| Promotion Battery | `scripts/research/run_promotion_battery.py` |
+| Promote Script | `scripts/promote_ruleset.py` \(blocks unless battery PASS\) |
+| Health Monitor | `tools/ruleset_health_monitor.py` \(post-promotion drift\) |
+| Rollback | `scripts/promote_ruleset.py --rollback --reason "..."` |
+
+### Drift Detection
+
+- History: JSONL append per evaluation \(idempotent on same-day reruns\)
+- Consecutive WARN tracking by active ruleset ID
+- Recommend rollback after sustained degradation
+
+---
+
+## Source Files
+
+| Component | File |
+| --- | --- |
+| Decision Engine | `decision_engine.py` |
+| Selector Engine | `selector_engine.py` |
+| Ranker v2 Pairwise | `ranker_v2_pairwise.py` |
+| Ranker Legacy | `ranker_engine.py` |
+| Main Orchestrator | `run_screen.py` |
+| Ruleset Manifest | `production_data/decision_rulesets/manifest.json` |
+| Promotion Battery | `scripts/research/run_promotion_battery.py` |
+| Checklist v2 | `scripts/research/checklist_v2_rerun.py` |
+
+---
+
+# SECTION 2: OPERATIONAL STATE
+
+> **SNAPSHOT DATA** \- The values below are point-in-time and go stale. Verify against current pipeline output before citing.
+
+---
+
+## Active Ruleset
+
+*Last reviewed: 2026-05-13*
+
+- **ID**: `8887576e` \(v1.14.0\)
+- **File**: `production_data/decision_rulesets/v1.14.0_coinvest_only_selector.json`
+- **Architecture freeze**: In effect until post-h20d checkpoint \(\~2026-05-26\). No new enforcement logic or scoring changes until then.
+- **ranker\_active\_contract.py**: Exists on unmerged branch \(`hygiene/ranker-active-contract-2026-04-30`\), deferred to post-freeze. Manual spot-checks via snapshot\_integrity verifier in the interim.
+
+## Ranker Alternatives Research \(T1-T8, updated Specs 093-100\)
+
+*Last reviewed: 2026-05-17 (governance freeze update). Spec implementation status updated.*
+
+### Key Findings \(2026-05-13 audit cycle\)
+
+**Spec 093 \(financial\_score sign direction\)**: RESOLVED as INTENTIONAL\_STRESS\_UPSIDE. Not an artifact. Closes the critical blocker for all ablation baseline interpretation.
+
+**Spec 094 \(selector-only comparator\)**: Classification RANKER\_UNPROVEN. Jaccard overlap between selector-only and production top-30 is 42.7% \(significant churn\). Ranker-added names show lower coinvest\_z \(0.55 vs 0.95\) and lower financial\_score \(24.5 vs 47.4\) - stress bias confirmed. Forward-return coverage too sparse for significance \(6/69 postmortems, 8.7%\). Rerun target: 2026-05-27.
+
+**Spec 095 \(evaluation scope\)**: CURRENT\_TOOLS\_CONFLATED. IC backtest measures composite\_score, NOT production final\_score. Ranker IC is UNMEASURED. See ic-evaluation skill for full details.
+
+**Spec 100 \(ranker IC tooling correction\)**: ✓ IMPLEMENTED (commit 2faa88e6, 2026-05-17). IC backtest now measures `final_score` (production ranker) by default. Prior composite_score IC claims invalidated; final_score IC baseline established. Interpretation deferred until post-freeze Checklist v2 evaluation.
+
+> **Numbering note \(2026-05-14\):** "Spec 100" remains the ranker IC tooling correction. The expectation layer coverage verification spec was renumbered to Spec 105 \(commit cb242311\) to resolve the collision. No ambiguity remains.
+
+### 10 Candidate Alternatives
+
+| Alternative | Status | Notes |
+| --- | --- | --- |
+| Alt 1 | Coinvest double-count | rho = +0.882 with final\_score |
+| Alt 3 | HIGH\_POTENTIAL\_BUT\_BLOCKED | Spec 071 Lane 2, \~Q3 2026 |
+| Alt 4 | HIGH\_POTENTIAL\_BUT\_BLOCKED | Spec 071 Lane 2, \~Q3 2026 |
+| Alt 6 | HIGH\_POTENTIAL\_BUT\_BLOCKED | Spec 077 prospective accumulation |
+| Alt 7 | NO\_GO | EES v3 closed |
+| Alt 8 | NO\_GO | Clinical closed lane |
+| Alt 9 | NO\_GO | Underpowered |
+| Alt 10 | OBSERVE | No-ranker comparator, INCONCLUSIVE at n=11 snapshots |
+
+**Alt 10 detail** \(2026-05-13\): Selector wins 4/6 in clean window \(diff = +0.020\), 0/5 in regime window \(diff = -0.025\). Pooled: selector wins 4/11 \(ranker-override slightly better, dominated by regime confounding\). Powered verdict requires Gate 4 + Gate 7 \(\~2026-07-15\).
+
+**Promotion eligibility horizon**: April 2027 \(one-year stability gate\)
+
+### Monitoring Specs \(2026-05-13\)
+
+| Spec | Purpose | Gate | Next Review |
+| --- | --- | --- | --- |
+| 096 | Gate/ranker separation doctrine | Defines promotion paths | Ongoing |
+| 097 | Event-EV prospective monitoring | Brier <= 0.08, n >= 30 | Monthly |
+| 098 | Catalyst timing prospective monitor | Correlation > 0.15 | Monthly |
+| 099 | Clinical orthogonality audit | Pre-promotion gate | Before any clinical signal promotion |
+
+---
+
+## Governance Freeze & Quarantine Status (2026-05-17)
+
+**Architecture Freeze** — Active through ~2026-05-26 (h20d checkpoint)
+- No selector/ranker/sizing changes authorized
+- Production ruleset frozen at `8887576e` (v1.14.0)
+- ranker_active_contract.py remains on unmerged branch (deferred post-freeze)
+- Spec 100 ranker IC evaluation ready but interpretation deferred
+
+**13F Q1 2026 Cohort Quarantine** — Active
+- 42/48 managers filed (as of 2026-05-19; up from 6/48 on 2026-05-15)
+- Validation trigger: ~2026-05-23 (≥34 threshold MET as of 2026-05-19)
+- Clearance decision: ~2026-05-26 (requires Jaccard ≥0.70 + all gates pass)
+- No selector/ranker changes until cohort clears
+
+**Next Milestones**
+- **May 19**: Phase 2 Step 3 verification ✓ complete
+- **~May 23**: 13F refresh validation rerun — trigger MET
+- **~May 26**: Architecture freeze lift + cohort clearance decision; h20d Decision Memo Draft ready (2026-05-21)
+- **Post-May 26**: Spec 100 ranker IC evaluation + Checklist v2 battery (if cohort clears)
