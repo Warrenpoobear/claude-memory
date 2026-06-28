@@ -2,6 +2,9 @@
 
 > Inline status markers: `[active]` (default, omitted) · `[stale]` (waiting on resolution) · `[shipped]` (in observation) · `[resolved]` (closed). New memory files use lifecycle frontmatter (`status`, `expires`, `resolves`, `supersedes`, `related`); old files are not retrofitted.
 
+## Pending Reminders
+- **[HS793 backfill incomplete — 247 tickers, retry 2026-06-29](project_hs793_backfill_reminder_2026_06_28.md)** `[active]` — Daily cell quota hit 2026-06-28. Use start_date='2024-01-01', IDs[100:]. Also: MD_AUTH_TOKEN expires ~23h from 2026-06-28 — need fresh token.
+
 ## Platform Roadmap (2026-06-22, corrected 2026-06-23)
 - **[Operator-approved workstream sequence — 9/9 COMPLETE (2026-06-23)](platform_roadmap_2026_06_22.md)** — All items done. EES chain closed: validation→attribution→shadow monitor→guardrail design-only. Active path: daily shadow monitor run only. `OPENCLAW_STATUS: RETIRED`. Do not reopen any item.
 
