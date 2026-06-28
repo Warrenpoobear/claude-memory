@@ -23,6 +23,8 @@ Operator verdict (2026-06-27, corrected): **Not investable. Forward shadow valid
 | Ex-rally (64p) | 64 | +1.58 | +1.89 | +1.80 | **3.259** | **3.169** |
 | 2025+ ex-rally | 9 | +0.17 | +2.37 | +1.70 | 1.401 | 1.188 |
 
+**HAC robustness (2026-06-28):** t-adj column above is naive (IID) and inflated — per-period excess returns are autocorrelated (lag-1 = +0.45, overlapping monthly→multi-month windows). Newey-West HAC(L=3) t-stats: full-69p 3.63→**2.58**, pre-2025 2.91→**2.76** (robust), ex-rally 3.26→**2.91** (robust), 2025+ 2.69→**2.16** (marginal), 2025+ ex-rally 1.40→**1.45** (insignificant). Edge is real but ~30% less significant than raw t implies; reinforces "not investable, forward validation required". Addendum: `artifacts/backtests/dem_corporate_action_repaired/HAC_TSTAT_ADDENDUM.md` (+`.json`). NO_MODEL_CHANGE. See [[project-rank-depth-shadow-2026-06-28]].
+
 **Corporate action taxonomy:**
 - SPINOUT (RNA ×3, REPL ×1): `SPINOUT_UNOBSERVABLE_EXCLUDED` — true investor return unavailable; name excluded from basket in spinout_excl scenario
 - REVERSE_SPLIT (GOSS ×2): `SPLIT_ADJUSTED_CORRECT` — split-adj prices are accurate
