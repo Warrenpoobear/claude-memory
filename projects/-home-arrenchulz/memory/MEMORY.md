@@ -49,6 +49,9 @@
 ## Model Investability Verdict
 - **[Model investability verdict — updated 2026-06-26](project_model_investability_verdict_2026_06_26.md)** — Phase 3 substantially explained: regime offline during reconstructed BEAR (VIX 15–22, XBI −5% to −14% vs SPY). Not yet cleared. Next gate: PHASE3_CORRECTED_REGIME_RANKING_REPLAY_DIAGNOSTIC_NO_MODEL_CHANGE
 
+## Validation Infrastructure
+- **[Rank-depth shadow tracking shipped — PR #436 (2026-06-28)](project_rank_depth_shadow_2026_06_28.md)** `[shipped]` — Top-60 + ranks 31-60 cohorts alongside Top-30 forward validation; NO_MODEL_CHANGE; commits 10cae69e+18b5094e on `feat/rank-depth-shadow` (based on `prod/sharpen-…`, NOT main — stack ~37 commits ahead of main); non-blocking `rank_depth_top60.csv` sidecar; cron promotion deferred. Gotcha: PR stacked feature work → target actual parent branch, not main.
+
 ## Agentic Portfolio Operations
 - **[Agentic account 802349084 — live test case for Claude-managed biotech portfolio (2026-06-24)](project_agentic_portfolio_testcase_2026_06_24.md)** `[active]` — Test case for building rules/skills/memories for live portfolio management. Validated constraints: T+1 settlement gap, ~16-20 order/min rate limit, GFD-only for fractional orders, $1 order minimum, ABVX sell-only. Rebalance workflow: get_portfolio → positions → rankings.csv → delta → sells first → batched buys.
 - **[Agentic portfolio operational rules — confirmed 2026-06-24](project_agentic_portfolio_rules_2026_06_24.md)** `[active]` — 5 standing rules: (1) weekly Monday rebalance + 25% drift trigger; (2) new entries at next weekly, exits at weekly unless rank<40; (3) equal weight until $5K then model weight; (4) hard exit ≤-2pp drawdown vs XBI → full liquidation; (5) IRAs independent/manual only.
