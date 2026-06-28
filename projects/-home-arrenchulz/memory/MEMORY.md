@@ -19,6 +19,7 @@
 - [Monte Carlo liquidity stress framework — built 2026-05-15](monte_carlo_framework_built_2026_05_15.md) — MC-0/MC-1/MC-2/MC-3 delivered; 416 tests; synthetic/advisory, awaiting L19/L20/Phase-23 for decision-grade
 
 ## Working-with-Claude lessons
+- [Default focus: daily DEM model runs — no Robinhood trading unless explicitly requested (2026-06-28)](feedback_dem_focus_no_robinhood.md) — Running an action card does not imply trade authorization; never invoke Robinhood execution tools unprompted
 - [sync_hermes_skills.py all_sync_keys() bug — SKILL_MAP entry silently dropped (2026-06-26)](feedback_sync_hermes_skills_bug.md) — `{**SKILL_MAP, **REFERENCE_MAP}` merge drops SKILL_MAP entry when key appears in both; self-improving.md mirror never re-synced by main(); workaround: call sync_pair() directly
 - [Hermes cron token bloat — 3 patterns + fixes (2026-06-25)](feedback_hermes_cron_token_bloat.md) — pre-loaded skills (`skill`/`skills` fields), sleep-cliff multi-firing (no idempotency guard), script-writing retry loops; Classes F/G/H in openclaw-cron-scheduler-debug
 - [Fork agents go runaway on multi-step tasks — never use fork for implementation (2026-06-24)](feedback_fork_agent_runaway_2026_06_24.md) — forks re-notify per child completion, each cycle makes unauthorized commits; revert immediately if production data touched
