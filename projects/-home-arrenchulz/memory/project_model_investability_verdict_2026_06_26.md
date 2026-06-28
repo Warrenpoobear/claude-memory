@@ -1,6 +1,6 @@
 ---
 name: project-model-investability-verdict-2026-06-26
-description: "Operator investment verdict on the biotech screener model — not investable yet; DEM=current ranker; pre-2025 alpha real; 2025+ rally-concentrated; 2026 adverse; forward shadow monitor is next step"
+description: "Operator investment verdict on the biotech screener model — not investable yet; DEM=current ranker; pre-2025 alpha real; 2025+ rally-concentrated; 2026 flat (not adverse); forward shadow monitor is next step; backtest now uses split-adj prices"
 metadata: 
   node_type: memory
   type: project
@@ -8,15 +8,30 @@ metadata:
   originSessionId: ee7dd5fd-41f8-494b-a2a7-14094857cdfa
 ---
 
-Operator verdict (2026-06-27 update): **Not investable. Forward shadow validation required.**
+Operator verdict (2026-06-27, corrected): **Not investable. Forward shadow validation required.**
 
-**Current status labels (2026-06-27, post regime-conditional diagnostic):**
+**Price file corrected (2026-06-27):** `pit_backtest_a4.py` now uses `price_history_split_adj.csv`. Corrected 5 contaminated 2025+ periods (RNA spinout ×3, GOSS reverse split ×2, REPL spinout ×1, CMPS/DRUG/ERAS dividend adj ×3). Pre-2025 unchanged (was already clean). REPL adj return (+216%) is a spinout artifact — treat as approximation.
+
+**Corrected backtest statistics (split-adj, 2026-06-27):**
+| Window | n | mean pp | t-stat | Prior t |
+|---|---|---|---|---|
+| Full history | 69 | +3.33 | **3.635** | 3.309 |
+| Pre-2025 | 55 | +1.81 | **2.914** | 2.914 (unchanged) |
+| 2025+ | 14 | +9.29 | **2.694** | 2.167 |
+| 2026 YTD | 2 | +4.40 | 0.940 | 0.302 |
+| Rally cluster | 5 | +21.75 | 3.549 | 3.581 |
+| Ex-rally (64p) | 64 | +1.89 | **3.259** | 2.744 |
+| 2025+ ex-rally | 9 | +2.37 | **1.401** | 0.108 |
+
+Key corrections vs stored: 2026-01-30 = −0.28 pp (was −5.05), 2025-04-30 = +9.48 pp (was +1.35), 2025-12-31 = −1.05 pp (was −5.10).
+
+**Current status labels (2026-06-27, post regime-conditional diagnostic + price correction):**
 ```
 DEM_IS_CURRENT_RANKER
 FULL_HISTORY_ALPHA_POSITIVE
 PRE_2025_ALPHA_PERSISTENT
 2025_PLUS_ALPHA_RALLY_CONCENTRATED
-2026_YTD_INSUFFICIENT_AND_ADVERSE
+2026_YTD_INSUFFICIENT_FLAT
 FORWARD_SHADOW_VALIDATION_REQUIRED
 A4_OVERLAY_FROZEN_FAILED
 ```
@@ -28,11 +43,12 @@ Two distinct alpha modes found:
 - Pre-2025 (55 periods): DEM mean +1.81 pp, t=2.914 — persistent cross-sectional alpha, moderate beta (0.17), positive in bear/moderate-drawdown environments
 - 2025+ ex-rally (9 periods): DEM mean +0.17 pp, t=0.108 — zero outside 5 biotech rally months
 - Rally cluster (5 periods): DEM mean +21.8 pp, t=3.58 — May/Jun/Jul 2025 + Sep 2025 + Feb 2026 = 99.7% of all 2025+ cumulative alpha
-- 2026 YTD (2 periods): Both negative vs XBI (−5.10, −5.05 pp) despite positive XBI — adverse signal
+- 2026 YTD (2 periods, corrected with split-adj prices): Jan-30 = −0.28 pp (flat), Feb-28 = +9.08 pp (rally cluster). Both non-negative. Prior "adverse" label retired — raw price contamination caused apparent losses.
 - Beta to XBI: 0.173 full history / 0.569 in 2025+ only
+- 2025+ ex-rally (corrected): t=1.401 (was 0.108 on raw prices) — still not significant, but less dead
 
 **What this means:**
-The forward question is not "does the model beat XBI historically?" — it does. The forward question is: which mode is the current environment in? 2026 early data suggests post-rally mean-reversion mode (adverse), not pre-2025 persistent-selection mode.
+The forward question is not "does the model beat XBI historically?" — it does. The forward question is: which mode is the current environment in? 2026 YTD is flat (not adverse); Feb-28 was a rally-cluster period. 2025+ non-rally ex-cluster periods (9p) remain weak (t=1.401), not yet cleared.
 
 **Shadow tests (all closed/failed):**
 All three repair paths failed: inst_delta relaxation, clinical shadow, catalyst-optionality selector. DEM alpha names score low on every signal used for confirmation — structural unreachability. No further selector research justified.
