@@ -16,3 +16,7 @@ file-history/
 backups/
 agent-memory/
 memory_graph.json
+
+# Transient tool outputs — never belong in the memory repo (can be GB-sized)
+tool-results/
+**/tool-results/
