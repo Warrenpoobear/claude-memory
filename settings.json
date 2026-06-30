@@ -10,7 +10,6 @@
       "mcp__codegraph__codegraph_status"
     ]
   },
-  "model": "sonnet",
   "hooks": {
     "Stop": [
       {
