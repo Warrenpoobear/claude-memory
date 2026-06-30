@@ -72,6 +72,95 @@ else:
 EOF
 ```
 
+### 5.5 — Top-30 IV risk scan (universe snapshot, read-only)
+
+Read the pre-fetched universe options snapshot. This surfaces binary event warnings
+and near-term catalyst flags for the full top-30 before the per-position RH pull.
+
+```python
+import json, csv, glob, os
+from pathlib import Path
+
+REPO = Path('/mnt/c/Projects/biotech_screener/biotech-screener')
+
+# Load universe snapshot (prefer latest.json, fall back to most recent dated file)
+snap_path = REPO / 'production_data/options_snapshot_latest.json'
+if not snap_path.exists():
+    dated = sorted((REPO / 'production_data').glob('options_snapshot_2*.json'))
+    snap_path = dated[-1] if dated else None
+
+if snap_path is None:
+    print("No options snapshot found — skip Step 5.5")
+else:
+    opt = json.loads(snap_path.read_text())
+    opt_tickers = opt['tickers']
+    snap_date = opt['metadata']['as_of_date']
+
+    # Load top-30 from latest rankings
+    snaps = sorted(REPO.glob('data/snapshots/*/rankings.csv'))
+    df_rows = []
+    if snaps:
+        with open(snaps[-1]) as f:
+            for row in csv.DictReader(f):
+                df_rows.append(row)
+        df_rows.sort(key=lambda r: int(float(r.get('actionable_rank', 9999))))
+        top30 = df_rows[:30]
+    else:
+        top30 = []
+
+    def sf(v):
+        try:
+            f = float(v); return f if f == f else None
+        except: return None
+
+    # Classify
+    extreme, event_prem, high_rank, sell_timing = [], [], [], []
+    SELL_ONLY = {'ABVX'}  # sell-only constraint names
+
+    for row in top30:
+        t = row['ticker']
+        o = opt_tickers.get(t, {})
+        atm    = sf(o.get('opt_atm_iv'))
+        iv_rk  = sf(o.get('opt_iv_rank_tw'))
+        iv_pct = sf(o.get('opt_iv_percentile'))
+        regime = o.get('opt_iv_regime', '')
+        evt    = o.get('opt_event_premium', '')
+        slope  = sf(o.get('opt_term_slope'))
+
+        if regime == 'EXTREME':
+            extreme.append((t, atm, iv_rk, iv_pct, slope))
+        if evt == 'YES':
+            event_prem.append((t, atm, slope))
+        if iv_rk is not None and iv_rk > 0.70:
+            flag = '⚠ SELL-ONLY + IV PEAK' if t in SELL_ONLY else 'IV near 52wk high'
+            high_rank.append((t, iv_rk, flag))
+        if t in SELL_ONLY and iv_rk is not None and iv_rk > 0.60:
+            sell_timing.append((t, iv_rk, iv_pct))
+
+    print(f"OPTIONS RISK SCAN (snapshot {snap_date})")
+    if extreme:
+        print(f"  EXTREME IV — binary event signatures:")
+        for t, atm, rk, pct, slope in extreme:
+            rk_s   = f"{rk*100:.0f}%"   if rk   is not None else "—"
+            pct_s  = f"{pct*100:.0f}%"  if pct  is not None else "—"
+            slp_s  = f"{slope:+.2f}"    if slope is not None else "—"
+            print(f"    {t}: IV={atm*100:.0f}%  IVRk={rk_s}  IV%ile={pct_s}  slope={slp_s}")
+    if event_prem:
+        print(f"  EVENT PREMIUM (near-term catalyst priced — {len(event_prem)}/30):")
+        for t, atm, slope in event_prem:
+            slp_s = f"{slope:+.2f}" if slope is not None else "—"
+            print(f"    {t}: IV={atm*100:.0f}%  slope={slp_s}")
+    if sell_timing:
+        print(f"  SELL TIMING — sell-only names near IV peak:")
+        for t, rk, pct in sell_timing:
+            pct_s = f"{pct*100:.0f}%" if pct is not None else "—"
+            print(f"    {t}: IVRk={rk*100:.0f}%  IV%ile={pct_s}  → elevated IV window for exit")
+    if not extreme and not event_prem and not high_rank:
+        print("  No elevated IV flags in top-30")
+```
+
+Skip this step and note "snapshot unavailable" if neither snapshot file exists.
+
 ### 6 — Options IV snapshot (liquid held positions) + shadow artifact
 
 For all held positions, pull ATM IV and key greeks via Robinhood MCP, write the RH cache, then run the two-source shadow merge.
@@ -151,7 +240,20 @@ Display only names where OI_call + OI_put > 5. Flag:
 
 Skip steps 6b–6e entirely if fewer than 2 names return a valid chain.
 
-### 7 — Upcoming catalysts for held positions
+### 7 — Regime status (read cached card)
+
+```bash
+REPO=/mnt/c/Projects/biotech_screener/biotech-screener
+DATE=$(date +%Y-%m-%d)
+cat "$REPO/artifacts/regime_monitor/REGIME_CARD_${DATE}.md" 2>/dev/null | head -30 || \
+  ls -t "$REPO/artifacts/regime_monitor/REGIME_CARD_"*.md 2>/dev/null | head -1 | xargs head -30 2>/dev/null || \
+  echo "No regime card found — run biotech-regime-monitor to update"
+```
+
+Report regime label, VIX, XBI vs SPY 30d, and any transition flag.
+If card is >1 trading day stale, note it — do NOT run live MCP fetches unprompted.
+
+### 8 — Upcoming catalysts for held positions
 ```bash
 python3 - <<'EOF'
 import pandas as pd, glob
@@ -189,6 +291,12 @@ ROSTER CHANGES (since last snapshot)
   New entries: TICKER, ...  → add at next rebalance
   Exits: TICKER, ...        → [defer to weekly / exit now if rank ≥40]
 
+IV RISK FLAGS (top-30 universe, as of YYYY-MM-DD)
+  EXTREME: ORIC(2681%, pctile 100%), TRVI(838%, pctile 96%)   ← binary events
+  EVENT PREMIUM: NRIX, ABVX, XENE, PHVS, TYRA                ← near-term catalyst priced
+  SELL TIMING: ABVX IVRk=80% pctile=98% — sell-only + IV at peak
+  [or: No elevated IV flags in top-30]
+
 OPTIONS IV  (liquid held names, nearest expiry)
   TICKER  IV    Delta  OI(C/P)  Regime     Skew
   ------  ---   -----  -------  ------     ----
@@ -196,9 +304,31 @@ OPTIONS IV  (liquid held names, nearest expiry)
   RVMD    51%   0.57   2470/25  NORMAL     call-heavy OI
   [skip if <2 liquid names]
 
+REGIME  (as of YYYY-MM-DD)
+  Label: SECTOR_DISLOCATION  (confidence=0.48)
+  VIX: 18.41  |  XBI 10d: +17.1%  |  XBI vs SPY 30d: +17.7pp
+  Transition: NO CHANGE (3 days)  — or —  ⚠ SHIFT: A → B
+
 UPCOMING CATALYSTS (≤14 days, held positions)
   Rank N  TICKER  Xd  BUCKET
   ...
 
 STATUS: [ALL CLEAR — no action required / ACTION NEEDED — see above]
 ```
+
+## Session-end learning
+
+After completing this skill's task, if you encountered an unexpected behavior, constraint, API response, or workflow edge case, log it:
+
+```
+[LRN-YYYYMMDD-NNN]
+Pattern-Key: SKILL_BIOTECH_MORNING_BRIEF_{description}
+Area: hermes_ops | data_pipeline | research | portfolio
+Promotion-lane: skill | none
+Recurrence-Count: 1
+Context: <one line — what happened>
+Rule: <one line — what to do differently>
+Suggested-Action: <patch to this SKILL.md, or none>
+```
+
+Recurrence ≥ 3 in 7 days → propose a patch to this `SKILL.md` via `tools/pattern_to_skillpatch.py`. Full protocol: see `self-improving` skill.

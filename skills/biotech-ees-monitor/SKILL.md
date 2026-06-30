@@ -92,3 +92,20 @@ Gate MET ≠ freeze lifted — operator memo required before any production inte
 - **Gate MET ≠ action**: 20d gate met means sample is adequate for review, not that the freeze is lifted. Requires explicit operator instruction.
 - **EES v2 vs v3**: Old script is `ees_v2_phase3_shadow_monitor.py` (retired). Old ledger is `ees_v2_phase3_shadow_ledger.jsonl`. Use only v3 paths.
 - **Cron is no_agent**: The Hermes cron job runs the shell wrapper directly — no LLM session is created. Check the log file for run results, not Hermes session output.
+
+## Session-end learning
+
+After completing this skill's task, if you encountered an unexpected behavior, constraint, API response, or workflow edge case, log it:
+
+```
+[LRN-YYYYMMDD-NNN]
+Pattern-Key: SKILL_BIOTECH_EES_MONITOR_{description}
+Area: hermes_ops | data_pipeline | research | portfolio
+Promotion-lane: skill | none
+Recurrence-Count: 1
+Context: <one line — what happened>
+Rule: <one line — what to do differently>
+Suggested-Action: <patch to this SKILL.md, or none>
+```
+
+Recurrence ≥ 3 in 7 days → propose a patch to this `SKILL.md` via `tools/pattern_to_skillpatch.py`. Full protocol: see `self-improving` skill.

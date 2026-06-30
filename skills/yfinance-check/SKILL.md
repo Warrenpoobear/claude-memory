@@ -104,3 +104,20 @@ STATUS: [OK — pipeline can run / ⚠️ STALE — check logs / 🚨 RATE_LIMIT
 - Rate-limit incident history: 2026-05-23 (4-day outage, all 341 tickers 429'd)
 - `scripts/yfinance_safe.py` adds backoff; use it instead of raw yfinance for bulk fetches
 - If rate-limited: wait 24-72h before retrying bulk fetch; single-ticker tests may still work
+
+## Session-end learning
+
+After completing this skill's task, if you encountered an unexpected behavior, constraint, API response, or workflow edge case, log it:
+
+```
+[LRN-YYYYMMDD-NNN]
+Pattern-Key: SKILL_YFINANCE_CHECK_{description}
+Area: hermes_ops | data_pipeline | research | portfolio
+Promotion-lane: skill | none
+Recurrence-Count: 1
+Context: <one line — what happened>
+Rule: <one line — what to do differently>
+Suggested-Action: <patch to this SKILL.md, or none>
+```
+
+Recurrence ≥ 3 in 7 days → propose a patch to this `SKILL.md` via `tools/pattern_to_skillpatch.py`. Full protocol: see `self-improving` skill.

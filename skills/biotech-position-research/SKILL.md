@@ -78,6 +78,70 @@ for s in snaps:
 EOF
 ```
 
+### 5 — Options diagnostic (from universe snapshot)
+
+```python
+import json
+from pathlib import Path
+
+TICKER = "PLACEHOLDER"
+REPO = Path('/mnt/c/Projects/biotech_screener/biotech-screener')
+
+snap_path = REPO / 'production_data/options_snapshot_latest.json'
+if not snap_path.exists():
+    dated = sorted((REPO / 'production_data').glob('options_snapshot_2*.json'))
+    snap_path = dated[-1] if dated else None
+
+if snap_path is None:
+    print("No options snapshot available")
+else:
+    opt = json.loads(snap_path.read_text())
+    snap_date = opt['metadata']['as_of_date']
+    o = opt['tickers'].get(TICKER, {})
+
+    if not o or not o.get('opt_has_data'):
+        print(f"No options data for {TICKER} in snapshot {snap_date}")
+    else:
+        def sf(v):
+            try: f = float(v); return f if f == f else None
+            except: return None
+
+        atm    = sf(o.get('opt_atm_iv'))
+        iv_rk  = sf(o.get('opt_iv_rank_tw'))
+        iv_pct = sf(o.get('opt_iv_percentile'))
+        iv_rk_tos = sf(o.get('opt_iv_rank_tos'))
+        regime = o.get('opt_iv_regime', '—')
+        liq    = o.get('opt_liquidity_state', '—')
+        evt    = o.get('opt_event_premium', '—')
+        slope  = sf(o.get('opt_term_slope'))
+        front  = sf(o.get('opt_front_iv'))
+        back   = sf(o.get('opt_back_iv'))
+        usable = o.get('opt_use_for_judgment', 'N')
+        iv_5d  = sf(o.get('opt_iv_5d_change'))
+
+        # Interpret slope
+        if slope is not None:
+            if slope < -0.20:   slope_read = "steep backwardation — near-term binary event priced"
+            elif slope < -0.05: slope_read = "mild backwardation — front-weighted risk"
+            elif slope > 0.50:  slope_read = "steep contango — market expects near-term calm"
+            elif slope > 0.10:  slope_read = "contango — longer-dated uncertainty"
+            else:               slope_read = "flat — no strong term signal"
+        else:
+            slope_read = "no term data"
+
+        print(f"OPTIONS DIAGNOSTIC: {TICKER}  (snapshot {snap_date})")
+        print(f"  ATM IV:     {atm*100:.0f}%" if atm else "  ATM IV:     —")
+        print(f"  IV Rank TW: {iv_rk*100:.0f}%" if iv_rk else "  IV Rank TW: —")
+        print(f"  IV Rank ToS:{iv_rk_tos*100:.0f}%" if iv_rk_tos else "  IV Rank ToS:—")
+        print(f"  IV %ile:    {iv_pct*100:.0f}%" if iv_pct else "  IV %ile:    —")
+        print(f"  IV 5d chg:  {iv_5d*100:+.0f}pp" if iv_5d else "  IV 5d chg:  —")
+        print(f"  Regime:     {regime}")
+        print(f"  Liquidity:  {liq}")
+        print(f"  Evt premium:{evt}  (front={front*100:.0f}% back={back*100:.0f}%)" if front else f"  Evt premium:{evt}")
+        print(f"  Term slope: {slope:+.3f}  ({slope_read})" if slope else f"  Term slope: —")
+        print(f"  Usable:     {usable}")
+```
+
 ---
 
 ## Output format
@@ -105,6 +169,36 @@ RANK TREND (last 7 days)
 YYYY-MM-DD: rank N
 ...
 
+OPTIONS  (snapshot YYYY-MM-DD)
+  ATM IV:      XX%   (regime: NORMAL / ELEVATED / EXTREME)
+  IV Rank TW:  XX%   (position vs. 52wk own history)
+  IV %ile:     XX%
+  IV 5d chg:  +Xpp
+  Liquidity:   liquid / thin / absent
+  Evt premium: YES (front XX% vs back XX%, slope -0.XX) / NO
+  Term:        [steep backwardation — near-term binary event priced]
+               [contango — market expects near-term calm]
+               [flat — no strong term signal]
+  Usable:      YES / NO
+  [or: No options data for this ticker]
+
 CONTEXT
 [Any relevant notes from model — e.g., tier boundary, catalyst type]
 ```
+
+## Session-end learning
+
+After completing this skill's task, if you encountered an unexpected behavior, constraint, API response, or workflow edge case, log it:
+
+```
+[LRN-YYYYMMDD-NNN]
+Pattern-Key: SKILL_BIOTECH_POSITION_RESEARCH_{description}
+Area: hermes_ops | data_pipeline | research | portfolio
+Promotion-lane: skill | none
+Recurrence-Count: 1
+Context: <one line — what happened>
+Rule: <one line — what to do differently>
+Suggested-Action: <patch to this SKILL.md, or none>
+```
+
+Recurrence ≥ 3 in 7 days → propose a patch to this `SKILL.md` via `tools/pattern_to_skillpatch.py`. Full protocol: see `self-improving` skill.

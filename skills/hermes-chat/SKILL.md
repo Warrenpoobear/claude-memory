@@ -43,3 +43,20 @@ curl -s -X POST http://localhost:8642/chat \
 - Use `-q` flag only (quiet mode); interactive mode not supported in this context
 - If response is slow (>10s): Together AI fallback is active (Llama 3.3 70B), normal behavior
 - Hermes skills registered: 31 skills across governance, signal, ops, liquidity, research, debug, office domains
+
+## Session-end learning
+
+After completing this skill's task, if you encountered an unexpected behavior, constraint, API response, or workflow edge case, log it:
+
+```
+[LRN-YYYYMMDD-NNN]
+Pattern-Key: SKILL_HERMES_CHAT_{description}
+Area: hermes_ops | data_pipeline | research | portfolio
+Promotion-lane: skill | none
+Recurrence-Count: 1
+Context: <one line — what happened>
+Rule: <one line — what to do differently>
+Suggested-Action: <patch to this SKILL.md, or none>
+```
+
+Recurrence ≥ 3 in 7 days → propose a patch to this `SKILL.md` via `tools/pattern_to_skillpatch.py`. Full protocol: see `self-improving` skill.
