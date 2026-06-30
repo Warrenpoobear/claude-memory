@@ -9,16 +9,17 @@ metadata:
   originSessionId: 343b1f0b-e32c-430c-9ed2-a4dd08e02a94
 ---
 
-Morningstar HS793 (daily return index) backfill is INCOMPLETE — quota hit twice on 2026-06-28.
+Morningstar HS793 (daily return index) backfill is INCOMPLETE — quota hit on 2026-06-30 (batch 4/4).
 
-**Current state (as of 2026-06-28 second attempt):**
-- `morningstar_returns_history.json`: 345 tickers, 55.5 MB
-- HS793 current (>= 2026-04-01): **148/345**
-- HS793 stale: **197 tickers** — cut off before Apr 2026
-- Completed batches: IDs[0:150] (batches 1-3 from original + retry batch 1)
+**Current state (as of 2026-06-30):**
+- `morningstar_returns_history.json`: 345 tickers, 57.5 MB
+- HS793 current (>= 2026-04-01): **296/345**
+- HS793 stale: **48 tickers** — cut off before Apr 2026
+- HS793 missing: **1 ticker**
+- Completed batches: IDs[0:300] (all_ids[0:300] done)
 
-**What needs to run 2026-06-29:**
-Retry IDs[150:] — approximately 4 batches of 50, ~180k cells.
+**What needs to run 2026-07-01:**
+Final batch: IDs[300:] — 43 tickers, ~1 batch of 50, ~43k cells. Well within daily quota.
 
 **Why:** Quota resets daily (~490k cells/day). Use `start_date='2024-01-01'` to stay within quota.
 
@@ -41,7 +42,7 @@ for t, sid in id_map.items():
     if sid not in seen_ids:
         fetchable.append((t, sid)); seen_ids.add(sid)
 all_ids = [sid for _, sid in fetchable]
-retry_ids = all_ids[150:]  # IDs[150:] — first 150 already done
+retry_ids = all_ids[300:]  # IDs[300:] — first 300 already done
 print(f'Retry IDs: {len(retry_ids)}')
 
 rh_path = DATA / 'morningstar_returns_history.json'
