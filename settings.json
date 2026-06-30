@@ -11,12 +11,23 @@
     ]
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/block-dangerous-git.sh"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "cd /home/arrenchulz/.claude && git add projects/-home-arrenchulz/memory/ settings.json && if ! git diff --cached --quiet; then git commit -m \"Auto-save memory after session\" && git push origin master; fi",
+            "command": "cd /home/arrenchulz/.claude && git add projects/-home-arrenchulz/memory/ settings.json && if ! git diff --cached --quiet; then git commit -m \"Auto-save memory after session\"; fi",
             "timeout": 30
           }
         ]
