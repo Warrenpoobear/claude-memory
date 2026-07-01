@@ -3,6 +3,7 @@
 > Inline status markers: `[active]` (default, omitted) · `[stale]` (waiting on resolution) · `[shipped]` (in observation) · `[resolved]` (closed). New memory files use lifecycle frontmatter (`status`, `expires`, `resolves`, `supersedes`, `related`); old files are not retrofitted.
 
 ## Pending Reminders
+- **[Price-append MultiIndex bug — data backfilled 2026-07-01, PROD CODE FIX PENDING](project_price_append_multiindex_bug_2026_07_01.md)** `[active]` — `extend_price_csv_safe` (backtest_signal_robustness.py:1567) writes Series-repr as ticker under yfinance MultiIndex cols; corrupts 1 row/day (full collapse since ~06-29). Data restored; next cron run re-corrupts until fix merged via separate clone.
 - **[HS793 backfill incomplete — 49 tickers remain, retry 2026-07-01](project_hs793_backfill_reminder_2026_06_28.md)** `[active]` — Quota hit on final batch 2026-06-30. 296/345 current. Use IDs[300:], start_date='2024-01-01'. ~43k cells, 1 batch.
 
 ## Platform Roadmap (2026-06-22, corrected 2026-06-23)
