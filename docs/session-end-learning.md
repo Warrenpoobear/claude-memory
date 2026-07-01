@@ -22,6 +22,7 @@ underscores, then `_{description}` (e.g. `biotech-rebalance` →
 `SKILL_BIOTECH_REBALANCE_{description}`). `Area` is whichever of the listed
 values fits; skip those that don't apply.
 
-Recurrence ≥ 3 in 7 days → propose a patch to that skill's `SKILL.md` via
-`tools/pattern_to_skillpatch.py`. Full protocol: the Hermes `self-improving`
-skill (`~/.hermes/skills/agent-infra/self-improving/SKILL.md`).
+Promotion — recurrence thresholds, the patch-draft tool, and lane rules — is
+owned by the Hermes `self-improving` skill
+(`~/.hermes/skills/agent-infra/self-improving/SKILL.md`). Capture the entry
+here; don't restate the promotion mechanics.
