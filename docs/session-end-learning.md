@@ -24,5 +24,5 @@ values fits; skip those that don't apply.
 
 Promotion — recurrence thresholds, the patch-draft tool, and lane rules — is
 owned by the Hermes `self-improving` skill
-(`~/.hermes/skills/agent-infra/self-improving/SKILL.md`). Capture the entry
+(`~/.hermes/hermes-agent/skills/autonomous-ai-agents/self-improving/SKILL.md`). Capture the entry
 here; don't restate the promotion mechanics.
