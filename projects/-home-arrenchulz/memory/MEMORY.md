@@ -28,6 +28,7 @@
 - [Monte Carlo liquidity stress framework — built 2026-05-15](monte_carlo_framework_built_2026_05_15.md) — MC-0/MC-1/MC-2/MC-3 delivered; 416 tests; synthetic/advisory, awaiting L19/L20/Phase-23 for decision-grade
 
 ## Working-with-Claude lessons
+- [biotech-snapshot-qa falsely flags market_data.json as missing (2026-07-02)](feedback_snapshot_qa_marketdata_falsepos.md) — it's a production_data input, not a per-snapshot artifact; verify market data via run_manifest.market_data_refresh instead
 - [biotech-screener checkout is shared by concurrent Claude sessions + cron — never edit code there directly, use a separate clone (2026-06-30)](feedback_shared_checkout_concurrency_2026_06_30.md) — confirmed via reflog (foreign commit `80cf5a47` from another live session) + ps (2+ other claude processes); caused stash/revert confusion during options Stage 2 repair; worktree isolation unavailable in this environment (caller cwd not a git repo)
 - [Default focus: daily DEM model runs — no Robinhood trading unless explicitly requested (2026-06-28)](feedback_dem_focus_no_robinhood.md) — Running an action card does not imply trade authorization; never invoke Robinhood execution tools unprompted
 - [sync_hermes_skills.py all_sync_keys() bug — SKILL_MAP entry silently dropped (2026-06-26)](feedback_sync_hermes_skills_bug.md) — `{**SKILL_MAP, **REFERENCE_MAP}` merge drops SKILL_MAP entry when key appears in both; self-improving.md mirror never re-synced by main(); workaround: call sync_pair() directly
