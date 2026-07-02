@@ -3,7 +3,7 @@
 > Inline status markers: `[active]` (default, omitted) · `[stale]` (waiting on resolution) · `[shipped]` (in observation) · `[resolved]` (closed). New memory files use lifecycle frontmatter (`status`, `expires`, `resolves`, `supersedes`, `related`); old files are not retrofitted.
 
 ## Pending Reminders
-- **[Price-append MultiIndex bug — data backfilled 2026-07-01, PROD CODE FIX PENDING](project_price_append_multiindex_bug_2026_07_01.md)** `[active]` — `extend_price_csv_safe` (backtest_signal_robustness.py:1567) writes Series-repr as ticker under yfinance MultiIndex cols; corrupts 1 row/day (full collapse since ~06-29). Data restored; next cron run re-corrupts until fix merged via separate clone.
+- **[Price-append MultiIndex bug — fixed+committed, PUSH/MERGE PENDING](project_price_append_multiindex_bug_2026_07_01.md)** `[active]` — yfinance MultiIndex cols → Series-repr ticker; corrupts 1 row/day. Fix committed in worktree `biotech-fix-price-append` (branch `fix/price-append-multiindex-ticker`, commit 766a7b57, 78 tests pass) but PUSH BLOCKED by git-guardrails hook — operator must push+merge, then shared checkout must `git pull`. Until then cron re-corrupts daily (confirmed 07-02). 07-01 snapshot regenerated on fresh prices: overbought RSI FAIL→WARN (46.6%→40.0%, 14→12 names).
 - **[HS793 backfill incomplete — 49 tickers remain, retry 2026-07-01](project_hs793_backfill_reminder_2026_06_28.md)** `[active]` — Quota hit on final batch 2026-06-30. 296/345 current. Use IDs[300:], start_date='2024-01-01'. ~43k cells, 1 batch.
 
 ## Platform Roadmap (2026-06-22, corrected 2026-06-23)
