@@ -7,6 +7,9 @@
 - **[Price-append MultiIndex bug — MERGED (PR #453) + deployed to shared checkout](project_price_append_multiindex_bug_2026_07_01.md)** `[shipped]` — yfinance MultiIndex cols → Series-repr ticker corrupted 1 row/day. Fix MERGED to main 2026-07-02 (PR #453, merge `0c76d195`, 78 tests). Cron does NOT auto-pull → deployed to shared checkout (foreign branch `fix/sync-hermes-skills-dual-map-drop`) AND made durable: committed the 2 fix files there (commit `1c7dbdb2`, staged only those 2 so concurrent session's uncommitted data files untouched) + pushed to remote. Fix now committed+pushed+working-tree-live. Data clean+fresh through 07-02. 07-01 snapshot regenerated on fresh prices: overbought RSI FAIL→WARN (46.6%→40.0%, 14→12 names).
 - **[HS793 backfill incomplete — 49 tickers remain, retry 2026-07-01](project_hs793_backfill_reminder_2026_06_28.md)** `[active]` — Quota hit on final batch 2026-06-30. 296/345 current. Use IDs[300:], start_date='2024-01-01'. ~43k cells, 1 batch.
 
+## Data-Quality Notes
+- **[KYMR false sev3_gate — SEC 8-K readout mis-parsed to 2026 (2026-07-02)](reference_kymr_catalyst_misdate_2026_07_02.md)** — KYMR unranked since 07-02 via false sev3_gate; 8-K "late 2027" bucketed into H2-2026. Note at `artifacts/data_quality_note_KYMR_catalyst_misdate_2026-07-02.md`. Not remediated (needs override or extractor fix). Possible general "late <YYYY>" extractor bug.
+
 ## Platform Roadmap (2026-06-22, corrected 2026-06-23)
 - **[Operator-approved workstream sequence — 9/9 COMPLETE (2026-06-23)](platform_roadmap_2026_06_22.md)** — All items done. EES chain closed: validation→attribution→shadow monitor→guardrail design-only. Active path: daily shadow monitor run only. `OPENCLAW_STATUS: RETIRED`. Do not reopen any item.
 
