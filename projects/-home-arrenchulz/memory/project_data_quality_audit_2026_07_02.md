@@ -4,7 +4,7 @@ description: Cross-ticker data-quality audit of 2026-07-02 snapshot — top find
 metadata: 
   node_type: memory
   type: project
-  status: active
+  status: shipped
   related: 
     - reference-kymr-catalyst-misdate-2026-07-02
   originSessionId: 5fd143bf-4dee-427b-b532-a776caecfd37
@@ -12,7 +12,9 @@ metadata:
 
 Ran an all-tickers data-quality audit on the 2026-07-02 snapshot (302 screened / 324 active). Note at `artifacts/data_quality_audit_2026-07-02.md`.
 
-**Top actionable finding (🔴): incomplete `defensive_features` enrichment.** `de_vol_60d`/`de_beta_xbi_60d`/`de_drawdown`/`de_rsi_14d` are read from each universe record's embedded `defensive_features` block (`decision_engine.py:15`, `run_screen.py:5132`). **52 of 324 active tickers lack that block** (272 have it) → `de_vol_60d` missing for 44 screened names despite ample price history (TEVA 11k bars, CAPR, ABBV, DNTH, VKTX…). Blind spot: `coverage_status` does NOT track defensive_features, so the coverage gate can't see it. Remediation (NOT applied, needs sign-off): re-run defensive-features enrichment over the full active universe + add defensive_features to coverage_status. Sample missing: ABBV, AKBA, CAPR, CPRX, DNTH, TEVA, VKTX, VRDN, VSTM, +others.
+**FIXED 2026-07-02 (PR #456, merge `fdd3f6c8`, branch commit `0a013c16`, deployed to working tree).** Chose a code fix over a universe.json data-backfill: added **Step C** to `run_screen._hydrate_beta_rsi` — compute vol_60d from price_history (annualized std of last 60 daily returns, ddof=1, FILL-IF-MISSING so the 272 existing values are preserved under the freeze) → closes the gap at source + self-covers new tickers. Also added universe-wide `risk_feature_coverage` block to `coverage_quality.json` so a regression can't hide. Effect on next run: de_vol_60d coverage → ~100% for tickers with ≥30 bars.
+
+**Top actionable finding (🔴 — now FIXED): incomplete `defensive_features` enrichment.** `de_vol_60d`/`de_beta_xbi_60d`/`de_drawdown`/`de_rsi_14d` are read from each universe record's embedded `defensive_features` block (`decision_engine.py:15`, `run_screen.py:5132`). **52 of 324 active tickers lack that block** (272 have it) → `de_vol_60d` missing for 44 screened names despite ample price history (TEVA 11k bars, CAPR, ABBV, DNTH, VKTX…). Blind spot: `coverage_status` does NOT track defensive_features, so the coverage gate can't see it. Remediation (NOT applied, needs sign-off): re-run defensive-features enrichment over the full active universe + add defensive_features to coverage_status. Sample missing: ABBV, AKBA, CAPR, CPRX, DNTH, TEVA, VKTX, VRDN, VSTM, +others.
 
 Clean axes: price freshness (0 missing, 1 stale CNTA), coverage_status (all covered), eligibility normal (70 deep_drawdown, 5 fundamental_red_flag), sev3_gate (12; 11 legit, 1=KYMR fixed).
 
