@@ -8,7 +8,7 @@
 - **[HS793 backfill incomplete — 49 tickers remain, retry 2026-07-01](project_hs793_backfill_reminder_2026_06_28.md)** `[active]` — Quota hit on final batch 2026-06-30. 296/345 current. Use IDs[300:], start_date='2024-01-01'. ~43k cells, 1 batch.
 
 ## Data-Quality Notes
-- **[KYMR false sev3_gate — SEC 8-K readout mis-parsed to 2026 (2026-07-02)](reference_kymr_catalyst_misdate_2026_07_02.md)** — KYMR unranked since 07-02 via false sev3_gate; 8-K "late 2027" bucketed into H2-2026. Note at `artifacts/data_quality_note_KYMR_catalyst_misdate_2026-07-02.md`. Not remediated (needs override or extractor fix). Possible general "late <YYYY>" extractor bug.
+- **[KYMR false sev3_gate — SEC 8-K "late <year>" readout mis-parse — FIXED PR #455 (2026-07-02)](reference_kymr_catalyst_misdate_2026_07_02.md)** `[shipped]` — 8-K "late 2027" bucketed into 2026 (unbounded `.*?` bridged across sentences + no late/early pattern). Extractor fixed in `sec_8k_catalyst_collector.py` (merge `8c0d2af5`, branch commit `3a4509e5`, deployed to working tree). Self-corrects on next EDGAR re-parse (07-03 run) for KYMR/ADCT/LXEO/RAPP; no cache surgery.
 
 ## Platform Roadmap (2026-06-22, corrected 2026-06-23)
 - **[Operator-approved workstream sequence — 9/9 COMPLETE (2026-06-23)](platform_roadmap_2026_06_22.md)** — All items done. EES chain closed: validation→attribution→shadow monitor→guardrail design-only. Active path: daily shadow monitor run only. `OPENCLAW_STATUS: RETIRED`. Do not reopen any item.
