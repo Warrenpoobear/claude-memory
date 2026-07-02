@@ -8,6 +8,7 @@
 - **[HS793 backfill incomplete — 49 tickers remain, retry 2026-07-01](project_hs793_backfill_reminder_2026_06_28.md)** `[active]` — Quota hit on final batch 2026-06-30. 296/345 current. Use IDs[300:], start_date='2024-01-01'. ~43k cells, 1 batch.
 
 ## Data-Quality Notes
+- **[All-ticker data-quality audit — 52 tickers missing defensive_features enrichment (2026-07-02)](project_data_quality_audit_2026_07_02.md)** `[active]` — de_vol_60d gap root cause: universe defensive_features block absent for 52/324 active (TEVA/CAPR/ABBV/DNTH…); coverage_status does not track it. Note at artifacts/data_quality_audit_2026-07-02.md. Price/coverage/eligibility clean.
 - **[KYMR false sev3_gate — SEC 8-K "late <year>" readout mis-parse — FIXED PR #455 (2026-07-02)](reference_kymr_catalyst_misdate_2026_07_02.md)** `[shipped]` — 8-K "late 2027" bucketed into 2026 (unbounded `.*?` bridged across sentences + no late/early pattern). Extractor fixed in `sec_8k_catalyst_collector.py` (merge `8c0d2af5`, branch commit `3a4509e5`, deployed to working tree). Self-corrects on next EDGAR re-parse (07-03 run) for KYMR/ADCT/LXEO/RAPP; no cache surgery.
 
 ## Platform Roadmap (2026-06-22, corrected 2026-06-23)
