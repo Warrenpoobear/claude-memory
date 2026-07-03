@@ -64,6 +64,33 @@ to [[ees_v3_structural_failure_2026_04_30]] first.
 
 Governs under [[scoped_work_freeze_2026_06_22]] — diagnostics unfrozen, ranker/selector/sizing/final_score/portfolio stay frozen regardless of this note.
 
+## Shipped — Stage 1+2 merged to main (2026-07-03)
+
+Phase 1 Stage 1+2 landed on `main` via **PR #461** (merge commit `c3dd0def`).
+Two commits: Stage 1 `68ebc9d6` (563-line safety-boundary suite proving options
+diagnostic fields stay disconnected from selector/ranker/final_score) + Stage 2
+`26659712` (the repairs). Stage 2 content:
+- `massive_chain_analytics.py`: null-vs-zero OI/volume coding (`n_oi_missing`,
+  `n_volume_missing`); MIN_OI_THRESHOLD + MAX_SPREAD_PCT enforcement on the ATM
+  straddle (`min_atm_oi`/`oi_gate_pass`, `max_atm_spread_pct`/`spread_gate_pass`);
+  gate can only tighten, never loosen, the total-OI signal.
+- `options_diagnostics._massive_fallback_batch`: same null-vs-zero handling;
+  `bad_quote` when OI missing on all contracts; MIN_OI per-contract floor.
+- `options_history_massive.py`: `compute_bid_ask_spread_pct()`; fixed silent drop
+  of `last_quote` bid/ask/midpoint.
+- `options_snapshot.py`: missing `opt_term_slope` sorts last, not coerced to 0.0.
+219 options unit tests pass. Approved items 1/2/3/5 substantially covered;
+items 4 (13-code null set) and 6 (spec059 sidecar audit) NOT yet done.
+
+**Process note (why it took a clone):** Stage 2 was trapped across 4 racing
+stashes from the 2026-06-30 shared-checkout incident — see
+[[feedback_shared_checkout_concurrency_2026_06_30]]. Reconciled by exporting the
+stash diffs read-only, then applying/committing in a genuine separate clone at
+`/mnt/c/Projects/biotech_screener/biotech-screener-options-stage2` (worktree
+isolation still unavailable). stash@{0} was the superset for
+`massive_chain_analytics.py` (had MIN_OI enforcement stash@{3} lacked). The 4
+race stashes remain in the shared checkout, now fully superseded — safe to drop.
+
 ## Promotion status
 
 No promotion path approved. Any future reopening of options-as-alpha requires a separate governance memo and genuinely new (non-IV-surface) data — not a Phase 1 deliverable.

@@ -44,7 +44,7 @@
 - [ISS document + iss-review skill (2026-06-25)](reference_iss_document.md) — Markdown at `~/.claude/docs/investment-strategy-statement.md`; artifact at claude.ai; skill `iss-review` for display, exclusion checks, and coherence checks
 
 ## Options Infrastructure Scope (2026-06-30)
-- **[Options scope reset — Phase 1 diagnostic repair only (2026-06-30)](options_scope_reset_phase1_2026_06_30.md)** `[active]` — EES/options divergence framing rejected (same circularity as EES v3, closed 2026-04-30); approved scope is audit/repair of priced_move_pct, MIN_OI enforcement, staleness, null reason codes; no selector/ranker/alpha path.
+- **[Options scope reset — Phase 1 diagnostic repair only (2026-06-30)](options_scope_reset_phase1_2026_06_30.md)** `[shipped]` — EES/options divergence framing rejected (same circularity as EES v3, closed 2026-04-30); approved scope is audit/repair of priced_move_pct, MIN_OI enforcement, staleness, null reason codes; no selector/ranker/alpha path. **Stage 1+2 MERGED to main 2026-07-03 (PR #461, merge `c3dd0def`)** via isolated clone; 219 options tests pass; items 4 (13-code null set) + 6 (spec059 sidecar audit) still open. CNTA corp-action effective-date fix also merged (PR #460, `04583513`).
 
 ## Memory tooling
 - Graph at `memory_graph.json` (next to this file) — built by `/home/arrenchulz/.claude/scripts/build_memory_graph.py`. Re-run after writing/editing memory files
