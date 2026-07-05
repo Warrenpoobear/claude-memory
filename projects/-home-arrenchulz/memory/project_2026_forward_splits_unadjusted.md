@@ -35,11 +35,18 @@ gate stays quiet; appear in price_recompute_diff + root_cause).
 data-correctness fix during the DEM Top-30 NO_MODEL_CHANGE window. Commit `5dbb3680` on branch
 `fix/drawdown-recent-split-adjust` → merged to main. Freeze context: INC-2026-06-20 scoped
 freeze LIFTED 2026-06-24 ([[scoped-work-freeze-2026-06-22]]).
-⚠️ **OPEN FOLLOW-UP (not yet done):** the fix is on main but the **shared checkout / cron
-does NOT auto-pull** (checkout on branch `fix/sync-hermes-skills-dual-map-drop`), so it is
-NOT live in production yet. Next: deploy `run_screen.py` to the shared checkout (as done for
-PR #453) → re-run 2026-07-03 snapshot → confirm IMMP flips to eligible → note the
-universe-membership shift in the forward-validation log. Isolated clone `~/biotech_mltx_fix`,
+**DEPLOYED + VERIFIED 2026-07-05.** Both fixed files (`run_screen.py` +
+`tools/data_integrity_audit.py`) deployed to the shared checkout from origin/main (commit
+`80d26ae3` on branch `fix/sync-hermes-skills-dual-map-drop`, black/isort applied by
+pre-commit, only those 2 files). Verified end-to-end via a 07-03 re-run: staging rankings
+show **IMMP de_drawdown −0.3167, eligible=1, rank 136** (was excluded deep_drawdown −0.867);
+GOSS −0.7704 correctly still excluded; MLTX −0.1449 unchanged. ⚠️ The 07-03 re-run did NOT
+promote — blocked by `hard_options_coverage` FAIL (options IV snapshot returned 0% — a
+weekend/API-outage artifact of re-running a past date on a Sunday, UNRELATED to the fix). So
+the on-disk 07-03 snapshot is still the old (IMMP-excluded) one; marker restored to keep it
+consistent. The fix will produce a promoted IMMP-eligible snapshot on the next weekday
+production run with live options data. Still to do: note the universe-membership shift in the
+forward-validation log on that run. Isolated clone `~/biotech_mltx_fix`,
 branch `fix/drawdown-recent-split-adjust`, commit **5dbb3680** (NOT pushed). Approach:
 in the recent-split fallback in `run_screen._hydrate_drawdown`, if `corporate_actions.json`
 confirms a real split, scale the restored series via `cumulative_split_factor` (same basis
