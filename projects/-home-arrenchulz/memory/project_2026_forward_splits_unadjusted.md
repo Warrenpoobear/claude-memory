@@ -31,10 +31,17 @@ Discovered via the audit fix ([[project-audit-split-adjust-fix-2026-07-05]], PR 
 now correctly surfaces GOSS/IMMP instead of masking them (they're not held → held-scoped
 gate stays quiet; appear in price_recompute_diff + root_cause).
 
-**NOT fixed** — production feature (Tier 3, frozen-adjacent); needs operator clearance.
-Trace COMPLETE (root cause above). Fix options: (1 best) replace heuristic truncation with
-`corporate_actions.json` scaling (`cumulative_split_factor`, same as PR #474) — unifies
-feature+audit; (2) cap drawdown peak at split date in the fallback; (3) interim: emit
-`drawdown_missing_reason="recent_split_insufficient_history"` so the gate can't fire on a
-false deep value. Then re-run 2026-07-03 → confirm IMMP flips to eligible. Full writeup:
-`scratchpad/FINDING_2026_forward_splits_unadjusted.md` (2026-07-05 session).
+**FIX PREPARED — HELD (not pushed), awaiting operator/governance clearance** (Tier 3
+production feature; freeze status must be confirmed — repo operational-state.md says
+freeze LIFTED 2026-06-24, but reconcile before merge). Isolated clone `~/biotech_mltx_fix`,
+branch `fix/drawdown-recent-split-adjust`, commit **5dbb3680** (NOT pushed). Approach:
+in the recent-split fallback in `run_screen._hydrate_drawdown`, if `corporate_actions.json`
+confirms a real split, scale the restored series via `cumulative_split_factor` (same basis
+as PR #474); genuine crashes (no registry entry) keep raw deep drawdown. New
+`_corp_action_split_adjust` helper + optional `corporate_actions` param (default-loads,
+fail-open). Only the fallback path changes. Validated on real 2026-07-03: IMMP −0.868→
+−0.317 (now ELIGIBLE), GOSS −0.954→−0.770, MLTX unchanged −0.145. 50 hydrate + 40
+split/outlier tests pass; no new lint. **To ship:** confirm freeze/governance → push branch
+(git-guardrails hook blocks `git push`; operator runs it via `! ...`) → open PR → re-run
+2026-07-03 snapshot to confirm IMMP flips eligible in production. Full writeup:
+`scratchpad/FINDING_2026_forward_splits_unadjusted.md`. Root cause detail above.
