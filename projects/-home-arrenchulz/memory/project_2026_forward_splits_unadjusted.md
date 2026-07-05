@@ -31,9 +31,13 @@ Discovered via the audit fix ([[project-audit-split-adjust-fix-2026-07-05]], PR 
 now correctly surfaces GOSS/IMMP instead of masking them (they're not held → held-scoped
 gate stays quiet; appear in price_recompute_diff + root_cause).
 
-**FIX PREPARED — HELD (not pushed), awaiting operator/governance clearance** (Tier 3
-production feature; freeze status must be confirmed — repo operational-state.md says
-freeze LIFTED 2026-06-24, but reconcile before merge). Isolated clone `~/biotech_mltx_fix`,
+**FIX PREPARED — HELD (not pushed), awaiting operator/governance clearance.** Freeze
+reconciled 2026-07-05: the INC-2026-06-20 scoped production model freeze is **LIFTED**
+(2026-06-24, operator, commit `1e8a44ca`) — so that is NOT the blocker. The live gate is
+that this is a **Tier-3 eligibility-affecting change during an active DEM Top-30
+NO_MODEL_CHANGE forward-validation window** (candidate freeze, commits 972db318/bc900928).
+Operator must decide whether a data-correctness bug fix (IMMP was wrongly excluded) counts
+as a "model change" that disturbs the out-of-sample window. See [[scoped-work-freeze-2026-06-22]]. Isolated clone `~/biotech_mltx_fix`,
 branch `fix/drawdown-recent-split-adjust`, commit **5dbb3680** (NOT pushed). Approach:
 in the recent-split fallback in `run_screen._hydrate_drawdown`, if `corporate_actions.json`
 confirms a real split, scale the restored series via `cumulative_split_factor` (same basis

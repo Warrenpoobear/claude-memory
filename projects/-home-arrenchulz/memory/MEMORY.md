@@ -16,8 +16,8 @@
 ## Platform Roadmap (2026-06-22, corrected 2026-06-23)
 - **[Operator-approved workstream sequence — 9/9 COMPLETE (2026-06-23)](platform_roadmap_2026_06_22.md)** — All items done. EES chain closed: validation→attribution→shadow monitor→guardrail design-only. Active path: daily shadow monitor run only. `OPENCLAW_STATUS: RETIRED`. Do not reopen any item.
 
-## Freeze State (2026-06-22)
-- **[Scoped work freeze — production model frozen, diagnostics unfrozen (2026-06-22)](scoped_work_freeze_2026_06_22.md)** `[active]` — Ranker/selector/sizing/final_score/portfolio frozen. EES shadow monitor now live (observation only). No model-use before shadow gates met (20 completed 5d + 20 completed 20d). See [[ees-shadow-monitor-state-2026-06-23]].
+## Freeze State — RECONCILED 2026-07-05
+- **[Scoped production model freeze — LIFTED 2026-06-24 (operator); memory was stale](scoped_work_freeze_2026_06_22.md)** `[resolved]` — INC-2026-06-20 freeze LIFTED 2026-06-24 per repo commit `1e8a44ca` (`.claude/rules/operational-state.md`), scoped to unblock Spec 100; no re-freeze after. ⚠️ Post-lift "freeze" (commits 972db318/bc900928, 06-27/28) = **DEM Top-30 candidate freeze + NO_MODEL_CHANGE forward-validation window**, a different (spec/candidate) freeze. Live gate for eligibility/ranker changes = the forward-validation NO_MODEL_CHANGE window, NOT the INC freeze. See [[project-2026-forward-splits-unadjusted]].
 - **[EES shadow monitor — research complete, raw_veto_core lead policy (2026-06-25)](ees_shadow_monitor_state_2026_06_23.md)** — Research package done (6 scripts, 3 memos, commits 149c8f56/6123739c/0d47544f). EES v3 role = financing/overpricing false-positive detector. LEAD_POLICY=raw_veto_core (IC 0.064, t=2.36, LATE +7.1%); conditional veto rejected (fires too rarely). Daily shadow card being built. Gates still unmet.
 
 ## Containment Branch (2026-06-22)

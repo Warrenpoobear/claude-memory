@@ -4,11 +4,23 @@ description: Production model freeze remains; diagnostic/research/plumbing unfro
 metadata: 
   node_type: memory
   type: project
-  status: active
+  status: resolved
   originSessionId: 2576507a-0c9a-455f-a1fe-f9cfd1822ad9
 ---
 
-**Production model freeze REMAINS ACTIVE as of 2026-06-22.**
+> ⚠️ **SUPERSEDED (2026-07-05 reconciliation).** The scoped production model freeze
+> (INC-2026-06-20-AUTOPUSH) below was **LIFTED 2026-06-24 by explicit operator clearance**
+> — verified in repo governance state: commit `1e8a44ca` on main
+> (`.claude/rules/operational-state.md`: "SCOPED PRODUCTION MODEL FREEZE — LIFTED
+> 2026-06-24"), lift scoped to unblock Spec 100. **No commit re-froze it after 06-24.**
+> The "freeze" mentions in commits `972db318`/`bc900928` (06-27/06-28) are a *different*
+> thing — the **DEM Top-30 candidate freeze + NO_MODEL_CHANGE forward-validation protocol**
+> (candidate/spec freeze during the out-of-sample observation window), NOT the INC code
+> freeze. The FROZEN/UNFROZEN lists below are historical (pre-lift). The live governance
+> gate for any eligibility/ranker-affecting change is now the forward-validation
+> NO_MODEL_CHANGE window, not this freeze. See [[project-2026-forward-splits-unadjusted]].
+
+**[HISTORICAL, pre-lift] Production model freeze was ACTIVE as of 2026-06-22.**
 Scoped work freeze lifted for: safe research, verification, diagnostics, artifact generation, and plumbing.
 
 **Why:** Latest change was plumbing/coverage improvement (expectation layer 80%→95% weighted feature coverage via surfacing `short_interest_pct`, `close_price`, `market_cap_mm`, `priced_move_pct` into rankings.csv). Real remaining gap is `insider_net_buy_value_90d` at 0% — not to be rushed as alpha.
