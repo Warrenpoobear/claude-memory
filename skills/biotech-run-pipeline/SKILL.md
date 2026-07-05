@@ -40,13 +40,36 @@ ls /mnt/c/Projects/biotech_screener/biotech-screener/data/snapshots/YYYY-MM-DD/r
 ```
 If already exists, confirm with user before re-running.
 
+**⚠️ Idempotency short-circuit (critical):** if the snapshot dir has a
+`_step_progress.json` marker with `manifest_written` done, the runner will
+**skip everything** ("Skipping expensive steps (price, cache, screen, audit,
+gates)"), return the *existing* manifest instantly (identical rankings hash),
+and never re-fetch prices. This looks like a no-op run. To force a genuine
+full rerun, remove the marker first (back it up so it's reversible):
+```bash
+cp data/snapshots/YYYY-MM-DD/_step_progress.json /tmp/_step_progress_backup.json 2>/dev/null
+rm -f data/snapshots/YYYY-MM-DD/_step_progress.json
+```
+If the fresh rankings match the prior snapshot byte-for-byte, the promotion
+guard preserves the original and archives nothing; if they differ, the old
+snapshot is archived as `YYYY-MM-DD__pre_<hash>` and the new one promoted.
+
 ### 3 — Run the pipeline
 ```bash
 cd /mnt/c/Projects/biotech_screener/biotech-screener && \
-ALLOW_AGENT_PUSH=1 python3 tools/run_daily_production.py --date YYYY-MM-DD \
-  2>&1 | tee /tmp/pipeline_run_YYYY-MM-DD.log
+ALLOW_AGENT_PUSH=1 python3 -u tools/run_daily_production.py --as-of-date YYYY-MM-DD \
+  --mode daily-production 2>&1 | tee /tmp/pipeline_run_YYYY-MM-DD.log
 ```
-Pipeline takes ~6 min. Report progress as it runs.
+The flag is `--as-of-date` (NOT `--date`). Pipeline takes ~6 min. The runner
+routes its own detailed logging to a file handler, so stdout/tee may look
+sparse — check `data/snapshots/YYYY-MM-DD/run_manifest.json` for the result,
+not stdout.
+
+**Exit codes (do NOT treat exit 2 as failure):**
+- `0` = all gates PASS
+- `1` = a blocking gate FAILed — snapshot NOT promoted (real failure)
+- `2` = overall status WARN — snapshot **promoted** with non-blocking warnings.
+  This is the normal, healthy outcome most days. Report as COMPLETE.
 
 ### 4 — Verify output
 ```bash
@@ -68,7 +91,7 @@ EOF
 ```
 PIPELINE RUN — YYYY-MM-DD
 
-Status:   COMPLETE / FAILED
+Status:   COMPLETE (exit 0/2) / FAILED (exit 1)
 Duration: ~6m
 Tickers:  NNN ranked
 Top-5:    COGT, DNTH, ORIC, NRIX, URGN
