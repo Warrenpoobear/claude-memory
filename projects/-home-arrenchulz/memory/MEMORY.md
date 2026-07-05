@@ -4,7 +4,7 @@
 
 ## Pending / Active
 - **[HS793 backfill incomplete — 49 tickers remain](project_hs793_backfill_reminder_2026_06_28.md)** `[active]` — quota hit 06-30, 296/345; retry IDs[300:], start_date='2024-01-01', ~1 batch.
-- **[⚠️ OPEN BUG: 2026 forward splits not adjusted in drawdown feature](project_2026_forward_splits_unadjusted.md)** `[active]` — `run_screen._hydrate_drawdown` recent-split fallback restores RAW series → phantom deep drawdown for splits <126 post-split bars. IMMP wrongly excluded (adj −31.7% vs gate −40%). **Fix PREPARED+HELD** (clone `~/biotech_mltx_fix`, branch `fix/drawdown-recent-split-adjust`, commit `5dbb3680`, NOT pushed); needs NO_MODEL_CHANGE-window clearance. See [[project-audit-split-adjust-fix-2026-07-05]].
+- **[2026 forward splits not adjusted in drawdown feature — PR #475](project_2026_forward_splits_unadjusted.md)** `[shipped]` — `run_screen._hydrate_drawdown` recent-split fallback restored RAW series → phantom deep drawdown for splits <126 post-split bars. IMMP wrongly excluded (adj −31.7% vs gate −40%). Fix: corporate_actions scaling in fallback (commit `5dbb3680`); **PR #475 open** (base main). After merge: re-run 07-03 → confirm IMMP eligible. See [[project-audit-split-adjust-fix-2026-07-05]].
 - **[EES shadow monitor — raw_veto_core lead policy](ees_shadow_monitor_state_2026_06_23.md)** `[active]` — EES v3 = financing/overpricing false-positive detector; LEAD_POLICY=raw_veto_core (IC 0.064, t=2.36); daily shadow card; gates unmet.
 
 ## Freeze / Governance State — RECONCILED 2026-07-05

@@ -31,13 +31,13 @@ Discovered via the audit fix ([[project-audit-split-adjust-fix-2026-07-05]], PR 
 now correctly surfaces GOSS/IMMP instead of masking them (they're not held → held-scoped
 gate stays quiet; appear in price_recompute_diff + root_cause).
 
-**FIX PREPARED — HELD (not pushed), awaiting operator/governance clearance.** Freeze
-reconciled 2026-07-05: the INC-2026-06-20 scoped production model freeze is **LIFTED**
-(2026-06-24, operator, commit `1e8a44ca`) — so that is NOT the blocker. The live gate is
-that this is a **Tier-3 eligibility-affecting change during an active DEM Top-30
-NO_MODEL_CHANGE forward-validation window** (candidate freeze, commits 972db318/bc900928).
-Operator must decide whether a data-correctness bug fix (IMMP was wrongly excluded) counts
-as a "model change" that disturbs the out-of-sample window. See [[scoped-work-freeze-2026-06-22]]. Isolated clone `~/biotech_mltx_fix`,
+**FIX SHIPPED — PR #475 OPEN (2026-07-05).** Operator cleared it ("ship it") as a
+data-correctness fix landing during the DEM Top-30 NO_MODEL_CHANGE forward-validation window.
+Branch `fix/drawdown-recent-split-adjust` (commit `5dbb3680`, base main `cd48269f`) pushed;
+PR #475 (base main). Freeze context: INC-2026-06-20 scoped freeze LIFTED 2026-06-24
+([[scoped-work-freeze-2026-06-22]]); the live gate was the NO_MODEL_CHANGE window, now
+cleared. ⚠️ After merge: re-run 2026-07-03 snapshot to confirm IMMP flips to eligible in
+production; recommend a note in the forward-validation log (universe-membership shift). Isolated clone `~/biotech_mltx_fix`,
 branch `fix/drawdown-recent-split-adjust`, commit **5dbb3680** (NOT pushed). Approach:
 in the recent-split fallback in `run_screen._hydrate_drawdown`, if `corporate_actions.json`
 confirms a real split, scale the restored series via `cumulative_split_factor` (same basis
