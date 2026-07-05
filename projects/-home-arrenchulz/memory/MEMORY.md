@@ -4,7 +4,7 @@
 
 ## Pending / Active
 - **[HS793 backfill incomplete — 49 tickers remain](project_hs793_backfill_reminder_2026_06_28.md)** `[active]` — quota hit 06-30, 296/345; retry IDs[300:], start_date='2024-01-01', ~1 batch.
-- **[2026 forward splits not adjusted in drawdown feature — PR #475](project_2026_forward_splits_unadjusted.md)** `[shipped]` — `run_screen._hydrate_drawdown` recent-split fallback restored RAW series → phantom deep drawdown for splits <126 post-split bars. IMMP wrongly excluded (adj −31.7% vs gate −40%). Fix: corporate_actions scaling in fallback (commit `5dbb3680`); **PR #475 open** (base main). After merge: re-run 07-03 → confirm IMMP eligible. See [[project-audit-split-adjust-fix-2026-07-05]].
+- **[2026 forward splits not adjusted in drawdown feature — PR #475 MERGED](project_2026_forward_splits_unadjusted.md)** `[shipped]` — `run_screen._hydrate_drawdown` recent-split fallback restored RAW series → phantom deep drawdown for splits <126 post-split bars. IMMP wrongly excluded. Fix: corporate_actions scaling (commit `5dbb3680`); **PR #475 MERGED (`287a23de`)**. ⚠️ NOT live: shared checkout/cron doesn't auto-pull → deploy run_screen.py to shared checkout + re-run 07-03 → confirm IMMP eligible. See [[project-audit-split-adjust-fix-2026-07-05]].
 - **[EES shadow monitor — raw_veto_core lead policy](ees_shadow_monitor_state_2026_06_23.md)** `[active]` — EES v3 = financing/overpricing false-positive detector; LEAD_POLICY=raw_veto_core (IC 0.064, t=2.36); daily shadow card; gates unmet.
 
 ## Freeze / Governance State — RECONCILED 2026-07-05
@@ -12,7 +12,7 @@
 - **[Model investability verdict](project_model_investability_verdict_2026_06_26.md)** — Phase 3 substantially explained (regime offline during reconstructed BEAR); not cleared. Next gate: PHASE3_CORRECTED_REGIME_RANKING_REPLAY_DIAGNOSTIC.
 
 ## Recent fixes (shipped, in observation)
-- **[Audit split-adjust fix — PR #474](project_audit_split_adjust_fix_2026_07_05.md)** `[shipped]` — `data_integrity_audit.py` recomputed drawdown from RAW → false STALE_MISMATCH on split names (MLTX). Fix: `_split_adjust_prices` via corporate_actions; clone commit `30412bc2`, PR #474 open.
+- **[Audit split-adjust fix — PR #474 MERGED](project_audit_split_adjust_fix_2026_07_05.md)** `[shipped]` — `data_integrity_audit.py` recomputed drawdown from RAW → false STALE_MISMATCH on split names (MLTX). Fix: `_split_adjust_prices` via corporate_actions; commit `30412bc2`, **PR #474 MERGED** (also not auto-live in shared checkout).
 - **[Daily-run incident 07-02 — R² zerodiv + stale ipo_dates universe collapse](project_daily_run_2026_07_02_incident.md)** `[shipped]` — stale `ipo_dates.json` crosses 45-day PIT delist cutoff → universe silently collapses (314→13). Fix: `python3 tools/build_ipo_dates.py`. PR #454 + `52fe61d6`.
 - **[Price-append MultiIndex bug — PR #453](project_price_append_multiindex_bug_2026_07_01.md)** `[shipped]` — yfinance MultiIndex cols corrupted 1 row/day; merged main 07-02 + deployed to shared checkout (commit `1c7dbdb2`).
 - **[de_vol_60d gap — PR #456](project_data_quality_audit_2026_07_02.md)** `[shipped]` — 52/324 tickers lacked universe defensive_features; fixed in `_hydrate_beta_rsi` Step C + coverage_quality block. Merge `fdd3f6c8`.

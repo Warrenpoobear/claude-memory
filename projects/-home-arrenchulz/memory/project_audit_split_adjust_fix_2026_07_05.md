@@ -27,5 +27,5 @@ audit at `price_history_split_adj.csv`" — that file is built by standalone
 
 Validated on 2026-07-03: MLTX FAIL→OK. 45 tests (4 new) + 82 regression pass; ruff clean.
 Done in isolated clone `~/biotech_mltx_fix` (shared checkout never touched). Commit
-`30412bc2`, **PR #474 open** (base main). Uncovered a separate feature bug —
+`30412bc2`, **PR #474 MERGED** (base main). Uncovered a separate feature bug —
 see [[project-2026-forward-splits-unadjusted]].
