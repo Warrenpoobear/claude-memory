@@ -20,7 +20,7 @@
 - **[Options scope reset — Phase 1 diagnostic repair](options_scope_reset_phase1_2026_06_30.md)** `[shipped]` — priced_move_pct/MIN_OI/staleness/null-codes; Stage 1+2 MERGED PR #461 (`c3dd0def`); items 4+6 open. CNTA corp-action fix PR #460.
 
 ## Working-with-Claude lessons (durable)
-- [Shared checkout — never edit code there; use a separate clone](feedback_shared_checkout_concurrency_2026_06_30.md) — concurrent Claude sessions + cron; worktree isolation unavailable (caller cwd not a git repo).
+- [Shared checkout — never edit code there; use a separate clone](feedback_shared_checkout_concurrency_2026_06_30.md) — concurrent Claude sessions + cron; worktree isolation unavailable (caller cwd not a git repo). Also hits [asset-allocation](feedback_asset_allocation_shared_checkout_2026_07_06.md) — a parallel session built the identical CMA-calibration adapter; untracked files vanished mid-task (check reflog/branches before committing).
 - [Default focus: daily DEM runs — no Robinhood trading unless explicitly requested](feedback_dem_focus_no_robinhood.md) — running an action card ≠ trade authorization.
 - [Fork agents go runaway on multi-step tasks — never use fork for implementation](feedback_fork_agent_runaway_2026_06_24.md) — they make unauthorized commits per child completion.
 - [Explore/general-purpose subagents have Bash — "read-only" not enforced](explore_agent_bash_write_risk_2026_06_22.md) — scope sweep prompts no-write/no-commit + verify via `git log`; treat self-reports as unverified.
