@@ -25,3 +25,11 @@ metadata:
 
 ## Auth
 `MD_AUTH_TOKEN` env var — JWT from Morningstar Direct → Account → API Token. Expires ~24h.
+
+## Data feed for other projects (added 2026-07-06)
+Repo is now wired as a reusable feed — consumers import, don't parse CSVs:
+- `morningstar_feed.py` — pandas accessor: `benchmark_names()`, `resolve_name()` (aliases like sp500/xbi/agg + SecIds), `get_series()`, `load_return_index()/load_daily_returns(trading_days_only=True)`, `trailing_return(name,window)` (1M/3M/6M/YTD/1Y/2Y/3Y/5Y/10Y, annualized >1Y), `cumulative_return()`, `latest_date()`, `as_of_freshness()`. Data dir = module's folder, override via `MORNINGSTAR_FEED_DIR`.
+- `datasets.json` — manifest (schemas, sha256, per-benchmark coverage, SecId map, as_of); regenerate with `python3 build_manifest.py` after every refresh.
+- `pyproject.toml` — `pip install -e /mnt/c/Projects/morningstar` → `import morningstar_feed`.
+- Validated vs source table: S&P 500 1Y 22.32 / 3Y 20.61, EM H1 21.79. No existing consumer of the benchmark CSVs (biotech_screener uses a separate per-ticker MD dataset). See [[reference_morningstar_direct_returns_workflow]].
+- Merged to main locally (`1cd7b11`), push gated by git-guardrails hook (user runs `git push`).
