@@ -56,7 +56,8 @@
 
 ## Reference
 - **[ISS document + iss-review skill](reference_iss_document.md)** — `~/.claude/docs/investment-strategy-statement.md`; skill `iss-review`.
-- **[morningstar-benchmark skill](reference_morningstar_benchmark.md)** — 29 benchmarks, 10yr daily; `C:\Projects\morningstar`; MD_AUTH_TOKEN ~24h.
+- **[morningstar-benchmark skill](reference_morningstar_benchmark.md)** — 29 benchmarks, 10yr daily; `C:\Projects\morningstar`; MD_AUTH_TOKEN ~24h. Now a data feed: `import morningstar_feed` (pip-installable) + `datasets.json` (2026-07-06).
+- **[Morningstar Direct per-security trailing returns](reference_morningstar_direct_returns_workflow.md)** — 1Mo–10Yr for any ticker: resolve SecId via `investments()`, then `get_investment_data(data_points="0218-0037")`.
 - **[Asset allocation model](asset_allocation_project_state.md)** — Wake Robin SFO; Phases 1–22 shipped (HEAD `0280024`, 391 tests); Phase 23 PE commitment-book deferred (pending user data).
 - [User: Director of Investments, Wake Robin; CFA/CAIA; $14B+ background](user_profile_credentials_2026_05_15.md); [builder-writer-investor pattern; trust-under-uncertainty obsession](user_identity_pattern_2026_06_26.md).
 - [RVMD+ERAS RAS thesis](research_rvmd_eras_ras_thesis_2026_04_28.md); [Data explorer canonical CLI](data_explorer_canonical_2026_04_13.md).
