@@ -1,6 +1,6 @@
 ---
 name: Asset allocation project state + next move
-description: Wake Robin SFO model — Phases 1–22 + 14.3 all shipped + pushed to origin/main (HEAD 0280024, 2026-05-05, 391 tests); L20 RESOLVED; L19 PARTIALLY RESOLVED (Phase A human authoring pending); Phase 23 design locked, implementation deferred until user gathers client data (see phase_23_followup memory); 2026-05-05 external-review triage shipped 8 fixes (TA wind-down, fund_count cap, recon div-by-zero, hash coverage, overlay paths, config strictness, runway horizon, invocation_id sanitize); next: fill pilot CSV → "go — validate completed pilot row-classification worksheet"
+description: Wake Robin SFO model — Phases 1–22 + 14.3 shipped; PLUS Monte Carlo module (MC-0…MC-3) + empirical CMA calibration from Morningstar feed now merged. HEAD 98295ca (2026-07-06, 423 tests), main clean & synced to origin. L20 RESOLVED; L19 PARTIALLY RESOLVED (Phase A human authoring pending); Phase 23 design locked, implementation deferred until user gathers client data (see phase_23_followup memory); next: fill pilot CSV → "go — validate completed pilot row-classification worksheet"
 type: project
 status: active
 originSessionId: 44856c6e-4397-4a8a-899b-f2984a0bd7c1
@@ -27,6 +27,13 @@ Development and land assets require separate capital-need and monetization assum
 - `Investment Summary for Categorization March 2026.xlsx` — `C:\Users\DarrenSchulz\Brooks Capital Management\Investment - Documents\` — canonical position universe (Phase 15 territory; not yet started).
 
 Live values, person names beyond entity types, and forecast tables are out of scope for repo artifacts. `HERMES_TRACKING.md` is the user's local Hermes tooling file — keep it untracked. Tree has shown it as modified across multiple sessions; do NOT touch it during model work.
+
+## State at 2026-07-06 (Monte Carlo + Morningstar CMA calibration shipped) — CURRENT
+
+- **`origin/main` @ `98295ca`** (2026-07-06 09:44) — `fix(monte_carlo): make per-path seed derivation cross-process stable (#1)`. Working tree clean; `main` fully synced with `origin/main` (0 unpushed). **423 tests collected** (up from 391 at `0280024`).
+- **Monte Carlo module NOW SHIPPED (MC-0…MC-3).** This closes the long-standing **L2 open-architecture item** (previously "deferred until deterministic SFO layers honest"). Post-merge hardening PRs: `580521f` #3 — required reserves via **closed-form solve** (not proxy); `98295ca` #1 — per-path seed derivation **cross-process stable**; `22aceb9` #4 — docs schema comment fix.
+- **Empirical CMA calibration from Morningstar benchmark feed merged** (`cbff447` merge; `d2e3da1` feat; `24fe8b7` ruff). ⚠️ This is the adapter a **parallel Claude session independently built the identical version of** — see [[feedback_asset_allocation_shared_checkout_2026_07_06]]. Consumes the `morningstar_feed` pip package + `datasets.json` (see [[reference_morningstar_benchmark]]).
+- Prior recorded state below (`0280024`, 391 tests, 2026-05-05) remains accurate for everything through Phase 22 + the external-review triage; the two items above are the delta since then. Phase 23 still DEFERRED (design lock unchanged).
 
 ## State at 2026-05-05 (post external-review triage, all pushed)
 
