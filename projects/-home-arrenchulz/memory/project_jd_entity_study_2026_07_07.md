@@ -23,7 +23,7 @@ New AA-model workstream started 2026-07-07. Goal: give the model a first-class *
 
 **State (2026-07-07):** design-lock DRAFTED at `docs/phase_24_entity_study_design_lock.md`. **Sub-step 1 IMPLEMENTED** (per user "start by making this workbook reproducible as an entity fixture" — deterministic entity perimeter/account-scope/balance-sheet-segmentation/PE-commitment-exposure). New package `src/aa_model/entity/` (`schemas.py` `EntityFixture`/`BalanceSheetSegmentRecord`/`PECommitmentExposureRecord`; `fixture.py` canonical_dict/canonical_json/content_hash/load_entity_fixture + `segment_totals`/`pe_exposure_totals` reducers). Money = `Decimal` (exact recon); reuses Phase-15 `AccountRecord`; investable segments carry 1 of 7 policy classes, structural NAV never investable (NAV≠liquidity). Synthetic committed fixture `data/fixtures/entities/entity_synth_a.yaml`; 17 tests in `tests/test_phase24_entity_fixture.py` (all pass; full suite 435 pass; ruff clean; byte-stable — no existing file touched).
 
-**Branch `feat/phase24-entity-fixture` — 5 commits, NOT pushed (git push hook blocks me; user pushes).** :
+**PR #6 MERGED to main 2026-07-07 (`a4fe4b1`) — entity dimension is LIVE.** Branch `feat/phase24-entity-fixture` had 5 commits:
 - `ac7cfb4` sub-step 1: design lock + entity fixture (schemas/fixture/synth/17 tests).
 - `2434f99` sub-step 2: core allocation lenses (balance_sheet/allocation_vs_target/liquidity + EntityPolicyConfig + liquidity_tier).
 - `ff2edc3` PE tightening from J&D oracle (over-called funds; unfunded floors at 0).
