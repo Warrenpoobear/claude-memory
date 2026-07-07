@@ -69,4 +69,4 @@ Unscoped agents (`herald`, `ops`, `calibration`, etc.) proceed normally with pre
 3. May 19: green light for broader phase 2 work
 4. Then: Spec 089 KG implementation (blocked by 13F cohort clearance ~May 23)
 
-**Related**: [[13f_cohort_status_2026_05_15.md]], [[spec_089_phase_1_5a_ranker_governance_kg_pilot.md]]
+**Related**: [[13f_q1_2026_monitoring_live_2026_05_15]], [[spec_089_phase_1_5a_ranker_governance_kg_pilot.md]]

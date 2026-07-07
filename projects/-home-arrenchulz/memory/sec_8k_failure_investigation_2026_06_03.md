@@ -5,7 +5,6 @@ metadata:
   node_type: memory
   type: project
   status: active
-  resolves: sec_8k_data_source_investigation
   originSessionId: 7aaaa27d-e4f5-4c4c-8fec-8c82b385f194
 ---
 

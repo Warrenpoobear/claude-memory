@@ -8,7 +8,7 @@ metadata:
   completed: 2026-05-17
   relates_to: 
     - spec-095-ic-scope-gap-critical
-    - governance_ic_evidence_hold
+    - governance_ic_evidence_hold_2026_05_13
   priority: highest-post-freeze
   originSessionId: f76c74e5-ca06-4596-901a-ca7d6597895b
 ---
@@ -76,7 +76,7 @@ metadata:
 ## Related Memory & Specs
 
 [[spec-095-ic-scope-gap-critical]] — Root cause finding  
-[[governance_ic_evidence_hold]] — Governance enforcement  
+[[governance_ic_evidence_hold_2026_05_13]] — Governance enforcement  
 [[policy_alpha_freeze_2026_04_04]] — Checklist v2 still required  
 
 ---

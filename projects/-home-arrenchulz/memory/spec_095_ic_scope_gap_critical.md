@@ -92,7 +92,7 @@ The forward-shadow evidence for inst_delta and cross-signal (T0=2026-04-28, h20d
 ## Memory Links
 
 [[hermes-skills-audit-2026-05-15]] — Context: discovered in skills audit
-[[ic_evaluation]] — Skill that documents this
+ic_evaluation — Skill that documents this
 [[policy_alpha_freeze_2026_04_04]] — Governance context
 [[policy_freeze_architecture_2026_04_19]] — Architecture freeze (lifts 2026-05-26)
 

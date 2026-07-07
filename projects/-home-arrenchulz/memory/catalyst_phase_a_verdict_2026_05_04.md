@@ -4,7 +4,6 @@ description: Catalyst role verdicts after Phase A descriptive audit — selector
 type: project
 status: active
 related: clinical_phase_a_verdict_2026_05_04.md, regime_post_cohort_change_distortion_2026_04_28.md, spec_072_screener_vnext_2026_05_01.md
-supersedes: (extends — does not invalidate prior catalyst-related findings)
 originSessionId: 293f6ecf-b892-40d7-8ab7-99e0bf62faca
 ---
 # Catalyst Phase A verdict (2026-05-04)

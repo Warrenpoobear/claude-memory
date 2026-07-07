@@ -9,7 +9,7 @@ related:
   - ees_v3_structural_failure_2026_04_30
   - clinical_quality_score_2026_04_13
   - regime_post_cohort_change_distortion_2026_04_28
-  - spec_071_catalyst_quality_gate
+  - spec_071_078_catalyst_hygiene_closed_2026_05_06
   - policy_freeze_architecture_2026_04_19
   - policy_alpha_freeze_2026_04_04
 originSessionId: 5817ee52-e367-41a5-af14-3cb8ef51f022

@@ -4,7 +4,6 @@ description: Polymarket biotech-event prediction-market layer frozen as ANECDOTA
 type: project
 status: active
 related: catalyst_phase_a_verdict_2026_05_04.md, policy_alpha_freeze_2026_04_04.md
-supersedes: (extends — first verdict on Polymarket layer)
 originSessionId: 293f6ecf-b892-40d7-8ab7-99e0bf62faca
 ---
 # Polymarket alpha verdict (2026-05-05)

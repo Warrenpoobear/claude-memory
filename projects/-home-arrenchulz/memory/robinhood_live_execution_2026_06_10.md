@@ -6,7 +6,7 @@ metadata:
   type: project
   status: active
   expires: 2026-07-01
-  resolves: phase_2_day1_official_start_2026_06_01
+  resolves: phase2_day1_official_start_2026_06_01
   originSessionId: bdd991bf-4ebf-4549-a79e-28cb6c47de77
 ---
 

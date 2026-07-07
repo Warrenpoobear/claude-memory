@@ -82,4 +82,4 @@
 - **Firecrawl / Spec 062 options / Spec 063 intraday / EES v2** — all shipped, observation. (see respective topic files)
 
 ## Memory tooling
-- Graph `memory_graph.json` built by `~/.claude/scripts/build_memory_graph.py`; query via `~/.claude/scripts/query_memory_graph.py`. Rebuild after edits. [Cleanup batch 1](memory_cleanup_batch1_2026_05_06.md).
+- Graph `memory_graph.json` built by `~/.claude/scripts/build_memory_graph.py`; query via `~/.claude/scripts/query_memory_graph.py`. Rebuild after edits. [Cleanup batch 1](memory_cleanup_batch1_2026_05_06.md). [Resolver hardening + dangling 106→0 (2026-07-07)](memory_graph_resolver_hardening_2026_07_07.md) — links resolve by file-stem OR name-slug, `-`/`_`/`.md`-insensitive.

@@ -94,4 +94,4 @@ find . -name "__pycache__" -type d -exec rm -rf {} +
 
 ## Related Memories
 - `[[canonical-snapshot-2026-06-01-failure]]` — original composite aggregation bug
-- `[[path_c_decision_log_2026_06_03]]` — governance decision (complete, waiting on snapshot)
+- `[[governance_decision_path_c_2026_05_28]]` — governance decision (complete, waiting on snapshot)

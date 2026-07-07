@@ -41,4 +41,4 @@ All 5 audit documents now reference the decision and branch status correctly.
 
 ---
 
-**Related:** [[policy-alpha-freeze-2026-04-04]], [[ranking-methodology-spec-backlog]]
+**Related:** [[policy-alpha-freeze-2026-04-04]], [[ranking_methodology_spec_backlog_2026_05_13]]

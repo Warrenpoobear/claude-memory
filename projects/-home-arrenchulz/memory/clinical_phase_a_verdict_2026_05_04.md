@@ -4,7 +4,6 @@ description: Clinical role verdicts after Phase A descriptive audit — selector
 type: project
 status: active
 related: clinical_quality_score_2026_04_13.md, ees_v3_structural_failure_2026_04_30.md, policy_alpha_freeze_2026_04_04.md
-supersedes: (extends Clinical Stack v2 shadow-validation status; does not invalidate prior Spec 057 conditional IC finding)
 originSessionId: 293f6ecf-b892-40d7-8ab7-99e0bf62faca
 ---
 # Clinical Phase A verdict (2026-05-04)

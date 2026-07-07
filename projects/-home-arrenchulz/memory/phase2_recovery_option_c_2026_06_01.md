@@ -32,7 +32,7 @@ First clean canonical production snapshot generated with commit `01f9aeda` or la
 ## Related
 
 [[canonical_snapshot_2026_06_01_failure]] (quarantine memo)  
-[[module_5_weakest_link_fix_2026_06_01]] (fix commit)
+module_5_weakest_link_fix_2026_06_01 (fix commit)
 
 ## Checkpoints Before Relock
 

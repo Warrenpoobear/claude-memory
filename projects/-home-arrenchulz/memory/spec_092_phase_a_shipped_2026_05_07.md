@@ -5,7 +5,6 @@ type: project
 status: stale
 expires: 2026-06-15
 related:
-  - spec_087_bioshort_producer_restoration
 originSessionId: 681cd3e0-120b-428b-82ed-fa343ebdbd30
 ---
 Spec 092 = research backfill of deterministic bioshort hedge-report features into
