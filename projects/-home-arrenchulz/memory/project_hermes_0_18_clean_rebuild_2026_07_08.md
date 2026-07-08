@@ -19,4 +19,6 @@ Hermes Agent upgraded **v0.17.0 → v0.18.0** on 2026-07-08 (deployed live, gate
 
 **Deferred — NOT re-applied, flagged for user:** self-improvement tools (`tools/record_skill_feedback.py`, `pattern_to_skillpatch.py`, `self_improvement_audit.py` — need toolset registration), `.cursor` IDE rules, chown/unraid Docker hooks. Re-apply on request.
 
+**Default provider switched 2026-07-08:** `model.provider` was `hp-together` (Together) but that account is **out of credits (HTTP 402)** — switched default to **`anthropic` / `claude-sonnet-5`** (verified working end-to-end; haiku-4-5 also works). `model.base_url` cleared to `""`. `auxiliary.*` all `provider: auto` (follow the default). Config backup: `~/.hermes/config.yaml.bak-pre-provider-switch`. Cred pool also has openrouter/openai-api/nous/copilot; `active_provider` in auth.json = `nous`.
+
 **Env facts:** gateway runs as **systemd user service** `hermes-gateway.service` (+ `hermeslink.service`), NOT cron — stop/start via `systemctl --user`. Live venv is `venv/` (uv-managed, no pip; use `VIRTUAL_ENV=.../venv uv pip ...`). Live install's extras = `.[messaging,anthropic]` (telegram/slack + anthropic; fastapi/uvicorn are base). The `reset --hard` guardrail hook blocks Claude — branch moves need the user's shell or a `git checkout` (hook-allowed). See [[feedback-shared-checkout-concurrency-2026-06-30]].
