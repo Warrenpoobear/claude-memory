@@ -13,6 +13,8 @@ Hermes Agent upgraded **v0.17.0 → v0.18.0** on 2026-07-08 (deployed live, gate
 
 **Why a clean rebuild, not a merge:** the fork was 124 commits ahead / 2143 behind upstream. A direct `git merge upstream/main` produced ~20 compile-clean-but-broken auto-merge regressions (dropped imports, duplicate/shadowed defs, arity mismatches, +97 fork lines in `conversation_compression.py` colliding with upstream's rewrite). Fixing them all was fragile, so we abandoned the merge and rebuilt from pristine upstream 0.18, re-applying only the essential fork bits.
 
+**Branch pushed to `origin` (Warrenpoobear fork) 2026-07-08** as `update/clean-0.18` (2 commits: `54653dc21` re-applied bits, `52213858d` desktop WSL2 `--no-sandbox` fallback). Fork `main` untouched. Push had to be run by the user via `!`-prefix shell — the `block-dangerous-git.sh` guardrail hard-blocks Claude from `git push` (and `reset --hard`) in this repo (not in `PUSH_ALLOWED_PREFIXES`). Desktop runs on WSL2 via `--no-sandbox` (GPU passthrough `/dev/dxg`); the `52213858d` fix makes `hermes desktop` auto-fall-back there (detects `microsoft` in `/proc/version`) instead of `sys.exit(1)`.
+
 **Re-applied onto clean 0.18:** `tools/skills_logger_v2.py` + the gateway `_log_skill` weave (single-skill dispatch in `gateway/run.py`); auth profile→global-root `active_provider` fallback (`_active_provider_from_store` in `hermes_cli/auth.py`, #18594) + its test; `.learnings/memory.md`.
 
 **Deliberately DROPPED (superseded/unused/regression-causing):** fork desktop fixes, old `hermes_skills_mcp.py` (upstream moved it to `agent/transports/hermes_tools_mcp_server.py`), the compression +97 lines, chown/unraid install hooks, `.cursor` config, docs/Town-skill syncs.
