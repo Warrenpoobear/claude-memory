@@ -9,6 +9,15 @@ metadata:
   originSessionId: 7e4e3e0f-c930-464d-924a-c7a0a4688fbb
 ---
 
+**▶ RESUME NEXT SESSION (planned 2026-07-09): generate a study for Jim's Trust ALONE.** It's a one-command committed capability now (PR #17) — no hand-built fixture needed, the CLI rebuilds it from the source workbook:
+```
+cd "/mnt/c/Projects/asset allocation/asset-allocation" && \
+python scripts/run_entity_study.py \
+  --from-investment-summary "/mnt/c/Users/DarrenSchulz/Brooks Capital Management/Investment - Documents/Investment Summary for Categorization March 2026.xlsx" \
+  --entity "Jim's Trust / J&D"
+```
+→ writes study.md/xlsx/manifest.json to gitignored `data/processed/entity_studies/entity_jim_s_trust_j_d_<hash8>/`. Expect 41 positions, 7 policy classes (FI-heavy). Add `--policy data/external/entity_jims_trust_policy_local.yaml` for the allocation-vs-target section (household Wake Robin targets applied to Jim's Trust — big gaps EXPECTED, entity specializes; not a rebalancing mandate). Phase 24 itself is COMPLETE/clean-stopped 2026-07-08.
+
 New AA-model workstream started 2026-07-07. Goal: give the model a first-class **entity** dimension and reproduce the firm's standard **Wake Robin 11-tab asset-allocation study** for a single entity, deterministically, from source docs the model already ingests.
 
 **Pilot entity:** J&D Trust (Jim & Donna household; James W.F. Brooks Trust). Source template: `C:\Users\DarrenSchulz\...\Investment - Documents\Jim and Donna\JWB Trust Asset Allocation Study - 4.30.2026.xlsx` (as-of 04/30/2026, 11 tabs).
