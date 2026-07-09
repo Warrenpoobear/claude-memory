@@ -9,6 +9,16 @@ metadata:
   originSessionId: 7e4e3e0f-c930-464d-924a-c7a0a4688fbb
 ---
 
+**▶ ENTITY IDENTITY CONFIRMED (2026-07-09, user-confirmed): JWB Trust = Jim's Trust ALONE, not the J&D household.** "JWB Trust" = James W.F. Brooks Trust = Jim's individual trust. This resolves prior ambiguity: the `entity_jd` fixture/study (built 2026-07-08 directly from `JWB Trust Asset Allocation Study - 4.30.2026.xlsx`, account label `jd_consolidated`) is **the same real entity** as the later `entity_jims_trust` fixture (built from Investment Summary, filtered `"Jim's Trust / J&D"`) — NOT a broader household roll-up. The `jd_consolidated` account label is just a generic/anonymized ID, not evidence of multi-person consolidation. Confirmed by matching investable NAV: `entity_jd` $39.245M (as of 4/30) vs `entity_jims_trust` $39.065M (as of 3/31) — same entity, one month apart.
+
+**Practical effect:** `entity_jd_local.yaml` + `entity_jd_policy_local.yaml` are Jim's Trust's own full-fidelity source (built straight from Jim's own blueprint workbook) and are MORE authoritative than the generic Investment-Summary extraction for this entity. Re-rendered via the committed CLI on 2026-07-09 to `data/processed/entity_studies/jims_trust_full/{study.md,xlsx,manifest.json}` (gitignored) — full 9-section study: adds burn rate, cash flow/runway, liquidity projection, and custodian (Fidelity) reconciliation that the thin `jims_trust/` version was missing. Also revealed: Jim's Trust total balance-sheet NAV is **$96.8M**, not $39M — $57.6M of it is personal-use/structural (life insurance CSV, nested OpCo equity, note receivable, personal real estate) sitting outside the investable base; PE called/distributed ($19.84M called, $8.32M distributed) only shows up in this richer version (Investment-Summary-only build defaulted those to $0.00, a real data gap in that source, not a bug). Liquidity-tier picture also differs materially: full version shows PE/alts fully illiquid (0% liquid within 30 days) vs. the thin version's daily/monthly/quarterly split — worth reconciling if liquidity reporting depends on which build is used.
+
+**Two versions now coexist on disk (both gitignored, local only):**
+- `data/processed/entity_studies/jims_trust/` — thin, 7 sections, Investment-Summary-sourced, as-of 3/31/2026.
+- `data/processed/entity_studies/jims_trust_full/` — complete, 9 sections, JWB-Trust-blueprint-sourced, as-of 4/30/2026. **Treat this as authoritative for Jim's Trust going forward.**
+
+Still calls itself `entity_jd` / `jd_v1_2026_04_30` internally in the rendered output (cosmetic — fixture/entity_id not yet renamed to reflect the Jim's-Trust-alone identity); rename is optional cleanup, not required for correctness.
+
 **▶ RESUME NEXT SESSION (planned 2026-07-09): generate a study for Jim's Trust ALONE.** It's a one-command committed capability now (PR #17) — no hand-built fixture needed, the CLI rebuilds it from the source workbook:
 ```
 cd "/mnt/c/Projects/asset allocation/asset-allocation" && \
