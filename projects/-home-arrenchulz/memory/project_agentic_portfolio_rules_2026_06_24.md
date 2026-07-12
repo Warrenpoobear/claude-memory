@@ -38,6 +38,22 @@ Confirmed by operator 2026-06-24. Apply these rules whenever managing account 80
 - **Emergency trigger**: ≤ −5pp → liquidate immediately regardless of session timing or day
 - **Measurement convention (pinned 2026-07-12, operator-authorized): per-lot XBI-anchored.** Each buy fill is compared to XBI from its own fill date (`get_equity_positions` + `get_equity_orders state=filled`; per-symbol `r_sym − xbi_sym`, cost-weighted; endpoint parity on close dates). The naive calc — cost-basis return vs XBI-since-inception — is PROHIBITED as a trigger basis: staggered buys into a rising XBI produce false breaches (2026-07-12: naive −5.99pp = false emergency; per-lot +3.31pp = PASS). If per-lot can't be computed, trigger is UNVERIFIED — do not liquidate on the bands; ask the operator. Full algorithm in `~/.claude/skills/biotech-governance-check` Gate 1; enforced in `biotech-hard-exit` step 1 and `biotech-morning-brief` step 2.
 
+## PROPOSED amendment to Rule 2 — pending operator sign-off (flagged 2026-07-12, NOT active)
+
+**Proposal:** the "drops below rank 40 → exit within the session discovered" clause requires
+**two consecutive daily snapshots below rank 40** before it triggers; a single sub-40 print is
+a WATCH flag, not an exit. Exception: if the name also exited the top-30 on roster AND carries
+a new risk_flag or eligibility change, the existing same-session exit stands.
+
+**Why:** ranks 20-60 sit on a dense score plateau — ~0.3% score noise reorders ranks by ±40
+places. Evidence: ARWR 2026-07-01→07-10 ranked 21→22→63→61→22→61→61 while its driver scores
+were static (smart_money +39.4↔39.7), partly during the broken price feed (07-08→07-10). The
+un-debounced rule would have forced a whipsaw exit on noise. Until signed off, Rule 2 stands
+as written; sessions should surface the flap evidence when recommending the exit.
+
+**How to apply once signed off:** update this Rule 2 block, `biotech-roster-check`, and
+`biotech-morning-brief` step 5; log the decision date here.
+
 ## Rule 5 — IRA vs Agentic Coordination
 
 - **Managed independently**: IRAs (••••0727, ••••0174) are long-term conviction holds; no scheduled rebalancing
