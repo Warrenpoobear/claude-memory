@@ -36,7 +36,7 @@ Confirmed by operator 2026-06-24. Apply these rules whenever managing account 80
 - **Action**: Full liquidation to cash, market orders, within one session
 - **Re-entry**: Not automatic — requires explicit operator instruction after model health review
 - **Emergency trigger**: ≤ −5pp → liquidate immediately regardless of session timing or day
-- **Check**: Run `get_portfolio` + compare to XBI at start of any rebalance session to verify gate is clear
+- **Measurement convention (pinned 2026-07-12, operator-authorized): per-lot XBI-anchored.** Each buy fill is compared to XBI from its own fill date (`get_equity_positions` + `get_equity_orders state=filled`; per-symbol `r_sym − xbi_sym`, cost-weighted; endpoint parity on close dates). The naive calc — cost-basis return vs XBI-since-inception — is PROHIBITED as a trigger basis: staggered buys into a rising XBI produce false breaches (2026-07-12: naive −5.99pp = false emergency; per-lot +3.31pp = PASS). If per-lot can't be computed, trigger is UNVERIFIED — do not liquidate on the bands; ask the operator. Full algorithm in `~/.claude/skills/biotech-governance-check` Gate 1; enforced in `biotech-hard-exit` step 1 and `biotech-morning-brief` step 2.
 
 ## Rule 5 — IRA vs Agentic Coordination
 
