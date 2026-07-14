@@ -6,7 +6,10 @@ originSessionId: 5ba4ffdd-7e02-4b9f-ad61-fe538d3076f8
 ---
 AA repo (`WR-asset-allocation`): model documentation lives at `docs/MODEL_DOCUMENTATION.md` —
 moved there from repo root at the user's instruction on 2026-07-14 (commit `c8e1e55`), alongside
-the designed PDF export (`docs/WR Asset Allocation Model Documentation.pdf`, tracked `3afd16b`).
+the designed PDF export (`docs/WR Asset Allocation Model Documentation.pdf`; first tracked `3afd16b`,
+regenerated fresh `19b4def` 2026-07-14 — 15pp, adds hardening section, 550-test stats, golden-data PE
+figure). PDF regen is one command: `node data/external/model_doc_export/render_pdf.mjs` (print-HTML
+source + Playwright-Chromium renderer persisted gitignored there; update the HTML from the md first).
 There is exactly ONE copy; the earlier version of this note describing a root/docs split was
 inaccurate — before 2026-07-14 only the root copy ever existed (verified via git history).
 
