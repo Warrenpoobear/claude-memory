@@ -1,14 +1,19 @@
 ---
 name: Model doc canonical location
-description: Always update docs/MODEL_DOCUMENTATION.md, not the root copy
+description: AA-repo model documentation lives at docs/MODEL_DOCUMENTATION.md (single copy; moved 2026-07-14)
 type: feedback
 originSessionId: 5ba4ffdd-7e02-4b9f-ad61-fe538d3076f8
 ---
-Model documentation lives at `docs/MODEL_DOCUMENTATION.md` — that is the canonical location.
-Do NOT edit the root `model_documentation.md` as the primary target.
+AA repo (`WR-asset-allocation`): model documentation lives at `docs/MODEL_DOCUMENTATION.md` —
+moved there from repo root at the user's instruction on 2026-07-14 (commit `c8e1e55`), alongside
+the designed PDF export (`docs/WR Asset Allocation Model Documentation.pdf`, tracked `3afd16b`).
+There is exactly ONE copy; the earlier version of this note describing a root/docs split was
+inaccurate — before 2026-07-14 only the root copy ever existed (verified via git history).
 
-**Why:** The root copy exists but `docs/` is where the user expects it. Editing the root
-creates drift between the two files.
+**Why:** The user expects documentation under `docs/`; a single canonical copy avoids drift.
 
-**How to apply:** When updating model documentation, edit `docs/MODEL_DOCUMENTATION.md` directly.
-If the root copy also needs syncing, copy from docs/ to root, not the other way around.
+**How to apply:** Edit `docs/MODEL_DOCUMENTATION.md` directly. Doc-as-spec rule (CLAUDE.md):
+every behavior change updates it in the same commit series. Bare-filename mentions in code
+comments/docstrings are fine as-is; path-sensitive references (README link, CLAUDE.md guidance,
+PROJECT_SCOPE file table) were updated in `c8e1e55`. The 2026-05-05 external-review-triage
+governance flag (68 days stale) was resolved by the doc entry in `fc04aeb`.
