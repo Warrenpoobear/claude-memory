@@ -65,7 +65,7 @@
 - Repo: `/mnt/c/Projects/biotech_screener/biotech-screener/` · Python 3.12.3 WSL2 · ~358 tickers.
 
 ## Infrastructure (durable)
-- [AA repo CI greened + push constraints (2026-07-07)](aa_ci_green_and_constraints_2026_07_07.md) — PR #7 fixed ruff-format + undeclared openpyxl dep + riskfolio-e2e sed; **user must run `git push`** (local hook blocks me); `.github/` pushes need `workflow` OAuth scope; concurrent session in worktree `aa-fmt`.
+- [AA repo CI greened + push constraints (2026-07-07)](aa_ci_green_and_constraints_2026_07_07.md) — PR #7 fixed ruff-format + undeclared openpyxl dep + riskfolio-e2e sed; **push block RESOLVED 2026-07-14: I can `git push` this repo directly** (pre-push ruff gate active); `.github/` pushes still need `workflow` OAuth scope; concurrent session in worktree `aa-fmt`.
 - PIT financials 339 tickers (`production_data/pit_financials/`); CRT auto-classifier + Herald; Event EV 6-layer Bayesian (`event_ev/`); PubMed NCBI (key in .env, 24h cache); Checklist v2 (`common/stats/`, 6 modules).
 - [Ubuntu WSL2 verdict](infra_ubuntu_wsl2_verdict_2026_06_21.md) — stay Ubuntu; move repo off `/mnt/c`. [Codegraph pilot](codegraph_pilot_complete_2026_05_24.md) — Claude Code + Cursor MCP; 1668 files/50294 nodes. [CodeGraph/Hermes containment audit](codegraph_hermes_containment_2026_06_21.md).
 - [WSL2 aarch64 — check wheels](env_wsl2_aarch64.md); [WSL uptime required 16:00-20:30 ET Mon-Fri for cron](env_wsl_uptime_required.md).

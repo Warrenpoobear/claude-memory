@@ -14,8 +14,8 @@ metadata:
 2. `core` Test: **`openpyxl` was never in requirements** despite `pandas.read_excel` needing it for workbook/position ingestion (Phase 14/15) → added `openpyxl==3.1.5` to `requirements.txt`. Also a latent prod gap.
 3. `adapters` e2e: CI runs a global `sed 's|  engine: stub|  engine: riskfolio|'` over `base.yaml`, which flipped BOTH allocation AND implementation engine lines → `implementation.engine=riskfolio` rejected by `ImplementationRefConfig`. Fixed in **config** (removed redundant explicit `implementation.engine` from `base.yaml`; it defaults to stub) so only the allocation line matches — chosen over editing `ci.yml` because of the push constraint below.
 
-**Push constraints (both bite in this repo):**
-- Local hook `~/.claude/hooks/block-dangerous-git.sh` blocks `git push` (and `git reset --hard`) entirely → I CANNOT push; the **user must run `git push`** (via `! ...`). Use `git reset --soft` (allowed) not `--hard`.
+**Push constraints:**
+- ~~Local hook `~/.claude/hooks/block-dangerous-git.sh` blocks `git push` entirely~~ **RESOLVED 2026-07-14: I pushed directly to this repo's `main` with no hook block** (`469ef69`, tracker sync; pre-push ruff gate ran and passed). Repo was presumably added to PUSH_ALLOWED_PREFIXES like `/mnt/c/Projects/research`. `git reset --hard` may still be blocked — use `git reset --soft`.
 - GitHub rejects pushes that modify `.github/workflows/*.yml` because the user's OAuth token **lacks the `workflow` scope**. So CI-workflow fixes must be done via config, OR the user runs `gh auth refresh -s workflow`.
 - `gh pr merge` works (API, not `git push`) — merging is fine for me.
 
