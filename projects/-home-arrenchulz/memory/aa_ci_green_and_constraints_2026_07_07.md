@@ -15,7 +15,7 @@ metadata:
 3. `adapters` e2e: CI runs a global `sed 's|  engine: stub|  engine: riskfolio|'` over `base.yaml`, which flipped BOTH allocation AND implementation engine lines → `implementation.engine=riskfolio` rejected by `ImplementationRefConfig`. Fixed in **config** (removed redundant explicit `implementation.engine` from `base.yaml`; it defaults to stub) so only the allocation line matches — chosen over editing `ci.yml` because of the push constraint below.
 
 **Push constraints:**
-- ~~Local hook `~/.claude/hooks/block-dangerous-git.sh` blocks `git push` entirely~~ **RESOLVED 2026-07-14: I pushed directly to this repo's `main` with no hook block** (`469ef69`, tracker sync; pre-push ruff gate ran and passed). Repo was presumably added to PUSH_ALLOWED_PREFIXES like `/mnt/c/Projects/research`. `git reset --hard` may still be blocked — use `git reset --soft`.
+- ~~Local hook `~/.claude/hooks/block-dangerous-git.sh` blocks `git push` entirely~~ **RESOLVED 2026-07-14: I pushed directly to this repo's `main` with no hook block** (`469ef69`, tracker sync; pre-push ruff gate ran and passed). Repo was presumably added to PUSH_ALLOWED_PREFIXES like `/mnt/c/Projects/research`. `git reset --hard` may still be blocked — use `git reset --soft`. **Push latency (2026-07-15):** the repo-pinned pre-push ruff hook on /mnt/c can push a NEW branch past a 2-min command timeout — allow >=5 min and verify remote state before re-running (the first 'failed' push may have completed).
 - GitHub rejects pushes that modify `.github/workflows/*.yml` because the user's OAuth token **lacks the `workflow` scope**. So CI-workflow fixes must be done via config, OR the user runs `gh auth refresh -s workflow`.
 - `gh pr merge` works (API, not `git push`) — merging is fine for me.
 

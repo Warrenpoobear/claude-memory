@@ -1,6 +1,6 @@
 ---
 name: Asset allocation project state + next move
-description: Wake Robin SFO model — Phases 1–22 + 14.3 + MC-0…MC-3 + Morningstar CMA calibration + Phase 24 entity dimension shipped. HEAD 19b4def (2026-07-14, 550 tests, ruff clean), main clean & synced. May-05 governance flag RESOLVED (fc04aeb); doc-as-spec now docs/MODEL_DOCUMENTATION.md. L19 PARTIALLY RESOLVED (Phase A human authoring pending); Phase 23 design locked, deferred until user gathers client data; next: fill pilot CSV → "go — validate completed pilot row-classification worksheet"
+description: Wake Robin SFO model — Phases 1–22 + 14.3 + MC-0…MC-3 + Morningstar CMA + Phase 24 entity dimension + Phase 26 purpose lens shipped. HEAD d1277dc (2026-07-15, 574 tests, ruff clean), main clean & synced. May-05 governance flag RESOLVED (fc04aeb); doc-as-spec now docs/MODEL_DOCUMENTATION.md. L19 PARTIALLY RESOLVED (Phase A human authoring pending); Phase 23 design locked, deferred until user gathers client data; next: fill pilot CSV → "go — validate completed pilot row-classification worksheet"
 type: project
 status: active
 originSessionId: 44856c6e-4397-4a8a-899b-f2984a0bd7c1
@@ -310,3 +310,17 @@ Five commits on main this session, all mine, all pushed directly (push hook no l
 Also this session: Jim's Trust fixture v2 rebuild + artifact publish (see
 [[project-jd-entity-study-phase-24-2026-07-07]]); `asset-alloc-status` skill rewritten with current
 repo facts (was stale at HEAD 0280024/391 tests).
+
+
+## Session 2026-07-15 — Phase 26 purpose lens shipped same day the tab appeared
+
+- Tracker MODE A sync `94d843d` (cleared the resolved gov flag) → design lock `4364863` →
+  **PR #18 squash-merged `d1277dc`**: purpose (goals-based) allocation lens per
+  `docs/phase_26_purpose_allocation_design_lock.md`. Suite 550→**574**, ruff clean,
+  no-purpose output byte-identical. Oracle 56/56 vs the workbook's new Purpose_Allocation tab.
+  Detail in [[project-jd-entity-study-phase-24-2026-07-07]].
+- Phase numbering: 25 = PE projection anchoring (reserved, unstarted); 26 = purpose lens (done).
+- ⚠️ HERMES_TRACKING.md is again behind (last sync `94d843d`; `4364863` + `d1277dc` since) —
+  sync at next natural "commit push" or on request.
+- Ops lesson: pushing a NEW branch can exceed 2 min (pre-push ruff hook on /mnt/c is slow) —
+  give push commands ≥5 min timeout before assuming failure.
