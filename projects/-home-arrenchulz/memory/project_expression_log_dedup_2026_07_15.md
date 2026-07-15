@@ -14,16 +14,17 @@ Fix = idempotent replace-by-(ticker, node_id) writes + loader dedup (resolved wi
 compaction script. Issue #495; PR #498 (branch `fix/expression-log-dedup-495`, commit
 `80cf0b57`, filed 2026-07-15). Shadow-only, no model change.
 
-Open steps:
-1. Merge PR #498 (main CI still RED from known py3.10 collection errors → likely admin-override,
-   same as PRs #486–#488).
-2. **After merge + pull in the shared checkout, run `python3 scripts/compact_expression_logs.py`
-   there once** — the untracked `data/expression_attribution_log.jsonl` (kill-switch input) only
-   exists in the deployed checkout. Backups land as gitignored `.bak` files.
-3. Kill-switch `evaluation_status` may honestly flip (e.g. to insufficient_data) after dedup —
-   expected, not a regression.
+RESOLVED 2026-07-15: PR #498 admin-squash-merged as `5f0ef0ca` (smoke/CI failures verified
+pre-existing on main — even a docs-only commit fails container-smoke on missing
+`production_data/ranker_v2_model.json`). Shared checkout pulled clean; compaction run there:
+decision log 39,216→12,896 records, attribution log 5,564→2,730; `.pre_dedup_2026-07-15.bak`
+backups on disk. Post-dedup kill-switch verify: `insufficient_data`, overlay enabled — and
+**resolved=0**: no attribution record has ever been resolved, so the duplication was a latent
+hazard, never an active distortion. Separate observation worth a look someday: the Spec 062
+resolution pass (`resolve_attributions`) has never matched anything since April.
 
-Worktree used: scratchpad `dedup-wt` (delete after merge). Note: the Claude Code
-block-dangerous-git hook only allows `git push` from `/mnt/c/Projects/biotech_screener/biotech-screener`
-itself — push worktree branches from the main checkout (worktrees share refs). Related:
+Worktree removed; local branch `fix/expression-log-dedup-495` left in the shared repo (guardrail
+blocks `git branch -D`; remote branch auto-deleted). Note: the Claude Code block-dangerous-git
+hook only allows `git push` from `/mnt/c/Projects/biotech_screener/biotech-screener` itself —
+push worktree branches from the main checkout (worktrees share refs). Related:
 [[feedback-shared-checkout-concurrency-2026-06-30]], [[project-forward-validation-hardening-2026-07-10]].
