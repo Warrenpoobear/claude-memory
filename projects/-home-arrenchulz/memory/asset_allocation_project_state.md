@@ -1,13 +1,13 @@
 ---
 name: Asset allocation project state + next move
-description: Wake Robin SFO model — Phases 1–22 + 14.3 shipped; PLUS Monte Carlo module (MC-0…MC-3) + empirical CMA calibration from Morningstar feed now merged. HEAD 98295ca (2026-07-06, 423 tests), main clean & synced to origin. L20 RESOLVED; L19 PARTIALLY RESOLVED (Phase A human authoring pending); Phase 23 design locked, implementation deferred until user gathers client data (see phase_23_followup memory); next: fill pilot CSV → "go — validate completed pilot row-classification worksheet"
+description: Wake Robin SFO model — Phases 1–22 + 14.3 + MC-0…MC-3 + Morningstar CMA calibration + Phase 24 entity dimension shipped. HEAD 19b4def (2026-07-14, 550 tests, ruff clean), main clean & synced. May-05 governance flag RESOLVED (fc04aeb); doc-as-spec now docs/MODEL_DOCUMENTATION.md. L19 PARTIALLY RESOLVED (Phase A human authoring pending); Phase 23 design locked, deferred until user gathers client data; next: fill pilot CSV → "go — validate completed pilot row-classification worksheet"
 type: project
 status: active
 originSessionId: 44856c6e-4397-4a8a-899b-f2984a0bd7c1
 ---
 ## Project location + scope
 
-`/mnt/c/Projects/asset allocation/asset-allocation/` — Python 3.12.3, venv at `.venv/`, GitHub `Warrenpoobear/asset-allocation`. Repo dir name unchanged.
+`/mnt/c/Projects/asset allocation/asset-allocation/` — Python 3.12.3, venv at `.venv/`, GitHub **`WR-SW-Dev/WR-asset-allocation`** (remote renamed from Warrenpoobear/asset-allocation; verified from push output 2026-07-14). Repo dir name unchanged.
 
 **Authoritative scope: `PROJECT_SCOPE.md`** (root, locked 2026-05-02 commit `69cae5c`). Project codename in docs only: **Wake Robin Liquidity Architecture** (diagram at `docs/wake_robin_liquidity_architecture.png` / `.svg`). Model is for a **Gen3–Gen5 single-family-office** balance sheet — seven layers: Entity, Account/Position, Cash-flow, PE pacing, RE+OpCo, Liquidity, Allocation/Policy.
 
@@ -19,16 +19,16 @@ OpCo value is not automatically distributable capital.
 Development and land assets require separate capital-need and monetization assumptions.
 ```
 
-`MODEL_DOCUMENTATION.md` remains authoritative for **how** the model is built; `PROJECT_SCOPE.md` is authoritative for **what** the project is for.
+`docs/MODEL_DOCUMENTATION.md` (moved from root 2026-07-14, `c8e1e55`; single copy) remains authoritative for **how** the model is built; `PROJECT_SCOPE.md` is authoritative for **what** the project is for. Designed PDF export tracked alongside it; regen via `node data/external/model_doc_export/render_pdf.mjs`.
 
 ## External read-only integration targets (NEVER committed)
 
 - `Cashflow Modeling v7.xlsx` — `C:\Users\DarrenSchulz\Brooks Capital Management\Accounting - Documents\Cashflow\` — canonical for Cash-flow + Entity layers. v7 has 43 sheets total. **Layout finding:** entity-style sheets place quarterly headers on **row 4** in `q_yyyy` format ("Q1 2025"-style); aggregate / display sheets repeat row labels across sub-sections (must be `display_only`).
 - `Investment Summary for Categorization March 2026.xlsx` — `C:\Users\DarrenSchulz\Brooks Capital Management\Investment - Documents\` — canonical position universe (Phase 15 territory; not yet started).
 
-Live values, person names beyond entity types, and forecast tables are out of scope for repo artifacts. `HERMES_TRACKING.md` is the user's local Hermes tooling file — keep it untracked. Tree has shown it as modified across multiple sessions; do NOT touch it during model work.
+Live values, person names beyond entity types, and forecast tables are out of scope for repo artifacts. `HERMES_TRACKING.md` **is tracked and regularly committed** (`docs(tracking): MODE A sync …` commits on main; the earlier "keep it untracked / don't touch" note was superseded long ago — committing tracker syncs when asked is normal, e.g. `469ef69` 2026-07-14). Don't casually edit it during unrelated model work, but syncs are legitimate commits.
 
-## State at 2026-07-06 (Monte Carlo + Morningstar CMA calibration shipped) — CURRENT
+## State at 2026-07-06 (Monte Carlo + Morningstar CMA calibration shipped) — superseded by §Session 2026-07-14 below
 
 - **`origin/main` @ `98295ca`** (2026-07-06 09:44) — `fix(monte_carlo): make per-path seed derivation cross-process stable (#1)`. Working tree clean; `main` fully synced with `origin/main` (0 unpushed). **423 tests collected** (up from 391 at `0280024`).
 - **Monte Carlo module NOW SHIPPED (MC-0…MC-3).** This closes the long-standing **L2 open-architecture item** (previously "deferred until deterministic SFO layers honest"). Post-merge hardening PRs: `580521f` #3 — required reserves via **closed-form solve** (not proxy); `98295ca` #1 — per-path seed derivation **cross-process stable**; `22aceb9` #4 — docs schema comment fix.
@@ -285,3 +285,26 @@ Validation PASS (inline script): base.yaml parses, both workbook files found, bo
 ## Audit cadence — staged prompts
 
 The user's pattern after each phase ships: confirm PASS → stage the next prompt template in chat → wait for explicit "go". Do not invoke staged prompts without explicit invocation. Pattern verified across all L19-thread phases.
+
+## Session 2026-07-14 — governance + docs housekeeping (all pushed, HEAD `19b4def`)
+
+Five commits on main this session, all mine, all pushed directly (push hook no longer blocks this repo — see [[aa-ci-green-and-push-constraints-2026-07-07]]):
+- `469ef69` tracker MODE A sync 2026-07-12 committed (550 tests, ruff clean, Phase 24).
+- `3afd16b` + `f1b68fc` — user's designed model-doc PDF export tracked, then moved to `docs/`.
+- `fc04aeb` — **68-day stale governance flag RESOLVED**: doc-as-spec entries written for the three
+  2026-05-05 external-review fixes (`0280024` manifest invocation_id path-safety; `d2d9e09`
+  config-hash expansion + overlay workbook_path resolution + gate/coverage schema tightening;
+  `021a408` TA terminal wind-down to zero + fund_count uncapped + zero/zero delta guard).
+  Next MODE A sync should clear the tracker warning — verify it does.
+- `c8e1e55` — `MODEL_DOCUMENTATION.md` moved root → `docs/` (user instruction); README/CLAUDE.md/
+  PROJECT_SCOPE path refs updated. docs/ copy never existed before this, contrary to old memory.
+- `19b4def` — PDF export regenerated fresh (15pp): adds hardening + change-discipline sections,
+  550-test stats, PE lifecycle figure redrawn from `tests/golden/ta_single_fund.csv` (which IS the
+  $100M illustration, scale 1.0) as two panels (no dual axis). Pipeline: print-HTML + Playwright
+  Chromium (`~/.cache/ms-playwright` chromium-1223, global @playwright/test), persisted gitignored
+  at `data/external/model_doc_export/{model_doc.html,render_pdf.mjs}` — update HTML from md, then
+  `node render_pdf.mjs`.
+
+Also this session: Jim's Trust fixture v2 rebuild + artifact publish (see
+[[project-jd-entity-study-phase-24-2026-07-07]]); `asset-alloc-status` skill rewritten with current
+repo facts (was stale at HEAD 0280024/391 tests).
