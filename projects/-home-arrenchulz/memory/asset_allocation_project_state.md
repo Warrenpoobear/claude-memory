@@ -320,7 +320,7 @@ repo facts (was stale at HEAD 0280024/391 tests).
   no-purpose output byte-identical. Oracle 56/56 vs the workbook's new Purpose_Allocation tab.
   Detail in [[project-jd-entity-study-phase-24-2026-07-07]].
 - Phase numbering: 25 = PE projection anchoring (reserved, unstarted); 26 = purpose lens (done).
-- ⚠️ HERMES_TRACKING.md is again behind (last sync `94d843d`; `4364863` + `d1277dc` since) —
-  sync at next natural "commit push" or on request.
+- HERMES_TRACKING.md synced post-merge: MODE A sync #2 `23d9b9b` + count fixup `0f47dd1`
+  (2026-07-15) — governance PASS, Phase 26 gate checked, no open flags. HEAD = `0f47dd1`.
 - Ops lesson: pushing a NEW branch can exceed 2 min (pre-push ruff hook on /mnt/c is slow) —
   give push commands ≥5 min timeout before assuming failure.
