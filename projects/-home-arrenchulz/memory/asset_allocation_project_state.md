@@ -295,7 +295,9 @@ Five commits on main this session, all mine, all pushed directly (push hook no l
   2026-05-05 external-review fixes (`0280024` manifest invocation_id path-safety; `d2d9e09`
   config-hash expansion + overlay workbook_path resolution + gate/coverage schema tightening;
   `021a408` TA terminal wind-down to zero + fund_count uncapped + zero/zero delta guard).
-  Next MODE A sync should clear the tracker warning — verify it does.
+  Tracker warning CLEARED by MODE A sync `94d843d` (2026-07-15): flag line now "RESOLVED
+  2026-07-14 (fc04aeb, disposition (a)) — no open flags"; sync also notes doc-as-spec path change
+  for any governance tooling grepping the old root path.
 - `c8e1e55` — `MODEL_DOCUMENTATION.md` moved root → `docs/` (user instruction); README/CLAUDE.md/
   PROJECT_SCOPE path refs updated. docs/ copy never existed before this, contrary to old memory.
 - `19b4def` — PDF export regenerated fresh (15pp): adds hardening + change-discipline sections,
