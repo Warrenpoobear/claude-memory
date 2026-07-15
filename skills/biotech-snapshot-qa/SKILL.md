@@ -74,15 +74,19 @@ EOF
 ### 3 — Artifact presence check
 ```bash
 python3 - <<'EOF'
-import os, glob
+import os, glob, json
 REPO = '/mnt/c/Projects/biotech_screener/biotech-screener'
 snaps = sorted(glob.glob(f'{REPO}/data/snapshots/*/rankings.csv'))
 snap_dir = os.path.dirname(snaps[-1])
-expected = ['rankings.csv','institutional_summary.json','market_data.json']
+expected = ['rankings.csv','institutional_summary.json','run_manifest.json']
 for f in expected:
     path = os.path.join(snap_dir, f)
     status = "✓" if os.path.exists(path) else "✗ MISSING"
     print(f"  {f}: {status}")
+# market_data.json is a production_data INPUT, never a snapshot artifact.
+# Verify market-data freshness via the run manifest instead:
+m = json.load(open(os.path.join(snap_dir, 'run_manifest.json')))
+print(f"  market_data_refresh: {m.get('market_data_refresh', 'KEY MISSING')}")
 EOF
 ```
 
@@ -96,7 +100,7 @@ SNAPSHOT QA — YYYY-MM-DD
 [PASS] Top-30 Jaccard vs prior: X.XXX
 [PASS] Required fields: all present
 
-ARTIFACTS: rankings.csv ✓ | institutional_summary.json ✓ | market_data.json ✓
+ARTIFACTS: rankings.csv ✓ | institutional_summary.json ✓ | run_manifest.json ✓ (market_data_refresh: <status>)
 
 VERDICT: PASS / WARN (see above) / FAIL (do not use for trading)
 

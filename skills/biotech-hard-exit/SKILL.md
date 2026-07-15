@@ -26,12 +26,24 @@ Emergency full liquidation of account 802349084.
 
 ## Pre-execution
 
-### 1 — Verify trigger
-```
-get_portfolio(account_number="802349084") → equity_value
-get_equity_quotes(["XBI"]) → current XBI price
-```
-Compute and report: current portfolio value, drawdown vs XBI, trigger condition met Y/N.
+### 1 — Verify trigger (per-lot convention MANDATORY)
+
+Drawdown vs XBI MUST be computed with the **per-lot XBI-anchored convention**
+defined in `biotech-governance-check` Gate 1: each buy fill is compared to XBI
+from its own fill date (`get_equity_positions` + `get_equity_orders state=filled`
+→ per-symbol `r_sym − xbi_sym`, cost-weighted; endpoint parity on close dates).
+
+The naive calc — cost-basis return vs XBI-since-inception — is **PROHIBITED as a
+trigger basis**. It produces false breaches when buys are staggered into a rising
+XBI (demonstrated 2026-07-12: naive −5.99pp = false emergency; per-lot +3.31pp =
+PASS). A gate breach computed only the naive way is NOT a trigger.
+
+Fail-closed rule: if the per-lot computation cannot be completed (missing fills,
+missing XBI history, endpoint mismatch), the trigger is UNVERIFIED — do NOT
+execute on the −2pp or −5pp bands; stop and ask the operator. Operator manual
+instruction ("hard exit" / "liquidate") remains a valid trigger regardless.
+
+Compute and report: current portfolio value, per-lot drawdown vs XBI, trigger condition met Y/N.
 
 ### 2 — Confirmation gate
 **Unless drawdown ≤ −5pp OR user already said "confirmed":**

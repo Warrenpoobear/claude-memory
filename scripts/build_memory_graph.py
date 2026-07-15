@@ -42,11 +42,18 @@ def _strip(v):
 
 
 def _yaml_val(text, key):
-    """Extract a scalar value from minimal YAML (no full parser dependency)."""
-    m = re.search(rf"^{re.escape(key)}\s*:\s*(.+)$", text, re.MULTILINE)
+    """Extract a scalar value from minimal YAML (no full parser dependency).
+
+    Whitespace around the colon is matched with `[ \t]*` (not `\\s*`) so an
+    empty value (`key:`) does NOT bleed into the following line's content.
+    """
+    m = re.search(rf"^{re.escape(key)}[ \t]*:[ \t]*(.+)$", text, re.MULTILINE)
     if not m:
         return None
     v = m.group(1).strip().strip('"').strip("'")
+    # Treat empty inline collections as absent, not as a literal "[]"/"{}" slug.
+    if v in ("[]", "{}"):
+        return None
     return v if v and v.lower() not in ("null", "~", "none", "") else None
 
 
@@ -56,7 +63,7 @@ def _yaml_nested(text, parent, child):
     if not block_m:
         return None
     block = block_m.group(1)
-    m = re.search(rf"^\s+{re.escape(child)}\s*:\s*(.+)$", block, re.MULTILINE)
+    m = re.search(rf"^[ \t]+{re.escape(child)}[ \t]*:[ \t]*(.+)$", block, re.MULTILINE)
     if not m:
         return None
     v = m.group(1).strip().strip('"').strip("'")
@@ -121,10 +128,15 @@ def parse_file(path: Path):
         "resolution": resolution,
         "expires": {"date": expires_date, "condition": expires_cond},
     }
+    # resolves / supersedes are scalar fields but are sometimes authored as a
+    # comma-joined list of targets ("a, b"); split so each becomes its own edge.
+    def _split(v):
+        return [p.strip() for p in v.split(",") if p.strip()] if v else []
+
     edges_raw = (
         [(link, "related") for link in body_links]
-        + ([(resolves, "resolves")] if resolves else [])
-        + ([(supersedes, "supersedes")] if supersedes else [])
+        + [(r, "resolves") for r in _split(resolves)]
+        + [(s, "supersedes") for s in _split(supersedes)]
         + [(r, "explicit") for r in related]
     )
     return slug, node, edges_raw
@@ -155,13 +167,30 @@ def main():
         except Exception as e:
             skipped.append(f"{f.name}: {e}")
 
-    # Resolve edges — only keep edges where target slug exists
+    # Resolve edges — keep edges where target slug exists.
+    # Node slugs and link targets mix "-" / "_" separators and some links
+    # carry a trailing ".md"; normalize both sides so a reference resolves
+    # regardless of separator style or file-extension suffix.
+    def _norm(s):
+        return s.lower().removesuffix(".md").replace("_", "-").strip("-")
+
     all_slugs = set(nodes.keys())
+    norm_to_slug = {}
+    for slug in all_slugs:
+        norm_to_slug.setdefault(_norm(slug), slug)  # first-wins on collision
+    # Links are frequently written as the target's FILENAME stem (which often
+    # carries a date), while the node is keyed by its `name:` frontmatter slug
+    # (often a shorter title). Index file stems too so filename-style links
+    # resolve; name-slug entries above take precedence on any collision.
+    for slug, node in nodes.items():
+        norm_to_slug.setdefault(_norm(node["path"]), slug)
     edges = []
     dangling = defaultdict(list)
     for from_slug, to_slug, kind in raw_edges:
         if to_slug in all_slugs:
             edges.append({"from": from_slug, "to": to_slug, "kind": kind})
+        elif _norm(to_slug) in norm_to_slug:
+            edges.append({"from": from_slug, "to": norm_to_slug[_norm(to_slug)], "kind": kind})
         else:
             dangling[from_slug].append(to_slug)
 

@@ -11,16 +11,22 @@ allowed-tools:
 
 # Biotech IC Check
 
-Read latest signal IC health from stored artifacts.
+Read latest signal IC health from the IC dashboard artifacts.
+
+**Scope — what this reads and what it does not:** this skill reads the **IC dashboard**
+(`artifacts/ic_dashboard/`), which monitors `score_rank_pct` and `inst_delta_z` at a 20d
+horizon over a 60-date **daily-overlapping** window. It is a signal-health monitor only.
+It is NOT: the daily forward_eval gate (negated `actionable_rank`, eligible-scoped,
+de-overlapped, WARN-only), NOT Spec-100 `final_score` ranker IC, and NOT the DEM
+forward-shadow mandate (SM-20260629-001, LIVE 5d-excess windows). A HEALTHY reading here
+is not mandate progress and cannot clear any promotion gate.
 
 ## Steps
 
 ### 1 — Find latest IC artifact
 ```bash
-find /mnt/c/Projects/biotech_screener/biotech-screener/artifacts \
-  -name "*.json" \( -path "*/ic_dashboard/*" -o -path "*/signal_regime/*" -o -name "*ic*" -o -name "*regime*" \) \
-  -newer /mnt/c/Projects/biotech_screener/biotech-screener/artifacts 2>/dev/null \
-  | sort | tail -10
+ls /mnt/c/Projects/biotech_screener/biotech-screener/artifacts/ic_dashboard/ | sort | tail -5
+tail -3 /mnt/c/Projects/biotech_screener/biotech-screener/artifacts/ic_dashboard/history.jsonl
 ```
 
 ### 2 — Parse and report

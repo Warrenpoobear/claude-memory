@@ -30,10 +30,13 @@ Flag if buying_power >> $1.00 (pending T+1 buys may be executable now).
 ```
 get_equity_quotes(["XBI"]) → current XBI price
 ```
-Compute drawdown vs XBI from last known baseline.
+Compute drawdown vs XBI using the **per-lot XBI-anchored convention** (see
+`biotech-governance-check` Gate 1 — each buy fill vs XBI from its own fill date;
+naive cost-basis-vs-XBI-since-inception is PROHIBITED as a gate basis and gives
+false breaches).
 - CLEAR → proceed
 - WARN  → note and monitor
-- FAIL  → stop, run biotech-hard-exit
+- FAIL  → stop, run biotech-hard-exit (which re-verifies per-lot before acting)
 
 ### 3 — Pending T+1 buys
 Check scratchpad for any open buy orders deferred from prior session:
@@ -289,7 +292,8 @@ PENDING ACTIONS
 
 ROSTER CHANGES (since last snapshot)
   New entries: TICKER, ...  → add at next rebalance
-  Exits: TICKER, ...        → [defer to weekly / exit now if rank ≥40]
+  Exits: TICKER, ...        → [defer to weekly / WATCH — first sub-40 print /
+                               exit now — rank ≥40 on 2 consecutive snapshots (Rule 2, amended 2026-07-12)]
 
 IV RISK FLAGS (top-30 universe, as of YYYY-MM-DD)
   EXTREME: ORIC(2681%, pctile 100%), TRVI(838%, pctile 96%)   ← binary events

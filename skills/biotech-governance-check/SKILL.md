@@ -5,10 +5,13 @@ description: |
 allowed-tools:
   - mcp__robinhood-trading__get_portfolio
   - mcp__robinhood-trading__get_equity_quotes
+  - mcp__robinhood-trading__get_equity_positions
+  - mcp__robinhood-trading__get_equity_orders
   - Bash(cat *)
   - Bash(ls *)
   - Bash(python3 *)
   - Bash(find *)
+  - Bash(grep *)
 ---
 
 # Biotech Governance Check
@@ -18,11 +21,28 @@ Full governance gate sweep. Read-only.
 ## Gates to check
 
 ### Gate 1 — Drawdown vs XBI (account-level)
-```
-get_portfolio(account_number="802349084") → equity_value
-get_equity_quotes(["XBI"]) → current XBI price
-```
-Thresholds:
+
+**Measurement convention (MANDATORY): per-lot XBI-anchored relative performance.**
+Each invested dollar is compared to XBI *from its own fill date*, not from account
+inception. The naive calc — cost-basis return vs XBI-since-inception — is
+**PROHIBITED for this gate**: weekly buys made after XBI rallies drag the anchor
+and produce false breaches (demonstrated 2026-07-12: naive read −5.99pp = false
+CRIT; per-lot read +3.31pp = PASS).
+
+Algorithm:
+1. `get_equity_positions(account_number="802349084")` → per-symbol `quantity`, `average_buy_price`.
+2. `get_equity_orders(account_number="802349084", state="filled", created_at_gte=<inception>)` → per-fill (date, symbol, side, qty, price). Paginate if `next` is set.
+3. Per symbol: `r_sym = P_end / average_buy_price − 1`;
+   `xbi_sym = Σ(w_i × XBI_end / XBI_at(fill_date_i)) − 1` over that symbol's BUY fills, `w_i` = fill dollar weight.
+4. Gate value = `Σ cost_weight_sym × (r_sym − xbi_sym)`, `cost_weight = qty × avg_buy_price / total_cost`.
+5. **Endpoint parity:** `P_end` and `XBI_end` must be closes from the SAME date — use the
+   latest date with full ticker coverage in `production_data/price_history.csv` (XBI row
+   included), or same-timestamp live quotes for everything. Never mix a stale portfolio
+   value with a fresh XBI quote or vice versa.
+6. If fills or XBI history are unavailable, report Gate 1 = UNMEASURED and escalate to the
+   operator. Do NOT fall back to the naive calculation for a gate verdict.
+
+Thresholds (unchanged — applied to the per-lot gate value):
 - PASS:  drawdown > −1.0pp
 - WARN:  −2.0 < drawdown ≤ −1.0pp  (approaching gate)
 - FAIL:  drawdown ≤ −2.0pp  → hard exit required
@@ -47,10 +67,15 @@ Thresholds (score_rank_pct):
 - WARN:     0.00 ≤ mean_ic < 0.03
 - ALERT:    mean_ic < 0.00  → model signal degraded
 
-### Gate 3 — h20d re-evaluation date
-Hard gate: 2026-07-01. Check current date vs gate.
-- PASS: today < 2026-07-01
-- DUE:  today ≥ 2026-07-01 → run quarantine script before next trade
+### Gate 3 — h20d re-evaluation gate
+The 2026-07-01 gate was evaluated 2026-07-04: verdict **HOLD / NOT CLEARED**
+(authority: `artifacts/readiness/H20D_REEVAL_VERDICT_2026_07_04.md`).
+```bash
+grep -m2 'Verdict\|Recommendation' /mnt/c/Projects/biotech_screener/biotech-screener/artifacts/readiness/H20D_REEVAL_VERDICT_2026_07_04.md
+ls /mnt/c/Projects/biotech_screener/biotech-screener/artifacts/readiness/ | grep -i h20d | tail -3
+```
+- HOLD: report HOLD (Q1 13F observation-only; no institutional-signal clearance claims)
+- Clearable only by `tools/check_13f_cohort_quarantine.py` run against a post-Q1-promotion snapshot (operator action); if a newer verdict doc exists, it governs
 
 ### Gate 4 — 13F Jaccard cohort
 ```bash
@@ -59,8 +84,10 @@ import json, glob
 snaps = sorted(glob.glob('/mnt/c/Projects/biotech_screener/biotech-screener/data/snapshots/*/institutional_summary.json'))
 if snaps:
     data = json.load(open(snaps[-1]))
-    print(f"Jaccard: {data.get('top30_jaccard', 'N/A')}")
-    print(f"Coverage: {data.get('signal_coverage_pct', 'N/A')}%")
+    print(f"Coverage: {data.get('signal_coverage_pct', 'N/A')}%  (as_of {data.get('as_of_date')})")
+    print("NOTE: cohort Jaccard is NOT in this file. Last authoritative 55-manager")
+    print("cohort Jaccard = 0.463 (FAIL vs 0.70) per H20D_REEVAL_VERDICT_2026_07_04.md.")
+    print("Do not cite the 0.875 figure — that was the Q4/49-manager comparison.")
 else:
     print("No institutional summary found")
 EOF
@@ -69,6 +96,8 @@ Thresholds:
 - PASS: Jaccard ≥ 0.70
 - WARN: 0.40 ≤ Jaccard < 0.70
 - FAIL: Jaccard < 0.40  → 13F cohort quarantine
+
+Until a post-promotion quarantine run produces a new Jaccard, report Gate 4 from the h20d verdict doc (currently: WARN-band 0.463, HOLD posture).
 
 ### Gate 5 — EES shadow monitor
 ```bash

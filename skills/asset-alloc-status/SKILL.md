@@ -8,84 +8,87 @@ allowed-tools:
   - Bash(ls *)
   - Bash(find *)
   - Bash(cat *)
+  - Bash(head *)
+  - Bash(grep *)
 ---
 
 # Asset Allocation Status
 
 Read-only status check for the Wake Robin asset allocation model.
 
+## Repo facts (verified 2026-07-15)
+
+- Repo: `/mnt/c/Projects/asset allocation/asset-allocation` (note the space — quote the path)
+- Remote: `WR-SW-Dev/WR-asset-allocation` (GitHub, private); branch `main`
+- Venv: `.venv/` inside the repo (aarch64 WSL2)
+- Doc-as-spec: `docs/MODEL_DOCUMENTATION.md` (moved from root 2026-07-14, commit `c8e1e55`);
+  designed PDF export alongside it (regen: `node data/external/model_doc_export/render_pdf.mjs`)
+- Live status dashboard file: `HERMES_TRACKING.md` (repo root) — fastest single source;
+  its "Asset Allocation Model — Status" block carries tests/ruff/phase/gov-flag state
+- Pre-push git hook runs ruff lint+format on src/tests/scripts (enable via
+  `git config core.hooksPath hooks` once per clone)
+
 ## Steps
 
-### 1 — Locate the repo
+### 1 — Git state
 ```bash
-find /mnt/c/Projects /home/arrenchulz/Projects -maxdepth 3 -name "*.py" -path "*/asset_alloc*" 2>/dev/null | head -5
-# Also try:
-ls /mnt/c/Projects/ 2>/dev/null
-ls ~/Projects/ 2>/dev/null
+cd "/mnt/c/Projects/asset allocation/asset-allocation" && git log --oneline -8 && git status -sb | head -5
 ```
 
-### 2 — Git status and recent commits
+### 2 — Quick status from the tracker (no test run needed)
 ```bash
-cd <asset_alloc_repo> && git log --oneline -10
-git status --short
+cd "/mnt/c/Projects/asset allocation/asset-allocation" && grep -A16 "Asset Allocation Model — Status" HERMES_TRACKING.md
+```
+If HERMES_TRACKING.md's "Last manual sync" is older than the latest behavior commit, note the drift.
+
+### 3 — Test suite count (only if a live count is needed; ~1–2 min)
+```bash
+cd "/mnt/c/Projects/asset allocation/asset-allocation" && .venv/bin/pytest -p no:warnings --ignore=tests/test_transaction_cost_summary.py --collect-only -q 2>/dev/null | tail -2
+```
+(4 cvxportfolio-gated tests are omitted by design; `test_transaction_cost_summary.py` is excluded per the standing pytest invocation.)
+
+### 4 — Open gates / phases
+```bash
+cd "/mnt/c/Projects/asset allocation/asset-allocation" && sed -n '/## Open Gates/,/^## /p' HERMES_TRACKING.md | head -20 && ls docs/phase*.md
 ```
 
-### 3 — Test suite count
-```bash
-cd <asset_alloc_repo> && python3 -m pytest --collect-only -q 2>/dev/null | tail -5
-# Or:
-find . -name "test_*.py" | xargs grep -l "def test_" | wc -l
-```
-
-### 4 — Phase status
-```bash
-python3 - <<'EOF'
-# Check which phases are complete vs open
-# Look for phase markers in the codebase or docs
-import glob, os
-for f in sorted(glob.glob('docs/phase*.md') + glob.glob('specs/phase*.md') + glob.glob('PHASES*.md')):
-    print(f)
-EOF
-```
-
-### 5 — Phase 23 PE commitment-book state
-Check memory: Phase 23 is deferred, waiting on:
-- User-gathered commitment book
-- Archway monthly actuals
-- Entity registry
-Resumption order: EntityRegistry → fixtures → loader → diagnostics
-
-### 6 — Report
+### 5 — Report
 ```
 ASSET ALLOCATION MODEL STATUS — YYYY-MM-DD
 
-Repo:    <path>
-HEAD:    <commit hash> — <message>
-Branch:  main
-
-Recent commits:
-  <hash> <message>
-  ...
-
-Tests:   NNN (last known: 391 at HEAD 0280024)
+Repo:    /mnt/c/Projects/asset allocation/asset-allocation
+HEAD:    <hash> — <message>   (vs origin/main: <ahead/behind>)
+Tests:   <NNN> passed (574 as of 2026-07-15, post-Phase-26)   Ruff: <0 errors expected>
 Status:  <clean / N modified files>
 
 PHASES
-  Phases 1–22 + 14.3: SHIPPED (all on origin/main)
-  Phase 23 (PE commitment-book): DEFERRED
-    Waiting on: commitment book + Archway actuals + entity registry
-    Design at: f81ff43
+  Phases 1–22 + 14.3 + MC-0..MC-3 + Phase 24 (entity) + Phase 26 (purpose lens): SHIPPED on main
+  Phase 25 (PE projection anchoring): reserved, not started
+  Phase 23 (PE real-data commitment book): design locked f81ff43, DEFERRED
+    Waiting on: user commitment book + Archway actuals + entity registry
+  Phase 7 STAIRS adapter / Phase 10 L14 remainder: design-gated, open
 
-Open blockers:
-  L19: partially resolved (pending human row classification)
-  L20: RESOLVED
+GOVERNANCE
+  Doc-as-spec: docs/MODEL_DOCUMENTATION.md — 2026-05-05 flag RESOLVED fc04aeb (2026-07-14)
+  Limitations register: 19 entries — 8 resolved, 3 partial, 7 accepted, 1 open (L5)
+  The one to watch: L19 (spending-base realism)
+
+ENTITY STUDIES (local, gitignored)
+  jims_trust_full/ — authoritative; v2 fixture 2026-07-14 (mixed as-of 7/14 marketable / 4/30 privates)
+  Rebuild: .venv/bin/python data/external/build_jims_trust_v2_fixture_local.py
+  Render:  .venv/bin/python scripts/run_entity_study.py --fixture data/external/entity_jims_trust_full_local.yaml --policy data/external/entity_jims_trust_full_policy_local.yaml --purpose-policy data/external/entity_jims_trust_purpose_policy_local.yaml
 ```
 
 ## Context
-- Repo HEAD at `0280024` with 391 tests as of 2026-05-05
-- External review complete (8 findings, all fixed)
-- Phase 23 design locked at commit f81ff43; implementation deferred indefinitely
-- Wake Robin SFO: real estate investment + community development company
+- HEAD `d1277dc` (2026-07-15): Phase 26 purpose (goals-based) allocation lens merged (PR #18;
+  design lock `4364863`); before that: gov-flag resolution `fc04aeb`, doc move `c8e1e55`,
+  PDF export regen `19b4def`, tracker sync `94d843d`
+- 574 tests passing, ruff clean; purpose lens oracle-validated 56/56 vs the real workbook tab
+- Pushing a NEW branch can exceed 2 min (pre-push ruff on /mnt/c) — use timeout ≥5 min, don't
+  assume failure
+- Wake Robin SFO: Gen 3–5 family office; NAV ≠ liquidity is the standing principle
+- Never edit in a shared checkout mid-cron; concurrent sessions have used worktree `aa-fmt`
+- Jim's Trust study artifact: https://claude.ai/code/artifact/a57e2bb7-9c3f-4698-bb0f-e4359b9242fd
 
 ## Session-end learning
 

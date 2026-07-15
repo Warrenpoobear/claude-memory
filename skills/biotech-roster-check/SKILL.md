@@ -66,9 +66,16 @@ to_exit        = held - top30            # get their current ranks; exit now if 
 already_held   = held & top30           # currently aligned
 ```
 
-For `to_exit` tickers: check their current `actionable_rank` in latest snapshot.
+For `to_exit` tickers: check their current `actionable_rank` in the latest snapshot.
 - rank 31–39 → "exit at next weekly rebalance"
-- rank 40+ → "⚠️ exit this session"
+- rank 40+ → apply the **two-snapshot debounce** (Rule 2, amended 2026-07-12):
+  check the PRIOR snapshot's rank for the same ticker.
+  - prior snapshot also >40 → "⚠️ EXIT NOW — confirmed below 40 on two consecutive snapshots"
+  - prior snapshot ≤40 → "WATCH — first sub-40 print; re-check next snapshot before exiting"
+  - Exception (immediate exit, no debounce): the name also left the top-30 AND shows a new
+    `risk_flags` value or an `eligible`/`ineligible_reasons` change vs the prior snapshot.
+  - Rationale: ranks 20–60 are a dense score plateau; ~0.3% score noise reorders ranks ±40
+    (ARWR flapped 21↔63 over 07-01→07-10 with static drivers). One print is not a signal.
 
 ### 4 — Report
 ```
@@ -78,7 +85,7 @@ NEW TOP-30 ENTRIES (not yet held):
   Rank N — TICKER  Tier X  catalyst Xd  → ADD at next weekly rebalance
 
 EXITS FROM TOP-30 (currently held):
-  TICKER  now rank NN  → [defer to weekly / ⚠️ EXIT NOW — rank ≥ 40]
+  TICKER  now rank NN  → [defer to weekly / WATCH — first sub-40 print / ⚠️ EXIT NOW — 2 consecutive snapshots ≥40]
 
 SIGNIFICANT RANK MOVERS among held positions (>10):
   TICKER: rank X → Y  [↑ improving / ↓ declining]
@@ -89,9 +96,10 @@ BINARY CATALYSTS WITHIN 5 DAYS (flag — no auto-action):
 ALIGNMENT: N/N held positions still in top-30
 ```
 
-## Rule 2 reference
+## Rule 2 reference (amended 2026-07-12, operator-approved)
 - Rank 31–39: exit at next weekly rebalance (Monday open)
-- Rank ≥ 40: exit within current session
+- Rank ≥ 40: exit within current session ONLY after two consecutive daily snapshots ≥40
+  (single print = WATCH; exception: immediate if also out of top-30 + new risk/eligibility flag)
 - New entries: add at next weekly rebalance (not immediately)
 - Binary catalyst within 5 days: manual review only — no auto-action
 
