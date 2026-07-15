@@ -10,6 +10,8 @@ PUSH_ALLOWED_PREFIXES=(
   "/mnt/c/Projects/asset allocation/"
   "/mnt/c/Projects/biotech_screener/biotech-screener"
   "/mnt/c/Projects/research"
+  "/home/arrenchulz/.claude"
+  "~/.claude"
 )
 
 DANGEROUS_PATTERNS=(
