@@ -25,5 +25,5 @@ scan to actual git command positions; offer to patch it only if the user asks.
 **Allowlist state (2026-07-15, user-approved):** `PUSH_ALLOWED_PREFIXES` now includes
 `/home/arrenchulz/.claude` (+ `~/.claude`) alongside the AA repo, biotech-screener, and
 /mnt/c/Projects/research — I can push the memory-backup repo (`Warrenpoobear/claude-memory`)
-directly. Matching is substring-of-command, so reference the path in the push command
+directly (repo verified **PRIVATE** via gh API 2026-07-15 — safe for client-sensitive memory). Matching is substring-of-command, so reference the path in the push command
 (e.g. `git -C /home/arrenchulz/.claude push`); a bare `git push` after a plain cd may not match.
