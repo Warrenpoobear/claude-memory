@@ -28,10 +28,12 @@ hitting the CTIS timeout. Once production succeeded (07-16 09:42 exit 2), watchd
 already ran — skipping" and the storm stopped. `service cron restart` "no sudo" line = benign
 expected WSL behavior, not the loop.
 
-**OPEN — minor watchdog loop:** `cron_watchdog.sh` (~L169) checks
-`artifacts/heartbeat/${TODAY}_receipt.md`, but `tools/agent_heartbeat_checks.py` writes its receipt
-to `agents/fleet_steward/memory/${TODAY}_receipt.md` (path mismatch) → "MISSED heartbeat receipt →
-recovering" every 30 min. Heartbeat run itself is cheap (~seconds, exits 0 standalone) so low
-impact, but it's a perpetual re-run. Fix = align the receipt path (decide which is canonical).
-Not yet fixed — flagged for operator. Related: [[env_wsl_uptime_required]],
-[[project_forward_validation_hardening_2026_07_10]].
+**Heartbeat-receipt loop — FIXED PR #508 (`7d4ed953`), deployed + verified 2026-07-16.**
+`write_fleet_receipt` wrote only to `agents/fleet_steward/memory/`, but all consumers
+(cron_watchdog, ops_supervisor `HEARTBEAT_DIR`, fleet_ops_status, telegram_command_handler) read
+`artifacts/heartbeat/<ds>_receipt.md` → watchdog's receipt-present check never satisfied → "MISSED
+heartbeat receipt → recovering" every 30 min. Fix: write canonical `artifacts/heartbeat/` (returned)
++ keep `fleet_steward/memory/` audit copy; test pins canonical. Verified: receipt now lands at both
+paths → watchdog skips recovery. NB the heartbeat script exits 1 on anomaly days (e.g. shadow_monitor
+MISSING policy_shadow) — that's its verdict code, not a crash, and no longer re-invoked once the
+receipt exists. Related: [[env_wsl_uptime_required]], [[project_forward_validation_hardening_2026_07_10]].
