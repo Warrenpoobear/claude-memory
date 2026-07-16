@@ -39,5 +39,6 @@
     "claude-code-setup@claude-plugins-official": true
   },
   "tui": "fullscreen",
-  "skipWorkflowUsageWarning": true
+  "skipWorkflowUsageWarning": true,
+  "model": "sonnet"
 }
