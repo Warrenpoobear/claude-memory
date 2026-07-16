@@ -57,6 +57,7 @@
 - [Coinvest = context layer not ranker](policy_coinvest_context_layer_2026_04_25.md); [freeze architecture, study behavior](policy_freeze_architecture_2026_04_19.md).
 
 ## Reference
+- **[Town fleet-report quick-fix caveats (2026-07-16)](reference_town_fleet_report_fix_caveats_2026_07_16.md)** — Town RED-report "uncomment CRT watcher" = DON'T (suppressed INC-2026-06-20 containment, mutate_data, reactivation=operator decision, sunset 09-30); "fix manager_registry 404" = Town-side routine config, repo/remote already correct. Verify report recs vs AGENT_REGISTRY.json before acting.
 - **[ISS document + iss-review skill](reference_iss_document.md)** — `~/.claude/docs/investment-strategy-statement.md`; skill `iss-review`.
 - **[13F manager registry count = 55 (49 elite_core + 6 conditional), v3.2](reference_manager_registry_count_2026_07_14.md)** — BMIQ routine misreports 57 (51+6); old "51 (45+6)" figure stale; verify from JSON directly.
 - **[morningstar-benchmark skill](reference_morningstar_benchmark.md)** — 29 benchmarks, 10yr daily; `C:\Projects\morningstar`; MD_AUTH_TOKEN ~24h. Now a data feed: `import morningstar_feed` (pip-installable) + `datasets.json` (2026-07-06).
