@@ -39,6 +39,5 @@
     "claude-code-setup@claude-plugins-official": true
   },
   "tui": "fullscreen",
-  "skipWorkflowUsageWarning": true,
-  "model": "claude-fable-5[1m]"
+  "skipWorkflowUsageWarning": true
 }
