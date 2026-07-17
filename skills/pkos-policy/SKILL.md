@@ -7,9 +7,10 @@ description: |
   note", "check whether this claim was knowable as of a historical date", "update the
   Arcellx thesis", "record this contradiction", or any request to create, edit, link,
   promote, or review knowledge in the wake-robin-knowledge vault. Also trigger on
-  "M2 item", "Lane A", "Lane C", "Town orchestrator", or "h20d/cohort quarantine" when
-  the context is the wake-robin-knowledge repo specifically (not the biotech-screener
-  model repo — see the distinction below).
+  "M2 item", "Lane A", "Lane C", or "Town orchestrator" when the context is the
+  wake-robin-knowledge repo specifically — not to be confused with the biotech-screener
+  model repo's own governance gates (h20d, 13F cohort quarantine, IC health, etc.),
+  which are a separate system this skill does not cover.
 ---
 
 # PKOS Policy Adapter (Claude / Claude Code)
