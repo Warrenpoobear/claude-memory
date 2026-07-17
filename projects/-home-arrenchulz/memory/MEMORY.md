@@ -60,6 +60,7 @@
 - [Coinvest = context layer not ranker](policy_coinvest_context_layer_2026_04_25.md); [freeze architecture, study behavior](policy_freeze_architecture_2026_04_19.md).
 
 ## Reference
+- **[wake-robin-knowledge repo](reference_wake_robin_knowledge_repo_2026_07_17.md)** — `Warrenpoobear/wake-robin-knowledge`, cloned to `/mnt/c/Projects/wake robin knowledge`; biotech/personal KB (companies, drugs, mechanisms, papers, journal); PKOS Golden Arcellx fixture latest merge.
 - **[ISS document + iss-review skill](reference_iss_document.md)** — `~/.claude/docs/investment-strategy-statement.md`.
 - **[13F manager registry count = 55 (49 elite_core + 6 conditional), v3.2](reference_manager_registry_count_2026_07_14.md)** — BMIQ routine misreports 57; verify from JSON directly.
 - **[morningstar-benchmark skill](reference_morningstar_benchmark.md)** — 29 benchmarks, 10yr daily; now a data feed (`morningstar_feed` + `datasets.json`).
