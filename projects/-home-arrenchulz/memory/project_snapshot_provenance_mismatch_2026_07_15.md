@@ -9,6 +9,14 @@ metadata:
 
 **REVIEW FLAG — raised 2026-07-17 (operator: Darren). Status: OPEN, needs pipeline-owner review.**
 
+## ⚠️ CORRECTION 2026-07-17 (blast-radius done): this is CHRONIC & SYSTEMIC, not a 07-15 one-off
+Blast-radius scan of `run_manifest.json` across every snapshot early-June → 07-17 shows **~20 consecutive production runs with `git.dirty=True` and/or non-zero `screen_exit_code` (1 or 2)**. Examples: 07-01/02 exit=2, 07-06..07-10 exit=2 dirty, 07-15 exit=1 dirty. It **cleared exactly on 07-16 & 07-17** (dirty=False, exit=0) — coincident with #499/#500 + CTIS fixes landing.
+- **Non-zero `screen_exit_code` is TOLERATED BY DESIGN**: `tools/run_daily_production.py:667` logs it as a WARNING and the pipeline continues. ~20 such runs all produced valid rankings.csv that passed all 9 integrity checks and drove the live model/portfolio (EES gate ingested 07-09, 07-10, 07-15). So exit=1/2 ≠ "rankings invalid."
+- **`dirty=True` is the operating norm**: production runs from the shared `/mnt/c` checkout which chronically carries uncommitted changes (untracked artifacts + concurrent sessions — see [[feedback_shared_checkout_concurrency_2026_06_30]]).
+- **07-15 was NOT uniquely broken** — it only got hand-tagged because a human was actively watching during the #499/#500 outage. Data validity is not in question; reproducibility/provenance hygiene is.
+
+**Implication for remediation:** re-running/quarantining *only* 07-15 is arbitrary and incoherent. A backdated re-run today cannot reconstruct 07-15 PIT conditions (would pull current prices → look-ahead contamination) — that would manufacture a worse artifact than the cosmetic tag it fixes. **DECLINED the re-run** on 07-17. The real remediation is forward-looking: (a) stop running production from a dirty shared checkout (operational), (b) add a WARN-level provenance gate to `snapshot_integrity_report` (code — via worktree+PR, must be WARN not FAIL or it flags ~20/20 recent snapshots).
+
 ## What was flagged
 The EES v3 shadow ledger carried a row with `snap_date = "2026-07-15__pre_0409403e_provenance_mismatch"` — a hand-added tag on the 07-15 snapshot directory (later restored to canonical `2026-07-15`). Tracing it revealed a real provenance/reproducibility problem, not a cosmetic label.
 
