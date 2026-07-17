@@ -61,19 +61,25 @@ EES diagnostic chain closed at design-only (2026-06-23). No production action au
 
 ---
 
-## Shadow monitor gates (both required before any interpretation)
+## Shadow monitor gates — UPDATE 2026-07-17
 
-- Completed 5d observations: ≥ 20 (current: unknown — check ledger)
-- Completed 20d observations: ≥ 20 (current: unknown — check ledger)
-- Status: `OBSERVATION_WINDOW_INCOMPLETE_NO_INTERPRETATION`
+- 20d gate **MET**: 49/20 settled observations (was "unknown/unmet" as of 06-23).
+- Cumulative 20d veto alpha **+8.2%** (selected +1.2% vs vetoed −7.0%), 87% alpha+ rate.
+- Gate MET ≠ freeze lifted. Still `FREEZE_ACTIVE | DIAGNOSTIC_ONLY | NO_PRODUCTION_DECISIONING`. Promotion needs explicit operator memo.
 
-**Daily manual run command:**
+**Scheduling reality (verified 2026-07-17): NO CRON — by design.**
+- Lead script `scripts/research/ees_v3_raw_veto_shadow_card.py` carries a hard-coded `NO_CRON` governance label; nothing in WSL crontab / tools / Hermes schedules it (only `tools/build_personal_pilot_action_card.py` *reads* its JSON output).
+- Daily cards are produced by **manual runs of the `biotech-ees-monitor` skill** (Step 4 → `tee -a logs/ees_v3_veto_monitor.log`).
+- The `biotech-ees-monitor` skill doc's claim of cron `ees3a1b2c3d4e5 @ 17:50 ET` is **stale/inaccurate** vs. the code — do NOT treat a missing evening run as an outage.
+- Operator decision 2026-07-17: **keep it manual**, respect NO_CRON. (Cron-safe sibling `tools/build_ees_shadow_card.py` exists but builds the older gate-progress card, a different artifact.)
+- See [[feedback_pause_between_control_plane_changes]].
+
+**Current lead script + ledger (v3 — v2 retired):**
 ```bash
 cd /mnt/c/Projects/biotech_screener/biotech-screener
-python3 scripts/research/ees_v2_phase3_shadow_monitor.py --as-of-date YYYY-MM-DD
+python3 scripts/research/ees_v3_raw_veto_shadow_card.py --as-of-date YYYY-MM-DD
 ```
-
-Ledger: `artifacts/shadow/ees_v2_phase3_shadow_ledger.jsonl` (gitignored, local only)
+Ledger: `artifacts/shadow/ees_v3_raw_veto_shadow_ledger.jsonl`
 
 **Next step:** daily veto shadow card tracking raw_veto_core performance under current coverage regime (script being built as of 2026-06-25).
 

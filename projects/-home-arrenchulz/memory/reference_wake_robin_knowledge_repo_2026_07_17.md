@@ -1,0 +1,30 @@
+---
+name: reference_wake_robin_knowledge_repo
+description: Location and structure of the wake-robin-knowledge personal knowledge-base repo
+metadata: 
+  node_type: memory
+  type: reference
+  originSessionId: c4503116-157a-4de4-94cc-9ba2c237b707
+---
+
+Repo `Warrenpoobear/wake-robin-knowledge` (private, GitHub), cloned locally to `/mnt/c/Projects/wake robin knowledge` (Windows: `C:\Projects\wake robin knowledge`).
+
+Personal/biotech knowledge-base structure: `companies/`, `drugs/`, `diseases/`, `mechanisms/`, `papers/`, `people/`, `projects/`, `mental-models/`, `journal/`, `daily/`, `meetings/`, `concepts/`, `contradictions/`, `ontology/`, `technologies/`, `wiki/`, plus `docs/`, `scripts/`, `templates/`, `indexes/`, `inbox/`, `archive/`, `attachments/`, `resources/`, `books/`.
+
+Latest merged work as of 2026-07-17: PKOS (biotech knowledge-graph) v1.0 scaffold — serialization/determinism fixes (PR #4) and a "Golden Arcellx" fixture reflecting the completed acquisition + public CVR terms (PR #6).
+
+**How to apply:** use this repo as the reference/notes store for biotech names, mechanisms, and thesis journaling — distinct from the working `biotech-screener` model repo. Not to be confused with `WR-SW-Dev/WR-asset-allocation` (org repo) — this one lives under the personal `Warrenpoobear` GitHub account.
+
+2026-07-17: added `docs/PKOS_DOCUMENTATION.md` (overview + What/Why/Impact change log, mirrors AA repo's `MODEL_DOCUMENTATION.md` convention), committed `b7d5454` and pushed to `origin/main`. Also added `/mnt/c/Projects/wake robin knowledge` to the `git push` allowlist in `~/.claude/hooks/block-dangerous-git.sh` (PUSH_ALLOWED_PREFIXES) so future pushes here don't need manual approval.
+
+Verified 2026-07-17: pulled the file back via `gh api repos/Warrenpoobear/wake-robin-knowledge/contents/docs/PKOS_DOCUMENTATION.md` and diffed against local — byte-identical, no push corruption; headers/lists/code-fences render cleanly on GitHub.
+
+2026-07-17: populated `concepts/`, `mental-models/`, `technologies/`, `wiki/` with 10 real sourced notes (CVR, PIT, IC; barbell/circle-of-competence/margin-of-safety; CAR-T/bispecific/LangGraph; one wiki synthesis hypothesis) + reciprocal backlinks from the Golden Arcellx fixture notes. Commit `59bab42`, merged with a concurrent remote commit (`1822bfc`, PR #8 adding `docs/SPEC-PKOS-M4.md` — "Town as handoff orchestrator" spec) at `3ad9a69`, pushed clean. Deliberately left `journal/`, `daily/`, `meetings/`, `people/`, `books/` empty — those are first-person artifacts per the vault's own `CLAUDE.md` ("AI assists, human authors"); do not fabricate content there without the user directly supplying it.
+
+⚠️ Note: this repo saw a concurrent PR (#8, M4 Town-orchestrator spec) land mid-session from elsewhere — someone/something else is actively developing it in parallel. Always `git fetch`/diff against `origin/main` before pushing here, not just before this one incident.
+
+Origin remote is **HTTPS** (`gh`-authenticated), not SSH — the Windows SSH key is a `biotech-screener`-scoped deploy key and cannot reach this repo; see [[env_ssh_keys_2026_07_14]].
+
+**PKOS M2 activation (governance/runbook status): see [[project_pkos_m2_activation_2026_07_17]].** Items 1–8 evidence complete; Item 9 (≥3 manual promotion cycles + sign-off) open, 1/3 cycles qualified; M4 implementation blocked; cron/scheduling not authorized.
+
+Obsidian gotcha (recurred 3x same session): the desktop app's "Create new vault" vs "Open folder as vault" are distinct actions — clicking the wrong one silently creates an empty nested vault folder inside the repo (shows as untracked in git). Always use "Open folder as vault" pointed at the repo root itself.
