@@ -22,3 +22,9 @@ Verified 2026-07-17: pulled the file back via `gh api repos/Warrenpoobear/wake-r
 2026-07-17: populated `concepts/`, `mental-models/`, `technologies/`, `wiki/` with 10 real sourced notes (CVR, PIT, IC; barbell/circle-of-competence/margin-of-safety; CAR-T/bispecific/LangGraph; one wiki synthesis hypothesis) + reciprocal backlinks from the Golden Arcellx fixture notes. Commit `59bab42`, merged with a concurrent remote commit (`1822bfc`, PR #8 adding `docs/SPEC-PKOS-M4.md` — "Town as handoff orchestrator" spec) at `3ad9a69`, pushed clean. Deliberately left `journal/`, `daily/`, `meetings/`, `people/`, `books/` empty — those are first-person artifacts per the vault's own `CLAUDE.md` ("AI assists, human authors"); do not fabricate content there without the user directly supplying it.
 
 ⚠️ Note: this repo saw a concurrent PR (#8, M4 Town-orchestrator spec) land mid-session from elsewhere — someone/something else is actively developing it in parallel. Always `git fetch`/diff against `origin/main` before pushing here, not just before this one incident.
+
+Origin remote is **HTTPS** (`gh`-authenticated), not SSH — the Windows SSH key is a `biotech-screener`-scoped deploy key and cannot reach this repo; see [[env_ssh_keys_2026_07_14]].
+
+**PKOS M2 activation (governance/runbook status): see [[project_pkos_m2_activation_2026_07_17]].** Items 1–8 evidence complete; Item 9 (≥3 manual promotion cycles + sign-off) open, 1/3 cycles qualified; M4 implementation blocked; cron/scheduling not authorized.
+
+Obsidian gotcha (recurred 3x same session): the desktop app's "Create new vault" vs "Open folder as vault" are distinct actions — clicking the wrong one silently creates an empty nested vault folder inside the repo (shows as untracked in git). Always use "Open folder as vault" pointed at the repo root itself.

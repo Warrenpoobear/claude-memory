@@ -3,6 +3,7 @@
 > Index only — one line per memory; detail lives in linked topic files. Status: `[active]` (default) · `[stale]` · `[shipped]` (in observation) · `[resolved]`. Query graph before re-reading: `query_memory_graph.py --search X` / `--related-to ID` / `--status stale`. Rebuild after edits: `build_memory_graph.py`.
 
 ## Pending / Active
+- **[PKOS M2 activation (wake-robin-knowledge) — Item 9 OPEN](project_pkos_m2_activation_2026_07_17.md)** `[active]` — Items 1-8 evidence complete; 1/3 qualified promotion cycles (PR #10, `d3382b7`); M4 blocked; cron not authorized. Next cycle must be a separate-occasion, genuinely-useful promotion — see [[feedback_no_governance_theater_evidence]].
 - **[DEM forward-validation hardening — SM-20260629-001](project_forward_validation_hardening_2026_07_10.md)** `[shipped]` — ast-v1 `827c35a9`; h20d=HOLD (Jaccard 0.463). 07-15: first v2 LIVE capture landed, ISO-wk-29 OPEN, realization ~07-22. CI RED on main (py3.10 f-string errors). Open: liveness cron install; untracked `keys.txt`; Sep-30 checkpoint.
 - **[Camp Fimfo Waco demand monitor (Wake Robin)](project_campfimfo_waco_demand_monitor_2026_07_10.md)** `[active]` — `waco_monitor.py` at `/mnt/c/Projects/research/campfimfo-monitor/`; weekly WSL cron Mon 5pm ET. First snapshot: Waco ~27pts behind sister park.
 - **[Hermes v0.17→v0.18 clean rebuild — DEPLOYED](project_hermes_0_18_clean_rebuild_2026_07_08.md)** `[shipped]` — branch `update/clean-0.18` (NOT main); fork backed up `fork-main-pre-0.18-backup`. Deferred: self-improve tools, .cursor, chown hooks.
@@ -34,6 +35,7 @@
 - [biotech-snapshot-qa falsely flags market_data.json as missing](feedback_snapshot_qa_marketdata_falsepos.md) — verify via run_manifest.market_data_refresh.
 - [Workflow tool slow/token-heavy](feedback_workflow_tool_cost.md) · [Hermes cron token bloat](feedback_hermes_cron_token_bloat.md) · [sync_hermes_skills bug](feedback_sync_hermes_skills_bug.md) · [don't cron run+tick paused jobs](hermes_scheduler_paused_job_safety_2026_06_22.md).
 - [git-guardrail hook false-positives on written content — assemble strings at runtime or use Write tool](feedback_git_guardrail_content_falsepos_2026_07_15.md).
+- [Don't manufacture artifacts to check a governance/milestone box — evidence of process must be genuine](feedback_no_governance_theater_evidence.md).
 - [Held-file precedence](feedback_held_file_precedence.md) · [pause between control-plane changes](feedback_pause_between_control_plane_changes.md) · [quarantine fixes need blast-radius diff](feedback_quarantine_blast_radius_diff.md).
 - More one-liners: [net-of-cost first](feedback_net_of_cost_reporting.md) · [DEM book of record](feedback_dem_book_of_record.md) · [model doc location](feedback_model_doc_location.md) · [no formatter churn](feedback_no_formatter_churn_in_model_work.md) · [autonomy claims need evidence](feedback_autonomy_claims.md) · [agent governance](feedback_agent_governance.md) · [coinvest is filter not alpha](feedback_coinvest_not_alpha.md) · [manager acceptance test](feedback_manager_acceptance_test.md) · [cohort-change quarantine](feedback_cohort_change_quarantine.md) · [no recursive supervision](feedback_no_recursive_supervision.md) · [verify sentinel verdict directly](feedback_verify_sentinel_verdict_directly.md) · [observation bias in cron monitoring](feedback_observation_bias_cron_monitoring.md) · [incomplete-run fallback → fake regime](incomplete_production_run_fallback_2026_05_01.md) · [audit-to-tickets prompt](feedback_audit_to_tickets_prompt.md).
 
@@ -60,7 +62,7 @@
 - [Coinvest = context layer not ranker](policy_coinvest_context_layer_2026_04_25.md); [freeze architecture, study behavior](policy_freeze_architecture_2026_04_19.md).
 
 ## Reference
-- **[wake-robin-knowledge repo](reference_wake_robin_knowledge_repo_2026_07_17.md)** — `Warrenpoobear/wake-robin-knowledge`, cloned to `/mnt/c/Projects/wake robin knowledge`; biotech/personal KB (companies, drugs, mechanisms, papers, journal); PKOS Golden Arcellx fixture latest merge.
+- **[wake-robin-knowledge repo](reference_wake_robin_knowledge_repo_2026_07_17.md)** — `Warrenpoobear/wake-robin-knowledge`, cloned to `/mnt/c/Projects/wake robin knowledge`; biotech/personal KB (companies, drugs, mechanisms, papers, journal); origin HTTPS; see [[project_pkos_m2_activation_2026_07_17]] for M2 status.
 - **[ISS document + iss-review skill](reference_iss_document.md)** — `~/.claude/docs/investment-strategy-statement.md`.
 - **[13F manager registry count = 55 (49 elite_core + 6 conditional), v3.2](reference_manager_registry_count_2026_07_14.md)** — BMIQ routine misreports 57; verify from JSON directly.
 - **[morningstar-benchmark skill](reference_morningstar_benchmark.md)** — 29 benchmarks, 10yr daily; now a data feed (`morningstar_feed` + `datasets.json`).
