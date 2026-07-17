@@ -10,6 +10,7 @@
       "mcp__codegraph__codegraph_status"
     ]
   },
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -39,6 +40,5 @@
     "claude-code-setup@claude-plugins-official": true
   },
   "tui": "fullscreen",
-  "skipWorkflowUsageWarning": true,
-  "model": "sonnet"
+  "skipWorkflowUsageWarning": true
 }
